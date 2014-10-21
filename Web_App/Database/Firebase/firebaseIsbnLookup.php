@@ -2,7 +2,7 @@
 
 /* 
  * Code Started on 10/05/14 by Daniel Rizzuto
- * Code Finished on {} by Daniel Rizzuto
+ * Code Finished on 10/21/14 by Daniel Rizzuto
  * Worked on by: {}
  * Program loads json from goole books api and sends to Firebase
  */
@@ -25,7 +25,7 @@ class FirebaseIsbnLookup {
 
         $result = $fbConnection->val();
 
-        var_dump($result);
+        echo json_encode($result);
 
     }
 
@@ -33,10 +33,8 @@ class FirebaseIsbnLookup {
 
 $testObj = new FirebaseIsbnLookup();
 
-$isbn = '0439136369';
+$isbn = '9780547249643';
 
 $testObj->getBookJson($isbn);
-
-echo "finished\n";
 
 ?>
