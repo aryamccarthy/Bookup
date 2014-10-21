@@ -20,6 +20,8 @@ class FirebaseIsbnLookup {
 
         $fbURL = 'https://blistering-torch-3821.firebaseio.com/';
 
+        $isbn = (string)$isbn;
+
         $fbConnection = new fireBase("$fbURL$isbn");
 
         $result = $fbConnection->val();
@@ -32,11 +34,11 @@ class FirebaseIsbnLookup {
 
 //Example way to retreive gooogle books info on 1984 by George Orwell
 
-$testObj = new FirebaseIsbnLookup();
+// $testObj = new FirebaseIsbnLookup();
 
-$isbn = '9780547249643';
+// $isbn = '9780547249643';
 
-$testObj->getBookJson($isbn);
+// $testObj->getBookJson($isbn);
 
 
 
