@@ -33,7 +33,25 @@ $app->get('/hello', function() {
 	echo "Hello. I don't know your name.";
 });
 
+/**
+*	Get Popular Book
+*
+*	Owner: Nicole
+*/
+$app->get('/getPopularBooks', function() {
 
+
+});
+
+/**
+*	Submit Setup Book Preferences
+*
+*	Owner: Nicole
+*/
+$app->post('/submitSetupBookPrefs', function() {
+
+
+});
 
 
 
