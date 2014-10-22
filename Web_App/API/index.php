@@ -3,13 +3,12 @@
 // Datbase information
 // Put your stuff here
 
-include 'Datbase/Firebase/firebaseIsbnLookup.php';
+////include 'Datbase/Firebase/firebaseIsbnLookup.php';
+require 'vendor/autoload.php';
 
 $host = 'localhost'; //127.0.0.1;
 $user = 'root';
 $pass = 'root';
-
-require 'vendor/autoload.php';
 
 // Get DB connection
 $app = new \Slim\Slim();
@@ -42,6 +41,7 @@ $app->get('/hello', function() {
 *
 *	Owner: Nicole
 */
+
 $app->get('/getPopularBooks', function() {
 	global $pdo;
 
@@ -68,6 +68,7 @@ $app->get('/getPopularBooks', function() {
 *
 *	Owner: Nicole
 */
+
 $app->post('/submitSetupBookPrefs', function() {
 	global $pdo;
 
