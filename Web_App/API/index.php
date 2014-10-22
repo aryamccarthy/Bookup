@@ -39,8 +39,24 @@ $app->get('/hello', function() {
 *	Owner: Nicole
 */
 $app->get('/getPopularBooks', function() {
+	global $pdo;
 
+	$statement = $pdo->prepare(
+		"SELECT * FROM PopularBook;");
+	if ($statement->execute()){
+		$books = array();
 
+		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)){
+			array_push($books, $row);
+		}
+
+		$result['Popular Books'] = $books;
+	} else {
+		$result['success'] = false;
+		$result['error'] =$statement->errorInfo();
+	}
+
+	echo json_encode($result);
 });
 
 /**
@@ -49,8 +65,24 @@ $app->get('/getPopularBooks', function() {
 *	Owner: Nicole
 */
 $app->post('/submitSetupBookPrefs', function() {
+	global $pdo;
 
+	$args[':userID'] = $_POST['User_idUser'];
+	$args[':rating'] = $_POST['rating'];
+	$args[':timestamp'] = $_POST['timestamp'];
+	$args[':isbn'] = $_POST['Book_isbn'];
 
+	$statement = $pdo->prepare(
+		"INSERT INTO Rating(User_idUser, rating, timestamp, Book_isbn) VALUES 
+		(:userID, :rating, :timestamp, :isbn);");
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+	
+	echo json_encode($result);
 });
 
 
