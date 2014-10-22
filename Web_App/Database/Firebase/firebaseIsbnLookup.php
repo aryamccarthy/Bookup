@@ -26,7 +26,7 @@ class FirebaseIsbnLookup {
 
         $result = $fbConnection->val();
 
-        echo json_encode($result);
+        return $result;
 
     }
 
