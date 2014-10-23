@@ -1,0 +1,14 @@
+### .gitignore tells git to not include specified files in the repo.
+### Use it to keep things that are specific to one machine out of the project.
+
+### OS X directory metadata
+.DS_Store
+.directory
+
+### logs (they're specific per-server)
+*.log
+
+### temporary files (during editing)
+*.*~
+Web_App/Database/.idea/*
+
