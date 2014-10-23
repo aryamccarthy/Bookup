@@ -15,11 +15,10 @@ USE BookUp;
 DROP TABLE IF EXISTS Account;
 
 CREATE TABLE IF NOT EXISTS Account(
-    account_id  INT NOT NULL UNIQUE,
-    email       VARCHAR(30) NOT NULL,
+    email       VARCHAR(30) NOT NULL UNIQUE,
     password    VARCHAR(30) NOT NULL,
     new_user    BOOLEAN,
-    PRIMARY KEY(account_id)
+    PRIMARY KEY(email)
 );
 
 DROP TABLE IF EXISTS BookList;
@@ -42,35 +41,35 @@ CREATE TABLE IF NOT EXISTS PopularBook(
 DROP TABLE IF EXISTS Rating;
 
 CREATE TABLE IF NOT EXISTS Rating(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30) NOT NULL UNIQUE,
     rating      INT,
     timestamp   DATETIME,
     isbn_num    BIGINT NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    PRIMARY KEY(email),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
 DROP TABLE IF EXISTS ReadingList;
 
 CREATE TABLE IF NOT EXISTS ReadingList(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30) NOT NULL UNIQUE,
     timestamp   DATETIME,
     isbn_num    BIGINT NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    PRIMARY KEY(email),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
 DROP TABLE IF EXISTS BookSeen;
 
 CREATE TABLE IF NOT EXISTS BookSeen(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30) NOT NULL UNIQUE,
     rating      INT,
     timestamp   DATETIME,
     isbn_num    BIGINT NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    PRIMARY KEY(email),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
@@ -86,8 +85,8 @@ CREATE TABLE IF NOT EXISTS BookHash(
 DROP TABLE IF EXISTS AccountHash;
 
 CREATE TABLE IF NOT EXISTS AccountHash(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30) NOT NULL UNIQUE,
     hash_val    INT,
     PRIMARY KEY(hash_val),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id)
+    FOREIGN KEY(email) REFERENCES Account(email)
 ); 
