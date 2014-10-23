@@ -1,0 +1,8 @@
+.DS_Store
+.directory
+
+###don't upload logs (they're specific per-server)
+*.log
+
+###don't upload unsaved, changed files
+*.*~
