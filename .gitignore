@@ -6,3 +6,5 @@
 
 ###don't upload unsaved, changed files
 *.*~
+
+Web_App/Database/.idea/*
