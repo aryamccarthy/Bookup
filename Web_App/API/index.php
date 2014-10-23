@@ -41,9 +41,10 @@ $app->get('/hello', function() {
 *
 *	Owner: Nicole
 */
-
 $app->get('/getPopularBooks', function() {
 	global $pdo;
+
+	$firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
 		"SELECT * FROM PopularBook;");
@@ -51,7 +52,8 @@ $app->get('/getPopularBooks', function() {
 		$books = array();
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)){
-			array_push($books, $row);
+			$bookObject = $firebaseObject.getBookJson($row);
+			array_push($books, $bookObject);
 		}
 
 		$result['Popular Books'] = $books;
@@ -68,7 +70,6 @@ $app->get('/getPopularBooks', function() {
 *
 *	Owner: Nicole
 */
-
 $app->post('/submitSetupBookPrefs', function() {
 	global $pdo;
 
