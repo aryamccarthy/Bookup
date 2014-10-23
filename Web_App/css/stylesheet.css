@@ -1,0 +1,18 @@
+body {
+  margin: 0em;
+  padding: 0em;
+}
+
+nav li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 1em;
+}
+
+nav > ul {
+  padding: 0em;
+}
+
+#main {
+  margin: 1em;
+}
