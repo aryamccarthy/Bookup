@@ -2,17 +2,20 @@
 
 // Datbase information
 // Put your stuff here
-$host = 'localhost';
+
+////include 'Datbase/Firebase/firebaseIsbnLookup.php';
+require 'vendor/autoload.php';
+
+$host = 'localhost'; //127.0.0.1;
 $user = 'root';
 $pass = 'root';
-
-require 'vendor/autoload.php';
 
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=BurgerBar", "$user", "$pass");
-} catch (PDOException $e) {
+    $pdo = new PDO("mysql:host=$host;dbname=BookUp", "$user", "$pass");
+} 
+catch (PDOException $e) {
     $response = "Failed to connect: ";
     $response .= $e->getMessage();
     die ($response);
@@ -38,6 +41,7 @@ $app->get('/hello', function() {
 *
 *	Owner: Nicole
 */
+
 $app->get('/getPopularBooks', function() {
 	global $pdo;
 
@@ -64,6 +68,7 @@ $app->get('/getPopularBooks', function() {
 *
 *	Owner: Nicole
 */
+
 $app->post('/submitSetupBookPrefs', function() {
 	global $pdo;
 
@@ -84,6 +89,70 @@ $app->post('/submitSetupBookPrefs', function() {
 	
 	echo json_encode($result);
 });
+
+$app->post('addBookToReadingList', function() {
+	global $pdo;
+
+	$args[":email"] = $_POST['email'];
+	$args[":title"] = $_POST['title'];
+	$args[":author"] = $_POST['author'];
+
+	$statement = $pdo->prepare(
+						'SELECT isbn FROM BookList
+						WHERE title = :title AND author = :author;'
+						);
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+		$args[":isbn"] = $pdo->fetch();
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	$statment = $pdo->prepare(
+						'SELECT accountID FROM Account 
+						WHERE email = :email;'
+						);
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+		$args[":accountID"] = $pdo->fetch();
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	$statment = $pdo->prepare(
+						'INSERT INTO ReadingList VALUES
+						(:accountID, NOW(), :isbn);'
+						);
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+$app->get('getBookFromBookList', function() {
+	global $pdo;
+
+	$args[":isbn"] = $_GET["isbn"];
+
+	$firebaseObject = new FirebaseIsbnLookup();
+
+	$bookObject = $firebaseObject.getBookJson($args[":isbn"]);
+
+	echo json_encode($bookObject);
+
+});
+
+
 
 
 
