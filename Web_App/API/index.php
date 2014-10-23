@@ -3,7 +3,7 @@
 // Datbase information
 // Put your stuff here
 
-////include 'Datbase/Firebase/firebaseIsbnLookup.php';
+include '../Datbase/Firebase/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = 'localhost'; //127.0.0.1;
