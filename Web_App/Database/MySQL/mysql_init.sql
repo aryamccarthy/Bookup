@@ -1,10 +1,11 @@
 -- Title: BookUp_init.sql
 -- Summary: sql script to initialize BookUp database
 -- Owner: Zack Fout
--- Version: 1.0
--- Last Modified: 10/21/2014
--- Last Modified By: Zack Fout
+-- Version: 1.1
+-- Last Modified: 10/23/2014
+-- Last Modified By: Danny Rizzuto
 -- Notes: 
+-- 10/23/2014 Added Author to BookList to accomodate for duplicate titles
 
 -- create database
 DROP DATABASE IF EXISTS BookUp;
@@ -26,6 +27,7 @@ DROP TABLE IF EXISTS BookList;
 CREATE TABLE IF NOT EXISTS BookList( 
     isbn_num    BIGINT NOT NULL UNIQUE,
     title       VARCHAR(45) NOT NULL,
+    author		VARCHAR(45) NOT NULL,
     PRIMARY KEY(isbn_num)
 );
 
