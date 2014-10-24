@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <?php include("html/head.html"); ?>
+  
+  <!-- Page-specific includes -->
   <link rel="stylesheet" href="css/login.css">
+  <script type="text/javascript" src="js/login.js"></script>
+
   <title>Test Page, Please Ignore</title>
 </head>
 <body>
@@ -26,7 +30,7 @@
 
         <li>
           <button id="register_user" class="twobutton">New User</button>
-          <button id="submit_login" class="twobutton">Login</button>
+          <button id="login_user" class="twobutton">Login</button>
         </li>
       </ul>
 
