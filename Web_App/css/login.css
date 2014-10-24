@@ -1,0 +1,18 @@
+#login {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#login ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+#submit_login {
+  float: right;
+}
+
+#register_user {
+  float: all;
+}

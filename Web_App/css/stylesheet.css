@@ -4,15 +4,48 @@ body {
 }
 
 nav li {
+  font-size: 1.5em;
   display: inline-block;
   list-style-type: none;
-  margin: 1em;
+  margin: 0.5em 1em 0.5em 1em;
 }
 
-nav > ul {
+ul {
   padding: 0em;
 }
 
 #main {
   margin: 1em;
+}
+
+.title {
+  font-size: 4em;
+  text-align: center;
+  margin: 0.25em;
+}
+
+form {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+form li {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+form input {
+  float: right;
+}
+
+.twobutton {
+  display: inline;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
