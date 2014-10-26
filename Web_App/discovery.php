@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="css/login.css">
   <script type="text/javascript" src="js/login.js"></script>
 
-  <title>Test Page, Please Ignore</title>
+  <title>Bookup</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
-  
+
   <section id="discovery_section">
     <article id= "discovery_info">
       <h1 class="book_title"> Title </h1>
