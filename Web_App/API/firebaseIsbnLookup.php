@@ -30,6 +30,10 @@ class FirebaseIsbnLookup {
 
     }
 
+    public function test(){
+    	echo "test";
+    }
+
 }
 
 //Example way to retreive gooogle books info on 1984 by George Orwell

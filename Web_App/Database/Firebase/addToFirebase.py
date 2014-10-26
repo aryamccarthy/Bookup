@@ -22,7 +22,7 @@ def addToFirebase(isbnArray):
 
         googleRequest = requests.get(googleQuery);
 
-        //print googleRequest.content
+        #print googleRequest.content
 
         firebaseConn = firebase.FirebaseApplication(fbURL, None)
 
@@ -32,9 +32,9 @@ if __name__ == "__main__":
 
     # isbnArray = readFile()
 
-    isbnArray = ['9780547249643']
+    # isbnArray = ['0553571338']
 
-    addToFirebase(isbnArray)
+    # addToFirebase(isbnArray)
 
 
 
