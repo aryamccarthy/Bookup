@@ -70,6 +70,42 @@ $app->get('/getPopularBooks', function() {
 });
 
 /*
+*	Get a random Book Object
+*	Drizzuto
+*	untested
+*/
+
+$app->get('/getRandomBook', function() {
+	global $pdo;
+
+
+	$statement = $pdo->prepare(
+						'SELECT isbn_num FROM ReadingList
+						ORDER BY RAND() LIMIT 1 ');
+
+	if ($statement->execute($args)) {
+		$books = array();
+
+		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
+		{
+			//echo $row["isbn_num"];
+			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			array_push($books, $bookObject);
+			array_push($books, $row);
+		} 
+		$result['Reading List'] = $books;
+		$result['success'] = true;
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+/*
 *	Get Book From Firebase
 *	Drizzuto
 *	Finished
