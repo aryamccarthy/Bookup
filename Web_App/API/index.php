@@ -36,7 +36,7 @@ $app->get('/hello', function() {
 	echo "Hello. I don't know your name.";
 });
 
-/**
+/*
 *	Get Popular Book
 *
 *	Owner: Nicole
@@ -88,7 +88,44 @@ $app->get('/getBookFromFirebase', function() {
 
 });
 
-/**
+/*
+*	Get a Reading List for a User
+*	Drizzuto
+*	untested
+*/
+
+$app->get('/getReadingList', function() {
+	global $pdo;
+
+	$args [":email"] = $_GET['email'];
+
+	$statement = $pdo->prepare(
+						'SELECT isbn_num FROM ReadingList
+						WHERE email = :email ');
+
+	if ($statement->execute($args)) {
+		$books = array();
+
+		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
+		{
+			//echo $row["isbn_num"];
+			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			array_push($books, $bookObject);
+			array_push($books, $row);
+		} 
+		$result['Reading List'] = $books;
+		$result['success'] = true;
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+/*
 *	Submit Setup Book Preferences
 *
 *	Owner: Nicole
@@ -115,8 +152,8 @@ $app->post('/submitSetupBookPrefs', function() {
 });
 
 /*
-* Add Book to Reading List
-* Drizzuto
+*	Add Book to Reading List
+*	Drizzuto
 */
 
 $app->post('/addBookToReadingList', function() {
@@ -138,6 +175,34 @@ $app->post('/addBookToReadingList', function() {
 		$result["error"] = $statement->errorInfo();
 	}
 
+	echo json_encode($result);
+
+});
+
+/*
+*	Add Book to Reading List
+*	Drizzuto
+*	untested
+*/
+
+$app->post('/submitDiscoveryBookFeedback', function() {
+	global $pdo;
+
+	$args[':emai.'] = $_POST['email'];
+	$args[':rating'] = $_POST['rating'];
+	$args[':timestamp'] = $_POST['timestamp'];
+	$args[':isbn'] = $_POST['isbn'];
+
+	$statement = $pdo->prepare(
+		"INSERT INTO Rating(email, rating, timestamp, isbn_num) VALUES 
+		(:email, :rating, :timestamp, :isbn);");
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+	
 	echo json_encode($result);
 
 });
