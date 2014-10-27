@@ -162,32 +162,6 @@ $app->get('/getReadingList', function() {
 });
 
 /*
-*	Submit Setup Book Preferences
-*
-*	Owner: Nicole
-*/
-$app->post('/submitSetupBookPrefs', function() {
-	global $pdo;
-
-	$args[':userID'] = $_POST['User_idUser'];
-	$args[':rating'] = $_POST['rating'];
-	$args[':timestamp'] = $_POST['timestamp'];
-	$args[':isbn'] = $_POST['isbn'];
-
-	$statement = $pdo->prepare(
-		"INSERT INTO Rating(User_idUser, rating, timestamp, Book_isbn) VALUES 
-		(:userID, :rating, :timestamp, :isbn);");
-	if ($statement->execute($args)) {
-		$result["success"] = true;
-	} else {
-		$result["success"] = false;
-		$result["error"] = $statement->errorInfo();
-	}
-	
-	echo json_encode($result);
-});
-
-/*
 *	Add Book to Reading List
 *	Drizzuto
 */
@@ -221,7 +195,7 @@ $app->post('/addBookToReadingList', function() {
 *	untested
 */
 
-$app->post('/submitDiscoveryBookFeedback', function() {
+$app->post('/submitBookFeedback', function() {
 	global $pdo;
 
 	$args[':emai.'] = $_POST['email'];

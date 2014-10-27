@@ -16,7 +16,7 @@ def addToFirebase(isbnArray):
 
     for isbn in isbnArray:
 
-        googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
+        # googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
         print googleQuery;
 
