@@ -12,3 +12,5 @@
 *.*~
 Web_App/Database/.idea/*
 
+### swap files (used by vim editor for file recovery)
+*.swp
