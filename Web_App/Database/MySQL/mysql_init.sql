@@ -45,8 +45,8 @@ CREATE TABLE IF NOT EXISTS Rating(
     rating      INT,
     timestamp   DATETIME,
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    PRIMARY KEY(email),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS ReadingList(
     email  VARCHAR(30) NOT NULL UNIQUE,
     timestamp   DATETIME,
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    PRIMARY KEY(email),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS BookSeen(
     rating      INT,
     timestamp   DATETIME,
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    PRIMARY KEY(email),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
