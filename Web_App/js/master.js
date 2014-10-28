@@ -6,11 +6,12 @@ $(document).ready( function() {
 		//TODO: generate html for each book in setup array
 	}
 
-}); //end of document.ready()
+}); 
 
 var rootURL= "http://localhost:8888/api/index.php";
 
-var discoveryBooks = []
+var discoveryBooks = [];
+var readingList = [];
 
 function Book( title, author, description, cover){
 	this. title=title;
@@ -18,7 +19,6 @@ function Book( title, author, description, cover){
 	this.description=description;
 	this.thumbnail=thumbnail;
 }
-;
 
 //TODO: untested, waiting on completed api method
 function getRandomBook() {
@@ -63,6 +63,19 @@ function addBookToReadingList() {
 }
 
 //TODO: implement and test
+function getReadingList() {
+
+	$.ajax({
+		type: 'GET',
+		url: rootURL + "/getReadingList",
+		dataType: "json",
+		success: function (data) {
+			
+		}	
+	});
+} 
+
+//TODO: implement and test
 function submitBookFeedback() {
 
 	$.ajax({
@@ -87,3 +100,9 @@ $( prevArrow ).click(function() {
 	console.log("display next book");
 	//TODO: implementation 
 });
+
+function overlay() {
+  var el = document.getElementById("already_read");
+  el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
+  prepopulate();
+}

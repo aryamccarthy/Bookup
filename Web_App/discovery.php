@@ -27,8 +27,8 @@
 
     <button id="previous">Previous</button>
     <button id="next">Next</button>
-    <input type="button" onclick="addBookToReadingList()" value="Add to List">
-    <button>I've already read this.</button>
+    <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
+    <button id="already_read" onclick="overlay()">I've already read this book.</button>
   </section>
 
   <diaglog id="rate_from_discovery">
