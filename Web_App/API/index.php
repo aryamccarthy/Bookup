@@ -198,7 +198,7 @@ $app->post('/addBookToReadingList', function() {
 $app->post('/submitBookFeedback', function() {
 	global $pdo;
 
-	$args[':emai.'] = $_POST['email'];
+	$args[':email'] = $_POST['email'];
 	$args[':rating'] = $_POST['rating'];
 	$args[':timestamp'] = $_POST['timestamp'];
 	$args[':isbn'] = $_POST['isbn'];
