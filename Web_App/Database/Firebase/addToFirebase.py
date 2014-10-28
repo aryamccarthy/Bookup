@@ -1,3 +1,11 @@
+# Title: addToFirebase.py
+# Summary: python script for querying google books api
+# Owner: Danny Rizzuto
+# Version: 1.1
+# Last Modified: 10/27/2014
+# Last Modified By: Zack Fout
+# Notes: added functionality to query google books api by title
+
 from firebase import firebase
 import requests
 
@@ -12,7 +20,7 @@ def readFile():
 
     return isbnArray
 
-def parseQuery(query):
+def parseQuery(query): # replaces whitespaces with html encoding
     if " " in query:
         separator = "%20"
         queryArr = query.split(' ')
@@ -20,22 +28,14 @@ def parseQuery(query):
     else:
         return query
 
-def addByIsbn(isbnArray):
+def addByIsbn(isbnArray): # queries by isbn number and inserts into firebase
     for isbn in isbnArray:
-
-        # googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
-
-        print googleQuery;
-
+        googleQuery = googleURL + str(isbn)
         googleRequest = requests.get(googleQuery);
-
-        #print googleRequest.content
-
         firebaseConn = firebase.FirebaseApplication(fbURL, None)
+        firebaseConn.post(str(isbn), googleRequest.content)
 
-        firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
-
-def addByTitle(title):
+def addByTitle(title): # queries by title and inserts into firebase
    normalizedQuery = parseQuery(title)
    queryTerm = "?q=" + normalizedQuery
    googleQuery = booksURL + queryTerm
@@ -44,4 +44,4 @@ def addByTitle(title):
    fbConnection.post(str(title), googleRequest.content)
 
 if __name__ == "__main__":
-    addByTitle("Fahrenheit 451")
+    #addByTitle("Fahrenheit 451")

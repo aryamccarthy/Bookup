@@ -1,11 +1,10 @@
 -- Title: BookUp_init.sql
 -- Summary: sql script to initialize BookUp database
 -- Owner: Zack Fout
--- Version: 1.1
--- Last Modified: 10/23/2014
--- Last Modified By: Danny Rizzuto
--- Notes: 
--- 10/23/2014 Added Author to BookList to accomodate for duplicate titles
+-- Version: 1.2
+-- Last Modified: 10/27/2014
+-- Last Modified By: Zack Fout
+-- Notes: changed foreign key constraints from account_id to email
 
 -- create database
 DROP DATABASE IF EXISTS BookUp;
