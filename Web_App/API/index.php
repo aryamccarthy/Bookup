@@ -192,7 +192,7 @@ $app->post('/addBookToReadingList', function() {
 /*
 *	Add Book to Reading List
 *	Drizzuto
-*	untested
+*	Finished
 */
 
 $app->post('/submitBookFeedback', function() {
