@@ -4,7 +4,7 @@
 ### OS X directory metadata
 .DS_Store
 .directory
-
+.DS_store
 ### logs (they're specific per-server)
 *.log
 
