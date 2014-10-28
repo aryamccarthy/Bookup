@@ -33,7 +33,8 @@ function getRandomBook() {
 
 				var cover = new Image();
 				cover.src = thumbnail.imgPath;
-				var newBook= new discoveryBooks(title, author, description, cover);
+				
+				var newBook= new Book(title, author, description, cover);
 			 	discoveryBooks.push(newBook);
 			}
 		}	

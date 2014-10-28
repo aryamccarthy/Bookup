@@ -35,7 +35,7 @@ function getPopularBooks() {
 
 				var cover = new Image();
 				cover.src = thumbnail.imgPath;
-				var newBook= new booksForSetup(title, author, cover);
+				var newBook= new Book(title, author, description, cover);
 			 	booksForSetup.push(newBook);
 			}
 		}	
