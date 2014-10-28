@@ -10,11 +10,18 @@ $(document).ready( function() {
 
 var rootURL= "http://localhost:8888/api/index.php";
 
-var discoveryBooks = [];
+var discoveryBooks = []
 
-//untested, waiting on completed api method
+function Book( title, author, description, cover){
+	this. title=title;
+	this.author=author;
+	this.description=description;
+	this.thumbnail=thumbnail;
+}
+;
+
+//TODO: untested, waiting on completed api method
 function getRandomBook() {
-
 	$.ajax({
 		type: 'GET',
 		url: rootURL + "/getRandomBook",
@@ -42,9 +49,41 @@ function getRandomBook() {
 }
 
 
-function Book( title, author, description, cover){
-	this. title=title;
-	this.author=author;
-	this.description=description;
-	this.thumbnail=thumbnail;
+//TODO: implement and test
+function addBookToReadingList() {
+
+	$.ajax({
+		type: 'POST',
+		url: rootURL + "/addBookToReadingList",
+		dataType: " ",
+		success: function (data) {
+			
+		}	
+	});
 }
+
+//TODO: implement and test
+function submitBookFeedback() {
+
+	$.ajax({
+		type: 'POST',
+		url: rootURL + "/submitBookFeedback",
+		dataType: " ",
+		success: function (data) {
+			
+		}	
+	});
+}
+
+
+var previousBook = $( "#previous" );
+$( nextArrow ).click(function() {
+	console.log("display previous book");
+	//TODO: implementation 
+});
+
+var nextBook = $( "#next" );
+$( prevArrow ).click(function() {
+	console.log("display next book");
+	//TODO: implementation 
+});

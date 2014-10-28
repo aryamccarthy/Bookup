@@ -25,11 +25,18 @@
       <img id= "book_cover" src=" ">
     </article>
 
-    <button>Previous</button>
-    <button>Next</button>
-    <button>Add to List</button>
+    <button id="previous">Previous</button>
+    <button id="next">Next</button>
+    <input type="button" onclick="addBookToReadingList()" value="Add to List">
     <button>I've already read this.</button>
   </section>
 
+  <diaglog id="rate_from_discovery">
+    <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
+    <input type="button" onclick="submitBookFeedback()" value="Like">
+    <input type="button" onclick="submitBookFeedback()" value="Dislike">
+  </dialog>
+
 </body>
 </html>
+
