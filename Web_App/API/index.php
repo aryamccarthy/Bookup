@@ -45,7 +45,7 @@ $app->get('/hello', function() {
 $app->get('/getPopularBooks', function() {
 	global $pdo;
 
-	//$firebaseObject = new FirebaseIsbnLookup();
+	$firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
 		"SELECT * FROM PopularBook;");
@@ -55,8 +55,8 @@ $app->get('/getPopularBooks', function() {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)){
 			//echo $row["isbn_num"];
-			//$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
-			//array_push($books, $bookObject);
+			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			array_push($books, $bookObject);
 			array_push($books, $row);
 		}
 
@@ -192,13 +192,13 @@ $app->post('/addBookToReadingList', function() {
 /*
 *	Add Book to Reading List
 *	Drizzuto
-*	untested
+*	Finished
 */
 
 $app->post('/submitBookFeedback', function() {
 	global $pdo;
 
-	$args[':emai.'] = $_POST['email'];
+	$args[':email'] = $_POST['email'];
 	$args[':rating'] = $_POST['rating'];
 	$args[':timestamp'] = $_POST['timestamp'];
 	$args[':isbn'] = $_POST['isbn'];
