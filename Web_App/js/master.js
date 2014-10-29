@@ -27,9 +27,9 @@ function getRandomBook() {
 		url: rootURL + "/getRandomBook",
 		dataType: "json",
 		success: function (data) {
-			var bookObjs = data.PopularBooks; //will be something other than PopularBooks
-
-			for(var i=0; i<bookObjs.length; i++){
+			var bookObjs = data.ReadingList; //will be something other than PopularBooks
+			console.log(data);
+			for(var i=0; i<bookObjs.length; i++){	
 				var parsedBooks = $.parseJSON(bookObjs[i]);	
 
 				//get info from return json object
@@ -90,13 +90,13 @@ function submitBookFeedback() {
 
 
 var previousBook = $( "#previous" );
-$( nextArrow ).click(function() {
+$( previousBook ).click(function() {
 	console.log("display previous book");
 	//TODO: implementation 
 });
 
 var nextBook = $( "#next" );
-$( prevArrow ).click(function() {
+$( nextBook ).click(function() {
 	console.log("display next book");
 	//TODO: implementation 
 });

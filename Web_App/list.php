@@ -3,13 +3,21 @@
 <head>
   <?php include("html/head.html"); ?>
   
+  <!-- Page-specific includes -->
   <title>Bookup</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
 
-  <section id="discovery_section">
-    <article id= "discovery_info">
+<section id="reading_list">
+    <header>
+      <h1>Reading List</h1>
+    </header>
+    <ol id="list_books">
+      <li> Book 1</li>
+      <li> Book 2</li>
+    </ol>
+    <article id="list_book_info">
       <h1 class="book_title"> Title </h1>
       <h1 class= "book_author"> Author</h1>
       <p class= "book_description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -21,18 +29,18 @@
       <img id= "book_cover" src=" ">
     </article>
 
-    <button id="previous">Previous</button>
-    <button id="next">Next</button>
-    <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
-    <button id="already_read" onclick="overlay()">I've already read this book.</button>
+    <button>Remove from list</button>
   </section>
 
-  <diaglog id="rate_from_discovery">
+  <dialog id="delete_and_rate_from_list">
+    <h1>Did you read this book?</h1>
     <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
-    <input type="button" onclick="submitBookFeedback()" value="Like">
-    <input type="button" onclick="submitBookFeedback()" value="Dislike">
+    <button>Like</button>
+    <button>Dislike</button>
+    <button>I didn't read this book.</button>
+    <!-- TODO: Have some sort of confirmation that the book was deleted  -->
   </dialog>
+
 
 </body>
 </html>
-

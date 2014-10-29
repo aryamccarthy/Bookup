@@ -20,6 +20,7 @@ function getPopularBooks() {
 		dataType: "json",
 		success: function (data) {
 			var bookObjs = data.PopularBooks;
+				console.log(data);
 
 			//creates a Book js object for each element in PopularBooks array
 			//TODO: will probably need to adjust this since the format for the PopularBooks
@@ -35,7 +36,7 @@ function getPopularBooks() {
 
 				var cover = new Image();
 				cover.src = thumbnail.imgPath;
-				var newBook= new Book(title, author, description, cover);
+				var newBook= new Book(title, author, cover);
 			 	booksForSetup.push(newBook);
 			}
 		}	
