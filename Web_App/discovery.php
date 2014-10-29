@@ -28,9 +28,12 @@
   </section>
 
   <diaglog id="rate_from_discovery">
-    <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
-    <input type="button" onclick="submitBookFeedback()" value="Like">
-    <input type="button" onclick="submitBookFeedback()" value="Dislike">
+    <form>
+      <h2>Help us get to know you and your preferences! <br> How would you rate this book?</h2>
+      <!-- TODO: the values of these buttons will probably be values 0,1 ?? -->
+      <button onclick="submitBookFeedback()" value="Like"> Like </button>
+      <button onclick="submitBookFeedback()" value="Dislike"> Dislike </button>
+    </form>
   </dialog>
 
 </body>

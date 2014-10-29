@@ -102,7 +102,6 @@ $( nextBook ).click(function() {
 });
 
 function overlay() {
-  var el = document.getElementById("already_read");
+  var el = document.getElementById("rate_from_discovery");
   el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
-  prepopulate();
 }
