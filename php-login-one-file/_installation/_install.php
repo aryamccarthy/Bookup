@@ -17,7 +17,6 @@ $db_connection = new PDO($db_type . ':' . $db_sqlite_path);
 
 // create new empty table inside the database (if table does not already exist)
 $sql = 'CREATE TABLE IF NOT EXISTS `users` (
-        `user_name` varchar(64),
         `user_password_hash` varchar(255),
         `user_email` varchar(64) PRIMARY KEY);
         CREATE UNIQUE INDEX `user_email_UNIQUE` ON `users` (`user_email` ASC);
