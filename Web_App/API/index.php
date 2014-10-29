@@ -78,12 +78,13 @@ $app->get('/getPopularBooks', function() {
 $app->get('/getRandomBook', function() {
 	global $pdo;
 
+	$firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
-						'SELECT isbn_num FROM ReadingList
-						ORDER BY RAND() LIMIT 1 ');
+		"SELECT isbn_num FROM BookList
+			ORDER BY RAND() LIMIT 1;");
 
-	if ($statement->execute($args)) {
+	if ($statement->execute()) {
 		$books = array();
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
