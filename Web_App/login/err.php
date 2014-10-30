@@ -14,20 +14,20 @@
         if ($login->errors) {
             prindiv('Login has errors.');
             foreach ($login->errors as $error) {
-                // echo '<p>' . $error . '</p>' . '<br>';
+                printdiv($error);
             }
         }
         if ($login->messages) {
             printdiv('Login has messages.');
             foreach ($login->messages as $message) {
-                // echo '<p>' . $message . '</p>' . '<br>';
+                printdiv($message);
             }
         }
     }
     else { printdiv('Login object is not set.'); }
 
     function printdiv($msg) {
-        echo '<p>Debug: ' . $msg . '</p>' . '<br>';
+        echo '<div>Debug: ' . $msg . '</div><br>';
     }
 
     ?>

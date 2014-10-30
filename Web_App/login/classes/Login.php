@@ -1,5 +1,9 @@
 <?php
 
+function debug($msg) {
+    echo '<div>Debug: ' . $msg . '</div><br>';
+}
+
 /**
  * Class login
  * handles the user's login and logout process
@@ -31,10 +35,12 @@ class Login
         // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)
         if (isset($_GET["logout"])) {
+            debug("logout");
             $this->doLogout();
         }
         // login via post data (if user just submitted a login form)
         elseif (isset($_POST["login"])) {
+            debug("login");
             $this->dologinWithPostData();
         }
     }
@@ -46,35 +52,46 @@ class Login
     {
         // check login form contents
         if (empty($_POST['user_email'])) {
+            debug("No email.");
             $this->errors[] = "Email field was empty.";
         } elseif (empty($_POST['user_password'])) {
+            debug("No password.");
             $this->errors[] = "Password field was empty.";
         } elseif (!empty($_POST['user_email']) && !empty($_POST['user_password'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
+            debug("establishing DB connection...");
             $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+            debug("DB connection established. Setting charset...");
 
             // change character set to utf8 and check it
             if (!$this->db_connection->set_charset("utf8mb4")) {
+                debug("charset error.");
                 $this->errors[] = $this->db_connection->error;
             }
+
+            debug("charset set. checking for errors...");
 
             // if no connection errors (= working database connection)
             if (!$this->db_connection->connect_errno) {
 
+                debug("Building email/password objects.");
                 // escape the POST stuff
                 $email = $this->db_connection->real_escape_string($_POST['user_email']);
                 $password = $this->db_connection->real_escape_string($_POST['user_password']);
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
+                debug("Constructing query.");
                 $sql = "SELECT email, password
                 FROM Account
                 WHERE email = '" . $email . "'";
                 $result_of_login_check = $this->db_connection->query($sql);
 
+                debug("Checking query results...");
                 // if this user exists
                 if ($result_of_login_check->num_rows == 1) {
+                    debug("User found. Verifying credentials...");
 
                     // get result row (as an object)
                     $result_row = $result_of_login_check->fetch_object();
@@ -85,17 +102,21 @@ class Login
 
                     // but this is an insecure hack to see if it works at all
                     if ($_POST['user_password'] == $password) {
+                        debug("Login successful.");
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['email'] = $result_row->user_email;
                         $_SESSION['login_status'] = 1;
 
                     } else {
+                        debug("Incorrect password.");
                         $this->errors[] = "Wrong password. Try again.";
                     }
                 } else {
+                    debug("User not found.");
                     $this->errors[] = "This user does not exist.";
                 }
             } else {
+                debug("DB connection issue.");
                 $this->errors[] = "Database connection problem.";
             }
         }
