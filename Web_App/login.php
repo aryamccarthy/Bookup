@@ -15,7 +15,9 @@
   <section id="main">
     <h1 class="title">Bookup</h1>
 
-    <form action="login/index.php" method="post" id="loginform" name="loginform">
+    <?php include("login/err.php"); ?>
+
+    <form action="index.php" method="post" id="loginform" name="loginform">
       <ul>
         <li>Login/Sign Up</li>
         <li><hr></li>
@@ -26,7 +28,7 @@
 
         <li>
           <label for="login_input_password">Password</label>
-          <input id="login_input_password" type="user_password" pattern = ".{7,30}" placeholder="••••••••••••" required>
+          <input id="login_input_password" name="user_password" type="password" pattern = ".{7,30}" placeholder="••••••••••••" required>
         </li>
 
         <li>
@@ -36,6 +38,7 @@
       </ul>
 
     </form>
+    <button id="testlogin">Test Login</button>
   </section>
 </body>
 </html>

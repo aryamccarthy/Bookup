@@ -63,13 +63,14 @@ class Login
             if (!$this->db_connection->connect_errno) {
 
                 // escape the POST stuff
-                $user_name = $this->db_connection->real_escape_string($_POST['user_name']);
+                $email = $this->db_connection->real_escape_string($_POST['user_email']);
+                $password = $this->db_connection->real_escape_string($_POST['user_password']);
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
                 $sql = "SELECT email, password
-                        FROM Account
-                        WHERE email = '" . $user_email . "'";
+                FROM Account
+                WHERE email = '" . $email . "'";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists
@@ -83,8 +84,7 @@ class Login
                     // if (password_verify($_POST['user_password'], $result_row->user_password_hash)) {
 
                     // but this is an insecure hack to see if it works at all
-
-                    if ($_POST['user_password'] == $result_row->password) {
+                    if ($_POST['user_password'] == $password) {
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['email'] = $result_row->user_email;
                         $_SESSION['login_status'] = 1;

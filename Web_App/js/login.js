@@ -1,16 +1,13 @@
-// $(document).ready( function() {
+$(document).ready( function() {
 
-//   $('#register_user').click( function(event) {
-//     event.preventDefault();
+  $('#register_user').click( function(event) {
 
-//     sweetAlert('Oops...', 'You broke it.', 'error');
+  }); //end of register_user.click()
 
-//   }); //end of register_user.click()
+  $('#testlogin').click( function(event) {
+    $('#login_input_email').val("ebusbee@bookup.com");
+    $('#login_input_password').val("Candles");
+    $('#login_user').click();
+  }); //end of testlogin.click()
 
-//   $('#login_user').click( function(event) {
-//     event.preventDefault();
-
-//     sweetAlert('Oops...', 'You broke it.', 'error');
-//   });
-
-// }); //end of document.ready()
+}); //end of document.ready()
