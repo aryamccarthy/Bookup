@@ -1,16 +1,16 @@
-$(document).ready( function() {
+// $(document).ready( function() {
 
-  $('#register_user').click( function(event) {
-    event.preventDefault();
+//   $('#register_user').click( function(event) {
+//     event.preventDefault();
 
-    sweetAlert('Oops...', 'You broke it.', 'error');
+//     sweetAlert('Oops...', 'You broke it.', 'error');
 
-  }); //end of register_user.click()
+//   }); //end of register_user.click()
 
-  $('#login_user').click( function(event) {
-    event.preventDefault();
+//   $('#login_user').click( function(event) {
+//     event.preventDefault();
 
-    sweetAlert('Oops...', 'You broke it.', 'error');
-  });
+//     sweetAlert('Oops...', 'You broke it.', 'error');
+//   });
 
-}); //end of document.ready()
+// }); //end of document.ready()

@@ -15,23 +15,23 @@
   <section id="main">
     <h1 class="title">Bookup</h1>
 
-    <form action="" method="POST" id="login">
+    <form action="login/index.php" method="post" id="loginform" name="loginform">
       <ul>
-        <li>Register Now</li>
+        <li>Login/Sign Up</li>
         <li><hr></li>
         <li>
-          <label for="email">Email</label>
-          <input type="email" id="email" pattern=".{3,30}" placeholder="someone@example.com">
+          <label for="login_input_email">Email</label>
+          <input id="login_input_email" name="user_email" type="email" pattern=".{3,30}" placeholder="someone@example.com" autofocus required>
         </li>
 
         <li>
-          <label for="pass">Password</label>
-          <input type="password" id="pass" pattern = ".{8,30}" placeholder="••••••••••••">
+          <label for="login_input_password">Password</label>
+          <input id="login_input_password" type="user_password" pattern = ".{7,30}" placeholder="••••••••••••" required>
         </li>
 
         <li>
-          <button id="register_user" class="twobutton">New User</button>
-          <button id="login_user" class="twobutton">Login</button>
+          <button id="register_user" class="twobutton">Sign Up</button>
+          <input id="login_user" type="submit" name="login" class="twobutton" value="Login"/>
         </li>
       </ul>
 
