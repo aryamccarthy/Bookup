@@ -40,7 +40,7 @@ $app->get('/hello', function() {
 *	Get Popular Book
 *
 *	Owner: Nicole
-*	Finished
+*	Finished - Drizzuto
 */
 $app->get('/getPopularBooks', function() {
 	global $pdo;
@@ -73,7 +73,7 @@ $app->get('/getPopularBooks', function() {
 /*
 *	Get a random Book Object
 *	Drizzuto
-*	untested
+*	Finished - Drizzuto
 */
 
 $app->get('/getRandomBook', function() {
@@ -110,7 +110,7 @@ $app->get('/getRandomBook', function() {
 /*
 *	Get Book From Firebase
 *	Drizzuto
-*	Finished
+*	Finished - Drizzuto
 */
 
 $app->get('/getBookFromFirebase', function() {
@@ -129,16 +129,18 @@ $app->get('/getBookFromFirebase', function() {
 /*
 *	Get a Reading List for a User
 *	Drizzuto
-*	untested
+*	Finished - Drizzuto
 */
 
 $app->get('/getReadingList', function() {
 	global $pdo;
 
+	$firebaseObject = new FirebaseIsbnLookup();
+
 	$args [":email"] = $_GET['email'];
 
 	$statement = $pdo->prepare(
-						'SELECT isbn_num FROM ReadingList
+						'SELECT isbn_num, timestamp FROM ReadingList
 						WHERE email = :email ');
 
 	if ($statement->execute($args)) {
@@ -147,7 +149,9 @@ $app->get('/getReadingList', function() {
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
 			//echo $row["isbn_num"];
-			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			$bookObject["book"] = $firebaseObject->getBookJson((string)$row["isbn_num"]);
+			//var_dump($row);
+			$bookObject["timestamp"] = $row["timestamp"];
 			array_push($books, $bookObject);
 			array_push($books, $row);
 		} 
@@ -202,12 +206,11 @@ $app->post('/submitBookFeedback', function() {
 
 	$args[':email'] = $_POST['email'];
 	$args[':rating'] = $_POST['rating'];
-	$args[':timestamp'] = $_POST['timestamp'];
 	$args[':isbn'] = $_POST['isbn'];
 
 	$statement = $pdo->prepare(
 		"INSERT INTO Rating(email, rating, timestamp, isbn_num) VALUES 
-		(:email, :rating, :timestamp, :isbn);");
+		(:email, :rating, NOW(), :isbn);");
 	if ($statement->execute($args)) {
 		$result["success"] = true;
 	} else {
