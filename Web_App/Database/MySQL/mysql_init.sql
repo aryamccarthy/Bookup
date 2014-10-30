@@ -39,10 +39,10 @@ CREATE TABLE IF NOT EXISTS PopularBookList(
 DROP TABLE IF EXISTS Rating;
 
 CREATE TABLE IF NOT EXISTS Rating(
-    email  VARCHAR(30) NOT NULL UNIQUE,
+    email  VARCHAR(30),
     rating      INT,
     timestamp   DATETIME,
-    isbn_num    VARCHAR(15) NOT NULL UNIQUE,
+    isbn_num    VARCHAR(15),
     PRIMARY KEY(email),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS Rating(
 DROP TABLE IF EXISTS ReadingList;
 
 CREATE TABLE IF NOT EXISTS ReadingList(
-    email  VARCHAR(30) NOT NULL UNIQUE,
+    email  VARCHAR(30),
     timestamp   DATETIME,
-    isbn_num    VARCHAR(15) NOT NULL UNIQUE,
-    PRIMARY KEY(email),
+    isbn_num    VARCHAR(15),
+    PRIMARY KEY(email, isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
@@ -62,10 +62,10 @@ CREATE TABLE IF NOT EXISTS ReadingList(
 DROP TABLE IF EXISTS BookSeen;
 
 CREATE TABLE IF NOT EXISTS BookSeen(
-    email  VARCHAR(30) NOT NULL UNIQUE,
+    email  VARCHAR(30),
     rating      INT,
     timestamp   DATETIME,
-    isbn_num    VARCHAR(15) NOT NULL UNIQUE,
+    isbn_num    VARCHAR(15),
     PRIMARY KEY(email),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS BookSeen(
 DROP TABLE IF EXISTS BookHash;
 
 CREATE TABLE IF NOT EXISTS BookHash(
-    isbn_num    VARCHAR(15) NOT NULL UNIQUE,
+    isbn_num    VARCHAR(15),
     hash_val    INT,
     PRIMARY KEY(hash_val),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS BookHash(
 DROP TABLE IF EXISTS AccountHash;
 
 CREATE TABLE IF NOT EXISTS AccountHash(
-    email  VARCHAR(30) NOT NULL UNIQUE,
+    email  VARCHAR(30),
     hash_val    INT,
     PRIMARY KEY(hash_val),
     FOREIGN KEY(email) REFERENCES Account(email)

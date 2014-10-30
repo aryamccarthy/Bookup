@@ -48,7 +48,7 @@ $app->get('/getPopularBooks', function() {
 	$firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
-		"SELECT * FROM PopularBook;");
+		"SELECT * FROM PopularBookList;");
 
 	if ($statement->execute()){
 		$books = array();
@@ -58,7 +58,6 @@ $app->get('/getPopularBooks', function() {
 			//echo "</br>";
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
 			array_push($books, $bookObject);
-			array_push($books, $row);
 		}
 
 		$result['Books'] = $books;
@@ -153,7 +152,7 @@ $app->get('/getReadingList', function() {
 			//var_dump($row);
 			$bookObject["timestamp"] = $row["timestamp"];
 			array_push($books, $bookObject);
-			
+
 		} 
 		$result['Books'] = $books;
 		$result['success'] = true;
