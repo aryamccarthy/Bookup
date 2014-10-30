@@ -5,7 +5,7 @@
   <link rel="stylesheet" type="text/css" href="css/nolinks.css">
   <!-- Page-specific includes -->
 <script type="text/javascript">checkForSetup();</script>
-  <title>Bookup</title>
+  <title>Bookup | Account Setup</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>

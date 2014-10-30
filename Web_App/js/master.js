@@ -137,10 +137,10 @@ function generateHTMLForSetupPage(Book){
 	//TODO: wire up submitBookFeedback method here
 	var likeButton= document.createElement("button");
 	likeButton.setAttribute("value", "1");
-	likeButton.innerHTML="Like";
+	likeButton.innerHTML="<img src='img/like.png' alt='Like' />";
 	var dislikeButton= document.createElement("button");
 	likeButton.setAttribute("value", "0");
-	dislikeButton.innerHTML="Dislike";
+	dislikeButton.innerHTML="<img src='img/dislike.png' alt='Dislike' />";
 
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);

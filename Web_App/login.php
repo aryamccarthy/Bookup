@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" href="css/nolinks.css">
   <script type="text/javascript" src="js/login.js"></script>
 
-  <title>Bookup</title>
+  <title>Bookup | Login</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>

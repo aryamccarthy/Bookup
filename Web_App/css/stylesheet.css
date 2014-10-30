@@ -134,13 +134,23 @@ ol#book_covers_to_rate li {
 
 ol#book_covers_to_rate img {
   height: 200px;
-  padding-bottom: 50px;
+  /*padding-bottom: 50px;*/
+  clear: both;
 }
 
 ol#book_covers_to_rate p:first-child {
   font-weight: bold;
 }
 
+ol#book_covers_to_rate button {
+  width: 50%;
+  height: 30px;
+}
+
+ol#book_covers_to_rate button img {
+  margin: auto;
+  height: 20px;
+}
 input[type=submit]
 {
     /* your styles here, You can just increase its font size below*/

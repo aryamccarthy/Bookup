@@ -4,7 +4,7 @@
   <?php include("html/head.html"); ?>
     <script type="text/javascript">checkForList();</script>
   <!-- Page-specific includes -->
-  <title>Bookup</title>
+  <title>Bookup | Reading List</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
