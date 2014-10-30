@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <?php include("html/head.html"); ?>
-  
+  <link rel="stylesheet" type="text/css" href="css/nolinks.css">
   <!-- Page-specific includes -->
 
   <title>Bookup</title>
