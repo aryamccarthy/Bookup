@@ -141,11 +141,11 @@ ol#book_covers_to_rate img {
 ol#book_covers_to_rate p:first-child {
   font-weight: bold;
 }
-
+/*
 ol#book_covers_to_rate button {
   width: 50%;
   height: 30px;
-}
+}*/
 
 ol#book_covers_to_rate button img {
   margin: auto;
