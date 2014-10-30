@@ -29,6 +29,7 @@ class Login
      */
     public function __construct()
     {
+        debug("Login constructor.");
         // create/read session, absolutely necessary
         session_start();
 
@@ -127,6 +128,7 @@ class Login
      */
     public function doLogout()
     {
+        debug("Logging out.");
         // delete the session of the user
         $_SESSION = array();
         session_destroy();
@@ -141,9 +143,12 @@ class Login
      */
     public function isUserLoggedIn()
     {
-        if (isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] == 1) {
+        debug("Checking if logged in:");
+        if (isset($_SESSION['login_status']) AND $_SESSION['login_status'] == 1) {
+            debug("I am.");
             return true;
         }
+        debug("I'm not.");
         // default return
         return false;
     }

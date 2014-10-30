@@ -11,6 +11,10 @@
 
     if (isset($login)) {
         printdiv('Login object is set.');
+        if(!empty($_SESSION["email"])) {
+            printdiv('Email: ' . $_SESSION["email"]);
+        }
+
         if ($login->errors) {
             prindiv('Login has errors.');
             foreach ($login->errors as $error) {
