@@ -55,12 +55,13 @@ $app->get('/getPopularBooks', function() {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)){
 			//echo $row["isbn_num"];
+			//echo "</br>";
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
 			array_push($books, $bookObject);
 			array_push($books, $row);
 		}
 
-		$result['Popular Books'] = $books;
+		$result['Books'] = $books;
 	} else {
 		$result['success'] = false;
 		$result['error'] =$statement->errorInfo();
@@ -89,7 +90,7 @@ $app->get('/getRandomBook', function() {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-			//echo $row["isbn_num"];
+			echo $row["isbn_num"];
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
 			array_push($books, $bookObject);
 			array_push($books, $row);
