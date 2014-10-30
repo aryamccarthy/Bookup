@@ -150,7 +150,7 @@ $app->get('/getReadingList', function() {
 			array_push($books, $bookObject);
 			array_push($books, $row);
 		} 
-		$result['Reading List'] = $books;
+		$result['Books'] = $books;
 		$result['success'] = true;
 	}
 	else {
