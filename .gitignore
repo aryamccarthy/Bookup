@@ -1,10 +1,10 @@
-### .gitignore tells git to not include specified files in the repo.
+
 ### Use it to keep things that are specific to one machine out of the project.
 
 ### OS X directory metadata
 .DS_Store
 .directory
-
+.DS_store
 ### logs (they're specific per-server)
 *.log
 
@@ -14,3 +14,6 @@ Web_App/Database/.idea/*
 
 ### swap files (used by vim editor for file recovery)
 *.swp
+test*
+Test/
+Notes/

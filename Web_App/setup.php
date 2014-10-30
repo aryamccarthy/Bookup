@@ -5,7 +5,7 @@
   
   <!-- Page-specific includes -->
   <link rel="stylesheet" href="css/login.css">
-  <script type="text/javascript" src="js/login.js"></script>
+  <script type="text/javascript" src="js/stylesheet.js"></script>
 
   <title>Bookup</title>
 </head>

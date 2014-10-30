@@ -17,7 +17,8 @@ INSERT INTO Account VALUES
     ("test5.New@bookup.com", "BookUp5", true);
 
 INSERT INTO BookList VALUE
-	("9780547249643", "1984", "George Orwell");
+	("9780547249643", "1984", "George Orwell"),
+	("6789502039469", "Harry Potter", "JK Rowling");
 
 INSERT INTO PopularBook VALUE
-	("9780547249643");
+	("9780001000391");
