@@ -1,3 +1,17 @@
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
 body {
   margin: 0em;
   padding: 0em;
@@ -25,7 +39,7 @@ ul {
   font-family: 'Lobster', cursive;
 }
 
-form {
+form#login {
   border-style: solid;
   border-color: black;
   border-width: 2px;
@@ -34,13 +48,13 @@ form {
   padding-right: 0.5em;
 }
 
-form li {
+form#login li {
   display: block;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
-form input {
+form#login input {
   float: right;
 }
 
@@ -84,8 +98,36 @@ padding: 0;
 list-style-type: none;
 }
 
+#account_setup {
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 ol#book_covers_to_rate li { 
-  position: relative;
-  padding:20px;
-  float:left; 
+  display: inline-block;
+  width: 25%;
+  height: 300px;
+  padding-bottom: 40px;
+  line-height: 1.2;
+  /*padding:20px;*/
+  /*float:left;*/
+}
+
+#setup_submit {
+  margin-bottom:2em;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+ol#book_covers_to_rate img {
+  height: 200px;
 }
