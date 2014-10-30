@@ -1,16 +1,10 @@
 $(document).ready( function() {
 
 	bookObjTest();
-	for( var i=0; i<discoveryBooks.length; i++){
-	}
 
 }); 
 
 var rootURL= "http://localhost:8888/api/index.php";
-
-var discoveryBooks = [];
-var readingList = [];
-
 
 function Book( title, author, cover, description){
 	this. title=title;
@@ -20,45 +14,30 @@ function Book( title, author, cover, description){
 }
 
 //TODO: untested, waiting on completed api method
-function getRandomBook() {
+//use for api calls to getRandomBook, getPopularBooks, getReadingList
+function getBooks(sourceURL) {
 	$.ajax({
 		type: 'GET',
-		url: rootURL + "/getRandomBook",
+		url: rootURL + "/" + sourceURL,
 		dataType: "json",
 		success: function (data) {
-			var bookObjs = data.ReadingList; //will be something other than PopularBooks
-			console.log(data);
+			var bookObjs = data.Books; 
 			for(var i=0; i<bookObjs.length; i++){	
 				var parsedBooks = $.parseJSON(bookObjs[i]);	
-
-				//get info from return json object
 				var title= parsedBooks.items[0].volumeInfo.title;
 				var author =parsedBooks.items[0].volumeInfo.authors;
 				var description =parsedBooks.items[0].volumeInfo.description;
 				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-
 				var cover = new Image();
 				cover.src = thumbnail.imgPath;
-				
-				var newBook= new Book(title, author, description, cover);
-			 	discoveryBooks.push(newBook);
+				var newBook= new Book(title, author, cover,description);
+			 	
+			 	generateHTML(newBook);
 			}
 		}	
 	});
 }
 
-//TODO: implement and test
-function getReadingList() {
-
-	$.ajax({
-		type: 'GET',
-		url: rootURL + "/getReadingList",
-		dataType: "json",
-		success: function (data) {
-			
-		}	
-	});
-} 
 
 //TODO: implement and test
 function addBookToReadingList() {
@@ -94,47 +73,12 @@ $( previousBook ).click(function() {
 	//TODO: implementation 
 });
 
-var nextBook = $( "#next" );
-$( nextBook ).click(function() {
-	console.log("display next book");
-	//TODO: implementation 
-});
 
 function overlay() {
   var el = document.getElementById("rate_from_discovery");
   el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
 }
 
-
-var rootURL= "http://localhost:8888/api/index.php";
-
-var booksForSetup = [];
-
-function getPopularBooks() {
-
-	$.ajax({
-		type: 'GET',
-		url: rootURL + "/getPopularBooks",
-		dataType: "json",
-		success: function (data) {
-			var bookObjs = data.PopularBooks;
-			alert(data);
-
-			for(var i=0; i<bookObjs.length; i++){
-				var parsedBooks = $.parseJSON(bookObjs[i]);				
-
-				var title= parsedBooks.items[0].volumeInfo.title;
-				var author =parsedBooks.items[0].volumeInfo.authors;
-				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-				
-				var cover = new Image();
-				cover.src = thumbnail.imgPath;
-				var newBook= new Book(title, author, cover);
-			 	booksForSetup.push(newBook);
-			}
-		}	
-	});
-}
 
 function bookObjTest() {
 
@@ -158,7 +102,6 @@ function bookObjTest() {
 		
 		}	
 	});
-
 }
 
 function generateHTML(Book){
