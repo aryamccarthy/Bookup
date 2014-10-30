@@ -5,7 +5,7 @@ $(document).ready( function() {
 	if(discoveryLoaded==true){
 		getBooks("getRandomBook");
 	}
-	if(discoveryLoaded==true){
+	if(listLoaded==true){
 		getBooks("getReadingList?email=drizzuto@bookup.com");
 	}
 
@@ -134,10 +134,19 @@ function generateHTMLForSetupPage(Book){
 	var author = document.createElement("p");
 	author.innerHTML=Book.author;
 
+	//TODO: wire up submitBookFeedback method here
+	var likeButton= document.createElement("button");
+	likeButton.setAttribute("value", "1");
+	likeButton.innerHTML="Like";
+	var dislikeButton= document.createElement("button");
+	likeButton.setAttribute("value", "0");
+	dislikeButton.innerHTML="Dislike";
+
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);
 	bookItem.appendChild(Book.cover);
-
+	bookItem.appendChild(dislikeButton);
+	bookItem.appendChild(likeButton);
 	account_section.appendChild(bookItem);
 
 }
@@ -151,6 +160,15 @@ function generateHTMLForDiscoveryPage(Book){
 }
 
 function generateHTMLForReadingList(Book){
-	console.log(Book.title);
-	console.log(Book.author);
+	console.log("ok");
+	$("#list_title").html(Book.title);
+	$("#list_author").html(Book.author);
+	$("#list_description").html(Book.description);
+	$("#list_cover").attr("src", Book.cover.src);
+	var listing=document.createElement("li");
+	listing.innerHTML=Book.title;
+	var sidebar_list=document.getElementById("list_books");
+	sidebar_list.appendChild(listing);
+
+
 }

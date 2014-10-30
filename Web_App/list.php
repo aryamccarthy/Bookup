@@ -14,8 +14,7 @@
       <h1>Reading List</h1>
     </header>
     <ol id="list_books">
-      <li> Book 1</li>
-      <li> Book 2</li>
+      
     </ol>
     <article id="list_book_info">
       <h1 id="list_title"></h1>
