@@ -21,12 +21,12 @@
         <li><hr></li>
         <li>
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="someone@example.com">
+          <input type="email" id="email" pattern=".{3,30}" placeholder="someone@example.com">
         </li>
 
         <li>
           <label for="pass">Password</label>
-          <input type="password" id="pass" placeholder="••••••••••••">
+          <input type="password" id="pass" pattern = ".{8,30}" placeholder="••••••••••••">
         </li>
 
         <li>
