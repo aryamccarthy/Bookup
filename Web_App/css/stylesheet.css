@@ -106,10 +106,12 @@ list-style-type: none;
 
 ol#book_covers_to_rate li { 
   display: inline-block;
-  width: 25%;
-  height: 300px;
-  padding-bottom: 40px;
+  width: 23%;
+  min-height: 340px;
+  margin: 0 1% 30px;
   line-height: 1.2;
+  border-radius: 1em;
+  /*background: #808080;*/
   /*padding:20px;*/
   /*float:left;*/
 }
@@ -130,4 +132,71 @@ ol#book_covers_to_rate li {
 
 ol#book_covers_to_rate img {
   height: 200px;
+  padding-bottom: 50px;
+}
+
+ol#book_covers_to_rate p:first-child {
+  font-weight: bold;
+}
+
+input[type=submit]
+{
+    /* your styles here, You can just increase its font size below*/
+    font-size: 30px; 
+    font-weight: bold;
+    background-color: #ffedca;
+}
+
+#discovery_section {
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#discovery_section #book_title, #discovery_section #book_author {
+  text-align: center;
+}
+
+#discovery_section #book_cover {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#discovery_section fieldset {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.3em;
+  margin-top: 2em;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+}
+
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+}
+
+h6 {
+    font-size: 0.67em;
+    margin: 2.33em 0;
 }
