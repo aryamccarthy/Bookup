@@ -92,7 +92,6 @@ $app->get('/getRandomBook', function() {
 			//echo $row["isbn_num"];
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
 			array_push($books, $bookObject);
-			array_push($books, $row);
 		} 
 		$result['Books'] = $books;
 		$result['success'] = true;
