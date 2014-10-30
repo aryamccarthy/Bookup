@@ -38,28 +38,6 @@ ul {
   font-family: 'Lobster', cursive;
 }
 
-form#loginform {
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  border-radius: 5px;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-form#loginform li {
-  display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-
-form#loginform input {
-  float: right;
-}
-
 .twobutton {
   display: inline;
   width: 40%;
@@ -68,6 +46,7 @@ form#loginform input {
 }
 
 #account_setup {
+  width: 1000px;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
@@ -98,12 +77,6 @@ ol#book_covers_to_rate {
 margin: 0;
 padding: 0;
 list-style-type: none;
-}
-
-#account_setup {
-  width: 1000px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 ol#book_covers_to_rate li { 
