@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <?php include("html/head.html"); ?>
-  
+  <script type="text/javascript">checkForDiscovery();</script>
   <title>Bookup</title>
 </head>
 <body>

@@ -4,7 +4,7 @@
   <?php include("html/head.html"); ?>
   <link rel="stylesheet" type="text/css" href="css/nolinks.css">
   <!-- Page-specific includes -->
-
+<script type="text/javascript">checkForSetup();</script>
   <title>Bookup</title>
 </head>
 <body>

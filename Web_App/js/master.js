@@ -1,13 +1,35 @@
 $(document).ready( function() {
-
-	//bookObjTest();
-	getBooks("getPopularBooks");
-	getBooks("getRandomBook");
-	getBooks("getReadingList?email=drizzuto@bookup.com");
+	if(setupLoaded==true){
+		getBooks("getPopularBooks");
+	}
+	if(discoveryLoaded==true){
+		getBooks("getRandomBook");
+	}
+	if(discoveryLoaded==true){
+		getBooks("getReadingList?email=drizzuto@bookup.com");
+	}
 
 }); 
 
+var setupLoaded = false;
+var loginLoaded = false;
+var discoveryLoaded = false;
+var listLoaded = false;
+
 var rootURL= "http://localhost:8888/api/index.php";
+
+function checkForSetup(){
+	setupLoaded=true;
+}
+function checkForLogin(){
+	loginLoaded=true;
+}
+function checkForDiscovery(){
+	discoveryLoaded=true;
+}
+function checkForList(){
+	listLoaded=true;
+}
 
 function Book( title, author, cover, description){
 	this. title=title;
