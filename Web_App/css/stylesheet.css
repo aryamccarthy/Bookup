@@ -78,3 +78,14 @@ dialog form {
   text-align:center;
 
 }
+ol#book_covers_to_rate {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+ol#book_covers_to_rate li { 
+  position: relative;
+  padding:20px;
+  float:left; 
+}

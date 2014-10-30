@@ -4,7 +4,6 @@
   <?php include("html/head.html"); ?>
   
   <!-- Page-specific includes -->
-  <link rel="stylesheet" href="css/login.css">
 
   <title>Bookup</title>
 </head>
@@ -17,9 +16,7 @@
       <h2>Click on books you've read and give them a quick rating.</h2>
     </header>
 
-    <figure>
-      <img class="setup_book_cover" src=" ">
-    </figure>
+    <ol id="book_covers_to_rate"></ol>
     <button>Submit</button>
   </section>
 

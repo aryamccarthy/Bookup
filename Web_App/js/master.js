@@ -1,6 +1,8 @@
 $(document).ready( function() {
 
-	bookObjTest();
+	//bookObjTest();
+	//getBooks("getPopularBooks");
+	getBooks("getRandomBook");
 
 }); 
 
@@ -21,18 +23,23 @@ function getBooks(sourceURL) {
 		url: rootURL + "/" + sourceURL,
 		dataType: "json",
 		success: function (data) {
+			console.log(data);
 			var bookObjs = data.Books; 
-			for(var i=0; i<bookObjs.length; i++){	
+			for(var i=0; i<bookObjs.length; i+=2){	
 				var parsedBooks = $.parseJSON(bookObjs[i]);	
 				var title= parsedBooks.items[0].volumeInfo.title;
 				var author =parsedBooks.items[0].volumeInfo.authors;
 				var description =parsedBooks.items[0].volumeInfo.description;
 				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
 				var cover = new Image();
-				cover.src = thumbnail.imgPath;
+				cover.src = thumbnail;
 				var newBook= new Book(title, author, cover,description);
-			 	
-			 	generateHTML(newBook);
+			 	if(sourceURL=="getPopularBooks"){
+			 		generateHTMLForSetupPage(newBook);
+			 	}
+			 	else if(sourceURL=="getRandomBook"){
+			 		generateHTMLForDiscoveryPage(newBook);
+			 	}
 			}
 		}	
 	});
@@ -87,37 +94,41 @@ function bookObjTest() {
 		url: rootURL + "/getBookFromFirebase?isbn=9780001000391",
 		dataType: "json",
 		success: function (data) {
-			//var bookObjs = data.PopularBooks;
-			//for(var i=0; i<bookObjs.length; i++){
-				var parsedBooks = $.parseJSON(data);
-
-				var title= parsedBooks.items[0].volumeInfo.title;
-				var author =parsedBooks.items[0].volumeInfo.authors[0];
-				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-				var description =parsedBooks.items[0].volumeInfo.description;
-				var cover = new Image();
-				cover.src = thumbnail;
-				var newBook= new Book(title, author, cover, description);
-			 	generateHTML(newBook);
+			var parsedBooks = $.parseJSON(data);
+			var title= parsedBooks.items[0].volumeInfo.title;
+			var author =parsedBooks.items[0].volumeInfo.authors[0];
+			var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+			var description =parsedBooks.items[0].volumeInfo.description;
+			var cover = new Image();
+			cover.src = thumbnail;
+			var newBook= new Book(title, author, cover, description);
+		 	generateHTML(newBook);
 		
 		}	
 	});
 }
 
-function generateHTML(Book){
-	var account_section = document.getElementById("account_setup");
+function generateHTMLForSetupPage(Book){
+	var account_section = document.getElementById("book_covers_to_rate");
 
-	account_section.appendChild(Book.cover);
-
-	var title = document.createElement("figcaption");
+	var bookItem = document.createElement("li");
+	var title = document.createElement("p")
 	title.innerHTML=Book.title;
-	account_section.appendChild(title);
-
-	var author = document.createElement("figcaption");
+	var author = document.createElement("p");
 	author.innerHTML=Book.author;
-	account_section.appendChild(author);
+
+	bookItem.appendChild(title);
+	bookItem.appendChild(author);
+	bookItem.appendChild(Book.cover);
+
+	account_section.appendChild(bookItem);
 
 
 }
 
 
+function generateHTMLForDiscoveryPage(Book){
+
+$("#book_title").html(Book.title);
+
+}
