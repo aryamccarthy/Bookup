@@ -49,10 +49,10 @@ function getBooks(sourceURL) {
 					var cover = new Image();
 					cover.src = thumbnail;
 					var newBook= new Book(title, author, cover,description);
-				 	if(sourceURL=="getPopularBooks"){
+				 	if(sourceURL==="getPopularBooks"){
 				 		generateHTMLForSetupPage(newBook);
 				 	}
-				 	else if(sourceURL=="getRandomBook"){
+				 	else if(sourceURL==="getRandomBook"){
 				 		generateHTMLForDiscoveryPage(newBook);
 				 	}
 				 	
