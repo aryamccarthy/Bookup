@@ -26,7 +26,7 @@
     }
 
     function printdiv($msg) {
-        echo '<p>' . $msg . '</p>' . '<br>';
+        echo '<p>Debug: ' . $msg . '</p>' . '<br>';
     }
 
     ?>
