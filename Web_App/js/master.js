@@ -1,7 +1,7 @@
 $(document).ready( function() {
 
 	//bookObjTest();
-	//getBooks("getPopularBooks");
+	getBooks("getPopularBooks");
 	getBooks("getRandomBook");
 
 }); 
@@ -18,6 +18,7 @@ function Book( title, author, cover, description){
 //TODO: untested, waiting on completed api method
 //use for api calls to getRandomBook, getPopularBooks, getReadingList
 function getBooks(sourceURL) {
+
 	$.ajax({
 		type: 'GET',
 		url: rootURL + "/" + sourceURL,
@@ -39,6 +40,9 @@ function getBooks(sourceURL) {
 			 	}
 			 	else if(sourceURL=="getRandomBook"){
 			 		generateHTMLForDiscoveryPage(newBook);
+			 	}
+			 	else if(sourceURL=="getReadingList"){
+			 		generateHTMLForReadingList(newBook);
 			 	}
 			}
 		}	
@@ -110,7 +114,6 @@ function bookObjTest() {
 
 function generateHTMLForSetupPage(Book){
 	var account_section = document.getElementById("book_covers_to_rate");
-
 	var bookItem = document.createElement("li");
 	var title = document.createElement("p")
 	title.innerHTML=Book.title;
@@ -123,12 +126,16 @@ function generateHTMLForSetupPage(Book){
 
 	account_section.appendChild(bookItem);
 
-
 }
 
 
 function generateHTMLForDiscoveryPage(Book){
+	$("#book_title").html(Book.title);
+	$("#book_author").html(Book.author);
+	$("#book_description").html(Book.description);
+	$("#book_cover").attr("src", Book.cover.src);
+}
 
-$("#book_title").html(Book.title);
+function generateHTMLForReadingList(Book){
 
 }
