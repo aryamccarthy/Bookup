@@ -10,15 +10,37 @@
 USE BookUp;
 
 INSERT INTO Account VALUES
-    ("test1.Old@bookup.com", "BookUp1", False),
-    ("test2.Old@bookup.com", "BookUp2", False),
-    ("test3.Old@bookup.com", "BookUp3", False),
-    ("test4.New@bookup.com", "BookUp4", True),
-    ("test5.New@bookup.com", "BookUp5", true);
+    ("drizzuto@bookup.com", "Candles", true),
+    ("amccarthy@bookup.com", "Candles", true),
+    ("khabeck@bookup.com", "Candles", true),
+    ("zfout@bookup.com", "Candles", true),
+    ("loglesbee@bookup.com", "Candles", true),
+    ("ngatmaitin@bookup.com", "Candles", true),
+    ("ebusbee@bookup.com", "Candles", true);
 
-INSERT INTO BookList VALUE
-	("9780547249643", "1984", "George Orwell"),
-	("6789502039469", "Harry Potter", "JK Rowling");
+INSERT INTO BookList VALUES ("9780001000391"), 
+							("9780006479901"), 
+							("9780060012380"), 
+							("9780451190758"), 
+							("9781862301382"), 
+							("9781595143211"), 
+							("9781595142504"), 
+							("9781595140838"), 
+							("9781594743344"), 
+							("9781580493888"), 
+							("9781577314806");
 
-INSERT INTO PopularBook VALUE
-	("9780001000391");
+INSERT INTO PopularBookList VALUES ("9780001000391"), 
+								("9780006479901"), 
+								("9780060012380"), 
+								("9780451190758"), 
+								("9781862301382"), 
+								("9781595143211"), 
+								("9781595142504"), 
+								("9781595140838"), 
+								("9781594743344"), 
+								("9781580493888"), 
+								("9781577314806");
+
+INSERT INTO ReadingList VALUES ("drizzuto@bookup.com", NOW(), "9781577314806"),
+								("drizzuto@bookup.com", NOW(), "9780001000391");

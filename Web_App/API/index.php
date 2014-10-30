@@ -90,7 +90,7 @@ $app->get('/getRandomBook', function() {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-			echo $row["isbn_num"];
+			//echo $row["isbn_num"];
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
 			array_push($books, $bookObject);
 			array_push($books, $row);
@@ -153,7 +153,7 @@ $app->get('/getReadingList', function() {
 			//var_dump($row);
 			$bookObject["timestamp"] = $row["timestamp"];
 			array_push($books, $bookObject);
-			array_push($books, $row);
+			
 		} 
 		$result['Books'] = $books;
 		$result['success'] = true;

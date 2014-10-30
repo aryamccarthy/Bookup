@@ -30,9 +30,9 @@ CREATE TABLE IF NOT EXISTS BookList(
     PRIMARY KEY(isbn_num)
 );
 
-DROP TABLE IF EXISTS PopularBook;
+DROP TABLE IF EXISTS PopularBookList;
 
-CREATE TABLE IF NOT EXISTS PopularBook(
+CREATE TABLE IF NOT EXISTS PopularBookList(
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
     PRIMARY KEY(isbn_num),
     FOREIGN KEY(isbn_num) REFERENCES  BookList(isbn_num)
