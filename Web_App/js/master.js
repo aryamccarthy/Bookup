@@ -3,6 +3,7 @@ $(document).ready( function() {
 	//bookObjTest();
 	getBooks("getPopularBooks");
 	getBooks("getRandomBook");
+	getBooks("getReadingList?email=drizzuto@bookup.com");
 
 }); 
 
@@ -15,7 +16,6 @@ function Book( title, author, cover, description){
 	this.cover=cover;
 }
 
-//TODO: untested, waiting on completed api method
 //use for api calls to getRandomBook, getPopularBooks, getReadingList
 function getBooks(sourceURL) {
 
@@ -24,26 +24,39 @@ function getBooks(sourceURL) {
 		url: rootURL + "/" + sourceURL,
 		dataType: "json",
 		success: function (data) {
-			console.log(data);
 			var bookObjs = data.Books; 
-			for(var i=0; i<bookObjs.length; i+=2){	
-				var parsedBooks = $.parseJSON(bookObjs[i]);	
-				var title= parsedBooks.items[0].volumeInfo.title;
-				var author =parsedBooks.items[0].volumeInfo.authors;
-				var description =parsedBooks.items[0].volumeInfo.description;
-				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-				var cover = new Image();
-				cover.src = thumbnail;
-				var newBook= new Book(title, author, cover,description);
-			 	if(sourceURL=="getPopularBooks"){
-			 		generateHTMLForSetupPage(newBook);
-			 	}
-			 	else if(sourceURL=="getRandomBook"){
-			 		generateHTMLForDiscoveryPage(newBook);
-			 	}
-			 	else if(sourceURL=="getReadingList"){
-			 		generateHTMLForReadingList(newBook);
-			 	}
+		 	if(sourceURL.indexOf("getReadingList") > -1){
+		 		for(var i=0; i<bookObjs.length; i+=2){	
+					var parsedBooks = $.parseJSON(bookObjs[i].book);	
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors;
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 	generateHTMLForReadingList(newBook);
+				} 	
+			 
+			 }
+			else{
+				for(var i=0; i<bookObjs.length; i+=2){	
+					var parsedBooks = $.parseJSON(bookObjs[i]);	
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors;
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 	if(sourceURL=="getPopularBooks"){
+				 		generateHTMLForSetupPage(newBook);
+				 	}
+				 	else if(sourceURL=="getRandomBook"){
+				 		generateHTMLForDiscoveryPage(newBook);
+				 	}
+				 	
+				}
 			}
 		}	
 	});
@@ -91,27 +104,6 @@ function overlay() {
 }
 
 
-function bookObjTest() {
-
-	$.ajax({
-		type: 'GET',
-		url: rootURL + "/getBookFromFirebase?isbn=9780001000391",
-		dataType: "json",
-		success: function (data) {
-			var parsedBooks = $.parseJSON(data);
-			var title= parsedBooks.items[0].volumeInfo.title;
-			var author =parsedBooks.items[0].volumeInfo.authors[0];
-			var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-			var description =parsedBooks.items[0].volumeInfo.description;
-			var cover = new Image();
-			cover.src = thumbnail;
-			var newBook= new Book(title, author, cover, description);
-		 	generateHTML(newBook);
-		
-		}	
-	});
-}
-
 function generateHTMLForSetupPage(Book){
 	var account_section = document.getElementById("book_covers_to_rate");
 	var bookItem = document.createElement("li");
@@ -137,5 +129,6 @@ function generateHTMLForDiscoveryPage(Book){
 }
 
 function generateHTMLForReadingList(Book){
-
+	console.log(Book.title);
+	console.log(Book.author);
 }
