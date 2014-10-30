@@ -2,10 +2,8 @@
 <html lang="en">
 <head>
   <?php include("html/head.html"); ?>
-  
+  <link rel="stylesheet" type="text/css" href="css/nolinks.css">
   <!-- Page-specific includes -->
-  <link rel="stylesheet" href="css/login.css">
-  <script type="text/javascript" src="js/stylesheet.js"></script>
 
   <title>Bookup</title>
 </head>
@@ -17,11 +15,12 @@
       <h1>What have you read?</h1>
       <h2>Click on books you've read and give them a quick rating.</h2>
     </header>
-
-    <figure>
-      <img class="setup_book_cover" src=" ">
-    </figure>
-    <button>Submit</button>
+    <div id="books_to_rate_region">
+    <ol id="book_covers_to_rate"></ol>
+    </div>
+  <form action="discovery.php" method="POST">
+    <input type="submit" value="Continue" id="setup_submit" class="cf" />
+  </form>
   </section>
 
 </body>

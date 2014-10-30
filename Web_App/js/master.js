@@ -1,48 +1,62 @@
 $(document).ready( function() {
 
-	getRandomBook();
-
-	for( var i=0; i<discoveryBooks.length; i++){
-		//TODO: generate html for each book in setup array
-	}
+	//bookObjTest();
+	getBooks("getPopularBooks");
+	getBooks("getRandomBook");
+	getBooks("getReadingList?email=drizzuto@bookup.com");
 
 }); 
 
 var rootURL= "http://localhost:8888/api/index.php";
 
-var discoveryBooks = [];
-var readingList = [];
-
-function Book( title, author, description, cover){
+function Book( title, author, cover, description){
 	this. title=title;
 	this.author=author;
 	this.description=description;
-	this.thumbnail=thumbnail;
+	this.cover=cover;
 }
 
-//TODO: untested, waiting on completed api method
-function getRandomBook() {
+//use for api calls to getRandomBook, getPopularBooks, getReadingList
+function getBooks(sourceURL) {
+
 	$.ajax({
 		type: 'GET',
-		url: rootURL + "/getRandomBook",
+		url: rootURL + "/" + sourceURL,
 		dataType: "json",
 		success: function (data) {
-			var bookObjs = data.ReadingList; //will be something other than PopularBooks
-			console.log(data);
-			for(var i=0; i<bookObjs.length; i++){	
-				var parsedBooks = $.parseJSON(bookObjs[i]);	
-
-				//get info from return json object
-				var title= parsedBooks.items[0].volumeInfo.title;
-				var author =parsedBooks.items[0].volumeInfo.authors;
-				var description =parsedBooks.items[0].volumeInfo.description;
-				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-
-				var cover = new Image();
-				cover.src = thumbnail.imgPath;
-				
-				var newBook= new Book(title, author, description, cover);
-			 	discoveryBooks.push(newBook);
+			var bookObjs = data.Books; 
+		 	if(sourceURL.indexOf("getReadingList") > -1){
+		 		for(var i=0; i<bookObjs.length; i+=2){	
+					var parsedBooks = $.parseJSON(bookObjs[i].book);	
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors;
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 	generateHTMLForReadingList(newBook);
+				} 	
+			 
+			 }
+			else{
+				for(var i=0; i<bookObjs.length; i+=2){	
+					var parsedBooks = $.parseJSON(bookObjs[i]);	
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors;
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 	if(sourceURL=="getPopularBooks"){
+				 		generateHTMLForSetupPage(newBook);
+				 	}
+				 	else if(sourceURL=="getRandomBook"){
+				 		generateHTMLForDiscoveryPage(newBook);
+				 	}
+				 	
+				}
 			}
 		}	
 	});
@@ -62,18 +76,6 @@ function addBookToReadingList() {
 	});
 }
 
-//TODO: implement and test
-function getReadingList() {
-
-	$.ajax({
-		type: 'GET',
-		url: rootURL + "/getReadingList",
-		dataType: "json",
-		success: function (data) {
-			
-		}	
-	});
-} 
 
 //TODO: implement and test
 function submitBookFeedback() {
@@ -95,13 +97,38 @@ $( previousBook ).click(function() {
 	//TODO: implementation 
 });
 
-var nextBook = $( "#next" );
-$( nextBook ).click(function() {
-	console.log("display next book");
-	//TODO: implementation 
-});
 
 function overlay() {
   var el = document.getElementById("rate_from_discovery");
   el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
+}
+
+
+function generateHTMLForSetupPage(Book){
+	var account_section = document.getElementById("book_covers_to_rate");
+	var bookItem = document.createElement("li");
+	var title = document.createElement("p")
+	title.innerHTML=Book.title;
+	var author = document.createElement("p");
+	author.innerHTML=Book.author;
+
+	bookItem.appendChild(title);
+	bookItem.appendChild(author);
+	bookItem.appendChild(Book.cover);
+
+	account_section.appendChild(bookItem);
+
+}
+
+
+function generateHTMLForDiscoveryPage(Book){
+	$("#book_title").html(Book.title);
+	$("#book_author").html(Book.author);
+	$("#book_description").html(Book.description);
+	$("#book_cover").attr("src", Book.cover.src);
+}
+
+function generateHTMLForReadingList(Book){
+	console.log(Book.title);
+	console.log(Book.author);
 }

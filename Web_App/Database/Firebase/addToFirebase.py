@@ -1,43 +1,60 @@
 from firebase import firebase
 import requests
+import MySQLdb
 
 def readFile():
 
-    openFile = ("5000isbn.txt", "rw+")
+    openFile = ("Isbn_Dumps/isbn5000.txt", "rw+")
 
-    filePath = '';
-
-    isbnArray = []
+    with open("Isbn_Dumps/isbn5000.txt") as file:
+      isbnArray = file.read().splitlines()
 
     return isbnArray
 
-def addToFirebase(isbnArray):
-
+def addToFirebaseAndMysqlDatabase(isbnArray):
 
     fbURL = 'https://blistering-torch-3821.firebaseio.com/'
 
+    # db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="BookUp")
+
+    # cursor = db.cursor()
+
     for isbn in isbnArray:
+
+      try:
 
         googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
-        print googleQuery;
-
         googleRequest = requests.get(googleQuery);
 
-        #print googleRequest.content
+        print googleRequest.content
 
-        firebaseConn = firebase.FirebaseApplication(fbURL, None)
+        # firebaseConn = firebase.FirebaseApplication(fbURL, None)
 
-        firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
+        # firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
+
+        # mysqlQuery = """INSERT INTO BookList VALUE (%s), (isbn)"""
+
+        # cursor.execute(mysqlQuery)
+
+        # db.commit()
+
+        # print isbn;
+
+      except:
+
+        print isbn + " not added"
 
 if __name__ == "__main__":
 
     # isbnArray = readFile()
 
-    isbnArray = ['9780141182957']
+    print isbnArray
+
+    isbnArray = ['9780006479901']
 
 
-    addToFirebase(isbnArray)
+    addToFirebaseAndMysqlDatabase(isbnArray)
 
 
 
