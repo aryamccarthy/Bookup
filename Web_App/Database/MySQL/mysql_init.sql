@@ -25,8 +25,6 @@ DROP TABLE IF EXISTS BookList;
 
 CREATE TABLE IF NOT EXISTS BookList( 
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
-    title       VARCHAR(45) NOT NULL,
-    author	VARCHAR(45) NOT NULL,
     PRIMARY KEY(isbn_num)
 );
 
