@@ -4,9 +4,9 @@ require_once("login/includes.php");
 
 $login = new Login();
 
-  if ($login->isUserLoggedIn() == True) { //TODO: change condition
-    header('Location: discovery.php');
+  if ($login->isUserLoggedIn() == True) {
+    include('./discovery.php');
   } else {
-    header('Location: login.php');
+    include('./login.php');
   }
   ?>

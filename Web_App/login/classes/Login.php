@@ -55,7 +55,7 @@ class Login
             $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
             // change character set to utf8 and check it
-            if (!$this->db_connection->set_charset("utf8")) {
+            if (!$this->db_connection->set_charset("utf8mb4")) {
                 $this->errors[] = $this->db_connection->error;
             }
 

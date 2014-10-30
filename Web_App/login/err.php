@@ -24,6 +24,7 @@
             }
         }
     }
+    else { printdiv('Login object is not set.'); }
 
     function printdiv($msg) {
         echo '<p>Debug: ' . $msg . '</p>' . '<br>';
