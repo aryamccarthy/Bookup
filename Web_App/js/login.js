@@ -5,9 +5,9 @@ $(document).ready( function() {
   }); //end of register_user.click()
 
   $('#testlogin').click( function(event) {
-    $('#login_input_email').val("ebusbee@bookup.com");
-    $('#login_input_password').val("Candles");
-    $('#login_user').click();
+    $('#email').val("marf@bark.com");
+    $('#password').val("marflebark");
+    $('#login_button').click();
   }); //end of testlogin.click()
 
 }); //end of document.ready()

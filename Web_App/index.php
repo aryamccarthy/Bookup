@@ -4,9 +4,12 @@ require_once("login/includes.php");
 
 $login = new Login();
 
-  if ($login->isUserLoggedIn() == True) {
-    include('./discovery.php');
-  } else {
-    include('./login.php');
-  }
-  ?>
+if ($login->isUserLoggedIn() == True) {
+
+  require_once('discovery.php');
+
+} else {
+
+  require_once('login.php');
+}
+?>
