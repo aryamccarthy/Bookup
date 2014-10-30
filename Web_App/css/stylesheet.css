@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700);
 
 html,
 button,
@@ -13,7 +14,8 @@ html {
 }
 
 body {
-  margin: 0em;
+  width: 1100px;
+  margin: 0em auto;
   padding: 0em;
 }
 
@@ -72,7 +74,7 @@ form#login input {
 }
 
 * {
-  font-family: Helvetica,Arial,sans-serif;
+  font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -164,10 +166,10 @@ input[type=submit]
 }
 
 #discovery_section fieldset {
-  width: 350px;
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 0.3em;
+  /*border-radius: 0.3em;*/
   margin-top: 2em;
 }
 
@@ -199,4 +201,16 @@ h5 {
 h6 {
     font-size: 0.67em;
     margin: 2.33em 0;
+}
+
+body > nav li:first-child a:before {
+  position: relative;
+  display: inline-block;
+  top:7px;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  content: "";
+  background: url("../apple-touch-icon-72x72.png");
+  background-size: 100%;
 }

@@ -3,7 +3,7 @@
 <head>
   <?php include("html/head.html"); ?>
   <script type="text/javascript">checkForDiscovery();</script>
-  <title>Bookup</title>
+  <title>Bookup | Discovery</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
@@ -15,12 +15,14 @@
       <p id= "book_description"> </p>
       <img id= "book_cover" src="">
     </article>
+    <div class="cf">
     <fieldset class="cf">
       <button id="previous">Previous</button>
       <button id="next" onclick="getBooks(getRandomBook)">Next</button>
       <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
       <button id="already_read" onclick="overlay()">I've already read this book.</button>
     </fieldset>
+    </div>
   </section>
 
   <diaglog id="rate_from_discovery">
