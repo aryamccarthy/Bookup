@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/panique/php-login-minimal/!svn/ver/27/branches/develop/views
+END
+register.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/panique/php-login-minimal/!svn/ver/27/branches/develop/views/register.php
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/panique/php-login-minimal/!svn/ver/27/branches/develop/views/.htaccess
+END
+logged_in.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/panique/php-login-minimal/!svn/ver/27/branches/develop/views/logged_in.php
+END
+not_logged_in.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/panique/php-login-minimal/!svn/ver/27/branches/develop/views/not_logged_in.php
+END
