@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS BookSeen(
     rating      INT,
     timestamp   DATETIME,
     isbn_num    VARCHAR(15),
-    PRIMARY KEY(email),
+    PRIMARY KEY(email,isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
