@@ -146,6 +146,14 @@ ol#book_covers_to_rate button img {
     background-color: #ffedca;
 }
 
+#account_setup li div {
+  visibility: hidden;
+}
+
+#account_setup li:hover div {
+  visibility: visible;
+}
+
 #discovery_section {
   width: 1000px;
   margin-left: auto;
@@ -212,6 +220,14 @@ body > nav li:first-child a {
   text-align: center;
 }
 
+input[type='text'], input[type='password'], input[type='email'] {
+  background-color: rgba(255,255,255,0.3);
+}
+
+input[type='submit'], button {
+  background-color: rgba(255,255,255,0.7);
+}
+
 body > nav li:first-child a:before {
   position: relative;
   display: inline-block;
@@ -223,3 +239,4 @@ body > nav li:first-child a:before {
   background: url("../favicon-96x96.png");
   background-size: 100%;
 }
+

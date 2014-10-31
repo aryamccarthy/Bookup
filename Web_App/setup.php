@@ -13,7 +13,7 @@
   <section id="account_setup">
     <header>
       <h1>What have you read?</h1>
-      <h2>Click on books you've read and give them a quick rating.</h2>
+      <h2>Hover over books you've read and give them a quick rating.</h2>
     </header>
     <div id="books_to_rate_region">
     <ol id="book_covers_to_rate"></ol>

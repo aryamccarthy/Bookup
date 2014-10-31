@@ -146,12 +146,15 @@ function generateHTMLForSetupPage(Book){
 	dislikeButton.setAttribute("class", "twobutton");
 	dislikeButton.innerHTML="<img src='img/dislike.png' alt='Dislike' />";
 
+	var buttonDiv = document.createElement('div');
+
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);
 	bookItem.appendChild(Book.cover);
-	bookItem.appendChild(document.createElement('br'));
-	bookItem.appendChild(dislikeButton);
-	bookItem.appendChild(likeButton);
+	//bookItem.appendChild(document.createElement('br'));
+	buttonDiv.appendChild(dislikeButton);
+	buttonDiv.appendChild(likeButton);
+	bookItem.appendChild(buttonDiv);
 	account_section.appendChild(bookItem);
 
 }
