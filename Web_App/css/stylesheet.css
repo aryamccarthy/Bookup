@@ -204,6 +204,14 @@ h6 {
     margin: 2.33em 0;
 }
 
+body > nav li:first-child a {
+  font-family: 'Lobster', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
+}
+
+.subtitle {
+  text-align: center;
+}
+
 body > nav li:first-child a:before {
   position: relative;
   display: inline-block;
@@ -212,6 +220,6 @@ body > nav li:first-child a:before {
   height: 30px;
   margin-right: 5px;
   content: "";
-  background: url("../apple-touch-icon-72x72.png");
+  background: url("../favicon-96x96.png");
   background-size: 100%;
 }

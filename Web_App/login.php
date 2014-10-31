@@ -14,10 +14,10 @@
   <?php include("html/nav.html"); ?>
   <main>
     <h1 class="title">Bookup</h1>
-
+    <h3 class="subtitle">Try something new between the covers</h3>
     <form action="index.php" method="post" id="login" name="loginform">
       <ul>
-        <li>Login/Sign Up</li>
+        <li>Sign up or log in</li>
         <li><hr></li>
         <li>
           <label for="email">Email</label>

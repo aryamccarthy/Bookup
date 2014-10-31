@@ -1,4 +1,7 @@
-a {
+body > nav a {
   pointer-events: none;
-  cursor: default;
+}
+
+body > nav li {
+  cursor: not-allowed;
 }
