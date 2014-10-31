@@ -16,7 +16,6 @@ $(document).ready( function() {
 
 function greyOutElement (event) {
 	var target = $(event.target);
-	console.log(target);
 	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('')
 }
 
@@ -109,9 +108,7 @@ function getBooks(sourceURL) {
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					console.log(i);
 					if (i === 4) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
-					console.log(parsedBooks.items[0].volumeInfo.industryIdentifiers);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
@@ -150,8 +147,9 @@ function addBookToReadingList(email, isbn) {
 
 function getUserDataAndSubmit (event) {
 	var email = 'amccarthy@bookup.com'; // TODO: implement user data retieval.
-	var rating = $(event.target).attr('value');
-	var isbn = 9781594743344; // TODO: make ISBN invisible to retrieve
+	var rating = $(event.target).closest('button').attr('value');
+	var isbn = $(event.target).closest("li").find(".isbn").text();
+	console.log(email + '\n' + rating + '\n' + isbn);
 	submitBookFeedback(email, rating, isbn);
 }
 
@@ -192,9 +190,8 @@ function generateHTMLForSetupPage(Book){
 	var isbn = document.createElement("p");
 	isbn.innerHTML=Book.isbn;
 	isbn.setAttribute("class", "isbn");
-	isbn.style.visibility="hidden";
+	isbn.style.display="none";
 
-	//TODO: wire up submitBookFeedback method here
 	var likeButton= document.createElement("button");
 	likeButton.setAttribute("value", "1");
 	likeButton.setAttribute("class", "twobutton setupratingbutton");
@@ -211,9 +208,8 @@ function generateHTMLForSetupPage(Book){
 	bookItem.appendChild(isbn);
 
 	bookItem.appendChild(Book.cover);
-	//bookItem.appendChild(document.createElement('br'));
-	buttonDiv.appendChild(dislikeButton);
 	buttonDiv.appendChild(likeButton);
+	buttonDiv.appendChild(dislikeButton);
 	bookItem.appendChild(buttonDiv);
 	account_section.appendChild(bookItem);
 }
