@@ -90,7 +90,7 @@ $app->get('/getRandomBook', function() {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-			echo $row["isbn_num"];
+			// echo $row["isbn_num"];
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
 			array_push($books, $bookObject);
 			array_push($books, $row);
@@ -113,10 +113,10 @@ $app->get('/getRandomBook', function() {
 *	Finished - Drizzuto
 */
 
-$app->get('/getBookFromFirebase', function() {
+$app->get('/getBookFromFirebase/:isbn', function($isbn) {
 	global $pdo;
 
-	$args[":isbn"] = $_GET["isbn"];
+	$args[":isbn"] = $isbn;
 
 	$firebaseObject = new FirebaseIsbnLookup();
 
@@ -179,7 +179,7 @@ $app->post('/addBookToReadingList', function() {
 	$args[":isbn"] = $_POST['isbn'];
 
 
-	$statment = $pdo->prepare(
+	$statement = $pdo->prepare(
 						'INSERT INTO ReadingList VALUES
 						(:email, NOW(), :isbn);'
 						);
