@@ -86,11 +86,11 @@ function getBooks(sourceURL) {
 
 
 //TODO: implement and test
-function addBookToReadingList() {
+function addBookToReadingList(email, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/addBookToReadingList",
+		url: rootURL + "/addBookToReadingList?email=" + email + "&isbn=" + isbn,
 		dataType: " ",
 		success: function (data) {
 			
@@ -98,13 +98,12 @@ function addBookToReadingList() {
 	});
 }
 
-
 //TODO: implement and test
-function submitBookFeedback() {
+function submitBookFeedback(email, rating, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/submitBookFeedback",
+		url: rootURL + "/submitBookFeedback?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
 		dataType: " ",
 		success: function (data) {
 			

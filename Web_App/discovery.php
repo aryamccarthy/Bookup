@@ -18,7 +18,7 @@
     <div class="cf">
     <fieldset class="cf">
       <button id="previous">Previous</button>
-      <button id="next" onclick="getBooks(getRandomBook)">Next</button>
+      <button id="next" onclick="getBooks('getRandomBook');">Next</button>
       <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
       <button id="already_read" onclick="overlay()">I've already read this book.</button>
     </fieldset>
