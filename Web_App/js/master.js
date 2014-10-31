@@ -98,8 +98,9 @@ function getBooks(sourceURL) {
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					console.log(i);	
+					console.log(i);
 					if (i === 4) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
+					console.log(parsedBooks.items[0].volumeInfo.industryIdentifiers);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
