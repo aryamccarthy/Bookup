@@ -15,3 +15,17 @@ Web_App/Database/.idea/*
 test*
 Test/
 Notes/
+
+*.properties
+
+Web_App/nbproject/private/private.xml
+
+Web_App/nbproject/project.properties
+
+Web_App/nbproject/project.xml
+
+Web_App/nbproject/private/private.properties
+
+Web_App/nbproject/private/private.xml
+
+Web_App/nbproject/project.properties

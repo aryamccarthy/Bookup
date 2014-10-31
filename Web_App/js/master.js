@@ -14,6 +14,12 @@ $(document).ready( function() {
 
 }); 
 
+function greyOutElement (event) {
+	var target = $(event.target);
+	console.log(target);
+	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('')
+}
+
 var setupLoaded = false;
 var loginLoaded = false;
 var discoveryLoaded = false;
@@ -104,7 +110,7 @@ function getBooks(sourceURL) {
 				 		generateHTMLForSetupPage(newBook);
 				 	
 				}
-
+				$('.setupratingbutton').click(greyOutElement);
 			}
 		}	
 	});
@@ -162,11 +168,11 @@ function generateHTMLForSetupPage(Book){
 	//TODO: wire up submitBookFeedback method here
 	var likeButton= document.createElement("button");
 	likeButton.setAttribute("value", "1");
-	likeButton.setAttribute("class", "twobutton");
+	likeButton.setAttribute("class", "twobutton setupratingbutton");
 	likeButton.innerHTML="<img src='img/like.png' alt='Like' />";
 	var dislikeButton= document.createElement("button");
 	dislikeButton.setAttribute("value", "-1");
-	dislikeButton.setAttribute("class", "twobutton");
+	dislikeButton.setAttribute("class", "twobutton setupratingbutton");
 	dislikeButton.innerHTML="<img src='img/dislike.png' alt='Dislike' />";
 
 	var buttonDiv = document.createElement('div');
