@@ -68,7 +68,7 @@ function getBooks(sourceURL) {
 				for(var i=0; i<bookObjs.length; i+=2){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);	
 					var title= parsedBooks.items[0].volumeInfo.title;
-					var author =parsedBooks.items[0].volumeInfo.authors;
+					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
 					var cover = new Image();
