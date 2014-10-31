@@ -31,7 +31,7 @@
         </li>
 
         <li>
-          <input id="login_button" type="submit" name="login" class="twobutton" value="Login"/>
+          <input id="login_button" type="submit" name="login" class="twobutton" value="Login" onclick="setEmail()"/>
           <button id="register" class="twobutton">Sign Up</button>
         </li>
       </ul>

@@ -34,6 +34,15 @@ function checkForList(){
 	listLoaded=true;
 }
 
+var userEmail= "";
+
+function setEmail(){
+	var emailElem = document.getElementById("email");
+	var emailVal=emailElem.getAttribute("value");
+	console.log(emailVal);
+	userEmail=emailVal;
+}
+
 function Book( title, author, cover, description){
 	this. title=title;
 	this.author=author;
