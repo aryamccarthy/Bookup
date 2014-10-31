@@ -4,8 +4,8 @@
   <?php include("html/head.html"); ?>
   <link rel="stylesheet" type="text/css" href="css/nolinks.css">
   <!-- Page-specific includes -->
-
-  <title>Bookup</title>
+<script type="text/javascript">checkForSetup();</script>
+  <title>Bookup | Account Setup</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>

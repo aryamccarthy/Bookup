@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <?php include("html/head.html"); ?>
-  
-  <title>Bookup</title>
+  <script type="text/javascript">checkForDiscovery();</script>
+  <title>Bookup | Discovery</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
@@ -11,15 +11,18 @@
   <section id="discovery_section">
     <article id= "discovery_info">
       <h1 id="book_title">  </h1>
-      <h1 id= "book_author"> </h1>
+      <h2 id= "book_author"> </h2>
       <p id= "book_description"> </p>
       <img id= "book_cover" src="">
     </article>
-
-    <button id="previous">Previous</button>
-    <button id="next" onclick="getBooks(getRandomBook)">Next</button>
-    <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
-    <button id="already_read" onclick="overlay()">I've already read this book.</button>
+    <div class="cf">
+    <fieldset class="cf">
+      <button id="previous">Previous</button>
+      <button id="next" onclick="getBooks(getRandomBook)">Next</button>
+      <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
+      <button id="already_read" onclick="overlay()">I've already read this book.</button>
+    </fieldset>
+    </div>
   </section>
 
   <diaglog id="rate_from_discovery">
