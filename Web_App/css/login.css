@@ -1,5 +1,5 @@
 #login {
-  width: 20%;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -9,10 +9,29 @@
   margin-bottom: 0em;
 }
 
-#login_user {
+form#login {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 5px;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+form#login li {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+form#login input {
   float: right;
 }
 
-#register_user {
+#login_button {
+  float: right;
+}
+
+#register {
   float: all;
 }

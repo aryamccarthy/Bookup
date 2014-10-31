@@ -1,40 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <?php include("html/head.html"); ?>
-  
-  <!-- Page-specific includes -->
-  <link rel="stylesheet" href="css/login.css">
-  <script type="text/javascript" src="js/login.js"></script>
+<?php
 
-  <title>Bookup</title>
-</head>
-<body>
-  <?php include("html/nav.html"); ?>
-  <section id="main">
-    <h1 class="title">Bookup</h1>
+mb_internal_encoding('UTF-8');
+mb_http_input('UTF-8');
+mb_http_output('UTF-8');
 
-    <form action="" method="POST" id="login">
-      <ul>
-        <li>Register Now</li>
-        <li><hr></li>
-        <li>
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="someone@example.com">
-        </li>
+require_once("login/includes.php");
 
-        <li>
-          <label for="pass">Password</label>
-          <input type="password" id="pass" placeholder="••••••••••••">
-        </li>
+$login = new Login();
 
-        <li>
-          <button id="register_user" class="twobutton">New User</button>
-          <button id="login_user" class="twobutton">Login</button>
-        </li>
-      </ul>
+if ($login->isUserLoggedIn() == True) {
 
-    </form>
-  </section>
-</body>
-</html>
+  header('Location: discovery.php');
+
+} else {
+
+  header('Location: login.php');
+}
+?>

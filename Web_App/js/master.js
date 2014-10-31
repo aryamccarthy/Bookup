@@ -1,12 +1,38 @@
-$(document).ready( function() {
+// Add background
 
-	//bookObjTest();
-	getBooks("getPopularBooks");
-	getBooks("getRandomBook");
+$(document).ready( function() {
+	$.backstretch('img/background.jpg');
+	if(setupLoaded==true){
+		getBooks("getPopularBooks");
+	}
+	if(discoveryLoaded==true){
+		getBooks("getRandomBook");
+	}
+	if(listLoaded==true){
+		getBooks("getReadingList?email=drizzuto@bookup.com");
+	}
 
 }); 
 
+var setupLoaded = false;
+var loginLoaded = false;
+var discoveryLoaded = false;
+var listLoaded = false;
+
 var rootURL= "http://localhost:8888/api/index.php";
+
+function checkForSetup(){
+	setupLoaded=true;
+}
+function checkForLogin(){
+	loginLoaded=true;
+}
+function checkForDiscovery(){
+	discoveryLoaded=true;
+}
+function checkForList(){
+	listLoaded=true;
+}
 
 function Book( title, author, cover, description){
 	this. title=title;
@@ -15,7 +41,6 @@ function Book( title, author, cover, description){
 	this.cover=cover;
 }
 
-//TODO: untested, waiting on completed api method
 //use for api calls to getRandomBook, getPopularBooks, getReadingList
 function getBooks(sourceURL) {
 
@@ -24,26 +49,39 @@ function getBooks(sourceURL) {
 		url: rootURL + "/" + sourceURL,
 		dataType: "json",
 		success: function (data) {
-			console.log(data);
 			var bookObjs = data.Books; 
-			for(var i=0; i<bookObjs.length; i+=2){	
-				var parsedBooks = $.parseJSON(bookObjs[i]);	
-				var title= parsedBooks.items[0].volumeInfo.title;
-				var author =parsedBooks.items[0].volumeInfo.authors;
-				var description =parsedBooks.items[0].volumeInfo.description;
-				var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-				var cover = new Image();
-				cover.src = thumbnail;
-				var newBook= new Book(title, author, cover,description);
-			 	if(sourceURL=="getPopularBooks"){
-			 		generateHTMLForSetupPage(newBook);
-			 	}
-			 	else if(sourceURL=="getRandomBook"){
-			 		generateHTMLForDiscoveryPage(newBook);
-			 	}
-			 	else if(sourceURL=="getReadingList"){
-			 		generateHTMLForReadingList(newBook);
-			 	}
+		 	if(sourceURL.indexOf("getReadingList") > -1){
+		 		for(var i=0; i<bookObjs.length; i+=2){	
+					var parsedBooks = $.parseJSON(bookObjs[i].book);	
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors;
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 	generateHTMLForReadingList(newBook);
+				} 	
+			 
+			 }
+			else{
+				for(var i=0; i<bookObjs.length; i+=2){	
+					var parsedBooks = $.parseJSON(bookObjs[i]);	
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors;
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 	if(sourceURL==="getPopularBooks"){
+				 		generateHTMLForSetupPage(newBook);
+				 	}
+				 	else if(sourceURL==="getRandomBook"){
+				 		generateHTMLForDiscoveryPage(newBook);
+				 	}
+				 	
+				}
 			}
 		}	
 	});
@@ -51,11 +89,11 @@ function getBooks(sourceURL) {
 
 
 //TODO: implement and test
-function addBookToReadingList() {
+function addBookToReadingList(email, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/addBookToReadingList",
+		url: rootURL + "/addBookToReadingList?email=" + email + "&isbn=" + isbn,
 		dataType: " ",
 		success: function (data) {
 			
@@ -63,13 +101,12 @@ function addBookToReadingList() {
 	});
 }
 
-
 //TODO: implement and test
-function submitBookFeedback() {
+function submitBookFeedback(email, rating, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/submitBookFeedback",
+		url: rootURL + "/submitBookFeedback?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
 		dataType: " ",
 		success: function (data) {
 			
@@ -91,27 +128,6 @@ function overlay() {
 }
 
 
-function bookObjTest() {
-
-	$.ajax({
-		type: 'GET',
-		url: rootURL + "/getBookFromFirebase?isbn=9780001000391",
-		dataType: "json",
-		success: function (data) {
-			var parsedBooks = $.parseJSON(data);
-			var title= parsedBooks.items[0].volumeInfo.title;
-			var author =parsedBooks.items[0].volumeInfo.authors[0];
-			var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-			var description =parsedBooks.items[0].volumeInfo.description;
-			var cover = new Image();
-			cover.src = thumbnail;
-			var newBook= new Book(title, author, cover, description);
-		 	generateHTML(newBook);
-		
-		}	
-	});
-}
-
 function generateHTMLForSetupPage(Book){
 	var account_section = document.getElementById("book_covers_to_rate");
 	var bookItem = document.createElement("li");
@@ -120,10 +136,25 @@ function generateHTMLForSetupPage(Book){
 	var author = document.createElement("p");
 	author.innerHTML=Book.author;
 
+	//TODO: wire up submitBookFeedback method here
+	var likeButton= document.createElement("button");
+	likeButton.setAttribute("value", "1");
+	likeButton.setAttribute("class", "twobutton");
+	likeButton.innerHTML="<img src='img/like.png' alt='Like' />";
+	var dislikeButton= document.createElement("button");
+	dislikeButton.setAttribute("value", "-1");
+	dislikeButton.setAttribute("class", "twobutton");
+	dislikeButton.innerHTML="<img src='img/dislike.png' alt='Dislike' />";
+
+	var buttonDiv = document.createElement('div');
+
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);
 	bookItem.appendChild(Book.cover);
-
+	//bookItem.appendChild(document.createElement('br'));
+	buttonDiv.appendChild(dislikeButton);
+	buttonDiv.appendChild(likeButton);
+	bookItem.appendChild(buttonDiv);
 	account_section.appendChild(bookItem);
 
 }
@@ -137,5 +168,15 @@ function generateHTMLForDiscoveryPage(Book){
 }
 
 function generateHTMLForReadingList(Book){
+	console.log("ok");
+	$("#list_title").html(Book.title);
+	$("#list_author").html(Book.author);
+	$("#list_description").html(Book.description);
+	$("#list_cover").attr("src", Book.cover.src);
+	var listing=document.createElement("li");
+	listing.innerHTML=Book.title;
+	var sidebar_list=document.getElementById("list_books");
+	sidebar_list.appendChild(listing);
+
 
 }

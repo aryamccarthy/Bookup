@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include("html/head.html"); ?>
-  
+  <?php require_once("html/head.html"); ?>
+  <script type="text/javascript">checkForList();</script>
   <!-- Page-specific includes -->
-  <title>Bookup</title>
+  <title>Bookup | Reading List</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
 
-<section id="reading_list">
+  <section id="reading_list">
     <header>
       <h1>Reading List</h1>
     </header>
     <ol id="list_books">
-      <li> Book 1</li>
-      <li> Book 2</li>
+      
     </ol>
     <article id="list_book_info">
-      <h1 id="book_title"></h1>
-      <h1 id= "book_author"></h1>
-      <p id= "book_description"></p>
-      <img id= "book_cover" src=" ">
+      <h1 id="list_title"></h1>
+      <h1 id= "list_author"></h1>
+      <p id= "list_description"></p>
+      <img id= "list_cover" src=" ">
     </article>
 
     <button>Remove from list</button>

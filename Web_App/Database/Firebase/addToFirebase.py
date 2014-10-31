@@ -27,11 +27,11 @@ def addToFirebaseAndMysqlDatabase(isbnArray):
 
         googleRequest = requests.get(googleQuery);
 
-        #print googleRequest.content
+        print googleRequest.content
 
-        firebaseConn = firebase.FirebaseApplication(fbURL, None)
+        # firebaseConn = firebase.FirebaseApplication(fbURL, None)
 
-        firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
+        # firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
 
         # mysqlQuery = """INSERT INTO BookList VALUE (%s), (isbn)"""
 
@@ -39,7 +39,7 @@ def addToFirebaseAndMysqlDatabase(isbnArray):
 
         # db.commit()
 
-        print isbn;
+        # print isbn;
 
       except:
 
@@ -47,11 +47,11 @@ def addToFirebaseAndMysqlDatabase(isbnArray):
 
 if __name__ == "__main__":
 
-    isbnArray = readFile()
+    # isbnArray = readFile()
 
-    # print isbnArray
+    print isbnArray
 
-    # isbnArray = ['9780141182957']
+    isbnArray = ['9780006479901']
 
 
     addToFirebaseAndMysqlDatabase(isbnArray)
