@@ -2,10 +2,11 @@
 -- Summary: sql script to initialize BookUp database
 -- Owner: Zack Fout
 -- Version: 1.1
--- Last Modified: 10/23/2014
--- Last Modified By: Danny Rizzuto
+-- Last Modified: 10/31/2014
+-- Last Modified By: Luke Oglesbee
 -- Notes: 
--- 10/23/2014 Added Author to BookList to accomodate for duplicate titles
+    -- 10/23/2014 Added Author to BookList to accomodate for duplicate titles
+    -- 10/31/2014 Changed primary key of BookSeen and Rating to include isbn_num
 
 -- create database
 DROP DATABASE IF EXISTS BookUp;
@@ -43,7 +44,7 @@ CREATE TABLE IF NOT EXISTS Rating(
     rating      INT,
     timestamp   DATETIME,
     isbn_num    VARCHAR(15),
-    PRIMARY KEY(email),
+    PRIMARY KEY(email, isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
