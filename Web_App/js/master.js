@@ -49,11 +49,12 @@ function setEmail(){
 	userEmail=emailVal;
 }
 
-function Book( title, author, cover, description){
+function Book( title, author, cover, description, isbn){
 	this.title=title;
 	this.author=author;
 	this.description=description;
 	this.cover=cover;
+	this.isbn=isbn;
 }
 
 //use for api calls to getRandomBook, getPopularBooks, getReadingList
@@ -72,9 +73,14 @@ function getBooks(sourceURL) {
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
+						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type=="ISBN_13"){
+							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
+						}
+					}
 					var cover = new Image();
 					cover.src = thumbnail;
-					var newBook= new Book(title, author, cover,description);
+					var newBook= new Book(title, author, cover,description,isbn);
 				 	generateHTMLForReadingList(newBook);
 				} 	
 			 
@@ -88,9 +94,14 @@ function getBooks(sourceURL) {
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
+						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type=="ISBN_13"){
+							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
+						}
+					}
 					var cover = new Image();
 					cover.src = thumbnail;
-					var newBook= new Book(title, author, cover,description);
+					var newBook= new Book(title, author, cover,description,isbn);
 				 	generateHTMLForDiscoveryPage(newBook);
 				 	
 				}
@@ -105,9 +116,14 @@ function getBooks(sourceURL) {
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
+						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type=="ISBN_13"){
+							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
+						}
+					}
 					var cover = new Image();
 					cover.src = thumbnail;
-					var newBook= new Book(title, author, cover,description);
+					var newBook= new Book(title, author, cover,description, isbn);
 				 		generateHTMLForSetupPage(newBook);
 				 	
 				}
@@ -173,7 +189,12 @@ function generateHTMLForSetupPage(Book){
 	title.innerHTML=Book.title;
 	var author = document.createElement("p");
 	author.innerHTML=Book.author;
+	var isbn = document.createElement("p");
+	isbn.innerHTML=Book.isbn;
+	isbn.setAttribute("class", "isbn");
+	isbn.style.visibility="hidden";
 
+	//TODO: wire up submitBookFeedback method here
 	var likeButton= document.createElement("button");
 	likeButton.setAttribute("value", "1");
 	likeButton.setAttribute("class", "twobutton setupratingbutton");
@@ -187,12 +208,14 @@ function generateHTMLForSetupPage(Book){
 
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);
+	bookItem.appendChild(isbn);
+
 	bookItem.appendChild(Book.cover);
+	//bookItem.appendChild(document.createElement('br'));
 	buttonDiv.appendChild(dislikeButton);
 	buttonDiv.appendChild(likeButton);
 	bookItem.appendChild(buttonDiv);
 	account_section.appendChild(bookItem);
-
 }
 
 
@@ -204,7 +227,6 @@ function generateHTMLForDiscoveryPage(Book){
 }
 
 function generateHTMLForReadingList(Book){
-	console.log("ok");
 	$("#list_title").html(Book.title);
 	$("#list_author").html(Book.author);
 	$("#list_description").html(Book.description);
