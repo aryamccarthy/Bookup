@@ -193,7 +193,7 @@ function generateHTMLForSetupPage(Book){
 function generateHTMLForDiscoveryPage(Book){
 	$("#book_title").html(Book.title);
 	$("#book_author").html(Book.author);
-	$("#book_description").html(Book.description);
+	$("#book_description").html(Book.description || "");
 	$("#book_cover").attr("src", Book.cover.src);
 }
 

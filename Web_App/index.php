@@ -8,7 +8,7 @@ require_once("login/includes.php");
 
 $login = new Login();
 
-if ($login->isUserLoggedIn() == True) {
+if ($login->isUserLoggedIn()) {
 
   header('Location: discovery.php');
 

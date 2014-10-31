@@ -265,3 +265,12 @@ body > nav:after {
   width: 75%;
   float: right;
 }
+
+#discovery_info {
+  height: 400px;
+  overflow: auto;
+}
+
+#discovery_info img {
+  height: 200px;
+}
