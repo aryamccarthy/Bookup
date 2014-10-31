@@ -18,7 +18,7 @@ class FirebaseIsbnLookup {
 
     public function getBookJson($isbn) {
 
-        $fbURL = 'https://blistering-torch-3821.firebaseio.com/';
+        $fbURL = 'https://bookup-v2.firebaseio.com/';
 
         $isbn = (string)$isbn;
 
