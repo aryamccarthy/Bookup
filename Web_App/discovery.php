@@ -25,7 +25,7 @@
     </div>
   </section>
 
-  <diaglog id="rate_from_discovery">
+  <dialog id="rate_from_discovery">
     <form>
       <h2>Help us get to know you and your preferences! <br> How would you rate this book?</h2>
       <!-- TODO: the values of these buttons will probably be values 0,1 ?? -->

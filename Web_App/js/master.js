@@ -1,4 +1,7 @@
+// Add background
+
 $(document).ready( function() {
+	$.backstretch('img/background.jpg');
 	if(setupLoaded==true){
 		getBooks("getPopularBooks");
 	}

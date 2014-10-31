@@ -5,3 +5,7 @@ body > nav a {
 body > nav li {
   cursor: not-allowed;
 }
+
+body > nav li:last-child {
+  visibility: hidden;
+}

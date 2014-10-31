@@ -15,7 +15,7 @@
   <?php include_once("html/nav.html"); ?>
   <main>
     <h1 class="title">Bookup</h1>
-    <h3 class="subtitle">Try something new between the covers</h3>
+    <h3 class="subtitle">Try something new between the covers.</h3>
     <form action="index.php" method="post" id="login" name="loginform">
       <ul>
         <li>Sign up or log in</li>
