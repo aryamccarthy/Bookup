@@ -11,7 +11,8 @@
   <title>Bookup | Login</title>
 </head>
 <body>
-  <?php include("html/nav.html"); ?>
+  <!-- <?php include_once(""); ?> -->
+  <?php include_once("html/nav.html"); ?>
   <main>
     <h1 class="title">Bookup</h1>
 

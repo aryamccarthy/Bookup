@@ -11,7 +11,7 @@
  * DB_USER: user for your database. the user needs to have rights for SELECT, UPDATE, DELETE and INSERT.
  * DB_PASS: the password of the above user
  */
-define("DB_HOST", "127.0.0.1");
+define("DB_HOST", "54.69.55.132");
 define("DB_NAME", "BookUp");
-define("DB_USER", "root");
-define("DB_PASS", "root");
+define("DB_USER", "test");
+define("DB_PASS", "Candles");
