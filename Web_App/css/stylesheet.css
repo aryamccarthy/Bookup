@@ -25,8 +25,20 @@ nav li {
   margin: 0.5em 1em 0.5em 1em;
 }
 
+nav li:last-child {
+  float:right;
+}
+
 ul {
   padding: 0em;
+}
+
+a, a:visited, a:link {
+  color: #222;
+}
+
+a:hover, a:active {
+  color: #888;
 }
 
 #main {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include("html/head.html"); ?>
+  <?php require_once("html/head.html"); ?>
   <script type="text/javascript">checkForDiscovery();</script>
   <title>Bookup | Discovery</title>
 </head>

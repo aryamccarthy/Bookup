@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include("html/head.html"); ?>
-    <script type="text/javascript">checkForList();</script>
+  <?php require_once("html/head.html"); ?>
+  <script type="text/javascript">checkForList();</script>
   <!-- Page-specific includes -->
   <title>Bookup | Reading List</title>
 </head>
 <body>
   <?php include("html/nav.html"); ?>
 
-<section id="reading_list">
+  <section id="reading_list">
     <header>
       <h1>Reading List</h1>
     </header>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include("html/head.html"); ?>
+  <?php require_once("html/head.html"); ?>
   
   <!-- Page-specific includes -->
   <link rel="stylesheet" href="css/login.css">
