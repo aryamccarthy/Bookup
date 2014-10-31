@@ -10,10 +10,10 @@ $login = new Login();
 
 if ($login->isUserLoggedIn() == True) {
 
-  require_once('discovery.php');
+  header('Location: discovery.php');
 
 } else {
 
-  require_once('login.php');
+  header('Location: login.php');
 }
 ?>
