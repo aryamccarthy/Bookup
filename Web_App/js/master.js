@@ -112,6 +112,7 @@ function getBooks(sourceURL) {
 				 	
 				}
 				$('.setupratingbutton').click(greyOutElement);
+				$('.setupratingbutton').click(getUserDataAndSubmit);
 			}
 		}	
 	});
@@ -131,6 +132,13 @@ function addBookToReadingList(email, isbn) {
 	});
 }
 
+function getUserDataAndSubmit (event) {
+	var email = 'amccarthy@bookup.com'; // TODO: implement user data retieval.
+	var rating = $(event.target).attr('value');
+	var isbn = 9781594743344; // TODO: make ISBN invisible to retrieve
+	submitBookFeedback(email, rating, isbn);
+}
+
 //TODO: implement and test
 function submitBookFeedback(email, rating, isbn) {
 
@@ -139,17 +147,17 @@ function submitBookFeedback(email, rating, isbn) {
 		url: rootURL + "/submitBookFeedback?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
 		dataType: " ",
 		success: function (data) {
-			
+			sweetAlert(data);
 		}	
 	});
 }
 
-
-var previousBook = $( "#previous" );
+// DEPRECATING
+/*var previousBook = $( "#previous" );
 $( previousBook ).click(function() {
 	console.log("display previous book");
 	//TODO: implementation 
-});
+});*/
 
 
 function overlay() {
@@ -166,7 +174,6 @@ function generateHTMLForSetupPage(Book){
 	var author = document.createElement("p");
 	author.innerHTML=Book.author;
 
-	//TODO: wire up submitBookFeedback method here
 	var likeButton= document.createElement("button");
 	likeButton.setAttribute("value", "1");
 	likeButton.setAttribute("class", "twobutton setupratingbutton");
@@ -181,7 +188,6 @@ function generateHTMLForSetupPage(Book){
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);
 	bookItem.appendChild(Book.cover);
-	//bookItem.appendChild(document.createElement('br'));
 	buttonDiv.appendChild(dislikeButton);
 	buttonDiv.appendChild(likeButton);
 	bookItem.appendChild(buttonDiv);
