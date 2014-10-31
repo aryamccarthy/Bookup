@@ -1,14 +1,14 @@
-// Add background
-
 $(document).ready( function() {
+	// Add background
 	$.backstretch('img/background.jpg');
-	if(setupLoaded==true){
+
+	if(setupLoaded===true){
 		getBooks("getPopularBooks");
 	}
-	if(discoveryLoaded==true){
+	else if(discoveryLoaded===true){
 		getBooks("getRandomBook");
 	}
-	if(listLoaded==true){
+	else if(listLoaded===true){
 		getBooks("getReadingList?email=drizzuto@bookup.com");
 	}
 
@@ -44,7 +44,7 @@ function setEmail(){
 }
 
 function Book( title, author, cover, description){
-	this. title=title;
+	this.title=title;
 	this.author=author;
 	this.description=description;
 	this.cover=cover;
@@ -63,7 +63,7 @@ function getBooks(sourceURL) {
 		 		for(var i=0; i<bookObjs.length; i+=2){	
 					var parsedBooks = $.parseJSON(bookObjs[i].book);	
 					var title= parsedBooks.items[0].volumeInfo.title;
-					var author =parsedBooks.items[0].volumeInfo.authors;
+					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
 					var cover = new Image();
@@ -73,9 +73,11 @@ function getBooks(sourceURL) {
 				} 	
 			 
 			 }
-			else{
+			else if (sourceURL==="getRandomBook") {
 				for(var i=0; i<bookObjs.length; i+=2){	
-					var parsedBooks = $.parseJSON(bookObjs[i]);	
+					var parsedBooks = $.parseJSON(bookObjs[i]);
+					console.log(i);	
+					console.log(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
@@ -83,14 +85,26 @@ function getBooks(sourceURL) {
 					var cover = new Image();
 					cover.src = thumbnail;
 					var newBook= new Book(title, author, cover,description);
-				 	if(sourceURL==="getPopularBooks"){
-				 		generateHTMLForSetupPage(newBook);
-				 	}
-				 	else if(sourceURL==="getRandomBook"){
-				 		generateHTMLForDiscoveryPage(newBook);
-				 	}
+				 	generateHTMLForDiscoveryPage(newBook);
 				 	
 				}
+			}
+			else if (sourceURL==="getPopularBooks") {
+				for(var i=0; i<bookObjs.length; i+=1){	
+					var parsedBooks = $.parseJSON(bookObjs[i]);
+					console.log(i);	
+					if (i === 4) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
+					var title= parsedBooks.items[0].volumeInfo.title;
+					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
+					var description =parsedBooks.items[0].volumeInfo.description;
+					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					var cover = new Image();
+					cover.src = thumbnail;
+					var newBook= new Book(title, author, cover,description);
+				 		generateHTMLForSetupPage(newBook);
+				 	
+				}
+
 			}
 		}	
 	});
