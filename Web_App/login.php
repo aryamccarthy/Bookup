@@ -12,7 +12,7 @@
 </head>
 <body>
   <?php include("html/nav.html"); ?>
-  <section id="main">
+  <main>
     <h1 class="title">Bookup</h1>
 
     <form action="index.php" method="post" id="login" name="loginform">
@@ -36,6 +36,6 @@
       </ul>
 
     </form>
-  </section>
+  </main>
 </body>
 </html>
