@@ -1,10 +1,12 @@
 -- Title: BookUp_init.sql
 -- Summary: sql script to initialize BookUp database
 -- Owner: Zack Fout
--- Version: 1.0
--- Last Modified: 10/21/2014
--- Last Modified By: Zack Fout
+-- Version: 1.1
+-- Last Modified: 10/31/2014
+-- Last Modified By: Luke Oglesbee
 -- Notes: 
+    -- 10/23/2014 Added Author to BookList to accomodate for duplicate titles
+    -- 10/31/2014 Changed primary key of BookSeen and Rating to include isbn_num
 
 -- create database
 DROP DATABASE IF EXISTS BookUp;
@@ -14,25 +16,23 @@ USE BookUp;
 DROP TABLE IF EXISTS Account;
 
 CREATE TABLE IF NOT EXISTS Account(
-    account_id  INT NOT NULL UNIQUE,
-    email       VARCHAR(30) NOT NULL,
+    email       VARCHAR(30) NOT NULL UNIQUE,
     password    VARCHAR(30) NOT NULL,
     new_user    BOOLEAN,
-    PRIMARY KEY(account_id)
+    PRIMARY KEY(email)
 );
 
 DROP TABLE IF EXISTS BookList;
 
 CREATE TABLE IF NOT EXISTS BookList( 
-    isbn_num    BIGINT NOT NULL UNIQUE,
-    title       VARCHAR(45) NOT NULL,
+    isbn_num    VARCHAR(15) NOT NULL UNIQUE,
     PRIMARY KEY(isbn_num)
 );
 
-DROP TABLE IF EXISTS PopularBook;
+DROP TABLE IF EXISTS PopularBookList;
 
-CREATE TABLE IF NOT EXISTS PopularBook(
-    isbn_num    BIGINT NOT NULL UNIQUE,
+CREATE TABLE IF NOT EXISTS PopularBookList(
+    isbn_num    VARCHAR(15) NOT NULL UNIQUE,
     PRIMARY KEY(isbn_num),
     FOREIGN KEY(isbn_num) REFERENCES  BookList(isbn_num)
 );
@@ -40,42 +40,42 @@ CREATE TABLE IF NOT EXISTS PopularBook(
 DROP TABLE IF EXISTS Rating;
 
 CREATE TABLE IF NOT EXISTS Rating(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30),
     rating      INT,
     timestamp   DATETIME,
-    isbn_num    BIGINT NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    isbn_num    VARCHAR(15),
+    PRIMARY KEY(email, isbn_num),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
 DROP TABLE IF EXISTS ReadingList;
 
 CREATE TABLE IF NOT EXISTS ReadingList(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30),
     timestamp   DATETIME,
-    isbn_num    BIGINT NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    isbn_num    VARCHAR(15),
+    PRIMARY KEY(email, isbn_num),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
 DROP TABLE IF EXISTS BookSeen;
 
 CREATE TABLE IF NOT EXISTS BookSeen(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30),
     rating      INT,
     timestamp   DATETIME,
-    isbn_num    BIGINT NOT NULL UNIQUE,
-    PRIMARY KEY(account_id),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id),
+    isbn_num    VARCHAR(15),
+    PRIMARY KEY(email,isbn_num),
+    FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
 DROP TABLE IF EXISTS BookHash;
 
 CREATE TABLE IF NOT EXISTS BookHash(
-    isbn_num    BIGINT NOT NULL UNIQUE,
+    isbn_num    VARCHAR(15),
     hash_val    INT,
     PRIMARY KEY(hash_val),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
@@ -84,8 +84,8 @@ CREATE TABLE IF NOT EXISTS BookHash(
 DROP TABLE IF EXISTS AccountHash;
 
 CREATE TABLE IF NOT EXISTS AccountHash(
-    account_id  INT NOT NULL UNIQUE,
+    email  VARCHAR(30),
     hash_val    INT,
     PRIMARY KEY(hash_val),
-    FOREIGN KEY(account_id) REFERENCES Account(account_id)
+    FOREIGN KEY(email) REFERENCES Account(email)
 ); 

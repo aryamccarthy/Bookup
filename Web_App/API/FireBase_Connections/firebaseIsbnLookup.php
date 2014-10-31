@@ -26,9 +26,16 @@ class FirebaseIsbnLookup {
 
         $result = $fbConnection->val();
 
-        echo json_encode($result);
+        reset($result);
+
+        $firstKey = key($result);
+
+        //echo $firstKey;
+
+        return $result[$firstKey];
 
     }
+
 
 }
 
@@ -36,10 +43,10 @@ class FirebaseIsbnLookup {
 
 // $testObj = new FirebaseIsbnLookup();
 
-// $isbn = '9780547249643';
+// $isbn = '9780001000391';
 
-// $testObj->getBookJson($isbn);
+// $testResult = $testObj->getBookJson($isbn);
 
-
+// var_dump($testResult);
 
 ?>
