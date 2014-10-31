@@ -15,8 +15,6 @@
   <section id="main">
     <h1 class="title">Bookup</h1>
 
-    <?php include("login/err.php"); ?>
-
     <form action="index.php" method="post" id="login" name="loginform">
       <ul>
         <li>Login/Sign Up</li>
