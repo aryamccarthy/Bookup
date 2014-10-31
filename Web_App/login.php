@@ -30,13 +30,12 @@
         </li>
 
         <li>
-          <button id="register" class="twobutton">Sign Up</button>
           <input id="login_button" type="submit" name="login" class="twobutton" value="Login"/>
+          <button id="register" class="twobutton">Sign Up</button>
         </li>
       </ul>
 
     </form>
-    <button id="testlogin">Test Login</button>
   </section>
 </body>
 </html>
