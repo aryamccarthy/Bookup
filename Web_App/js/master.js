@@ -1,6 +1,6 @@
 $(document).ready( function() {
 	// Add background
-	$.backstretch('img/background.jpg');
+	$.backstretch('img/background3.jpg');
 
 	if(setupLoaded===true){
 		getBooks("getPopularBooks");

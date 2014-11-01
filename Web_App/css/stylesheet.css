@@ -45,9 +45,10 @@ a:hover, a:active {
   color: #888;
 }
 
-main {
+/*main {
   margin: 1em;
 }
+*/
 
 .title {
   font-size: 4em;
@@ -71,7 +72,7 @@ main {
 }
 
 * {
-  font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
+  font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -154,7 +155,7 @@ ol#book_covers_to_rate button {
 
 #reading_list li:hover:after {
   position: absolute;
-  margin-left: 1em;
+  /*margin-left: 1em;*/
   content: "✕";
   color: red;
 }
@@ -402,20 +403,19 @@ body > nav:after {
 
 #reading_list {
   text-align: center;
-
-  width: 25%;
+  width: 24.8%;
   float: left;
   border-right: 2px solid #d0d0d0;
   /*border-radius: 1px;
   box-shadow: inset 1px 0 1px rgba(0,0,0,0.05);*/
-  min-height: 400px;
+  min-height: 600px;
   margin-bottom: 2em;
 }
 
 #this_book {
-  width: 74.5%;
+  width: 75%;
   float: right;
-  min-height: 400px;
+  min-height: 600px;
   margin-bottom: 2em;
 }
 
@@ -435,6 +435,8 @@ body > nav:after {
 
 #list_books {
   padding-left: 0;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .setupratingbutton {
@@ -443,3 +445,62 @@ body > nav:after {
   margin-top: 10px;
   height: 30px;
 }
+
+#reading_list h1 {
+  font-family: 'Lobster', cursive;
+}
+
+#discovery_section {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 10px 40px 20px 40px;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+
+}
+
+nav {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 10px 40px 20px 40px;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+#account_setup {
+  width: 1020px;
+  margin: 0 auto;
+  padding: 10px 40px 20px 40px;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+div#list_body #reading_list {
+  margin: 0 auto;
+  height: 100%;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+div#list_body #this_book {
+  margin: 0 auto;
+  height: 100%;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+#login_body{
+  width: 1020px;
+  margin: 0 auto;
+  padding: 10px 40px 20px 40px;
+  background: #FFF;
+  background: rgba(255, 255, 255, 0.95);
+  min-height: 800px;
+}
+
+#list_description {
+  width: 80%;
+}
+
+
+

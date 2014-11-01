@@ -9,6 +9,7 @@
 <body>
   <?php include("html/nav.html"); ?>
   <main>
+    <div id="list_body">
     <section id="reading_list">
       <header>
         <h1>Reading List</h1>
@@ -17,6 +18,7 @@
 
       </ol>
     </section>
+
     <section id="this_book">
       <article id="list_book_info">
         <div>
@@ -29,6 +31,7 @@
 
       <button>Remove from list</button>
     </section>
+</div>
   </main>
   <dialog id="delete_and_rate_from_list">
     <h1>Did you read this book?</h1>
