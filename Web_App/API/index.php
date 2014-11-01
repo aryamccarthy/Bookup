@@ -36,7 +36,7 @@ $app->get('/hello', function() {
 	echo "Hello. I don't know your name.";
 });
 
-/*
+/**
 *	Get Popular Book
 *
 *	Owner: Nicole
@@ -64,6 +64,64 @@ $app->get('/getPopularBooks', function() {
 	} else {
 		$result['success'] = false;
 		$result['error'] =$statement->errorInfo();
+	}
+
+	echo json_encode($result);
+});
+
+
+/**
+* Check if email already present.
+* @author Arya McCarthy
+* Finished - Arya McCarthy
+*/
+
+$app->get('/userExists', function() {
+	global $pdo;
+
+	$args [":email"] = $_GET['email'];
+
+	$statement = $pdo->prepare(
+		"SELECT COUNT(email) AS count FROM Account
+			WHERE email = :email ");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+		$row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC);
+		$result['exists'] = $row['count'] != 0;
+		$result['error'] = $result['exists'] ? 'The username is taken' : '';
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+/**
+* Add user to database.
+* @author Arya McCarthy
+* Finished - Arya McCarthy
+*/
+
+$app->post('/addUser', function() {
+	global $pdo;
+
+	$args [":email"] = $_POST['email'];
+	$args [":password"] = $_POST['password'];
+
+	$statement = $pdo->prepare(
+		"INSERT INTO Account (email, password)
+		VALUES (:email, :password) ");
+
+	if ($statement->execute($args)) {
+		$result['success'] = true;
+	}
+	else {
+		$result['success'] = false;
+		$result['error'] = $statement->errorInfo();
 	}
 
 	echo json_encode($result);
