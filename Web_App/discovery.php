@@ -25,14 +25,14 @@
     </div>
   </section>
 
-  <dialog id="rate_from_discovery">
+  <section id="rate_from_discovery">
     <form>
       <h2>Help us get to know you and your preferences! <br> How would you rate this book?</h2>
       <!-- TODO: the values of these buttons will probably be values 0,1 ?? -->
-      <button onclick="submitBookFeedback()" value="Like"> Like </button>
-      <button onclick="submitBookFeedback()" value="Dislike"> Dislike </button>
+      <button onclick="submitBookFeedback()" value="1"> Like </button>
+      <button onclick="submitBookFeedback()" value="-1"> Dislike </button>
     </form>
-  </dialog>
+  </section>
 
 </body>
 </html>

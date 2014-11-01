@@ -41,7 +41,7 @@ a:hover, a:active {
   color: #888;
 }
 
-main {
+#main {
   margin: 1em;
 }
 
@@ -75,13 +75,15 @@ a {
 }
 
 #rate_from_discovery {
+  width:40%;
+  margin-right: auto;
+  margin-left: auto;
   visibility: hidden;
-  position: absolute;
   text-align:center;
 
 }
 
-dialog form {
+section form {
   border:1px solid #000;
   padding:15px;
   text-align:center;
@@ -138,20 +140,12 @@ ol#book_covers_to_rate button img {
   margin: auto;
   height: 20px;
 }
-#account_setup input[type=submit]
+input[type=submit]
 {
     /* your styles here, You can just increase its font size below*/
     font-size: 30px; 
     font-weight: bold;
     background-color: #ffedca;
-}
-
-#account_setup li div {
-  visibility: hidden;
-}
-
-#account_setup li:hover div {
-  visibility: visible;
 }
 
 #discovery_section {
@@ -172,7 +166,7 @@ ol#book_covers_to_rate button img {
 
 #discovery_section fieldset {
   /*border-radius: 0.3em;*/
-  margin: 2em auto 2em;
+  margin: 2em auto 0;
   text-align: center;
 }
 
@@ -212,22 +206,6 @@ h6 {
     margin: 2.33em 0;
 }
 
-body > nav li:first-child a {
-  font-family: 'Lobster', 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
-}
-
-.subtitle {
-  text-align: center;
-}
-
-input[type='text'], input[type='password'], input[type='email'] {
-  background-color: rgba(255,255,255,0.3);
-}
-
-input[type='submit'], button {
-  background-color: rgba(255,255,255,0.7);
-}
-
 body > nav li:first-child a:before {
   position: relative;
   display: inline-block;
@@ -236,41 +214,6 @@ body > nav li:first-child a:before {
   height: 30px;
   margin-right: 5px;
   content: "";
-  background: url("../favicon-96x96.png");
+  background: url("../apple-touch-icon-72x72.png");
   background-size: 100%;
-}
-
-#book_description {
-  text-align: center;
-}
-
-body > nav:after {
-    content:' ';
-    display:block;
-    border:2px solid #d0d0d0;
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    -moz-border-radius:4px;
-    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
-}
-
-#reading_list {
-  width: 25%;
-  float: left;
-}
-
-#this_book {
-  width: 75%;
-  float: right;
-}
-
-#discovery_info {
-  height: 400px;
-  overflow: auto;
-}
-
-#discovery_info img {
-  height: 200px;
 }
