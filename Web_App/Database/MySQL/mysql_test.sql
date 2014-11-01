@@ -18,6 +18,7 @@ INSERT INTO Account VALUES
     ("ngatmaitin@bookup.com", "Candles", true),
     ("ebusbee@bookup.com", "Candles", true);
 
+<<<<<<< HEAD
 INSERT INTO BookList VALUES
 	("9780439023481"),
 	("9780439358071"),
@@ -147,3 +148,5 @@ INSERT INTO ReadingList VALUES
 	("amccarthy@bookup.com", NOW(), "9780385732550"),
 	("amccarthy@bookup.com", NOW(), "9780679879244");
 
+=======
+>>>>>>> Drizzuto

@@ -1,6 +1,17 @@
+# Title: addToFirebase.py
+# Summary: python script for querying google books api
+# Owner: Danny Rizzuto
+# Version: 1.1
+# Last Modified: 10/27/2014
+# Last Modified By: Zack Fout
+# Notes: added functionality to query google books api by title
+
 from firebase import firebase
 import requests
 import MySQLdb
+
+fbURL = 'https://blistering-torch-3821.firebaseio.com/'
+booksURL = 'https://www.googleapis.com/books/v1/volumes'
 
 def readFile():
 
@@ -10,6 +21,18 @@ def readFile():
       isbnArray = file.read().splitlines()
 
     return isbnArray
+
+def parseQuery(query): # replaces whitespaces with html encoding
+    if " " in query:
+        separator = "%20"
+        queryArr = query.split(' ')
+        return separator.join(queryArr)
+    else:
+        return query
+
+def addByIsbn(isbnArray): # queries by isbn number and inserts into firebase
+    for isbn in isbnArray:
+        googleQuery = googleURL + str(isbn)
 
 def addToFirebaseAndMysqlDatabase(isbnArray):
 
@@ -26,12 +49,16 @@ def addToFirebaseAndMysqlDatabase(isbnArray):
         googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
         googleRequest = requests.get(googleQuery);
+        firebaseConn = firebase.FirebaseApplication(fbURL, None)
+        firebaseConn.post(str(isbn), googleRequest.content)
 
-        print googleRequest.content
-
-        # firebaseConn = firebase.FirebaseApplication(fbURL, None)
-
-        # firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
+def addByTitle(title): # queries by title and inserts into firebase
+   normalizedQuery = parseQuery(title)
+   queryTerm = "?q=" + normalizedQuery
+   googleQuery = booksURL + queryTerm
+   googleRequest = requests.get(googleQuery)
+   fbConnection = firebase.FirebaseApplication(fbURL, None)
+   fbConnection.post(str(title), googleRequest.content)
 
         # mysqlQuery = """INSERT INTO BookList VALUE (%s), (isbn)"""
 
@@ -39,25 +66,21 @@ def addToFirebaseAndMysqlDatabase(isbnArray):
 
         # db.commit()
 
-        # print isbn;
+        print isbn;
 
       except:
 
         print isbn + " not added"
 
 if __name__ == "__main__":
+<<<<<<< HEAD
+    #addByTitle("Fahrenheit 451")
+    isbnArray = readFile()
 
-    # isbnArray = readFile()
+    # print isbnArray
 
-    print isbnArray
-
-    isbnArray = ['9780006479901']
+    # isbnArray = ['9780141182957']
 
 
     addToFirebaseAndMysqlDatabase(isbnArray)
-
-
-
-
-
 
