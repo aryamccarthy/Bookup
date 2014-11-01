@@ -19,9 +19,11 @@
     </section>
     <section id="this_book">
       <article id="list_book_info">
-        <h1 id="list_title"></h1>
-        <h1 id= "list_author"></h1>
-        <p id= "list_description"></p>
+        <div>
+          <h1 id="list_title"></h1>
+          <h2 id= "list_author"></h2>
+          <p id= "list_description"></p>
+        </div>
         <img id= "list_cover" src=" ">
       </article>
 

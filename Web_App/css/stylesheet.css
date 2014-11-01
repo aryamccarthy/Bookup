@@ -143,6 +143,39 @@ ol#book_covers_to_rate button {
   height: 30px;
 }*/
 
+#reading_list ol {
+  list-style: none;
+  overflow: auto;
+}
+
+#reading_list li {
+  cursor: pointer;
+}
+
+#reading_list li:hover:after {
+  position: absolute;
+  margin-left: 1em;
+  content: "✕";
+  color: red;
+}
+
+#reading_list li:before {
+    content:' ';
+    display:block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid #d0d0d0;
+    border-radius:4px;
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+#reading_list li:first-child:before {
+  border: none;
+}
+
 ol#book_covers_to_rate button img {
   margin: auto;
   height: 30px;
@@ -157,7 +190,7 @@ ol#book_covers_to_rate button:last-child img {
     /* your styles here, You can just increase its font size below*/
     font-size: 1.5em; 
     /*font-weight: bold;*/
-    background-color: rgb(174,222,244);
+    background-color: rgb(128,232,148);
     box-shadow: none;
     border: none;
     border-radius: 5px;
@@ -231,6 +264,44 @@ h1 {
 
 #book_title {
   margin-bottom: 0;
+}
+
+#list_book_info {
+  padding-left: 2em;
+}
+
+#list_book_info img {
+  /*float: left;*/
+  margin-top: 2em;
+  width: 20%;
+  vertical-align: center;
+}
+
+#list_book_info h1 {
+  margin-bottom: 0;
+}
+
+#list_book_info h2 {
+  margin-top: 0.25em;
+  margin-bottom: 0;
+}
+
+#list_book_info p {
+  margin-top: 0.5em;
+}
+
+#list_book_info > div {
+  float: right;
+  width: 75%;
+  height: 400px;
+  overflow: auto;
+}
+
+#this_book > button {
+  display: block;
+  width: 240px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #book_author {
@@ -335,8 +406,8 @@ body > nav:after {
   width: 25%;
   float: left;
   border-right: 2px solid #d0d0d0;
-  border-radius: 4px;
-  box-shadow: inset 1px 0 1px rgba(0,0,0,0.05);
+  /*border-radius: 1px;
+  box-shadow: inset 1px 0 1px rgba(0,0,0,0.05);*/
   min-height: 400px;
   margin-bottom: 2em;
 }
@@ -348,7 +419,7 @@ body > nav:after {
   margin-bottom: 2em;
 }
 
-#this_book h2 {
+#this_book > h2 {
   margin-top: 170px;
   margin-bottom: 170px;
 }
