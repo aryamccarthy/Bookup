@@ -1,6 +1,6 @@
 $(document).ready( function() {
 	// Add background
-	$.backstretch('img/background3.jpg');
+	$.backstretch('img/background2.jpg');
 
 	if(setupLoaded===true){
 		getBooks("getPopularBooks");
@@ -178,8 +178,8 @@ $( previousBook ).click(function() {
 });*/
 
 
-function overlay() {
-  var el = document.getElementById("rate_from_discovery");
+function overlay(id) {
+  var el = document.getElementById(id);
   el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
 }
 
