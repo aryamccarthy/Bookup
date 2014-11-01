@@ -220,6 +220,32 @@ $app->post('/submitBookFeedback', function() {
 
 });
 
+/*
+*	Remove ratings of a particular user
+*	Luke Oglesbee
+*	Finished
+*/
+$app->post('/resetRatingsOfUser', function() {
+	global $pdo;
+
+	$args[":email"] = $_POST["email"];
+
+	$statement = $pdo->prepare(
+		"DELETE FROM Rating
+		WHERE email=:email;"
+		);
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
 //
