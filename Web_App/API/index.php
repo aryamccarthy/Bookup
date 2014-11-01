@@ -6,9 +6,9 @@
 include 'Firebase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
-$host = '54.69.55.132';
-$user = 'test';
-$pass = 'Candles';
+$host = 'localhost';
+$user = 'root';
+$pass = '3.00x10^8m/s';
 
 // Get DB connection
 $app = new \Slim\Slim();
@@ -40,33 +40,30 @@ $app->get('/hello', function() {
 *	Get Popular Book
 *
 *	Owner: Nicole
-*	Finished - Drizzuto
+*	Finished - Zack Fout
 */
 $app->get('/getPopularBooks', function() {
 	global $pdo;
+        $books = array();
+        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
 
-	$firebaseObject = new FirebaseIsbnLookup();
+	$statement = $pdo->prepare("SELECT * FROM PopularBookList");
 
-	$statement = $pdo->prepare(
-		"SELECT * FROM PopularBookList;");
+	if ($statement->execute()) {
+            while($row = $statement->fetch()) {
+                $pyExecCmd= $pyExecBase . $row['isbn_num'];
+                $fbLookup = exec($pyExecCmd);
+                array_push($books, $fbLookup);
+	    }
 
-	if ($statement->execute()){
-		$books = array();
-
-		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)){
-			//echo $row["isbn_num"];
-			//echo "</br>";
-			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
-			array_push($books, $bookObject);
-		}
-
-		$result['Books'] = $books;
-	} else {
-		$result['success'] = false;
-		$result['error'] =$statement->errorInfo();
+            $result['Books'] = $books;
+            $result['success'] = true;
+            echo json_encode($result);
+        } else {
+              $result['success'] = false;
+	      $result['error'] =$statement->errorInfo();
+              echo json_encode($result);
 	}
-
-	echo json_encode($result);
 });
 
 
