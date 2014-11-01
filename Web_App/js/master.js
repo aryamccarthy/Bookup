@@ -93,8 +93,6 @@ function getBooks(sourceURL) {
 			else if (sourceURL==="getRandomBook") {
 				for(var i=0; i<bookObjs.length; i+=2){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					console.log(i);	
-					console.log(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
@@ -114,10 +112,6 @@ function getBooks(sourceURL) {
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					console.log(parsedBooks);
-					console.log(i);
-					//if (i === 2) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
-					console.log(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
@@ -167,10 +161,11 @@ function submitBookFeedback(email, rating, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/submitBookFeedback?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
-		dataType: " ",
+		url: rootURL + "/submitBookFeedback",//?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
+		dataType: "json",
+		data: {email: email, rating: rating, isbn: isbn},
 		success: function (data) {
-			sweetAlert(data);
+			sweetAlert("Response", JSON.stringify(data), "info");
 		}	
 	});
 }

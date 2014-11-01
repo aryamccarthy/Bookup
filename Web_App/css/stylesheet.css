@@ -98,11 +98,15 @@ padding: 0;
 list-style-type: none;
 }
 
+ol#book_covers_to_rate p {
+  margin: 0.4em auto;
+}
+
 ol#book_covers_to_rate li { 
   display: inline-block;
   width: 23%;
   min-height: 340px;
-  margin: 0 1% 30px;
+  margin: 0 1% 20px;
   line-height: 1.2;
   border-radius: 1em;
   /*background: #808080;*/
@@ -141,20 +145,32 @@ ol#book_covers_to_rate button {
 
 ol#book_covers_to_rate button img {
   margin: auto;
-  height: 20px;
+  height: 30px;
 }
-#account_setup input[type=submit]
+
+ol#book_covers_to_rate button:last-child img {
+  position: relative;
+  top: 5px;
+}
+#account_setup input[type=submit], #discovery_section button, #this_book button
 {
     /* your styles here, You can just increase its font size below*/
     font-size: 1.5em; 
     /*font-weight: bold;*/
-    background-color: #2e6e61;
-    padding: 0.25em 0.5em;
+    background-color: rgb(174,222,244);
+    box-shadow: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 32px;
     color:white;
 }
 
 input[type=submit], button
 {
+    background-color: rgb(174,222,244);
+    box-shadow: none;
+    border: none;
+
   border: 1px solid black;
   border-radius: 0.3em;
 }
@@ -190,8 +206,7 @@ input[type=submit], button
 }
 
 #discovery_section button {
-  font-size: 1.5em;
-  width: 160px;
+  width: 200px;
 }
 
 #discovery_section button + button {
@@ -342,7 +357,6 @@ body > nav:after {
   float: right;
   min-height: 400px;
   margin-bottom: 2em;
-
 }
 
 #this_book h2 {
@@ -361,4 +375,11 @@ body > nav:after {
 
 #list_books {
   padding-left: 0;
+}
+
+.setupratingbutton {
+  background: rgba(0,0,0,0);
+  border: none;
+  margin-top: 10px;
+  height: 30px;
 }
