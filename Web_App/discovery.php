@@ -7,7 +7,7 @@
 </head>
 <body>
   <?php include("html/nav.html"); ?>
-
+ <div id="#content">
   <section id="discovery_section">
     <article id= "discovery_info">
       <h1 id="book_title">  </h1>
@@ -33,6 +33,7 @@
       <button onclick="submitBookFeedback()" value="-1"> Dislike </button>
     </form>
   </section>
+  </div>
 
 </body>
 </html>

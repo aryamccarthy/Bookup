@@ -1,6 +1,6 @@
 $(document).ready( function() {
 	// Add background
-	$.backstretch('img/background.jpg');
+	$.backstretch('img/background3.jpg');
 
 	if(setupLoaded===true){
 		getBooks("getPopularBooks");
@@ -229,7 +229,7 @@ function generateHTMLForDiscoveryPage(Book){
 function generateHTMLForReadingList(Book){
 	$("#list_title").html(Book.title);
 	$("#list_author").html(Book.author);
-	$("#list_description").html(Book.description);
+	$("#list_description").html(Book.description || "");
 	$("#list_cover").attr("src", Book.cover.src);
 	var listing=document.createElement("li");
 	listing.innerHTML=Book.title;

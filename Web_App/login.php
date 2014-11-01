@@ -17,6 +17,7 @@
   if($login->isUserLoggedIn())
     header('Location: discovery.php');
   ?>
+  <div id="login_body">
   <main>
     <h1 class="title">Bookup</h1>
     <h3 class="subtitle">Try something new between the covers.</h3>
@@ -42,5 +43,6 @@
 
     </form>
   </main>
+</div>
 </body>
 </html>
