@@ -12,6 +12,10 @@ html {
     line-height: 1.4;
 }
 
+button, input[type='submit'] {
+  cursor: pointer;
+}
+
 body {
   width: 1100px;
   margin: 0em auto;
@@ -142,9 +146,17 @@ ol#book_covers_to_rate button img {
 #account_setup input[type=submit]
 {
     /* your styles here, You can just increase its font size below*/
-    font-size: 30px; 
-    font-weight: bold;
-    background-color: #ffedca;
+    font-size: 1.5em; 
+    /*font-weight: bold;*/
+    background-color: #2e6e61;
+    padding: 0.25em 0.5em;
+    color:white;
+}
+
+input[type=submit], button
+{
+  border: 1px solid black;
+  border-radius: 0.3em;
 }
 
 #account_setup li div {
@@ -172,20 +184,43 @@ ol#book_covers_to_rate button img {
 }
 
 #discovery_section fieldset {
-  /*border-radius: 0.3em;*/
-  margin: 2em auto 2em;
+  border: none;
+  margin: 1em auto 2em;
   text-align: center;
 }
 
-#discovery_section fieldset button {
+#discovery_section button {
+  font-size: 1.5em;
+  width: 160px;
+}
+
+#discovery_section button + button {
+  margin-left: 2em;
+}
+
+#discovery_section button:last-child:after {
+  content: " ▶";
+  font-size: 0.8em;
+}
+
+/*#discovery_section fieldset button {
   font-size: 2em;
   background: #E4db48;
   border-radius: 0.3em;
-}
+}*/
 
 h1 {
     font-size: 2em;
     margin: 0.67em 0;
+}
+
+#book_title {
+  margin-bottom: 0;
+}
+
+#book_author {
+  margin-top: 0;
+  margin-bottom: 1.5em;
 }
 
 h2 {
@@ -237,11 +272,26 @@ body > nav li:first-child a:before {
   height: 30px;
   margin-right: 5px;
   content: "";
+  background: url("../favicon-32x32.png");
+  background-size: 100%;
+}
+
+.title:before {
+  position: relative;
+  display: inline-block;
+  top: 7px;
+  right: 8px;
+  width: 72px;
+  height: 72px;
+  content: "";
   background: url("../favicon-96x96.png");
   background-size: 100%;
 }
 
 #book_description {
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 
@@ -257,14 +307,47 @@ body > nav:after {
     -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-#reading_list {
-  width: 25%;
-  float: left;
+#reading_list h1:after {
+    content:' ';
+    display:block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border:1px solid #d0d0d0;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+
 }
 
+#reading_list {
+  text-align: center;
+
+  width: 25%;
+  float: left;
+  border-right: 2px solid #d0d0d0;
+  border-radius: 4px;
+  -webkit-border-radius:4px;
+  box-shadow: inset 1px 0 1px rgba(0,0,0,0.05);
+  -webkit-box-shadow: inset 1px 0 1px rgba(0,0,0,0.05);
+  min-height: 400px;
+  margin-bottom: 2em;
+};
+
 #this_book {
-  width: 75%;
+  width: 74.5%;
   float: right;
+  min-height: 400px;
+  margin-bottom: 2em;
+
+}
+
+#this_book h2 {
+  margin-top: 170px;
+  margin-bottom: 170px;
 }
 
 #discovery_info {
@@ -274,4 +357,8 @@ body > nav:after {
 
 #discovery_info img {
   height: 200px;
+}
+
+#list_books {
+  padding-left: 0;
 }

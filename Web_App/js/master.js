@@ -66,6 +66,12 @@ function getBooks(sourceURL) {
 		success: function (data) {
 			var bookObjs = data.Books; 
 		 	if(sourceURL.indexOf("getReadingList") > -1){
+		 		if (bookObjs.length === 0) {
+		 			$('#this_book button').remove();
+		 			$('#this_book article').css('text-align', 'center').append($('<h2>'));
+		 			$('#this_book h2').css('font-weight', 'normal').text("You have nothing in your reading list.");
+		 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
+		 		}
 		 		for(var i=0; i<bookObjs.length; i+=2){	
 					var parsedBooks = $.parseJSON(bookObjs[i].book);	
 					var title= parsedBooks.items[0].volumeInfo.title;
@@ -108,7 +114,10 @@ function getBooks(sourceURL) {
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					if (i === 4) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
+					console.log(parsedBooks);
+					console.log(i);
+					//if (i === 2) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
+					console.log(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;

@@ -18,7 +18,7 @@
     <h3 class="subtitle">Try something new between the covers.</h3>
     <form action="index.php" method="post" id="login" name="loginform">
       <ul>
-        <li>Sign up or log in</li>
+        <li>Enter Bookup</li>
         <li><hr></li>
         <li>
           <label for="email">Email</label>

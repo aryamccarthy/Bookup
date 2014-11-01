@@ -1,5 +1,5 @@
 #login {
-  width: 400px;
+  width: 216px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -16,6 +16,7 @@ form#login {
   border-radius: 5px;
   padding-left: 0.5em;
   padding-right: 0.5em;
+  background-color: rgba(255,255,255,0.7);
 }
 
 form#login li {
@@ -24,14 +25,28 @@ form#login li {
   margin-bottom: 0.5em;
 }
 
-form#login input {
+/*form#login input {
+  float: right;
+}*/
+
+#login li:first-child {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+form#login input[type='password'], form#login input[type='email'] {
+  width: 128px;
   float: right;
 }
 
-#login_button {
+#login li:last-child {
+  text-align: center;
+}
+
+/*#login_button {
   float: right;
 }
 
 #register {
   float: all;
-}
+}*/
