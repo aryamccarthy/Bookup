@@ -4,24 +4,6 @@ function debug($msg) {
     // echo '<div>Debug: ' . $msg . '</div><br>';
 }
 
-// function timeout() {
-//     const $inactive = 7200; //2-hour timeout
-
-//     if(!isset($_SESSION['countdown'])) {
-//         $_SESSION['countdown'] = $inactive;
-//     }
-//     if(!isset($_SESSION['now'])) {
-//         $_SESSION['now'] = time();
-//     }
-//     if(!isset($_SESSION['delta'])) {
-//         $_SESSION['delta'] = 0;
-//     }
-
-//     $delta = time() - $_SESSION['now'];
-//     $_SESSION['countdown'] -= $delta;
-//     $_SESSION['now'] = time();
-// }
-
 /**
  * Class login
  * handles the user's login and logout process
@@ -41,6 +23,19 @@ class Login
      */
     public $messages = array();
 
+    private function checkTimeout()
+    {
+        $maxtime = 7200; //in seconds (7200 = 2-hour timeout)
+
+        if(!isset($_SESSION['timeout']))
+            $_SESSION['timeout'] = time();
+
+        if($_SESSION['timeout'] + $maxtime < time())
+            $this->doLogout();
+
+        $_SESSION['timeout'] = time();
+    }
+
     /**
      * the function "__construct()" automatically starts whenever an object of this class is created,
      * you know, when you do "$login = new Login();"
@@ -50,6 +45,8 @@ class Login
         debug("Login constructor.");
         // create/read session, absolutely necessary
         session_start();
+
+        $this->checkTimeout();
 
         // check the possible login actions:
         // if user tried to log out (happen when user clicks logout button)
@@ -118,7 +115,7 @@ class Login
                     // using PHP 5.5's password_verify() function to check if the provided password fits
                     // the hash of that user's password
                     // if (password_verify($_POST['user_password'], $result_row->user_password_hash)) {
-                    
+
                     // but this is an insecure hack to see if it works at all
                     if ($password == $result_row->password) {
                         debug("Login successful.");
