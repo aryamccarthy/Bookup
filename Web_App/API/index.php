@@ -159,6 +159,7 @@ $app->post('/addUser', function() {
 *	Get a random Book Object
 *	Drizzuto
 *	Finished - Drizzuto
+*       Last tested by - Zack Fout on 11/02/14 at 2pm
 */
 
 $app->get('/getRandomBook', function() {
