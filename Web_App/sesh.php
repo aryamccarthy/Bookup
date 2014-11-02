@@ -12,4 +12,6 @@ if(!($login->isUserLoggedIn()))                 //if user is not logged in
   if($_SERVER['REQUEST_URI'] !== '/login.php')  //and isn't going to login.php
     header('Location: login.php');              //then send them to login.php
 
+echo '<span id="userinfo" style="display:none" data-email="'. $_SESSION["email"] . '"></span>';
+
 ?>
