@@ -89,12 +89,18 @@ $app->get('/getRandomBook', function() {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-			//echo $row["isbn_num"];
-			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
-			array_push($books, $bookObject);
+			try {
+				//echo $row["isbn_num"];
+				$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+				array_push($books, $bookObject);
+				$result['Books'] = $books;
+				$result['success'] = true;
+			}
+			catch (Exception $e) {
+				$result["success"] = false;
+				$result["error"] = "The ISBN is not in firebase";
+			}
 		} 
-		$result['Books'] = $books;
-		$result['success'] = true;
 	}
 	else {
 		$result["success"] = false;
