@@ -18,14 +18,14 @@ CREATE TABLE IF NOT EXISTS Account(
     password    VARCHAR(30) NOT NULL,
     -- new_user    BOOLEAN,
     PRIMARY KEY(email)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS BookList;
 
 CREATE TABLE IF NOT EXISTS BookList( 
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
     PRIMARY KEY(isbn_num)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS PopularBookList;
 
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS PopularBookList(
     isbn_num    VARCHAR(15) NOT NULL UNIQUE,
     PRIMARY KEY(isbn_num),
     FOREIGN KEY(isbn_num) REFERENCES  BookList(isbn_num)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS Rating;
 
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS Rating(
     PRIMARY KEY(email, isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS ReadingList;
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS ReadingList(
     PRIMARY KEY(email, isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS BookSeen;
 
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS BookSeen(
     PRIMARY KEY(email,isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS BookHash;
 
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS BookHash(
     hash_val    INT,
     PRIMARY KEY(hash_val),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-);
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS AccountHash;
 
@@ -86,4 +86,4 @@ CREATE TABLE IF NOT EXISTS AccountHash(
     hash_val    INT,
     PRIMARY KEY(hash_val),
     FOREIGN KEY(email) REFERENCES Account(email)
-); 
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; 
