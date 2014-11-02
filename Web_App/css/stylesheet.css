@@ -474,7 +474,7 @@ body > nav:after {
 }
 
 #discovery_info {
-  height: 400px;
+  height: 500px;
   overflow: auto;
 }
 
@@ -501,6 +501,7 @@ body > nav:after {
 
 #discovery_section {
   width: 1020px;
+  min-height: 600px;
   margin: 0 auto;
   padding: 10px 40px 20px 40px;
   background: #FFF;
@@ -526,25 +527,25 @@ nav {
 
 div#list_body #reading_list {
   margin: 0 auto;
-  height: 100%;
+  min-height: 600px;
   background: #FFF;
   background: rgba(255, 255, 255, 0.95);
 }
 
 div#list_body #this_book {
   margin: 0 auto;
-  height: 100%;
+  min-height: 600px;
   background: #FFF;
   background: rgba(255, 255, 255, 0.95);
 }
 
 #login_body{
   width: 1020px;
+  min-height: 728px;
   margin: 0 auto;
   padding: 10px 40px 20px 40px;
   background: #FFF;
   background: rgba(255, 255, 255, 0.95);
-  min-height: 800px;
 }
 
 #list_description {
