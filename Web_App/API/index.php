@@ -3,7 +3,7 @@
 // Datbase information
 // Put your stuff here
 
-include 'Firebase_Connections/firebaseIsbnLookup.php';
+include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = '54.69.55.132';
@@ -44,16 +44,16 @@ $app->get('/hello', function() {
 */
 $app->get('/getPopularBooks', function() {
 	global $pdo;
-        $books = array();
-        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
+
+        $firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare("SELECT * FROM PopularBookList");
 
 	if ($statement->execute()) {
+            $books = array();
             while($row = $statement->fetch()) {
-                $pyExecCmd = $pyExecBase . $row['isbn_num'];
-                $fbLookup = exec($pyExecCmd);
-                array_push($books, $fbLookup);
+                $bookObject = $firebaseObject->getBookJson($row['isbn_num']);
+                array_push($books, $bookObject);
 	    }
 
             $result['Books'] = $books;
@@ -162,8 +162,8 @@ $app->post('/addUser', function() {
 
 $app->get('/getRandomBook', function() {
 	global $pdo;
-        $books = array();
-        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
+
+        $firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
 		'SELECT isbn_num FROM BookList
@@ -171,15 +171,20 @@ $app->get('/getRandomBook', function() {
 
 	if ($statement->execute()) {
 		$books = array();
-
-		while($row = $statement->fetch())
+                
+		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-                        $pyExecCmd = $pyExecBase . $row['isbn_num'];
-                        $fbLookup = exec($pyExecCmd);
-			array_push($books, $fbLookup);
+			try {
+				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
+				array_push($books, $bookObject);
+				$result['Books'] = $books;
+				$result['success'] = true;
+			}
+			catch (Exception $e) {
+				$result["success"] = false;
+				$result["error"] = "The ISBN is not in firebase";
+			}
 		} 
-		$result['Books'] = $books;
-		$result['success'] = true;
 	}
 	else {
 		$result["success"] = false;
@@ -198,13 +203,13 @@ $app->get('/getRandomBook', function() {
 
 $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 	global $pdo;
-        $books = array();
-        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
-        $pyExecCmd = $pyExecBase . $isbn;
-        $fbLookup = exec($pyExecCmd);
-        array_push($books, $fbLookup);
-	$result['Books'] = $books;
-        $result['success'] = true;
+
+        $args[':isbn'] = $isbn;
+
+        $firebaseObject = new FirebaseIsbnLookup();
+
+        $bookObject = $firebaseObject->getBookJson($args[':isbn']);
+
         echo json_encode($result);
 });
 
@@ -216,23 +221,21 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 
 $app->get('/getReadingList', function() {
 	global $pdo;
-        $books = array();
-        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
-	$email = $_GET['email'];
+    
+        $firebaseObject = new FirebaseIsbnLookup();
+
+	$args[':email'] = $_GET['email'];
 
 	$statement = $pdo->prepare(
             'SELECT isbn_num, timestamp FROM ReadingList
             WHERE email = :email'
         );
-        $statement->bindParam(':email', $email);
 
-	if ($statement->execute()) {
-	    while($row = $statement->fetch()) {
-                $pyExecCmd = $pyExecBase . $row['isbn_num'];
-                $fbLookup = exec($pyExecCmd);
-                $bookInfo['book'] = $fbLookup;
-                $bookInfo['timestamp'] = $row['timestamp'];
-		array_push($books, $bookInfo);
+	if ($statement->execute($args)) {
+	    while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
+                $bookObject['book'] = $firebaseObject->getBookJson((string)$row['isbn_num']);
+                $bookObject['timestamp'] = $row['timestamp'];
+		array_push($books, $bookObject);
 	    }
  
 	    $result['Books'] = $books;
@@ -298,6 +301,31 @@ $app->post('/submitBookFeedback', function() {
 	
 	echo json_encode($result);
 
+});
+
+/*
+*	Remove Book from Reading List
+*	Luke Oglesbee
+*	Testing...
+*/
+$app->post('/removeBookFromReadingList', function() {
+	global $pdo;
+
+	$args[":email"] = $_POST['email'];
+	$args[":isbn"] = $_POST['isbn'];
+	
+	$statement = $pdo->prepare(
+		"DELETE FROM ReadingList
+		WHERE email=:email AND isbn_num=:isbn;");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
 });
 
 /*

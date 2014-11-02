@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 mb_internal_encoding('UTF-8');
 mb_http_input('UTF-8');
 mb_http_output('UTF-8');
@@ -14,4 +16,4 @@ if(!($login->isUserLoggedIn()))                 //if user is not logged in
 
 echo '<span id="userinfo" style="display:none" data-email="'. $_SESSION["email"] . '"></span>';
 
-?>
+ob_end_flush(); ?>
