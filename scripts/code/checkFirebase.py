@@ -7,7 +7,7 @@ import json
 from sys import argv
 from bs4 import BeautifulSoup
 
-__verbose = True
+__verbose = False
 
 if len(argv) == 2: 
   in_file_name = argv[1]
