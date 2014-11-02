@@ -40,7 +40,8 @@ $app->get('/hello', function() {
 *	Get Popular Book
 *
 *	Owner: Nicole
-*	Finished - Zack Fout
+*	
+*	
 */
 $app->get('/getPopularBooks', function() {
 	global $pdo;
@@ -199,6 +200,7 @@ $app->get('/getRandomBook', function() {
 *	Get Book From Firebase
 *	Drizzuto
 *	Finished - Drizzuto
+*
 */
 
 $app->get('/getBookFromFirebase/:isbn', function($isbn) {

@@ -24,9 +24,9 @@ DELETE FROM BookList;
 
 
 INSERT INTO Account VALUES
-    ("drizzuto@bookup.com", "Candles", 1),
+    ("drizzuto@bookup.com", "Candles", 0),
     ("amccarthy@bookup.com", "Candles", 0),
-    ("khabeck@bookup.com", "Candles", 1),
+    ("khabeck@bookup.com", "Candles", 0),
     ("zfout@bookup.com", "Candles", 1),
     ("loglesbee@bookup.com", "Candles", 1),
     ("ngatmaitin@bookup.com", "Candles", 1),
@@ -160,20 +160,16 @@ INSERT INTO BookList VALUES
 	("9789703707034");
 
 INSERT INTO PopularBookList VALUES
-	("9780007491568"),
-	("9780060256654"),
-	("9780060529963"),
-	("9780060589288"),
-	("9780060759957"),
-	("9780060855925"),
-	("9780060885373"),
-	("9780061120084"),
-	("9780061234002"),
-	("9780061583070"),
-	("9780061726835"),
-	("9780061996160"),
-	("9780062059963"),
-	("9780066238500");
+	("9783125785021"),
+	("9780605039070"),
+	("9789703707034"),
+	("9780446605236"),
+	("9780553573404"),
+	("9788976100146"),
+	("9780385537674"),
+	("9780393324815"),
+	("9780385730587"),
+	("9780141182957");
 
 INSERT INTO ReadingList VALUES
 	("drizzuto@bookup.com", NOW(), "9780007491568"),
