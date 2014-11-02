@@ -9,7 +9,9 @@ $(document).ready( function() {
 		getBooks("getRandomBook");
 	}
 	else if(listLoaded===true){
+		// TODO: fix this to function to take user's email
 		getBooks("getReadingList?email=drizzuto@bookup.com");
+
 	}
 
 }); 
@@ -18,7 +20,7 @@ function greyOutElement (event) {
 	var target = $(event.target);
 	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('')
 }
-
+var listBooks = [];
 var setupLoaded = false;
 var loginLoaded = false;
 var discoveryLoaded = false;
@@ -87,6 +89,7 @@ function getBooks(sourceURL) {
 					cover.src = thumbnail;
 					var newBook= new Book(title, author, cover,description,isbn);
 				 	generateHTMLForReadingList(newBook);
+				 	listBooks.push(newBook);
 				} 	
 			 
 			 }
@@ -232,9 +235,27 @@ function generateHTMLForReadingList(Book){
 	$("#list_description").html(Book.description || "");
 	$("#list_cover").attr("src", Book.cover.src);
 	var listing=document.createElement("li");
+	listing.setAttribute("title", Book.title);
+
+	var delete_listing=document.createElement("p");
+	listing.setAttribute("id", "list_item");
+	delete_listing.setAttribute("id", "delete_x");
+	delete_listing.innerHTML=" X";
+	delete_listing.setAttribute("onclick", "overlay('delete_and_rate_from_list')");
+	listing.setAttribute("onclick", "showReadingListBook(this.title)")
 	listing.innerHTML=Book.title;
 	var sidebar_list=document.getElementById("list_books");
 	sidebar_list.appendChild(listing);
+	listing.appendChild(delete_listing);
+}
 
-
+function showReadingListBook(selectedTitle){
+	 for (var i=0; i<listBooks.length; i++){
+		if(listBooks[i].title == selectedTitle){
+			$("#list_title").html(listBooks[i].title);
+			$("#list_author").html(listBooks[i].author);
+			$("#list_description").html(listBooks[i].description);
+			$("#list_cover").attr("src", listBooks[i].cover.src);
+	  	}
+	 }
 }

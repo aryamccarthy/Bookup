@@ -72,7 +72,7 @@ a:hover, a:active {
 }
 
 * {
-  font-family: HelveticaNeue, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Source Sans Pro", Helvetica,Arial,sans-serif;
 }
 
 a {
@@ -188,8 +188,20 @@ ol#book_covers_to_rate button {
 #reading_list li:hover:after {
   position: absolute;
   /*margin-left: 1em;*/
-  content: "✕";
+  /*content: "✕";*/
   color: red;
+}
+
+#delete_x {
+  visibility: hidden;
+  display: inline;
+
+  
+}
+#list_item:hover #delete_x  {
+  visibility: visible;
+  color:red;
+
 }
 
 #reading_list li:before {
