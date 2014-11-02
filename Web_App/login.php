@@ -15,8 +15,7 @@
   <?php 
   require_once('sesh.php');
   if($login->isUserLoggedIn())
-    header('Location: discovery.php');
-  ?>
+    header('Location: discovery.php'); ?>
   <div id="login_body">
   <main>
     <h1 class="title">Bookup</h1>
