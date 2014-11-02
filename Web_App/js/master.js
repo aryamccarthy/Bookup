@@ -2,6 +2,9 @@ $(document).ready( function() {
 	// Add background
 	$.backstretch('img/background2.jpg');
 
+ 	 userEmail=$("#userinfo").attr("data-email");
+  	console.log(userEmail);
+
 	if(setupLoaded===true){
 		getBooks("getPopularBooks");
 	}
@@ -11,7 +14,6 @@ $(document).ready( function() {
 	else if(listLoaded===true){
 		// TODO: fix this to function to take user's email
 		getBooks("getReadingList?email=drizzuto@bookup.com");
-
 	}
 
 }); 
@@ -22,7 +24,6 @@ function greyOutElement (event) {
 }
 var listBooks = [];
 var setupLoaded = false;
-var loginLoaded = false;
 var discoveryLoaded = false;
 var listLoaded = false;
 
@@ -30,9 +31,6 @@ var rootURL= "http://localhost:8888/api/index.php";
 
 function checkForSetup(){
 	setupLoaded=true;
-}
-function checkForLogin(){
-	loginLoaded=true;
 }
 function checkForDiscovery(){
 	discoveryLoaded=true;
@@ -42,13 +40,6 @@ function checkForList(){
 }
 
 var userEmail= "";
-
-function setEmail(){
-	var emailElem = document.getElementById("email");
-	var emailVal=emailElem.getAttribute("value");
-	console.log(emailVal);
-	userEmail=emailVal;
-}
 
 function Book( title, author, cover, description, isbn){
 	this.title=title;
@@ -137,13 +128,10 @@ function getBooks(sourceURL) {
 	});
 }
 
-
-//TODO: implement and test
-function addBookToReadingList(email, isbn) {
-
+function addBookToReadingList(isbn) {
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/addBookToReadingList?email=" + email + "&isbn=" + isbn,
+		url: rootURL + "/addBookToReadingList?email=" + userEmail + "&isbn=" + isbn,
 		dataType: " ",
 		success: function (data) {
 			
@@ -152,21 +140,20 @@ function addBookToReadingList(email, isbn) {
 }
 
 function getUserDataAndSubmit (event) {
-	var email = 'amccarthy@bookup.com'; // TODO: implement user data retieval.
 	var rating = $(event.target).closest('button').attr('value');
 	var isbn = $(event.target).closest("li").find(".isbn").text();
-	console.log(email + '\n' + rating + '\n' + isbn);
-	submitBookFeedback(email, rating, isbn);
+	console.log(userEmail + '\n' + rating + '\n' + isbn);
+	submitBookFeedback(rating, isbn);
 }
 
 //TODO: implement and test
-function submitBookFeedback(email, rating, isbn) {
+function submitBookFeedback(rating, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/submitBookFeedback",//?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
+		url: rootURL + "/submitBookFeedback",
 		dataType: "json",
-		data: {email: email, rating: rating, isbn: isbn},
+		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
 			sweetAlert("Response", JSON.stringify(data), "info");
 		}	
