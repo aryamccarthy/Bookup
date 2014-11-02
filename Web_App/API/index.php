@@ -163,12 +163,12 @@ $app->post('/addUser', function() {
 });
 
 /*
-*	Remove ratings of a particular user
+*	Get a Random Book from FB
 *	
 *	owner: Danny Rizzuto
 *	status: Working
 *
-*	Last tested by Luke on 11/2/2014 at 1:50pm
+*	Last tested by Danny on 11/2/2014 at 2:29pm
 */
 
 $app->get('/getRandomBook', function() {
@@ -207,7 +207,7 @@ $app->get('/getRandomBook', function() {
 });
 
 /*
-*	Remove ratings of a particular user
+*	Get Book Object From Firebase
 *	
 *	owner: Danny Rizzuto
 *	status: Working
@@ -228,12 +228,12 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 });
 
 /*
-*	Remove ratings of a particular user
+*	Get a user's reading list
 *	
 *	owner: Danny Rizzuto
 *	status: Working
 *
-*	Last tested by Danny on 11/2/2014 at 1:50pm
+*	Last tested by Danny on 11/2/2014 at 2:28pm
 */
 
 $app->get('/getReadingList', function() {
