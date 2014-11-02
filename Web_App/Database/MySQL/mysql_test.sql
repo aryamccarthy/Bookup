@@ -125,9 +125,9 @@ INSERT INTO ReadingList VALUES
 	("amccarthy@bookup.com", NOW(), "9780060531041");
 
 INSERT INTO Rating VALUES
-        ("amccarthy@bookup.com", -1, "9780439023481"),
-	("amccarthy@bookup.com", 1, "9780393978896"),
-	("amccarthy@bookup.com", 1, "9780451527745"),
-	("amccarthy@bookup.com", 1, "9780142437209"),
-	("amccarthy@bookup.com", -1, "9780142437179"),
-	("amccarthy@bookup.com", -1, "9780060531041");
+        ("amccarthy@bookup.com", -1, NOW(), "9780439023481"),
+	("amccarthy@bookup.com", 1, NOW(), "9780393978896"),
+	("amccarthy@bookup.com", 1, NOW(), "9780451527745"),
+	("amccarthy@bookup.com", 1, NOW(), "9780142437209"),
+	("amccarthy@bookup.com", -1, NOW(), "9780142437179"),
+	("amccarthy@bookup.com", -1, NOW(), "9780060531041");
