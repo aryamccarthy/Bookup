@@ -8,7 +8,7 @@ require 'vendor/autoload.php';
 
 $host = 'localhost';
 $user = 'root';
-$pass = '3.00x10^8m/s';
+$pass = 'root';
 
 // Get DB connection
 $app = new \Slim\Slim();
