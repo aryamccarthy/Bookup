@@ -31,7 +31,7 @@ def addToFirebase(isbnArray):
 
         #print jsontest
 
-        if "error" not in jsontest:
+        if "error" not in jsontest or ":
 
             if jsontest['totalItems'] is not 0:
 

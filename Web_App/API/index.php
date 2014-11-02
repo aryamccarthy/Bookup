@@ -222,7 +222,7 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 $app->get('/getReadingList', function() {
 	global $pdo;
     
-        $firebaseObject = new FirebaseIsbnLookup();
+    $firebaseObject = new FirebaseIsbnLookup();
 
 	$args[':email'] = $_GET['email'];
 
@@ -232,17 +232,20 @@ $app->get('/getReadingList', function() {
         );
 
 	if ($statement->execute($args)) {
-	    while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
-                $bookObject['book'] = $firebaseObject->getBookJson((string)$row['isbn_num']);
-                $bookObject['timestamp'] = $row['timestamp'];
-		array_push($books, $bookObject);
-	    }
- 
-	    $result['Books'] = $books;
-	    $result['success'] = true;
-	} else {
-	      $result["success"] = false;
-              $result["error"] = $statement->errorInfo();
+		$books = array();
+
+		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
+		{
+			//echo $row["isbn_num"];
+			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			array_push($books, $bookObject);
+		} 
+		$result['Books'] = $books;
+		$result['success'] = true;
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
 	}
 
 	echo json_encode($result);
