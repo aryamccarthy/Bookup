@@ -45,6 +45,6 @@ class FirebaseIsbnLookup {
 
  $testResult = $testObj->getBookJson($isbn);
 
- var_dump($testResult);
+ // var_dump($testResult);
 
 ?>
