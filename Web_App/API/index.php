@@ -3,7 +3,7 @@
 // Datbase information
 // Put your stuff here
 
-include 'Firebase_Connections/firebaseIsbnLookup.php';
+#include 'Firebase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = '54.69.55.132';
