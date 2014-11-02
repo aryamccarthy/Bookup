@@ -305,8 +305,11 @@ $app->post('/submitBookFeedback', function() {
 
 /*
 *	Remove Book from Reading List
-*	Luke Oglesbee
-*	Finished
+*
+*	owner: Luke Oglesbee
+*	status: Working
+*	
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 $app->post('/removeBookFromReadingList', function() {
 	global $pdo;
@@ -330,8 +333,11 @@ $app->post('/removeBookFromReadingList', function() {
 
 /*
 *	Remove ratings of a particular user
-*	Luke Oglesbee
-*	Finished
+*	
+*	owner: Luke Oglesbee
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 $app->post('/resetRatingsOfUser', function() {
 	global $pdo;
