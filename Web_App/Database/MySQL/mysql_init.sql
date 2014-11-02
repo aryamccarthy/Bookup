@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS Account;
 CREATE TABLE IF NOT EXISTS Account(
     email       VARCHAR(30) NOT NULL UNIQUE,
     password    VARCHAR(30) NOT NULL,
-    new_user    BOOLEAN,
+    -- new_user    BOOLEAN,
     PRIMARY KEY(email)
 );
 

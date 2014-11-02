@@ -101,6 +101,36 @@ $app->get('/userExists', function() {
 });
 
 /**
+* Check if user has rated any books.
+* @author Arya McCarthy
+* Finished - Arya McCarthy
+*/
+
+$app->get('/isNewUser', function() {
+	global $pdo;
+
+	$args [":email"] = $_GET['email'];
+
+	$statement = $pdo->prepare(
+		"SELECT COUNT(*) AS count FROM Rating
+			WHERE email = :email ");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+		$row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC);
+		$result['newUser'] = $row['count'] == 0;
+		#$result['error'] = $result['exists'] ? 'The username is taken' : '';
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+/**
 * Add user to database.
 * @author Arya McCarthy
 * Finished - Arya McCarthy
