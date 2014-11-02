@@ -3,7 +3,7 @@
 // Datbase information
 // Put your stuff here
 
-include 'Firebase_Connections/firebaseIsbnLookup.php';
+include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = '54.69.55.132';
@@ -171,12 +171,11 @@ $app->get('/getRandomBook', function() {
 
 	if ($statement->execute()) {
 		$books = array();
-
+                
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
 			try {
-				//echo $row["isbn_num"];
-				$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
 				$result['success'] = true;
@@ -211,7 +210,7 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 
         $bookObject = $firebaseObject->getBookJson($args[':isbn']);
 
-        echo json_encode($result);
+        echo json_encode($bookObject);
 });
 
 /*
@@ -306,8 +305,11 @@ $app->post('/submitBookFeedback', function() {
 
 /*
 *	Remove Book from Reading List
-*	Luke Oglesbee
-*	Testing...
+*
+*	owner: Luke Oglesbee
+*	status: Working
+*	
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 $app->post('/removeBookFromReadingList', function() {
 	global $pdo;
@@ -331,8 +333,11 @@ $app->post('/removeBookFromReadingList', function() {
 
 /*
 *	Remove ratings of a particular user
-*	Luke Oglesbee
-*	Finished
+*	
+*	owner: Luke Oglesbee
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 $app->post('/resetRatingsOfUser', function() {
 	global $pdo;

@@ -6,7 +6,7 @@
 </head>
 <body>
     <?php
-// show potential errors / feedback (from login object)
+    // show potential errors / feedback (from login object)
     printdiv('You should see this.');
 
     if (isset($login)) {
@@ -32,8 +32,6 @@
 
     function printdiv($msg) {
         echo '<div>Debug: ' . $msg . '</div><br>';
-    }
-
-    ?>
+    } ?>
 </body>
 </html>

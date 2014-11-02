@@ -38,9 +38,10 @@
     <form>
       <h1>Did you read this book?</h1>
       <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
-      <button onclick="submitBookFeedback()" value="1"> Like </button>
-      <button onclick="submitBookFeedback()" value="-1"> Dislike </button>
-      <button onclick="submitBookFeedback()" value="0">I didn't read this book.</button>
+      <!-- TODO: get isbn number for function call below -->
+      <button class="twobutton listratingbutton" onclick="submitBookFeedback(); removeBookFromReadingList();" value="1"> Like </button>
+      <button class="twobutton listratingbutton" onclick="submitBookFeedback(); removeBookFromReadingList();" value="-1"> Dislike </button>
+      <button class="twobutton listratingbutton" onclick="submitBookFeedback(); removeBookFromReadingList(); " value="0">I didn't read this book.</button>
       <!-- TODO: Have some sort of confirmation that the book was deleted  -->
     </form>
   </section>
