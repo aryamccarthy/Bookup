@@ -235,10 +235,17 @@ function generateHTMLForReadingList(Book, index){
 	$("#list_cover").attr("src", Book.cover.src);
 	var listing=document.createElement("li");
 	listing.setAttribute("title", Book.title);
+	
 	var isbn=document.createElement('p');
 	isbn.setAttribute('id', 'isbn'+index);
 	isbn.innerHTML=Book.isbn;
-	 isbn.style.display="none";
+	isbn.style.display="none";
+
+	var listNum=document.createElement('p');
+	listNum.setAttribute('id', 'index'+Book.title);
+	listNum.innerHTML=index;
+	listNum.style.display="none";
+
 	var delete_listing=document.createElement("p");
 	listing.setAttribute("id", "list_item");
 	delete_listing.setAttribute("id", "delete_x");
@@ -268,9 +275,11 @@ function showReadingListBook(selectedTitle){
 			$("#list_author").html(listBooks[i].author);
 			$("#list_description").html(listBooks[i].description);
 			$("#list_cover").attr("src", listBooks[i].cover.src);
-		  	var listButtons= document.getElementsByClassName('listratingbutton');
+		  	var listButtons= document.getElementsByClassName("twobutton listratingbutton");
+		  	var index= document.getElementById("index"+listBooks[i].title);
+
 			for(var j=0; j<3; j++){
-				listButtons[j].setAttribute("onclick","dealWithRatingandDeleting("+i+")" );
+				listButtons[j].setAttribute("onclick","dealWithRatingandDeleting("+index.innerHTML+")" );
 			}
 	  	}
 		
