@@ -67,12 +67,12 @@ $app->get('/getPopularBooks', function() {
 });
 
 /*
-*	Remove ratings of a particular user
+*	Checks to see if the user exists
 *	
-*	owner: Nicole G
+*	owner: Nicole Gatmaitan
 *	status: Working
 *
-*	Last tested by Luke on 11/2/2014 at 1:50pm
+*	Last tested by Nicole on 11/2/2014 at 2:24pm
 */
 
 $app->get('/userExists', function() {
@@ -100,12 +100,12 @@ $app->get('/userExists', function() {
 });
 
 /*
-*	Remove ratings of a particular user
+*	Checks to see the user is new
 *	
-*	owner: Nicole G
+*	owner: Nicole Gatmaitan
 *	status: Working
 *
-*	Last tested by Luke on 11/2/2014 at 1:50pm
+*	Last tested by Nicole on 11/2/2014 at 2:26pm
 */
 
 $app->get('/isNewUser', function() {
@@ -133,12 +133,12 @@ $app->get('/isNewUser', function() {
 });
 
 /*
-*	Remove ratings of a particular user
+*	Adds user to database
 *	
-*	owner: Nicole G
+*	owner: Nicole Gatmaitan
 *	status: Working
 *
-*	Last tested by Luke on 11/2/2014 at 1:50pm
+*	Last tested by Nicole on 11/2/2014 at 2:27pm
 */
 
 $app->post('/addUser', function() {
