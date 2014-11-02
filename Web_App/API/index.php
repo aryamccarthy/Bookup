@@ -3,7 +3,7 @@
 // Datbase information
 // Put your stuff here
 
-include 'Firebase_Connections/firebaseIsbnLookup.php';
+include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = '54.69.55.132';
@@ -171,12 +171,11 @@ $app->get('/getRandomBook', function() {
 
 	if ($statement->execute()) {
 		$books = array();
-
+                
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
 			try {
-				//echo $row["isbn_num"];
-				$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
 				$result['success'] = true;
