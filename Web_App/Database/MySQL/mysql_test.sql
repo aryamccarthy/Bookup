@@ -10,11 +10,10 @@
 USE BookUp;
 
 INSERT INTO Account VALUES
-    ("drizzuto@bookup.com", "Candles", true),
-    ("amccarthy@bookup.com", "Candles", false),
-    ("khabeck@bookup.com", "Candles", true),
-    ("zfout@bookup.com", "Candles", true),
-    ("loglesbee@bookup.com", "Candles", true),
-    ("ngatmaitin@bookup.com", "Candles", true),
-    ("ebusbee@bookup.com", "Candles", true);
-
+    ("drizzuto@bookup.com", "Candles"),
+    ("amccarthy@bookup.com", "Candles"),
+    ("khabeck@bookup.com", "Candles"),
+    ("zfout@bookup.com", "Candles"),
+    ("loglesbee@bookup.com", "Candles"),
+    ("ngatmaitin@bookup.com", "Candles"),
+    ("ebusbee@bookup.com", "Candles");

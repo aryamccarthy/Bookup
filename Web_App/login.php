@@ -11,14 +11,19 @@
   <title>Bookup | Login</title>
 </head>
 <body>
-  <!-- <?php include_once(""); ?> -->
-  <?php include_once("html/nav.html"); ?>
+  <!--This is here in case a user directly navigates to login.php-->
+  <?php 
+  require_once('sesh.php');
+  if($login->isUserLoggedIn())
+    header('Location: discovery.php');
+  ?>
+  <div id="login_body">
   <main>
     <h1 class="title">Bookup</h1>
     <h3 class="subtitle">Try something new between the covers.</h3>
     <form action="index.php" method="post" id="login" name="loginform">
       <ul>
-        <li>Sign up or log in</li>
+        <li>Enter Bookup</li>
         <li><hr></li>
         <li>
           <label for="email">Email</label>
@@ -31,12 +36,13 @@
         </li>
 
         <li>
-          <input id="login_button" type="submit" name="login" class="twobutton" value="Login" onclick="setEmail()"/>
+          <input id="login_button" type="submit" name="login" class="twobutton" value="Login" />
           <button id="register" class="twobutton">Sign Up</button>
         </li>
       </ul>
 
     </form>
   </main>
+</div>
 </body>
 </html>

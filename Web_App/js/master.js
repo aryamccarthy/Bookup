@@ -1,6 +1,9 @@
 $(document).ready( function() {
 	// Add background
-	$.backstretch('img/background.jpg');
+	$.backstretch('img/background2.jpg');
+
+ 	 userEmail=$("#userinfo").attr("data-email");
+  	console.log(userEmail);
 
 	if(setupLoaded===true){
 		getBooks("getPopularBooks");
@@ -9,6 +12,7 @@ $(document).ready( function() {
 		getBooks("getRandomBook");
 	}
 	else if(listLoaded===true){
+		// TODO: fix this to function to take user's email
 		getBooks("getReadingList?email=drizzuto@bookup.com");
 	}
 
@@ -18,9 +22,8 @@ function greyOutElement (event) {
 	var target = $(event.target);
 	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('')
 }
-
+var listBooks = [];
 var setupLoaded = false;
-var loginLoaded = false;
 var discoveryLoaded = false;
 var listLoaded = false;
 
@@ -28,9 +31,6 @@ var rootURL= "http://localhost:8888/api/index.php";
 
 function checkForSetup(){
 	setupLoaded=true;
-}
-function checkForLogin(){
-	loginLoaded=true;
 }
 function checkForDiscovery(){
 	discoveryLoaded=true;
@@ -40,13 +40,6 @@ function checkForList(){
 }
 
 var userEmail= "";
-
-function setEmail(){
-	var emailElem = document.getElementById("email");
-	var emailVal=emailElem.getAttribute("value");
-	console.log(emailVal);
-	userEmail=emailVal;
-}
 
 function Book( title, author, cover, description, isbn){
 	this.title=title;
@@ -66,6 +59,12 @@ function getBooks(sourceURL) {
 		success: function (data) {
 			var bookObjs = data.Books; 
 		 	if(sourceURL.indexOf("getReadingList") > -1){
+		 		if (bookObjs.length === 0) {
+		 			$('#this_book button').remove();
+		 			$('#this_book article').css('text-align', 'center').append($('<h2>'));
+		 			$('#this_book h2').css('font-weight', 'normal').text("You have nothing in your reading list.");
+		 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
+		 		}
 		 		for(var i=0; i<bookObjs.length; i+=2){	
 					var parsedBooks = $.parseJSON(bookObjs[i].book);	
 					var title= parsedBooks.items[0].volumeInfo.title;
@@ -81,14 +80,13 @@ function getBooks(sourceURL) {
 					cover.src = thumbnail;
 					var newBook= new Book(title, author, cover,description,isbn);
 				 	generateHTMLForReadingList(newBook);
+				 	listBooks.push(newBook);
 				} 	
 			 
 			 }
 			else if (sourceURL==="getRandomBook") {
 				for(var i=0; i<bookObjs.length; i+=2){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					console.log(i);	
-					console.log(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
@@ -108,7 +106,6 @@ function getBooks(sourceURL) {
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
-					if (i === 4) continue; // DELETE THIS LINE WHEN DB IS CLEANED UP
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
@@ -131,13 +128,10 @@ function getBooks(sourceURL) {
 	});
 }
 
-
-//TODO: implement and test
-function addBookToReadingList(email, isbn) {
-
+function addBookToReadingList(isbn) {
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/addBookToReadingList?email=" + email + "&isbn=" + isbn,
+		url: rootURL + "/addBookToReadingList?email=" + userEmail + "&isbn=" + isbn,
 		dataType: " ",
 		success: function (data) {
 			
@@ -146,22 +140,22 @@ function addBookToReadingList(email, isbn) {
 }
 
 function getUserDataAndSubmit (event) {
-	var email = 'amccarthy@bookup.com'; // TODO: implement user data retieval.
 	var rating = $(event.target).closest('button').attr('value');
 	var isbn = $(event.target).closest("li").find(".isbn").text();
-	console.log(email + '\n' + rating + '\n' + isbn);
-	submitBookFeedback(email, rating, isbn);
+	console.log(userEmail + '\n' + rating + '\n' + isbn);
+	submitBookFeedback(rating, isbn);
 }
 
 //TODO: implement and test
-function submitBookFeedback(email, rating, isbn) {
+function submitBookFeedback(rating, isbn) {
 
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/submitBookFeedback?email=" + email + "&rating=" + rating + "&isbn=" +isbn, 
-		dataType: " ",
+		url: rootURL + "/submitBookFeedback",
+		dataType: "json",
+		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
-			sweetAlert(data);
+			sweetAlert("Response", JSON.stringify(data), "info");
 		}	
 	});
 }
@@ -174,8 +168,8 @@ $( previousBook ).click(function() {
 });*/
 
 
-function overlay() {
-  var el = document.getElementById("rate_from_discovery");
+function overlay(id) {
+  var el = document.getElementById(id);
   el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
 }
 
@@ -225,12 +219,30 @@ function generateHTMLForDiscoveryPage(Book){
 function generateHTMLForReadingList(Book){
 	$("#list_title").html(Book.title);
 	$("#list_author").html(Book.author);
-	$("#list_description").html(Book.description);
+	$("#list_description").html(Book.description || "");
 	$("#list_cover").attr("src", Book.cover.src);
 	var listing=document.createElement("li");
+	listing.setAttribute("title", Book.title);
+
+	var delete_listing=document.createElement("p");
+	listing.setAttribute("id", "list_item");
+	delete_listing.setAttribute("id", "delete_x");
+	delete_listing.innerHTML=" X";
+	delete_listing.setAttribute("onclick", "overlay('delete_and_rate_from_list')");
+	listing.setAttribute("onclick", "showReadingListBook(this.title)")
 	listing.innerHTML=Book.title;
 	var sidebar_list=document.getElementById("list_books");
 	sidebar_list.appendChild(listing);
+	listing.appendChild(delete_listing);
+}
 
-
+function showReadingListBook(selectedTitle){
+	 for (var i=0; i<listBooks.length; i++){
+		if(listBooks[i].title == selectedTitle){
+			$("#list_title").html(listBooks[i].title);
+			$("#list_author").html(listBooks[i].author);
+			$("#list_description").html(listBooks[i].description);
+			$("#list_cover").attr("src", listBooks[i].cover.src);
+	  	}
+	 }
 }
