@@ -51,19 +51,19 @@ $app->get('/getPopularBooks', function() {
 
 	if ($statement->execute()) {
             while($row = $statement->fetch()) {
-                $pyExecCmd= $pyExecBase . $row['isbn_num'];
+                $pyExecCmd = $pyExecBase . $row['isbn_num'];
                 $fbLookup = exec($pyExecCmd);
                 array_push($books, $fbLookup);
 	    }
 
             $result['Books'] = $books;
             $result['success'] = true;
-            echo json_encode($result);
         } else {
               $result['success'] = false;
 	      $result['error'] =$statement->errorInfo();
-              echo json_encode($result);
 	}
+     
+    echo json_encode($result);
 });
 
 
@@ -132,21 +132,21 @@ $app->post('/addUser', function() {
 
 $app->get('/getRandomBook', function() {
 	global $pdo;
-
-	$firebaseObject = new FirebaseIsbnLookup();
+        $books = array();
+        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
 
 	$statement = $pdo->prepare(
-		"SELECT isbn_num FROM BookList
-			ORDER BY RAND() LIMIT 1;");
+		'SELECT isbn_num FROM BookList
+		ORDER BY RAND() LIMIT 1;');
 
 	if ($statement->execute()) {
 		$books = array();
 
-		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
+		while($row = $statement->fetch())
 		{
-			//echo $row["isbn_num"];
-			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
-			array_push($books, $bookObject);
+                        $pyExecCmd = $pyExecBase . $row['isbn_num'];
+                        $fbLookup = exec($pyExecCmd);
+			array_push($books, $fbLookup);
 		} 
 		$result['Books'] = $books;
 		$result['success'] = true;
@@ -168,15 +168,14 @@ $app->get('/getRandomBook', function() {
 
 $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 	global $pdo;
-
-	$args[":isbn"] = $isbn;
-
-	$firebaseObject = new FirebaseIsbnLookup();
-
-	$bookObject = $firebaseObject->getBookJson($args[":isbn"]);
-
-	echo json_encode($bookObject);
-
+        $books = array();
+        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
+        $pyExecCmd = $pyExecBase . $isbn;
+        $fbLookup = exec($pyExecCmd);
+        array_push($books, $fbLookup);
+	$result['Books'] = $books;
+        $result['success'] = true;
+        echo json_encode($result);
 });
 
 /*
@@ -187,37 +186,33 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 
 $app->get('/getReadingList', function() {
 	global $pdo;
-
-	$firebaseObject = new FirebaseIsbnLookup();
-
-	$args [":email"] = $_GET['email'];
+        $books = array();
+        $pyExecBase = 'python ./FireBase_Connections/firebaseLookup.py ';
+	$email = $_GET['email'];
 
 	$statement = $pdo->prepare(
-						'SELECT isbn_num, timestamp FROM ReadingList
-						WHERE email = :email ');
+            'SELECT isbn_num, timestamp FROM ReadingList
+            WHERE email = :email'
+        );
+        $statement->bindParam(':email', $email);
 
-	if ($statement->execute($args)) {
-		$books = array();
-
-		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
-		{
-			//echo $row["isbn_num"];
-			$bookObject["book"] = $firebaseObject->getBookJson((string)$row["isbn_num"]);
-			//var_dump($row);
-			$bookObject["timestamp"] = $row["timestamp"];
-			array_push($books, $bookObject);
-
-		} 
-		$result['Books'] = $books;
-		$result['success'] = true;
-	}
-	else {
-		$result["success"] = false;
-		$result["error"] = $statement->errorInfo();
+	if ($statement->execute()) {
+	    while($row = $statement->fetch()) {
+                $pyExecCmd = $pyExecBase . $row['isbn_num'];
+                $fbLookup = exec($pyExecCmd);
+                $bookInfo['book'] = $fbLookup;
+                $bookInfo['timestamp'] = $row['timestamp'];
+		array_push($books, $bookInfo);
+	    }
+ 
+	    $result['Books'] = $books;
+	    $result['success'] = true;
+	} else {
+	      $result["success"] = false;
+              $result["error"] = $statement->errorInfo();
 	}
 
 	echo json_encode($result);
-
 });
 
 /*
@@ -233,9 +228,9 @@ $app->post('/addBookToReadingList', function() {
 
 
 	$statement = $pdo->prepare(
-						'INSERT INTO ReadingList VALUES
-						(:email, NOW(), :isbn);'
-						);
+            'INSERT INTO ReadingList VALUES
+	    (:email, NOW(), :isbn);'
+	);
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -307,6 +302,4 @@ $app->post('/resetRatingsOfUser', function() {
 
 
 $app->run();
-
-
 ?>
