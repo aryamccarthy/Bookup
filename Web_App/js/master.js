@@ -3,7 +3,6 @@ $(document).ready( function() {
 	$.backstretch('img/background2.jpg');
 
  	 userEmail=$("#userinfo").attr("data-email");
-  	console.log(userEmail);
 
 	if(setupLoaded===true){
 		getBooks("getPopularBooks");
@@ -12,8 +11,7 @@ $(document).ready( function() {
 		getBooks("getRandomBook");
 	}
 	else if(listLoaded===true){
-		// TODO: fix this to function to take user's email
-		getBooks("getReadingList?email=drizzuto@bookup.com");
+		getBooks("getReadingList?email="+userEmail);
 	}
 
 }); 
@@ -105,6 +103,7 @@ function getBooks(sourceURL) {
 			}
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
+					console.log(data);
 					var parsedBooks = $.parseJSON(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
@@ -131,10 +130,22 @@ function getBooks(sourceURL) {
 function addBookToReadingList(isbn) {
 	$.ajax({
 		type: 'POST',
-		url: rootURL + "/addBookToReadingList?email=" + userEmail + "&isbn=" + isbn,
-		dataType: " ",
+		url: rootURL + "/addBookToReadingList",
+		dataType: "json",
+		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
-			
+			console.log("book sucessfully added");
+		}	
+	});
+}
+function removeBookFromReadingList(isbn) {
+	$.ajax({
+		type: 'POST',
+		url: rootURL + "/removeBookFromReadingList",
+		dataType: "json",
+		data: {email: userEmail, isbn: isbn},
+		success: function (data) {
+			console.log("book sucessfully removed");
 		}	
 	});
 }
@@ -200,7 +211,6 @@ function generateHTMLForSetupPage(Book){
 	bookItem.appendChild(title);
 	bookItem.appendChild(author);
 	bookItem.appendChild(isbn);
-
 	bookItem.appendChild(Book.cover);
 	buttonDiv.appendChild(likeButton);
 	buttonDiv.appendChild(dislikeButton);
