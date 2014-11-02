@@ -306,7 +306,7 @@ $app->post('/addBookToReadingList', function() {
 *	owner: Luke Oglesbee
 *	status: Working
 *
-*	Last tested by Zack on 11/2/2014 at 2:00pm
+*	Last tested by Luke on 11/2/2014 at 2:38pm
 */
 
 $app->post('/submitBookFeedback', function() {
@@ -318,7 +318,9 @@ $app->post('/submitBookFeedback', function() {
 
 	$statement = $pdo->prepare(
 		"INSERT INTO Rating(email, rating, timestamp, isbn_num) VALUES 
-		(:email, :rating, NOW(), :isbn);");
+		(:email, :rating, NOW(), :isbn)
+		ON DUPLICATE KEY
+		UPDATE rating=VALUES(rating);");
 	if ($statement->execute($args)) {
 		$result["success"] = true;
 	} else {
