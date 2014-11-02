@@ -6,9 +6,9 @@
 include 'Firebase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
-$host = 'localhost';
-$user = 'root';
-$pass = 'root';
+$host = '54.69.55.132';
+$user = 'test';
+$pass = 'Candles';
 
 // Get DB connection
 $app = new \Slim\Slim();
@@ -298,6 +298,31 @@ $app->post('/submitBookFeedback', function() {
 	
 	echo json_encode($result);
 
+});
+
+/*
+*	Remove Book from Reading List
+*	Luke Oglesbee
+*	Testing...
+*/
+$app->post('/removeBookFromReadingList', function() {
+	global $pdo;
+
+	$args[":email"] = $_POST['email'];
+	$args[":isbn"] = $_POST['isbn'];
+	
+	$statement = $pdo->prepare(
+		"DELETE FROM ReadingList
+		WHERE email=:email AND isbn_num=:isbn;");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
 });
 
 /*
