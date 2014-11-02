@@ -306,7 +306,7 @@ $app->post('/submitBookFeedback', function() {
 /*
 *	Remove Book from Reading List
 *	Luke Oglesbee
-*	Testing...
+*	Finished
 */
 $app->post('/removeBookFromReadingList', function() {
 	global $pdo;
