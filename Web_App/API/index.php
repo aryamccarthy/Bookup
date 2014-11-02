@@ -211,7 +211,7 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 
         $bookObject = $firebaseObject->getBookJson($args[':isbn']);
 
-        echo json_encode($result);
+        echo json_encode($bookObject);
 });
 
 /*
