@@ -27,22 +27,21 @@ catch (PDOException $e) {
 //	VVVVVVVVVVVVVVVVVVVVVVV
 
 /**
-*   Hello
+*   Test
 */
-$app->get('/hello/:last/:first/:MI', function($last, $first, $MI) {
-    echo "Hello, $first $MI. $last!";
-});
-$app->get('/hello', function() {
-	echo "Hello. I don't know your name.";
+$app->get('/test', function() {
+	echo "success";
 });
 
-/**
-*	Get Popular Book
+/*
+*	Remove ratings of a particular user
+*	
+*	owner: Danny Rizzuto
+*	status: Working
 *
-*	Owner: Nicole
-*	
-*	
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
+
 $app->get('/getPopularBooks', function() {
 	global $pdo;
 
@@ -67,11 +66,13 @@ $app->get('/getPopularBooks', function() {
     echo json_encode($result);
 });
 
-
-/**
-* Check if email already present.
-* @author Arya McCarthy
-* Finished - Arya McCarthy
+/*
+*	Remove ratings of a particular user
+*	
+*	owner: Nicole G
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 
 $app->get('/userExists', function() {
@@ -98,10 +99,13 @@ $app->get('/userExists', function() {
 
 });
 
-/**
-* Check if user has rated any books.
-* @author Arya McCarthy
-* Finished - Arya McCarthy
+/*
+*	Remove ratings of a particular user
+*	
+*	owner: Nicole G
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 
 $app->get('/isNewUser', function() {
@@ -128,10 +132,13 @@ $app->get('/isNewUser', function() {
 
 });
 
-/**
-* Add user to database.
-* @author Arya McCarthy
-* Finished - Arya McCarthy
+/*
+*	Remove ratings of a particular user
+*	
+*	owner: Nicole G
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 
 $app->post('/addUser', function() {
@@ -156,10 +163,12 @@ $app->post('/addUser', function() {
 });
 
 /*
-*	Get a random Book Object
-*	Drizzuto
-*	Finished - Drizzuto
-*       Last tested by - Zack Fout on 11/02/14 at 2pm
+*	Remove ratings of a particular user
+*	
+*	owner: Danny Rizzuto
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 
 $app->get('/getRandomBook', function() {
@@ -198,10 +207,12 @@ $app->get('/getRandomBook', function() {
 });
 
 /*
-*	Get Book From Firebase
-*	Drizzuto
-*	Finished - Drizzuto
+*	Remove ratings of a particular user
+*	
+*	owner: Danny Rizzuto
+*	status: Working
 *
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 
 $app->get('/getBookFromFirebase/:isbn', function($isbn) {
@@ -217,9 +228,12 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 });
 
 /*
-*	Get a Reading List for a User
-*	Drizzuto
-*	Finished - Drizzuto
+*	Remove ratings of a particular user
+*	
+*	owner: Danny Rizzuto
+*	status: Working
+*
+*	Last tested by Danny on 11/2/2014 at 1:50pm
 */
 
 $app->get('/getReadingList', function() {
@@ -255,8 +269,12 @@ $app->get('/getReadingList', function() {
 });
 
 /*
-*	Add Book to Reading List
-*	Drizzuto
+*	Add book to reading list
+*	
+*	owner: Zack Fout
+*	status: Working
+*
+*	Last tested by Luke on 11/2/2014 at 1:50pm
 */
 
 $app->post('/addBookToReadingList', function() {
@@ -283,9 +301,12 @@ $app->post('/addBookToReadingList', function() {
 });
 
 /*
-*	Add Book to Reading List
-*	Drizzuto
-*	Finished
+*	Add a book and user rating to Rating
+*	
+*	owner: Luke Oglesbee
+*	status: Working
+*
+*	Last tested by Zack on 11/2/2014 at 2:00pm
 */
 
 $app->post('/submitBookFeedback', function() {
