@@ -6,9 +6,9 @@
 include 'Firebase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
-$host = 'localhost';
-$user = 'root';
-$pass = 'root';
+$host = '54.69.55.132';
+$user = 'test';
+$pass = 'Candles';
 
 // Get DB connection
 $app = new \Slim\Slim();
