@@ -366,6 +366,7 @@ $app->post('/removeBookFromReadingList', function() {
 *
 *	Last tested by Luke on 11/2/2014 at 1:50pm
 */
+
 $app->post('/resetRatingsOfUser', function() {
 	global $pdo;
 
