@@ -301,6 +301,31 @@ $app->post('/submitBookFeedback', function() {
 });
 
 /*
+*	Remove Book from Reading List
+*	Luke Oglesbee
+*	Testing...
+*/
+$app->post('/removeBookFromReadingList', function() {
+	global $pdo;
+
+	$args[":email"] = $_POST['email'];
+	$args[":isbn"] = $_POST['isbn'];
+	
+	$statement = $pdo->prepare(
+		"DELETE FROM ReadingList
+		WHERE email=:email AND isbn_num=:isbn;");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+});
+
+/*
 *	Remove ratings of a particular user
 *	Luke Oglesbee
 *	Finished
