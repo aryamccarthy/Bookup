@@ -15,5 +15,7 @@ if(!($login->isUserLoggedIn()))                 //if user is not logged in
     header('Location: login.php');              //then send them to login.php
 
 echo '<span id="userinfo" style="display:none" data-email="'. $_SESSION["email"] . '"></span>';
+echo '<span id="loginerrors" style="display:none" data-err="' . $_SESSION['error'] . '"></span>';
+
 
 ob_end_flush(); ?>

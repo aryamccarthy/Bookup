@@ -16,8 +16,8 @@ class Login
     private $db_connection = null;
     /**
      * @var array Collection of error messages
-     */
-    public $errors = array();
+     */     //but not anymore
+    public $error = null;
     /**
      * @var array Collection of success / neutral messages
      */
@@ -34,6 +34,10 @@ class Login
             $this->doLogout();
 
         $_SESSION['timeout'] = time();
+    }
+
+    public function clearError() {
+        $this->$_SESSION['error'] = null;
     }
 
     /**
@@ -69,10 +73,10 @@ class Login
         // check login form contents
         if (empty($_POST['user_email'])) {
             debug("No email.");
-            $this->errors[] = "Email field was empty.";
+            $_SESSION['error'] = "Email field was empty.";
         } elseif (empty($_POST['user_password'])) {
             debug("No password.");
-            $this->errors[] = "Password field was empty.";
+            $_SESSION['error'] = "Password field was empty.";
         } elseif (!empty($_POST['user_email']) && !empty($_POST['user_password'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
@@ -83,7 +87,7 @@ class Login
             // change character set to utf8 and check it
             if (!$this->db_connection->set_charset("utf8mb4")) {
                 debug("charset error.");
-                $this->errors[] = $this->db_connection->error;
+                $_SESSION['error'] = $this->db_connection->error;
             }
 
             debug("charset set. checking for errors...");
@@ -125,15 +129,15 @@ class Login
 
                     } else {
                         debug("Incorrect password.");
-                        $this->errors[] = "Wrong password. Try again.";
+                        $_SESSION['error'] = "Wrong password. Try again.";
                     }
                 } else {
                     debug("User not found.");
-                    $this->errors[] = "This user does not exist.";
+                    $_SESSION['error'] = "This user does not exist.";
                 }
             } else {
                 debug("DB connection issue.");
-                $this->errors[] = "Database connection problem.";
+                $_SESSION['error'] = "Database connection problem.";
             }
         }
     }

@@ -13,9 +13,16 @@ $(document).ready( function() {
       var password = $('#password').val();
       checkIfUsernameTaken(email, password);
     }
-  }); //end of register_user.click()
+  }); //end of register.click()
 
 }); //end of document.ready()
+
+window.onload = function() {
+  if($('#loginerrors').data('err')) {
+    var errtext = $('#loginerrors').data('err');
+    alert(errtext);
+  }
+}
 
 function checkIfUsernameTaken(email, password) {
   $.ajax({
