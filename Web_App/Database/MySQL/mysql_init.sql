@@ -2,9 +2,9 @@
 -- Summary: sql script to initialize BookUp database
 -- Owner: Zack Fout
 -- Version: 1.2
--- Last Modified: 10/27/2014
--- Last Modified By: Zack Fout
--- Notes: changed foreign key constraints from account_id to email
+-- Last Modified: 11/2/2014
+-- Last Modified By: Luke Oglesbee
+-- Notes: removed new_user from account
 
 -- create database
 DROP DATABASE IF EXISTS BookUp;
@@ -16,7 +16,6 @@ DROP TABLE IF EXISTS Account;
 CREATE TABLE IF NOT EXISTS Account(
     email       VARCHAR(30) NOT NULL UNIQUE,
     password    VARCHAR(30) NOT NULL,
-    -- new_user    BOOLEAN,
     PRIMARY KEY(email)
 );
 
