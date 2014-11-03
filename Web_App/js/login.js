@@ -56,7 +56,7 @@ function addUser(email, password) {
       else {
         // PERFORM LOGIN-Y THINGS HERE.
         console.log('user added');
-        window.location.href = 'setup.php';
+        window.location.reload();
       }
     },
     error: function (request, status, error) {
