@@ -13,9 +13,16 @@ $(document).ready( function() {
       var password = $('#password').val();
       checkIfUsernameTaken(email, password);
     }
-  }); //end of register_user.click()
+  }); //end of register.click()
 
 }); //end of document.ready()
+
+window.onload = function() {
+  if($('#loginerrors').data('err')) {
+    var errtext = $('#loginerrors').data('err');
+    alert(errtext);
+  }
+}
 
 function checkIfUsernameTaken(email, password) {
   $.ajax({
@@ -49,7 +56,7 @@ function addUser(email, password) {
       else {
         // PERFORM LOGIN-Y THINGS HERE.
         console.log('user added');
-        window.location.href = 'setup.php';
+        window.location.reload();
       }
     },
     error: function (request, status, error) {

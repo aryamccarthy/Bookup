@@ -8,6 +8,7 @@ $(document).ready( function() {
 		getBooks("getPopularBooks");
 	}
 	else if(discoveryLoaded===true){
+		checkForNewUser();
 		getBooks("getRandomBook");
 	}
 	else if(listLoaded===true){
@@ -26,6 +27,19 @@ var discoveryLoaded = false;
 var listLoaded = false;
 
 var rootURL= "http://localhost:8888/api/index.php";
+
+function checkForNewUser(){
+	$.ajax({
+		type: 'GET',
+		url: rootURL + "/isNewUser?email="+userEmail,
+		dataType: "json",
+		success: function (data) {
+			if( data.newUser===true){
+				window.location.href="setup.php";
+			}
+		}
+	});
+}
 
 function checkForSetup(){
 	setupLoaded=true;
@@ -64,20 +78,20 @@ function getBooks(sourceURL) {
 		 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
 		 		}
 		 		for(var i=0; i<bookObjs.length; i+=2){	
-					var parsedBooks = $.parseJSON(bookObjs[i].book);	
+					var parsedBooks = $.parseJSON(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
 					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
-						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type=="ISBN_13"){
+						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
 							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
 						}
 					}
 					var cover = new Image();
 					cover.src = thumbnail;
 					var newBook= new Book(title, author, cover,description,isbn);
-				 	generateHTMLForReadingList(newBook);
+				 	generateHTMLForReadingList(newBook, i);
 				 	listBooks.push(newBook);
 				} 	
 			 
@@ -90,7 +104,7 @@ function getBooks(sourceURL) {
 					var description =parsedBooks.items[0].volumeInfo.description;
 					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
 					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
-						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type=="ISBN_13"){
+						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
 							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
 						}
 					}
@@ -103,14 +117,18 @@ function getBooks(sourceURL) {
 			}
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
-					console.log(data);
+					console.log(parsedBooks);
 					var parsedBooks = $.parseJSON(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
-					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
+					var author =(parsedBooks.items[0].volumeInfo.authors || []).join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
-					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					if (parsedBooks.items[0].volumeInfo.imageLinks) {
+						var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					} else {
+						var thumbnail = 'img/generic_book.jpg';
+					}
 					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
-						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type=="ISBN_13"){
+						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
 							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
 						}
 					}
@@ -166,7 +184,7 @@ function submitBookFeedback(rating, isbn) {
 		dataType: "json",
 		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
-			sweetAlert("Response", JSON.stringify(data), "info");
+			//sweetAlert("Response", JSON.stringify(data), "info");
 		}	
 	});
 }
@@ -224,26 +242,46 @@ function generateHTMLForDiscoveryPage(Book){
 	$("#book_author").html(Book.author);
 	$("#book_description").html(Book.description || "");
 	$("#book_cover").attr("src", Book.cover.src);
+	var addButton =document.getElementById("add to list");
+	addButton.setAttribute("onclick", "addBookToReadingList("+Book.isbn+")");
 }
 
-function generateHTMLForReadingList(Book){
+function generateHTMLForReadingList(Book, index){
 	$("#list_title").html(Book.title);
 	$("#list_author").html(Book.author);
 	$("#list_description").html(Book.description || "");
 	$("#list_cover").attr("src", Book.cover.src);
 	var listing=document.createElement("li");
 	listing.setAttribute("title", Book.title);
+	
+	var isbn=document.createElement('p');
+	isbn.setAttribute('id', 'isbn'+index);
+	isbn.innerHTML=Book.isbn;
+	isbn.style.display="none";
+
+	var listNum=document.createElement('p');
+	listNum.setAttribute('id', 'index'+Book.title);
+	listNum.innerHTML=index;
+	listNum.style.display="none";
 
 	var delete_listing=document.createElement("p");
 	listing.setAttribute("id", "list_item");
 	delete_listing.setAttribute("id", "delete_x");
 	delete_listing.innerHTML=" X";
-	delete_listing.setAttribute("onclick", "overlay('delete_and_rate_from_list')");
+	delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
 	listing.setAttribute("onclick", "showReadingListBook(this.title)")
 	listing.innerHTML=Book.title;
 	var sidebar_list=document.getElementById("list_books");
 	sidebar_list.appendChild(listing);
 	listing.appendChild(delete_listing);
+	listing.appendChild(isbn);
+}
+
+function dealWithRatingandDeleting(index){
+	overlay('delete_and_rate_from_list');
+	var isbn=document.getElementById("isbn"+index);
+	removeBookFromReadingList(isbn.innerHTML);
+
 }
 
 function showReadingListBook(selectedTitle){
@@ -253,6 +291,13 @@ function showReadingListBook(selectedTitle){
 			$("#list_author").html(listBooks[i].author);
 			$("#list_description").html(listBooks[i].description);
 			$("#list_cover").attr("src", listBooks[i].cover.src);
+		  	var listButtons= document.getElementsByClassName("twobutton listratingbutton");
+		  	var index= document.getElementById("index"+listBooks[i].title);
+
+			for(var j=0; j<3; j++){
+				listButtons[j].setAttribute("onclick","dealWithRatingandDeleting("+index.innerHTML+")" );
+			}
 	  	}
+		
 	 }
 }

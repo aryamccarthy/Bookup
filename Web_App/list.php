@@ -15,10 +15,8 @@
         <h1>Reading List</h1>
       </header>
       <ol id="list_books">
-
       </ol>
     </section>
-
     <section id="this_book">
       <article id="list_book_info">
         <div>
@@ -28,24 +26,18 @@
         </div>
         <img id= "list_cover" src=" ">
       </article>
-
       <button onclick="overlay('delete_and_rate_from_list')">Remove from list</button>
     </section>
 </div>
   </main>
-
   <section id="delete_and_rate_from_list">
     <form>
       <h1>Did you read this book?</h1>
       <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
-      <!-- TODO: get isbn number for function call below -->
-      <button class="twobutton listratingbutton" onclick="submitBookFeedback(); removeBookFromReadingList();" value="1"> Like </button>
-      <button class="twobutton listratingbutton" onclick="submitBookFeedback(); removeBookFromReadingList();" value="-1"> Dislike </button>
-      <button class="twobutton listratingbutton" onclick="submitBookFeedback(); removeBookFromReadingList(); " value="0">I didn't read this book.</button>
-      <!-- TODO: Have some sort of confirmation that the book was deleted  -->
+      <button class="twobutton listratingbutton" onclick="" value="1"> Like </button>
+      <button class="twobutton listratingbutton" onclick="" value="-1"> Dislike </button>
+      <button class="twobutton listratingbutton" onclick="" value="0">I didn't read this book.</button>
     </form>
   </section>
-
-
 </body>
 </html>

@@ -24,7 +24,6 @@
     </fieldset>
     </div>
   </section>
-
   <section id="rate_from_discovery">
     <form>
       <h2>Help us get to know you and your preferences! <br> How would you rate this book?</h2>
@@ -34,7 +33,6 @@
     </form>
   </section>
   </div>
-
+<?php require_once("html/footer.html"); ?>
 </body>
 </html>
-
