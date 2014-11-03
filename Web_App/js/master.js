@@ -8,6 +8,7 @@ $(document).ready( function() {
 		getBooks("getPopularBooks");
 	}
 	else if(discoveryLoaded===true){
+		checkForNewUser();
 		getBooks("getRandomBook");
 	}
 	else if(listLoaded===true){
@@ -26,6 +27,19 @@ var discoveryLoaded = false;
 var listLoaded = false;
 
 var rootURL= "http://localhost:8888/api/index.php";
+
+function checkForNewUser(){
+	$.ajax({
+		type: 'GET',
+		url: rootURL + "/isNewUser?email="+userEmail,
+		dataType: "json",
+		success: function (data) {
+			if( data.newUser===true){
+				window.location.href="setup.php";
+			}
+		}
+	});
+}
 
 function checkForSetup(){
 	setupLoaded=true;
@@ -262,8 +276,6 @@ function generateHTMLForReadingList(Book, index){
 	sidebar_list.appendChild(listing);
 	listing.appendChild(delete_listing);
 	listing.appendChild(isbn);
-
-
 }
 
 function dealWithRatingandDeleting(index){
