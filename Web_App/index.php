@@ -2,7 +2,5 @@
 
 require_once('sesh.php');
 
-if($login->isUserLoggedIn()) {
-  header('Location: discovery.php');
-  exit();
-} ?>
+if($login->isUserLoggedIn())
+  header('Location: discovery.php'); ?>
