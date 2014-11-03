@@ -14,6 +14,7 @@
   require_once('sesh.php');
   if($login->isUserLoggedIn())
     header('Location: discovery.php');
+  echo '<span id="loginerrors" style="display:none" data-err="' . $_SESSION['error'] . '"></span>';
   if(isset($_SESSION['error']))
     unset($_SESSION['error']);
     ?>
