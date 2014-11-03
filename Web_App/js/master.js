@@ -108,7 +108,11 @@ function getBooks(sourceURL) {
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =(parsedBooks.items[0].volumeInfo.authors || []).join(', ');
 					var description =parsedBooks.items[0].volumeInfo.description;
-					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					if (parsedBooks.items[0].volumeInfo.imageLinks) {
+						var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
+					} else {
+						var thumbnail = 'img/generic_book.jpg';
+					}
 					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
 						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
 							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
@@ -120,6 +124,7 @@ function getBooks(sourceURL) {
 				 		generateHTMLForSetupPage(newBook);
 				 	
 				}
+				console.log($('.setupratingbutton'));
 				$('.setupratingbutton').click(greyOutElement);
 				$('.setupratingbutton').click(getUserDataAndSubmit);
 			}
