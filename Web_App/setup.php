@@ -9,7 +9,6 @@
 </head>
 <body>
   <?php include("html/nav.html"); ?>
-  
   <section id="account_setup">
     <header>
       <h1>What have you read?</h1>
@@ -22,6 +21,6 @@
     <input type="submit" value="Continue" id="setup_submit" class="cf" />
   </form>
   </section>
-
+<?php require_once("html/footer.html"); ?>
 </body>
 </html>

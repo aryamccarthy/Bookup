@@ -1,5 +1,7 @@
 <?php
 
+ob_start();
+
 function debug($msg) {
     // echo '<div>Debug: ' . $msg . '</div><br>';
 }

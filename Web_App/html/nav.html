@@ -1,4 +1,7 @@
-<?php require_once('sesh.php'); ?>
+<?php
+echo '<span id="userinfo" style="display:none" data-email="'. $_SESSION["email"] . '"></span>';
+echo '<span id="loginerrors" style="display:none" data-err="' . $_SESSION['error'] . '"></span>';
+require_once('sesh.php'); ?>
 
 <nav>
   <ul>
