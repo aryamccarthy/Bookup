@@ -9,7 +9,6 @@
 </head>
 <body>
   <?php include("html/nav.html"); ?>
-  
   <section id="account_setup">
     <header>
       <h1>What have you read?</h1>
