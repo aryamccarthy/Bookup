@@ -138,7 +138,6 @@ function getBooks(sourceURL) {
 				 		generateHTMLForSetupPage(newBook);
 				 	
 				}
-				console.log($('.setupratingbutton'));
 				$('.setupratingbutton').click(greyOutElement);
 				$('.setupratingbutton').click(getUserDataAndSubmit);
 			}
@@ -185,7 +184,7 @@ function submitBookFeedback(rating, isbn) {
 		dataType: "json",
 		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
-			sweetAlert("Response", JSON.stringify(data), "info");
+			//sweetAlert("Response", JSON.stringify(data), "info");
 		}	
 	});
 }
