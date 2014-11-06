@@ -73,8 +73,8 @@ function getBooks(sourceURL) {
 		 	if(sourceURL.indexOf("getReadingList") > -1){
 		 		if (bookObjs.length === 0) {
 		 			$('#this_book button').remove();
-		 			$('#this_book article').css('text-align', 'center').append($('<h2>'));
-		 			$('#this_book h2').css('font-weight', 'normal').text("You have nothing in your reading list.");
+		 			$('#this_book article').css('text-align', 'center');
+		 			$('#this_book h2').css('font-weight', 'normal').css('margin-top', '170px').css({'position':'relative', 'left': '-100px'}).text("You have nothing in your reading list.");
 		 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
 		 		}
 		 		for(var i=0; i<bookObjs.length; i+=2){	
