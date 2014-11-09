@@ -303,10 +303,9 @@ function showReadingListBook(selectedTitle){
 			$("#list_author").html(listBooks[i].author);
 			$("#list_description").html(listBooks[i].description);
 			$("#list_cover").attr("src", listBooks[i].cover.src);
-		  	var listButtons= document.getElementsByClassName("twobutton listratingbutton");
+		  	var listButtons= document.getElementsByClassName("twobutton");
 		  	var index = document.getElementById("isbn"+i);
 			var isbn = index.innerHTML;
-
 			for(var j=0; j<3; j++){
 				listButtons[j].setAttribute("onclick","dealWithRatingandDeletingFromMainSection("+isbn+")" );
 			}

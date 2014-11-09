@@ -34,9 +34,9 @@
     <form>
       <h1>Did you read this book?</h1>
       <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
-      <button class="twobutton listratingbutton" onclick="" value="1"> Like </button>
-      <button class="twobutton listratingbutton" onclick="" value="-1"> Dislike </button>
-      <button class="twobutton listratingbutton" onclick="" value="0">I didn't read this book.</button>
+      <button class="twobutton listratingbutton" value="1"> Like </button>
+      <button class="twobutton listratingbutton" value="-1"> Dislike </button>
+      <button class="twobutton listratingbutton" value="0">I didn't read this book.</button>
     </form>
   </section>
 </body>
