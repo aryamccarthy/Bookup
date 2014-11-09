@@ -61,7 +61,6 @@ function Book( title, author, cover, description, isbn){
 	this.isbn=isbn;
 }
 
-//use for api calls to getRandomBook, getPopularBooks, getReadingList
 function getBooks(sourceURL) {
 
 	$.ajax({
@@ -77,7 +76,7 @@ function getBooks(sourceURL) {
 		 			$('#this_book h2').css('font-weight', 'normal').css('margin-top', '170px').css({'position':'relative', 'left': '-100px'}).text("You have nothing in your reading list.");
 		 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
 		 		}
-		 		for(var i=0; i<bookObjs.length; i+=2){	
+		 		for(var i=0; i<bookObjs.length; i++){	
 					var parsedBooks = $.parseJSON(bookObjs[i]);
 					var title= parsedBooks.items[0].volumeInfo.title;
 					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
@@ -91,8 +90,9 @@ function getBooks(sourceURL) {
 					var cover = new Image();
 					cover.src = thumbnail;
 					var newBook= new Book(title, author, cover,description,isbn);
-				 	generateHTMLForReadingList(newBook, i);
 				 	listBooks.push(newBook);
+
+				 	generateHTMLForReadingList(newBook, i);
 				} 	
 			 
 			 }
@@ -152,6 +152,8 @@ function addBookToReadingList(isbn) {
 		dataType: "json",
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
+			console.log(userEmail);
+			console.log(isbn);
 			console.log("book sucessfully added");
 		}	
 	});
@@ -163,6 +165,8 @@ function removeBookFromReadingList(isbn) {
 		dataType: "json",
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
+			console.log(userEmail);
+			console.log(isbn);
 			console.log("book sucessfully removed");
 		}	
 	});
@@ -269,8 +273,10 @@ function generateHTMLForReadingList(Book, index){
 	delete_listing.setAttribute("id", "delete_x");
 	delete_listing.innerHTML=" X";
 	delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
+	
 	listing.setAttribute("onclick", "showReadingListBook(this.title)")
 	listing.innerHTML=Book.title;
+	
 	var sidebar_list=document.getElementById("list_books");
 	sidebar_list.appendChild(listing);
 	listing.appendChild(delete_listing);
@@ -284,6 +290,12 @@ function dealWithRatingandDeleting(index){
 
 }
 
+function dealWithRatingandDeletingFromMainSection(isbn){
+	overlay('delete_and_rate_from_list');
+	removeBookFromReadingList(isbn);
+
+}
+
 function showReadingListBook(selectedTitle){
 	 for (var i=0; i<listBooks.length; i++){
 		if(listBooks[i].title == selectedTitle){
@@ -292,10 +304,11 @@ function showReadingListBook(selectedTitle){
 			$("#list_description").html(listBooks[i].description);
 			$("#list_cover").attr("src", listBooks[i].cover.src);
 		  	var listButtons= document.getElementsByClassName("twobutton listratingbutton");
-		  	var index= document.getElementById("index"+listBooks[i].title);
+		  	var index = document.getElementById("isbn"+i);
+			var isbn = index.innerHTML;
 
 			for(var j=0; j<3; j++){
-				listButtons[j].setAttribute("onclick","dealWithRatingandDeleting("+index.innerHTML+")" );
+				listButtons[j].setAttribute("onclick","dealWithRatingandDeletingFromMainSection("+isbn+")" );
 			}
 	  	}
 		
