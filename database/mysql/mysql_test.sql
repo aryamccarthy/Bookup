@@ -10,7 +10,7 @@
 
 #################################################
 ##
-##	Don't edit values without talking to Danny!!!
+##	--Don't edit values without talking to Danny!!!
 ##
 #################################################
 
@@ -208,4 +208,3 @@ INSERT INTO Rating VALUES
 	("amccarthy@bookup.com", -1, NOW(),"9780007491568"),
 	("amccarthy@bookup.com", -1, NOW(),"9780060256654"),
 	("amccarthy@bookup.com", -1, NOW(),"9780060529963");
-
