@@ -134,6 +134,28 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   [self getABook];
 }
 
+- (IBAction)addToReadingList:(id)sender {
+  [self showAddFeedback];
+}
+
+- (void)showAddFeedback {
+  NSString *text = self.authorLabel.text;
+  UIColor *color = self.authorLabel.textColor;
+  self.authorLabel.text = @"Added to reading list!";
+  self.authorLabel.textColor = [UIColor purpleColor];
+  NSString *title = self.titleLabel.text; // Save this.
+  dispatch_queue_t pause_queue = dispatch_queue_create("timer", NULL);
+  dispatch_async(pause_queue, ^{
+    [NSThread sleepForTimeInterval:2];
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (self.titleLabel.text == title) { // If we still care about the same book...
+        self.authorLabel.text = text; //Reset.
+        self.authorLabel.textColor = color;
+      }
+    });
+  });
+}
+
 - (void) showPreferenceFeedback:(BookupPreferenceValue) preference {
   NSString *feedback = @"?";
   UIColor *color = [UIColor blackColor];

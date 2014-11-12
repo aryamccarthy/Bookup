@@ -115,7 +115,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhO-iE-lgo">
                                 <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="add" id="cif-y7-g2q"/>
+                                    <barButtonItem systemItem="add" id="cif-y7-g2q">
+                                        <connections>
+                                            <action selector="addToReadingList:" destination="szt-UQ-3sK" id="FaX-Zh-KoE"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="E5g-ai-y6A"/>
                                     <barButtonItem title="Like" style="plain" id="2hX-XE-knY">
                                         <connections>
