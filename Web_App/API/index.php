@@ -171,7 +171,7 @@ $app->post('/addUser', function() {
 *	Last tested by Luke on 11/12/2014
 */
 
-$app->post('/getRecommendedBook', function() {
+$app->get('/getRecommendedBook/:email', function($email) {
 	getRandomBook();
 });
 
@@ -184,7 +184,9 @@ $app->post('/getRecommendedBook', function() {
 *	Last tested by Danny on 11/2/2014 at 2:29pm
 */
 
-$app->get('/getRandomBook',getRandomBook()); 
+$app->get('/getRandomBook',function() {
+	getRandomBook();
+}); 
 
 function getRandomBook() {
 	global $pdo;
@@ -201,9 +203,18 @@ function getRandomBook() {
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
 			try {
+				/* 
+				* Old version, returning several book objects
+				*/
 				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
+
+				/* 
+				* New version, returning a single book object 
+				*/
+				// $result['book'] = $firebaseObject->getBookJson($row['isbn_num']);
+
 				$result['success'] = true;
 			}
 			catch (Exception $e) {
