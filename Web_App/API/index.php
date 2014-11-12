@@ -204,16 +204,17 @@ function getRandomBook() {
 		{
 			try {
 				/* 
-				* Old version, returning several book objects
+				* Old version, returns a straight up google books object
 				*/
 				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
 
 				/* 
-				* New version, returning a single book object 
+				* New version, returns the books json in the spec doc
 				*/
-				// $result['book'] = $firebaseObject->getBookJson($row['isbn_num']);
+				$fbook = $firebaseObject->getBookJson($row['isbn_num']);
+				$fbook = 
 
 				$result['success'] = true;
 			}
@@ -415,6 +416,10 @@ $app->post('/resetRatingsOfUser', function() {
 	echo json_encode($result);
 
 });
+
+function firebaseJsonToSpecJson($fire) {
+	
+}
 
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
