@@ -53,6 +53,7 @@ $app->get('/getPopularBooks', function() {
             $books = array();
             while($row = $statement->fetch()) {
                 $bookObject = $firebaseObject->getBookJson($row['isbn_num']);
+                $bookObject = firebaseJsonToSpecJson($bookObject);
                 array_push($books, $bookObject);
 	    }
 
@@ -207,14 +208,9 @@ function getRandomBook() {
 				* Old version, returning several book objects
 				*/
 				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
+				$bookObject = firebaseJsonToSpecJson($bookObject);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
-
-				/* 
-				* New version, returning a single book object 
-				*/
-				// $result['book'] = $firebaseObject->getBookJson($row['isbn_num']);
-
 				$result['success'] = true;
 			}
 			catch (Exception $e) {
@@ -243,14 +239,11 @@ function getRandomBook() {
 
 $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 	global $pdo;
-
-        $args[':isbn'] = $isbn;
-
-        $firebaseObject = new FirebaseIsbnLookup();
-
-        $bookObject = $firebaseObject->getBookJson($args[':isbn']);
-
-        echo json_encode($bookObject);
+    $args[':isbn'] = $isbn;
+    $firebaseObject = new FirebaseIsbnLookup();
+    $bookObject = $firebaseObject->getBookJson($args[':isbn']);
+    $prettyBook = firebaseJsonToSpecJson($bookObject);
+    echo json_encode($prettyBook);
 });
 
 /*
@@ -262,12 +255,12 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 *	Last tested by Danny on 11/2/2014 at 2:28pm
 */
 
-$app->get('/getReadingList', function() {
+$app->get('/getReadingList/:email', function($email) {
 	global $pdo;
     
     $firebaseObject = new FirebaseIsbnLookup();
 
-	$args[':email'] = $_GET['email'];
+	$args[':email'] = $email;
 
 	$statement = $pdo->prepare(
             'SELECT isbn_num, timestamp FROM ReadingList
@@ -281,6 +274,7 @@ $app->get('/getReadingList', function() {
 		{
 			//echo $row["isbn_num"];
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			$bookObject = firebaseJsonToSpecJson($bookObject);
 			array_push($books, $bookObject);
 		} 
 		$result['Books'] = $books;
@@ -415,6 +409,39 @@ $app->post('/resetRatingsOfUser', function() {
 	echo json_encode($result);
 
 });
+
+$app->get('/fixingJson/:isbn', function($isbn) {
+	global $pdo;
+    $args[':isbn'] = $isbn;
+    $firebaseObject = new FirebaseIsbnLookup();
+    $bookObject = $firebaseObject->getBookJson($args[':isbn']);
+    $prettyBook = firebaseJsonToSpecJson($bookObject);
+    echo json_encode($prettyBook);
+});
+
+function firebaseJsonToSpecJson($fire, $isbn=null) {
+	$fire = json_decode($fire, $assoc=true);
+	if ($fire["totalItems"] < 1) {
+		return null;
+	}
+	$fire = $fire["items"][0];
+	$prettyBook["title"] = (empty($fire["volumeInfo"]["title"]) ? null : $fire["volumeInfo"]["title"]);
+	$prettyBook["author"] = (empty($fire["volumeInfo"]["authors"]) ? null : $fire["volumeInfo"]["authors"]);
+	$prettyBook["description"] = (empty($fire["volumeInfo"]["description"]) ? null : $fire["volumeInfo"]["description"]);
+	$prettyBook["isbn"] = null;
+	if ($isbn) {
+		$prettyBook["isbn"] = $isbn;
+	} else {
+		foreach ($fire["volumeInfo"]["industryIdentifiers"] as $isbn) {
+			if ($isbn["type"] == "ISBN_13") {
+				$prettyBook["isbn"] = (empty($isbn["identifier"]) ? null : $isbn["identifier"]);
+				break;
+			}
+		}
+	}
+	$prettyBook["imageLinks"] = (empty($fire["volumeInfo"]["imageLinks"])) ? null : $fire["volumeInfo"]["imageLinks"];
+	return $prettyBook;
+}
 
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
