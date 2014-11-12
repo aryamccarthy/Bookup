@@ -127,9 +127,9 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQi-Nn-20z">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQi-Nn-20z">
                                 <rect key="frame" x="16" y="72" width="568" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -142,12 +142,13 @@
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Author" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okf-1m-qUi">
                                 <rect key="frame" x="16" y="109" width="568" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IhO-iE-lgo" secondAttribute="trailing" id="GvE-Qe-g6B"/>
                             <constraint firstItem="bQi-Nn-20z" firstAttribute="leading" secondItem="6S8-2C-0OB" secondAttribute="leadingMargin" id="RPb-9s-POd"/>
@@ -163,6 +164,9 @@
                             <constraint firstItem="dtC-7B-pQi" firstAttribute="top" secondItem="Okf-1m-qUi" secondAttribute="bottom" constant="8" symbolic="YES" id="rI8-rh-V7R"/>
                             <constraint firstItem="bQi-Nn-20z" firstAttribute="leading" secondItem="Okf-1m-qUi" secondAttribute="leading" id="sWW-ju-A11"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bFZ-0F-ejJ" appends="YES" id="nL4-LG-Xu1"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Discovery" id="xX8-H2-QKa">
                         <barButtonItem key="rightBarButtonItem" id="g6U-9Y-rfG">
@@ -188,6 +192,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBg-Gu-I7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="bFZ-0F-ejJ">
+                    <connections>
+                        <action selector="swipe:" destination="szt-UQ-3sK" id="fCs-hM-7VK"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1944" y="1773"/>
         </scene>

@@ -45,8 +45,8 @@
   [self getABook];
 }
 
-- (void)updateUI {
-  //NSLog(@"%@", self.book);
+- (void)updateUI
+{
   self.titleLabel.text = self.book.myTitle;
   self.authorLabel.text = self.book.myAuthorsAsString;
   self.descriptionTextView.text = self.book.myDescription;
@@ -70,9 +70,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
           if (image) {
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
-            paragrapStyle.alignment                = NSTextAlignmentCenter;
+            paragrapStyle.alignment                = NSTextAlignmentJustified;
             NSLog(@"GOT HERE.");
-            NSDictionary *textAttributes = @{NSParagraphStyleAttributeName:paragrapStyle};
+            NSDictionary *textAttributes = @{NSParagraphStyleAttributeName:paragrapStyle, NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]};
             NSString *descr = self.book.myDescription; // Since we get malformed JSON ALL THE TIME.
             if (!descr)
               descr = @"";
@@ -92,15 +92,6 @@
             //[attributedString setAttributes:textAttributes range:NSMakeRange(0, [attributedString length])]; // Doesn't actually work. Image will not display.
             [self.descriptionTextView setAttributedText:attributedString];
             [self.descriptionTextView setScrollEnabled:YES];
-//            NSLog(@"How about this? %@", imageURL);
-//            self.bookCover.image = image;
-//            self.bookCover.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-//            self.bookCover.contentMode = UIViewContentModeScaleAspectFit;
-//            [self.descriptionTextView addSubview:self.bookCover];
-//            CGRect exclusionArea = self.bookCover.frame;
-//            NSLog(@"%@", NSStringFromCGRect(exclusionArea));
-//            UIBezierPath *path = [UIBezierPath bezierPathWithRect:exclusionArea];
-//            self.descriptionTextView.textContainer.exclusionPaths = @[path];
           }
           [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         });
@@ -118,7 +109,11 @@
   NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-#pragma mark NSURLConnection Delegate Methods
+- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
+  [self getABook];
+}
+
+#pragma mark - NSURLConnection Delegate Methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
   // A response has been received, this is where we initialize the instance var you created
@@ -142,7 +137,7 @@
 }
 
 - (IBAction)appInfo:(id)sender {
-  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Bookup for iPhone" message:@"\nCopyright © 2014.\n\nKatherine Habeck\nArya McCarthy" preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Bookup for iPhone" message:@"\nCopyright © 2014.\n\nEthan Busbee\nKatherine Habeck\nArya McCarthy" preferredStyle:UIAlertControllerStyleAlert];
   UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Thanks, guys!" style:UIAlertActionStyleCancel handler:nil];
   [alert addAction:cancel];
   [self presentViewController:alert animated:YES completion:nil];
