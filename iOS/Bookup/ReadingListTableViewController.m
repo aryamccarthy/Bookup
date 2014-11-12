@@ -140,7 +140,7 @@
   // Configure the cell.
   cell.textLabel.text = [self getMyTitleForRow:indexPath.row inSection:indexPath.section];
   cell.detailTextLabel.text = [self getMySubtitleForRow:indexPath.row inSection: indexPath.section];
-
+  cell.imageView.image = [UIImage imageNamed:@"favicon-32x32"];
   return cell;
 }
 
