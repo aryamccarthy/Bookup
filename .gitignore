@@ -55,3 +55,6 @@ DerivedData
 # Pods - for those of you who use CocoaPods
 Pods
 *.xcuserstate
+
+*.xcuserstate
+iOS/Bookup.xcodeproj/project.xcworkspace/xcuserdata/Arya.xcuserdatad/UserInterfaceState.xcuserstate
