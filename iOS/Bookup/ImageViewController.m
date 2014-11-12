@@ -112,11 +112,9 @@
     self.scrollView.minimumZoomScale = 1.0;
     self.scrollView.maximumZoomScale = 2.0;
     self.scrollView.delegate = self;
-  [self.scrollView setShowsHorizontalScrollIndicator:NO];
-  [self.scrollView setShowsVerticalScrollIndicator:NO];
 
+  self.automaticallyAdjustsScrollViewInsets = NO;
     [self resetImage];
-    //self.titleBarButtonItem.title = self.title;
 }
 
 @end
