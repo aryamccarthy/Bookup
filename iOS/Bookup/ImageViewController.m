@@ -81,7 +81,6 @@
                         self.scrollView.contentSize = image.size;
                         self.imageView.image = image;
                       self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-                      [self.scrollView layoutSubviews];
                       NSLog(@"%@", NSStringFromCGRect(self.imageView.frame));
                     }
                     [self.spinner stopAnimating];  // spinner should have hidesWhenStopped set
