@@ -163,6 +163,19 @@ $app->post('/addUser', function() {
 });
 
 /*
+*	Get a recommended Book from FB
+*
+*	owner: Luke Oglesbee
+*	status: Hollow (calls getrandombook)
+*
+*	Last tested by Luke on 11/12/2014
+*/
+
+$app->post('/getRecommendedBook', function() {
+	getRandomBook();
+});
+
+/*
 *	Get a Random Book from FB
 *	
 *	owner: Danny Rizzuto
@@ -171,10 +184,12 @@ $app->post('/addUser', function() {
 *	Last tested by Danny on 11/2/2014 at 2:29pm
 */
 
-$app->get('/getRandomBook', function() {
+$app->get('/getRandomBook',getRandomBook()); 
+
+function getRandomBook() {
 	global $pdo;
 
-        $firebaseObject = new FirebaseIsbnLookup();
+    $firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
 		'SELECT isbn_num FROM BookList
@@ -204,7 +219,7 @@ $app->get('/getRandomBook', function() {
 
 	echo json_encode($result);
 
-});
+}
 
 /*
 *	Get Book Object From Firebase
