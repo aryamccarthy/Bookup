@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DiscoveryViewController.h
 //  Bookup
 //
 //  Created by Arya McCarthy on 11/9/14.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
+@interface DiscoveryViewController : UIViewController<NSURLConnectionDelegate>
+{
+  NSMutableData *_responseData;
+}
 @end
-

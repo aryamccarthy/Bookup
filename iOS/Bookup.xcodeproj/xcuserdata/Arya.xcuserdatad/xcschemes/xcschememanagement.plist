@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Bookup copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Bookup.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,12 +17,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>42AB0F321A12AE360090F598</key>
+		<key>426BB1431A11386C00738284</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42AB0F4B1A12AE360090F598</key>
+		<key>42C089561A1076BF002B1B79</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>42C089721A1076C0002B1B79</key>
 		<dict>
 			<key>primary</key>
 			<true/>

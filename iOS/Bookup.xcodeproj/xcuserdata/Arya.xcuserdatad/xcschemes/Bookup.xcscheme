@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42AB0F321A12AE360090F598"
+               BlueprintIdentifier = "42C089561A1076BF002B1B79"
                BuildableName = "Bookup.app"
                BlueprintName = "Bookup"
                ReferencedContainer = "container:Bookup.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42AB0F4B1A12AE360090F598"
+               BlueprintIdentifier = "42C089721A1076C0002B1B79"
                BuildableName = "BookupTests.xctest"
                BlueprintName = "BookupTests"
                ReferencedContainer = "container:Bookup.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42AB0F4B1A12AE360090F598"
+               BlueprintIdentifier = "42C089721A1076C0002B1B79"
                BuildableName = "BookupTests.xctest"
                BlueprintName = "BookupTests"
                ReferencedContainer = "container:Bookup.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42AB0F321A12AE360090F598"
+            BlueprintIdentifier = "42C089561A1076BF002B1B79"
             BuildableName = "Bookup.app"
             BlueprintName = "Bookup"
             ReferencedContainer = "container:Bookup.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42AB0F321A12AE360090F598"
+            BlueprintIdentifier = "42C089561A1076BF002B1B79"
             BuildableName = "Bookup.app"
             BlueprintName = "Bookup"
             ReferencedContainer = "container:Bookup.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "42AB0F321A12AE360090F598"
+            BlueprintIdentifier = "42C089561A1076BF002B1B79"
             BuildableName = "Bookup.app"
             BlueprintName = "Bookup"
             ReferencedContainer = "container:Bookup.xcodeproj">
