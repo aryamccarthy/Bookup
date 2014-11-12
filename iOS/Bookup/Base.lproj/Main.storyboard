@@ -115,10 +115,19 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhO-iE-lgo">
                                 <rect key="frame" x="0.0" y="507" width="600" height="44"/>
                                 <items>
+                                    <barButtonItem systemItem="add" id="cif-y7-g2q"/>
                                     <barButtonItem systemItem="flexibleSpace" id="E5g-ai-y6A"/>
-                                    <barButtonItem image="thumb-up-7" style="plain" id="2hX-XE-knY"/>
-                                    <barButtonItem width="22" systemItem="fixedSpace" id="UK3-1Z-SIn"/>
-                                    <barButtonItem image="thumb-down-7" style="plain" id="Pr5-O6-oG9"/>
+                                    <barButtonItem title="Like" style="plain" id="2hX-XE-knY">
+                                        <connections>
+                                            <action selector="pressLike:" destination="szt-UQ-3sK" id="E2a-5J-Xtu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="1jA-iz-sye"/>
+                                    <barButtonItem title="Dislike" style="plain" id="Pr5-O6-oG9">
+                                        <connections>
+                                            <action selector="pressDislike:" destination="szt-UQ-3sK" id="dlT-r1-Pcb"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem systemItem="flexibleSpace" id="PDe-eN-7BI"/>
                                     <barButtonItem systemItem="fastForward" id="9G1-PB-Ke6">
                                         <connections>
@@ -166,6 +175,7 @@
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="bFZ-0F-ejJ" appends="YES" id="nL4-LG-Xu1"/>
+                            <outletCollection property="gestureRecognizers" destination="0sD-pc-l5K" appends="YES" id="QFJ-Iq-OCv"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Discovery" id="xX8-H2-QKa">
@@ -194,7 +204,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBg-Gu-I7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="bFZ-0F-ejJ">
                     <connections>
-                        <action selector="swipe:" destination="szt-UQ-3sK" id="fCs-hM-7VK"/>
+                        <action selector="swipeLeft:" destination="szt-UQ-3sK" id="axe-9e-f6g"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="0sD-pc-l5K">
+                    <connections>
+                        <action selector="swipeRight:" destination="szt-UQ-3sK" id="ZmY-KQ-4Mo"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -260,7 +275,6 @@
     </scenes>
     <resources>
         <image name="list-simple-7" width="30" height="30"/>
-        <image name="thumb-down-7" width="30" height="30"/>
         <image name="thumb-up-7" width="30" height="30"/>
     </resources>
 </document>

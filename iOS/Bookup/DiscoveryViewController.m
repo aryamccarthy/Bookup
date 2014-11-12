@@ -20,6 +20,11 @@
 
 @implementation DiscoveryViewController
 
+typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
+  BookupPreferenceValueLike = -1,
+  BookupPreferenceValueDislike = 1
+};
+
 - (UIImageView *)bookCover {
   if (!_bookCover)
     _bookCover = [[UIImageView alloc] init];
@@ -48,6 +53,7 @@
 - (void)updateUI
 {
   self.titleLabel.text = self.book.myTitle;
+  self.authorLabel.textColor = [UIColor blackColor];
   self.authorLabel.text = self.book.myAuthorsAsString;
   self.descriptionTextView.text = self.book.myDescription;
   self.descriptionTextView.textAlignment = NSTextAlignmentJustified;
@@ -109,9 +115,48 @@
   NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-- (IBAction)swipe:(UISwipeGestureRecognizer *)sender {
+- (IBAction)swipeLeft:(UISwipeGestureRecognizer *)sender {
+  [self dislike];
   [self getABook];
 }
+- (IBAction)swipeRight:(id)sender {
+  NSLog(@"Swiped right!" );
+  [self like];
+  [self getABook];
+}
+- (IBAction)pressLike:(id)sender {
+  [self like];
+  [self getABook];
+}
+
+- (IBAction)pressDislike:(id)sender {
+  [self dislike];
+  [self getABook];
+}
+
+- (void) showPreferenceFeedback:(BookupPreferenceValue) preference {
+  NSString *feedback = @"?";
+  UIColor *color = [UIColor blackColor];
+  if (preference == BookupPreferenceValueDislike) {
+    feedback = @"Disliked!";
+    color = [UIColor redColor];
+  }
+  if (preference == BookupPreferenceValueLike) {
+    feedback = @"Liked!";
+    color = [UIColor greenColor];
+  }
+  self.authorLabel.text = feedback;
+  self.authorLabel.textColor = color;
+}
+
+- (void)dislike {
+  [self showPreferenceFeedback:BookupPreferenceValueDislike];
+}
+
+- (void)like {
+  [self showPreferenceFeedback:BookupPreferenceValueLike];
+}
+
 
 #pragma mark - NSURLConnection Delegate Methods
 
