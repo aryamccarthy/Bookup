@@ -100,6 +100,41 @@ $app->get('/userExists', function() {
 });
 
 /*
+*	Checks to see the user/password combination is correct
+*	
+*	owner: Nicole Gatmaitan
+*	status: Working
+*
+*	Last tested on 11/12/2014 at 9:08pm
+*/
+
+$app->get('/validate/:email/:password', function($email, $password) {
+	global $pdo;
+
+	$args [":email"] = $email;
+	$args [":password"] = $password;
+
+	$statement = $pdo->prepare(
+		"SELECT COUNT(email) AS count FROM Account
+			WHERE email = :email AND password = :password");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+		$row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC);
+		$result['valid'] = $row['count'] != 0;
+		$result['error'] = $result['valid'] ? '' : 'The combination is incorrect.';
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+
+/*
 *	Checks to see the user is new
 *	
 *	owner: Nicole Gatmaitan
