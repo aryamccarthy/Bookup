@@ -452,8 +452,28 @@ $app->post('/resetRatingsOfUser', function() {
 
 });
 
-function firebaseJsonToSpecJson($fire) {
-	
+function firebaseJsonToSpecJson($fire, $isbn=null) {
+	$fire = json_decode($fire, $assoc=true);
+	if ($fire["totalItems"] < 1) {
+		return null;
+	}
+	$fire = $fire["items"][0];
+	$prettyBook["title"] = (empty($fire["volumeInfo"]["title"]) ? null : $fire["volumeInfo"]["title"]);
+	$prettyBook["author"] = (empty($fire["volumeInfo"]["authors"]) ? null : $fire["volumeInfo"]["authors"]);
+	$prettyBook["description"] = (empty($fire["volumeInfo"]["description"]) ? null : $fire["volumeInfo"]["description"]);
+	$prettyBook["isbn"] = null;
+	if ($isbn) {
+		$prettyBook["isbn"] = $isbn;
+	} else {
+		foreach ($fire["volumeInfo"]["industryIdentifiers"] as $isbn) {
+			if ($isbn["type"] == "ISBN_13") {
+				$prettyBook["isbn"] = (empty($isbn["identifier"]) ? null : $isbn["identifier"]);
+				break;
+			}
+		}
+	}
+	$prettyBook["thumbnail"] = (empty($fire["volumeInfo"]["imageLinks"]["thumbnail"])) ? null : $fire["volumeInfo"]["imageLinks"]["thumbnail"];
+	return $prettyBook;
 }
 
 //	^^^^^^^^^^^^^^^^^^^^^^^
