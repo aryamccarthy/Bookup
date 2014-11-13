@@ -439,7 +439,7 @@ function firebaseJsonToSpecJson($fire, $isbn=null) {
 			}
 		}
 	}
-	$prettyBook["imageLinks"] = (empty($fire["volumeInfo"]["imageLinks"])) ? null : $fire["volumeInfo"]["imageLinks"];
+	$prettyBook["thumbnail"] = (empty($fire["volumeInfo"]["imageLinks"]["thumbnail"])) ? null : $fire["volumeInfo"]["imageLinks"]["thumbnail"];
 	return $prettyBook;
 }
 
