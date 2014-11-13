@@ -110,10 +110,8 @@
   }
     [self.scrollView addSubview:self.imageView];
     self.scrollView.minimumZoomScale = 1.0;
-    self.scrollView.maximumZoomScale = 2.0;
+    self.scrollView.maximumZoomScale = 5.0;
     self.scrollView.delegate = self;
-
-  self.automaticallyAdjustsScrollViewInsets = NO;
     [self resetImage];
 }
 

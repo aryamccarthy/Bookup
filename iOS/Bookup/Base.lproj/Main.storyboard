@@ -262,7 +262,7 @@
         <scene sceneID="2df-eH-M4y">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="irG-aT-IQg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discovery" image="thumb-up-7" id="i20-0N-det"/>
+                    <tabBarItem key="tabBarItem" title="Discovery" image="thumb_up-50" id="i20-0N-det"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rjL-0j-JxW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -281,7 +281,7 @@
         <scene sceneID="yj4-cN-t02">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="mZx-JC-Pbr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reading List" image="list-simple-7" id="Ll7-Oe-ZlX"/>
+                    <tabBarItem key="tabBarItem" title="Reading List" image="courses-100" id="Ll7-Oe-ZlX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4eu-M0-9lR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -298,7 +298,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list-simple-7" width="30" height="30"/>
-        <image name="thumb-up-7" width="30" height="30"/>
+        <image name="courses-100" width="22" height="22"/>
+        <image name="thumb_up-50" width="22" height="22"/>
     </resources>
 </document>
