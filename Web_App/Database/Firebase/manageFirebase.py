@@ -62,6 +62,14 @@ def cleanUpFireBase():
 
     result = firebaseConn.get('/Name', None)
 
+def getFirebaseObjet(isbnArray):
+
+    fbURL = 'https://bookup-v2.firebaseio.com/'
+
+    firebaseConn =firebase.FirebaseApplication(fbURL, None)
+
+    result firebaseConn.get('')
+
 if __name__ == "__main__":
 
     # cleanUpFireBase()
