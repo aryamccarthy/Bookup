@@ -196,6 +196,13 @@
            [segue.destinationViewController setTitle:[self getMyTitleForRow:indexPath.row inSection:indexPath.section]];
          }
        }
+       else if ([segue.identifier isEqualToString:@"Show Description"]) {
+         if ([segue.destinationViewController respondsToSelector:@selector(setBook:)]) {
+           Book *book = [self fetchNthBook:indexPath.row];
+           [segue.destinationViewController performSelector:@selector(setBook:) withObject:book];
+           [segue.destinationViewController setTitle:[self getMyTitleForRow:indexPath.row inSection:indexPath.section]];
+         }
+       }
      }
    }
  }
