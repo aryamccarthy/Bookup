@@ -16,6 +16,10 @@
 @property (strong, nonatomic) Book *book;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *popoverButton;
 @property (strong, nonatomic) IBOutlet UIImageView *bookCover;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *addButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRecognizer;
+@property (nonatomic) BOOL acceptsLongPress; // workaround because reasons.
 @end
 
 @implementation DiscoveryViewController
@@ -39,7 +43,9 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 - (void)viewDidLoad {
     [super viewDidLoad];
   // Do any additional setup after loading the view.
+  self.acceptsLongPress = YES;
   [self getABook];
+  [self.descriptionTextView setContentInset:UIEdgeInsetsMake(0, 0, self.toolbar.frame.size.height, 0)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +56,12 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   [self getABook];
 }
 
+- (void) enableAllButtons {
+  self.addButton.enabled = YES;
+  self.longPressRecognizer.enabled = YES;
+  self.acceptsLongPress = YES;
+}
+
 - (void)updateUI
 {
   self.titleLabel.text = self.book.myTitle;
@@ -57,6 +69,7 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   self.authorLabel.text = self.book.myAuthorsAsString;
   self.descriptionTextView.text = self.book.myDescription;
   self.descriptionTextView.textAlignment = NSTextAlignmentJustified;
+  [self enableAllButtons];
   [self resetImage];
 }
 - (void)resetImage
@@ -77,6 +90,7 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
           if (image) {
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
             paragrapStyle.alignment                = NSTextAlignmentJustified;
+            paragrapStyle.hyphenationFactor = 1.0f;
             NSLog(@"GOT HERE.");
             NSDictionary *textAttributes = @{NSParagraphStyleAttributeName:paragrapStyle, NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]};
             NSString *descr = self.book.myDescription; // Since we get malformed JSON ALL THE TIME.
@@ -134,23 +148,47 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   [self getABook];
 }
 
-- (IBAction)addToReadingList:(id)sender {
+- (void)preventReAddingToList {
+  self.addButton.enabled = NO;
+  self.longPressRecognizer.enabled = NO; //Cancels gesture
+  self.acceptsLongPress = NO;
+}
+
+- (IBAction)holdForDislike:(UILongPressGestureRecognizer *)sender {
+  if (sender.state == UIGestureRecognizerStateBegan && self.acceptsLongPress) {
+    NSLog(@"Long press occurred!");
+    [self preventReAddingToList];
+    [self showAddFeedback];
+  }
+}
+
+- (IBAction)addCurrentToReadingList:(UIBarButtonItem *)sender
+{
+  [self preventReAddingToList];
   [self showAddFeedback];
 }
 
 - (void)showAddFeedback {
   NSString *text = self.authorLabel.text;
   UIColor *color = self.authorLabel.textColor;
-  self.authorLabel.text = @"Added to reading list!";
-  self.authorLabel.textColor = [UIColor purpleColor];
+  [UIView transitionWithView:self.authorLabel duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+    self.authorLabel.text = @"Added to reading list!";
+    self.authorLabel.textColor = [UIColor purpleColor];
+  } completion:nil];
   NSString *title = self.titleLabel.text; // Save this.
+  NSLog(@"Going to another thread.");
   dispatch_queue_t pause_queue = dispatch_queue_create("timer", NULL);
   dispatch_async(pause_queue, ^{
-    [NSThread sleepForTimeInterval:2];
+    NSLog(@"About to wait.");
+    [NSThread sleepForTimeInterval:1.5f];
+    NSLog(@"Waited");
     dispatch_async(dispatch_get_main_queue(), ^{
+      NSLog(@"Resetting.");
       if (self.titleLabel.text == title) { // If we still care about the same book...
-        self.authorLabel.text = text; //Reset.
-        self.authorLabel.textColor = color;
+        [UIView transitionWithView:self.authorLabel duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+          self.authorLabel.text = text; //Reset.
+          self.authorLabel.textColor = color;
+        } completion:nil];
       }
     });
   });

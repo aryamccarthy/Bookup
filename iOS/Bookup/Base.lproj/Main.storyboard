@@ -112,18 +112,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhO-iE-lgo">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe left or right to rate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okf-1m-qUi">
+                                <rect key="frame" x="16" y="109" width="568" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="SvY-Q9-TQl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended books for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQi-Nn-20z">
+                                <rect key="frame" x="16" y="72" width="568" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="LHo-p9-hcu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtC-7B-pQi">
+                                <rect key="frame" x="16" y="146" width="568" height="405"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="405" id="sLg-u1-9eD"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="sLg-u1-9eD"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wka-7W-BPa" appends="YES" id="4YJ-uS-qHD"/>
+                                </connections>
+                            </textView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.94999999999999996" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhO-iE-lgo">
                                 <rect key="frame" x="0.0" y="507" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <barButtonItem systemItem="add" id="cif-y7-g2q">
-                                        <connections>
-                                            <action selector="addToReadingList:" destination="szt-UQ-3sK" id="FaX-Zh-KoE"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="E5g-ai-y6A"/>
                                     <barButtonItem title="Like" style="plain" id="2hX-XE-knY">
                                         <connections>
                                             <action selector="pressLike:" destination="szt-UQ-3sK" id="E2a-5J-Xtu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="E5g-ai-y6A"/>
+                                    <barButtonItem systemItem="add" id="cif-y7-g2q">
+                                        <connections>
+                                            <action selector="addCurrentToReadingList:" destination="szt-UQ-3sK" id="KzK-Ya-s9J"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="1jA-iz-sye"/>
@@ -132,50 +170,25 @@
                                             <action selector="pressDislike:" destination="szt-UQ-3sK" id="dlT-r1-Pcb"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="flexibleSpace" id="PDe-eN-7BI"/>
-                                    <barButtonItem systemItem="fastForward" id="9G1-PB-Ke6">
-                                        <connections>
-                                            <action selector="nextBook:" destination="szt-UQ-3sK" id="VEj-QS-0MA"/>
-                                        </connections>
-                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQi-Nn-20z">
-                                <rect key="frame" x="16" y="72" width="568" height="29"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtC-7B-pQi">
-                                <rect key="frame" x="16" y="146" width="568" height="361"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Author" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okf-1m-qUi">
-                                <rect key="frame" x="16" y="109" width="568" height="29"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="bQi-Nn-20z" firstAttribute="centerX" secondItem="IhO-iE-lgo" secondAttribute="centerX" id="7DL-Wc-9pU"/>
+                            <constraint firstItem="dtC-7B-pQi" firstAttribute="trailing" secondItem="Okf-1m-qUi" secondAttribute="trailing" id="Cif-I0-bFV"/>
+                            <constraint firstItem="dtC-7B-pQi" firstAttribute="top" secondItem="Okf-1m-qUi" secondAttribute="bottom" constant="8" symbolic="YES" id="CvO-ny-XZ5"/>
+                            <constraint firstItem="Okf-1m-qUi" firstAttribute="top" secondItem="bQi-Nn-20z" secondAttribute="bottom" constant="8" symbolic="YES" id="GAk-gd-hvj"/>
                             <constraint firstAttribute="trailing" secondItem="IhO-iE-lgo" secondAttribute="trailing" id="GvE-Qe-g6B"/>
-                            <constraint firstItem="bQi-Nn-20z" firstAttribute="leading" secondItem="6S8-2C-0OB" secondAttribute="leadingMargin" id="RPb-9s-POd"/>
-                            <constraint firstItem="bQi-Nn-20z" firstAttribute="centerX" secondItem="IhO-iE-lgo" secondAttribute="centerX" id="acS-pX-xmO"/>
-                            <constraint firstItem="dtC-7B-pQi" firstAttribute="trailing" secondItem="Okf-1m-qUi" secondAttribute="trailing" id="ehd-Ss-Rqy"/>
-                            <constraint firstItem="dtC-7B-pQi" firstAttribute="bottom" secondItem="IhO-iE-lgo" secondAttribute="top" id="fs1-gh-niB"/>
+                            <constraint firstItem="bQi-Nn-20z" firstAttribute="leading" secondItem="6S8-2C-0OB" secondAttribute="leadingMargin" id="IZO-rN-EsC"/>
+                            <constraint firstItem="Okf-1m-qUi" firstAttribute="trailing" secondItem="bQi-Nn-20z" secondAttribute="trailing" id="O5D-x7-Lb5"/>
+                            <constraint firstItem="Okf-1m-qUi" firstAttribute="leading" secondItem="bQi-Nn-20z" secondAttribute="leading" id="XrX-Nt-GYC"/>
+                            <constraint firstItem="dtC-7B-pQi" firstAttribute="leading" secondItem="Okf-1m-qUi" secondAttribute="leading" id="fEI-Ie-kfR"/>
                             <constraint firstItem="IhO-iE-lgo" firstAttribute="bottom" secondItem="vvq-sK-cEJ" secondAttribute="top" id="gaN-Fz-1KI"/>
-                            <constraint firstItem="Okf-1m-qUi" firstAttribute="top" secondItem="bQi-Nn-20z" secondAttribute="bottom" constant="8" symbolic="YES" id="hJT-aU-lRe"/>
-                            <constraint firstItem="dtC-7B-pQi" firstAttribute="leading" secondItem="Okf-1m-qUi" secondAttribute="leading" id="jgM-IF-Vu5"/>
                             <constraint firstItem="IhO-iE-lgo" firstAttribute="leading" secondItem="6S8-2C-0OB" secondAttribute="leading" id="lUR-Zb-8am"/>
-                            <constraint firstItem="bQi-Nn-20z" firstAttribute="top" secondItem="3Ul-ew-opJ" secondAttribute="bottom" constant="8" symbolic="YES" id="m3q-7H-DLA"/>
-                            <constraint firstItem="bQi-Nn-20z" firstAttribute="trailing" secondItem="Okf-1m-qUi" secondAttribute="trailing" id="rA7-K7-Tr5"/>
-                            <constraint firstItem="dtC-7B-pQi" firstAttribute="top" secondItem="Okf-1m-qUi" secondAttribute="bottom" constant="8" symbolic="YES" id="rI8-rh-V7R"/>
-                            <constraint firstItem="bQi-Nn-20z" firstAttribute="leading" secondItem="Okf-1m-qUi" secondAttribute="leading" id="sWW-ju-A11"/>
+                            <constraint firstItem="bQi-Nn-20z" firstAttribute="top" secondItem="3Ul-ew-opJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ov7-uc-DAG"/>
+                            <constraint firstItem="dtC-7B-pQi" firstAttribute="bottom" secondItem="vvq-sK-cEJ" secondAttribute="top" id="xEU-SL-dkR"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="bFZ-0F-ejJ" appends="YES" id="nL4-LG-Xu1"/>
@@ -199,23 +212,30 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="addButton" destination="cif-y7-g2q" id="KS4-bB-WT2"/>
                         <outlet property="authorLabel" destination="Okf-1m-qUi" id="OP7-5N-BV1"/>
                         <outlet property="descriptionTextView" destination="dtC-7B-pQi" id="YZs-LV-imF"/>
                         <outlet property="popoverButton" destination="g6U-9Y-rfG" id="6Se-WJ-q4D"/>
                         <outlet property="titleLabel" destination="bQi-Nn-20z" id="02i-iM-aat"/>
+                        <outlet property="toolbar" destination="IhO-iE-lgo" id="8R8-X7-MJ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBg-Gu-I7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="bFZ-0F-ejJ">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="left" id="bFZ-0F-ejJ">
                     <connections>
                         <action selector="swipeLeft:" destination="szt-UQ-3sK" id="axe-9e-f6g"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="0sD-pc-l5K">
+                <swipeGestureRecognizer cancelsTouchesInView="NO" direction="right" id="0sD-pc-l5K">
                     <connections>
                         <action selector="swipeRight:" destination="szt-UQ-3sK" id="ZmY-KQ-4Mo"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="wka-7W-BPa">
+                    <connections>
+                        <action selector="holdForDislike:" destination="szt-UQ-3sK" id="irh-Hl-a3S"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1944" y="1773"/>
         </scene>
