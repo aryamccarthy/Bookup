@@ -15,7 +15,7 @@ def connectToBookUp():
 
     try:
 
-        db = MySQLdb.connect(host="localhost", user="root", passwd="root", db="BookUp")
+        db = MySQLdb.connect(unix_socket ="/Applications/MAMP/tmp/mysql/mysql.sock", host="localhost", user="root", passwd="root", db="BookUp")
 
         return db
 
@@ -31,8 +31,6 @@ def connectToBookUp():
         #
         # for row in rows:
         #     print row,
-
-        db.close()
 
     except MySQLdb.Error, e:
 
@@ -52,53 +50,59 @@ def addToDatabase(isbnArray, db):
     The language will also be taken down for possible future multi-langual versions
     """
 
-    fbURL = 'https://bookup-v3.firebaseio.com/'
+    fbURL = 'https://bookup-v2.firebaseio.com'
 
     cursor = db.cursor()
 
     for isbn in isbnArray:
 
-        googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
+        # googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
-        googleRequest = requests.get(googleQuery)
+        # googleRequest = requests.get(googleQuery)
 
         # print googleRequest.content
 
-        jsontest = json.loads(googleRequest.content)
+        # jsontest = json.loads(googleRequest.content)
 
-        #print jsontest
+        firebaseConn = firebase.FirebaseApplication(fbURL, None)
 
-        if "error" not in jsontest:
+        jsontest = firebaseConn.get('/', str(isbn))
 
-            if jsontest['totalItems'] is not 0:
+        # jsontest = json.loads(jsontest)
 
-                pass
+        print jsontest.values()
 
-                # print "json was not an error"
-
-                # firebaseConn = firebase.FirebaseApplication(fbURL, None)
-                #
-                # firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
-                #
-                # with open("Isbn_Txt_Files/list_of_Isbn_in_FB.txt", "a") as myfile:
-                #     textString = "{}\n".format(isbn)
-                #     myfile.write(textString)
-            else:
-
-                cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
-
-                db.commit()
-
-                print "\t" + isbn + " not added bc No Items"
-
-
-        else:
-
-            cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
-
-            db.commit()
-
-            print "\t" + isbn + " not added bc Bad API Call"
+        # if "error" not in jsontest:
+        #
+        #     if jsontest['totalItems'] is not 0:
+        #
+        #         pass
+        #
+        #         # print "json was not an error"
+        #
+        #         # firebaseConn = firebase.FirebaseApplication(fbURL, None)
+        #         #
+        #         # firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
+        #         #
+        #         # with open("Isbn_Txt_Files/list_of_Isbn_in_FB.txt", "a") as myfile:
+        #         #     textString = "{}\n".format(isbn)
+        #         #     myfile.write(textString)
+        #     else:
+        #
+        #         cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
+        #
+        #         db.commit()
+        #
+        #         print "\t" + isbn + " not added bc No Items"
+        #
+        #
+        # else:
+        #
+        #     cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
+        #
+        #     db.commit()
+        #
+        #     print "\t" + isbn + " not added bc Bad API Call"
 
 
         # try:
@@ -145,7 +149,7 @@ if __name__ == "__main__":
 
     db = connectToBookUp()
 
-    isbnArray = ['9781904233657']
+    isbnArray = ['9780007491568']
     addToDatabase(isbnArray, db)
 
     db.close()
