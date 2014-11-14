@@ -100,6 +100,41 @@ $app->get('/userExists', function() {
 });
 
 /*
+*	Checks to see the user/password combination is correct
+*	
+*	owner: Nicole Gatmaitan
+*	status: Working
+*
+*	Last tested on 11/12/2014 at 9:08pm
+*/
+
+$app->get('/validate/:email/:password', function($email, $password) {
+	global $pdo;
+
+	$args [":email"] = $email;
+	$args [":password"] = $password;
+
+	$statement = $pdo->prepare(
+		"SELECT COUNT(email) AS count FROM Account
+			WHERE email = :email AND password = :password");
+
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+		$row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC);
+		$result['valid'] = $row['count'] != 0;
+		$result['error'] = $result['valid'] ? '' : 'The combination is incorrect.';
+	}
+	else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+
+	echo json_encode($result);
+
+});
+
+
+/*
 *	Checks to see the user is new
 *	
 *	owner: Nicole Gatmaitan
@@ -163,6 +198,19 @@ $app->post('/addUser', function() {
 });
 
 /*
+*	Get a recommended Book from FB
+*
+*	owner: Luke Oglesbee
+*	status: Hollow (calls getrandombook)
+*
+*	Last tested by Luke on 11/12/2014
+*/
+
+$app->get('/getRecommendedBook/:email', function($email) {
+	getRandomBook();
+});
+
+/*
 *	Get a Random Book from FB
 *	
 *	owner: Danny Rizzuto
@@ -171,10 +219,14 @@ $app->post('/addUser', function() {
 *	Last tested by Danny on 11/2/2014 at 2:29pm
 */
 
-$app->get('/getRandomBook', function() {
+$app->get('/getRandomBook',function() {
+	getRandomBook();
+}); 
+
+function getRandomBook() {
 	global $pdo;
 
-        $firebaseObject = new FirebaseIsbnLookup();
+    $firebaseObject = new FirebaseIsbnLookup();
 
 	$statement = $pdo->prepare(
 		'SELECT isbn_num FROM BookList
@@ -186,9 +238,19 @@ $app->get('/getRandomBook', function() {
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
 			try {
+				/* 
+				* Old version, returns a straight up google books object
+				*/
 				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
+
+				/* 
+				* New version, returns the books json in the spec doc
+				*/
+				$fbook = $firebaseObject->getBookJson($row['isbn_num']);
+				$fbook = 
+
 				$result['success'] = true;
 			}
 			catch (Exception $e) {
@@ -204,7 +266,7 @@ $app->get('/getRandomBook', function() {
 
 	echo json_encode($result);
 
-});
+}
 
 /*
 *	Get Book Object From Firebase
@@ -389,6 +451,30 @@ $app->post('/resetRatingsOfUser', function() {
 	echo json_encode($result);
 
 });
+
+function firebaseJsonToSpecJson($fire, $isbn=null) {
+	$fire = json_decode($fire, $assoc=true);
+	if ($fire["totalItems"] < 1) {
+		return null;
+	}
+	$fire = $fire["items"][0];
+	$prettyBook["title"] = (empty($fire["volumeInfo"]["title"]) ? null : $fire["volumeInfo"]["title"]);
+	$prettyBook["author"] = (empty($fire["volumeInfo"]["authors"]) ? null : $fire["volumeInfo"]["authors"]);
+	$prettyBook["description"] = (empty($fire["volumeInfo"]["description"]) ? null : $fire["volumeInfo"]["description"]);
+	$prettyBook["isbn"] = null;
+	if ($isbn) {
+		$prettyBook["isbn"] = $isbn;
+	} else {
+		foreach ($fire["volumeInfo"]["industryIdentifiers"] as $isbn) {
+			if ($isbn["type"] == "ISBN_13") {
+				$prettyBook["isbn"] = (empty($isbn["identifier"]) ? null : $isbn["identifier"]);
+				break;
+			}
+		}
+	}
+	$prettyBook["thumbnail"] = (empty($fire["volumeInfo"]["imageLinks"]["thumbnail"])) ? null : $fire["volumeInfo"]["imageLinks"]["thumbnail"];
+	return $prettyBook;
+}
 
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
