@@ -65,7 +65,10 @@
 
 - (void) fetchBooks
 {
-  NSURL *url = [NSURL URLWithString:@"http://ec2-54-187-70-205.us-west-2.compute.amazonaws.com/API/index.php/getReadingList?email=khabeck@bookup.com"];
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *userEmail = [defaults objectForKey:@"userEmail"];
+  NSLog(@"%@", userEmail);
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-187-70-205.us-west-2.compute.amazonaws.com/API/index.php/getReadingList?email=%@", userEmail]];
   NSError *error;
   NSData *json = [NSData dataWithContentsOfURL:url options:0 error:&error];
   NSLog(@"%@", error);
