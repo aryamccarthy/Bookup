@@ -79,17 +79,32 @@ def addToDatabase(isbnArray, db):
 
             print "\t" + isbn + " not added bc No Items"
 
+        elif "title" not in googleRequest.iteritems():
+
+            print "fuck"
+
         # print json.dumps(googleRequest['items'][0]['volumeInfo'], indent=1)
 
-        print googleRequest['items'][0]['volumeInfo']['title']
+        title = googleRequest['items'][0]['volumeInfo']['title']
 
+        print title
+
+        authors = ""
         for author in googleRequest['items'][0]['volumeInfo']['authors']:
 
-            print author
+            authors = authors + author + ", "
 
-        print googleRequest['items'][0]['volumeInfo']['language']
-        print googleRequest['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
-        print googleRequest['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+        print authors
+
+        language = googleRequest['items'][0]['volumeInfo']['language']
+
+        sThumbnail = googleRequest['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
+
+        print sThumbnail
+
+        thumbnail =  googleRequest['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+
+        print thumbnail
 
         # print googleRequest[0]
 
