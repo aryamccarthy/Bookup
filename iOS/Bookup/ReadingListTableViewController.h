@@ -10,4 +10,5 @@
 
 @interface ReadingListTableViewController : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) NSArray *books; // of Book objects
+
 @end

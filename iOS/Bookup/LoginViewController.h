@@ -10,4 +10,7 @@
 
 @interface LoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *passwordText;
+- (IBAction)submitButton:(id)sender;
+- (IBAction)backgroundTap:(id)sender;
 @end

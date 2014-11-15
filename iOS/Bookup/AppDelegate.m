@@ -37,6 +37,11 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSObject * object = [defaults objectForKey:@"userEmail"];
+    if(object != nil){
+        [self.window.rootViewController presentViewController:[self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"tabBarController"] animated:NO completion:nil];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

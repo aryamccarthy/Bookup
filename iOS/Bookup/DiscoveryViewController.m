@@ -28,6 +28,16 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   BookupPreferenceValueLike = -1,
   BookupPreferenceValueDislike = 1
 };
+- (IBAction)logout:(id)sender {
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dict = [defs dictionaryRepresentation];
+    for (id key in dict) {
+        [defs removeObjectForKey:key];
+    }
+    [defs synchronize];
+    [self performSegueWithIdentifier:@"backToLogin" sender:self];
+    
+}
 
 - (UIImageView *)bookCover {
   if (!_bookCover)
