@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 - (void)viewDidLoad {
     [super viewDidLoad];
   // Do any additional setup after loading the view.
+  //[self.tabBarController.tabBar setTintColor:[UIColor redColor]];
   self.acceptsLongPress = YES;
   [self getABook];
   [self.descriptionTextView setContentInset:UIEdgeInsetsMake(0, 0, self.toolbar.frame.size.height, 0)];
