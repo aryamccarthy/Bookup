@@ -49,28 +49,49 @@ def addToDatabase(isbnArray, db):
 
     The language will also be taken down for possible future multi-langual versions
     """
-
-    fbURL = 'https://bookup-v2.firebaseio.com'
-
     cursor = db.cursor()
 
     for isbn in isbnArray:
 
-        # googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
+        googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:9780061726835' # + str(isbn)
 
-        # googleRequest = requests.get(googleQuery)
+        googleRequest = requests.get(googleQuery)
 
         # print googleRequest.content
 
-        # jsontest = json.loads(googleRequest.content)
+        googleRequest = json.loads(googleRequest.content)
 
-        firebaseConn = firebase.FirebaseApplication(fbURL, None)
+        # print json.dumps(googleRequest, indent= 1)
 
-        jsontest = firebaseConn.get('/', str(isbn))
+        if "error" in googleRequest:
 
-        # jsontest = json.loads(jsontest)
+            cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
 
-        print jsontest.values()
+            db.commit()
+
+            print "\t" + isbn + " not added bc No Items"
+
+        elif googleRequest["totalItems"] < 1:
+
+            cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
+
+            db.commit()
+
+            print "\t" + isbn + " not added bc No Items"
+
+        # print json.dumps(googleRequest['items'][0]['volumeInfo'], indent=1)
+
+        print googleRequest['items'][0]['volumeInfo']['title']
+
+        for author in googleRequest['items'][0]['volumeInfo']['authors']:
+
+            print author
+
+        print googleRequest['items'][0]['volumeInfo']['language']
+        print googleRequest['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
+        print googleRequest['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+
+        # print googleRequest[0]
 
         # if "error" not in jsontest:
         #
