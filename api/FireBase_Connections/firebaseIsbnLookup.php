@@ -45,6 +45,11 @@ class FirebaseIsbnLookup {
 
  $testResult = $testObj->getBookJson($isbn);
 
+ $file = fopen("book_objects.txt", "w");
+
+ fwrite($file, $testResult)
+
+
  // var_dump($testResult);
 
 ?>

@@ -42,7 +42,7 @@ class FirebaseIsbnLookup {
 
 $testObj = new FirebaseIsbnLookup();
 
-$isbn = '9780394724553';
+$isbn = '9780007491568';
 
 $testResult = $testObj->getBookJson($isbn);
 
