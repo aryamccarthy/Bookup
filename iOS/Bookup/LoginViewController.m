@@ -26,12 +26,46 @@
   return YES;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+  NSString *modifiedString = [[textField.text stringByReplacingCharactersInRange:range withString:string] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  return ![textField.text isEqualToString:modifiedString];
+}
+
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    
-    
-    
+  [super viewDidLoad];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)note {
+  NSDictionary *userInfo = note.userInfo;
+  CGSize kbSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+
+  NSLog(@"Keyboard Height: %f Width: %f", kbSize.height, kbSize.width);
+
+  CGRect frame = self.view.frame;
+  //Move up 30 pts
+  frame.origin.y = -100;
+
+  [UIView animateWithDuration:0.3 animations:^{
+    self.view.frame = frame;
+  }];
+}
+
+-(void)keyboardWillHide:(NSNotification *)note {
+  // Return to original position.
+  CGRect frame = self.view.frame;
+  frame.origin.y = 0;
+
+  [UIView animateWithDuration:0.3 animations:^{
+    self.view.frame = frame;
+  }];
+
+}
+
+- (void) dealloc {
+  // Supposedly this helps not eat up all the RAM ever.
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {

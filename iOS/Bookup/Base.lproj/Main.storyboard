@@ -341,19 +341,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tP8-ZR-MaG">
-                                <rect key="frame" x="16" y="28" width="568" height="21"/>
+                                <rect key="frame" x="16" y="218" width="568" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="hlJ-Bg-LQM"/>
+                                    <constraint firstAttribute="height" constant="21" id="iui-B2-KvZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-gg-mqE">
+                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kwx-xy-lwv" id="AXB-oQ-e4s"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9k-Jr-z1t">
+                                <rect key="frame" x="16" y="247" width="568" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kwx-xy-lwv" id="9gQ-7k-ZFe"/>
+                                </connections>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFT-UC-5EN">
-                                <rect key="frame" x="16" y="133" width="568" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Qzw-a1-aKt"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="323" width="568" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -362,38 +375,22 @@
                                     <action selector="submitButton:" destination="kwx-xy-lwv" eventType="touchUpInside" id="ylR-fr-uG6"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-gg-mqE">
-                                <rect key="frame" x="16" y="95" width="568" height="30"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kwx-xy-lwv" id="AXB-oQ-e4s"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9k-Jr-z1t">
-                                <rect key="frame" x="16" y="57" width="568" height="30"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kwx-xy-lwv" id="9gQ-7k-ZFe"/>
-                                </connections>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="AFg-gg-mqE" firstAttribute="leading" secondItem="pFT-UC-5EN" secondAttribute="leading" id="0FQ-Tv-YOL"/>
-                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="leading" secondItem="tP8-ZR-MaG" secondAttribute="leading" id="4do-IS-39L"/>
-                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="trailing" secondItem="tP8-ZR-MaG" secondAttribute="trailing" id="FoU-Hu-4a1"/>
-                            <constraint firstItem="pFT-UC-5EN" firstAttribute="top" secondItem="AFg-gg-mqE" secondAttribute="bottom" constant="8" symbolic="YES" id="I82-KX-NLU"/>
-                            <constraint firstItem="pFT-UC-5EN" firstAttribute="trailing" secondItem="l1S-6G-anj" secondAttribute="trailingMargin" id="KhX-VK-v1B"/>
-                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="top" secondItem="tP8-ZR-MaG" secondAttribute="bottom" constant="8" symbolic="YES" id="PoU-aX-h4X"/>
-                            <constraint firstItem="AFg-gg-mqE" firstAttribute="top" secondItem="Y9k-Jr-z1t" secondAttribute="bottom" constant="8" symbolic="YES" id="RU9-NL-ZIO"/>
-                            <constraint firstItem="tP8-ZR-MaG" firstAttribute="top" secondItem="5EM-xF-w8S" secondAttribute="bottom" constant="8" symbolic="YES" id="b35-BU-njj"/>
-                            <constraint firstItem="pFT-UC-5EN" firstAttribute="trailing" secondItem="tP8-ZR-MaG" secondAttribute="trailing" id="iqa-2t-Go9"/>
-                            <constraint firstItem="pFT-UC-5EN" firstAttribute="leading" secondItem="tP8-ZR-MaG" secondAttribute="leading" id="ucp-wP-hKb"/>
-                            <constraint firstItem="tP8-ZR-MaG" firstAttribute="leading" secondItem="l1S-6G-anj" secondAttribute="leadingMargin" id="vPV-aa-bzd"/>
-                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="trailing" secondItem="AFg-gg-mqE" secondAttribute="trailing" id="xil-sT-8CR"/>
+                            <constraint firstItem="AFg-gg-mqE" firstAttribute="top" secondItem="Y9k-Jr-z1t" secondAttribute="bottom" constant="8" symbolic="YES" id="3GX-6q-hMQ"/>
+                            <constraint firstItem="pFT-UC-5EN" firstAttribute="trailing" secondItem="AFg-gg-mqE" secondAttribute="trailing" id="3Yi-3M-Qcb"/>
+                            <constraint firstItem="pFT-UC-5EN" firstAttribute="leading" secondItem="AFg-gg-mqE" secondAttribute="leading" id="5V2-KE-OTX"/>
+                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="leading" secondItem="tP8-ZR-MaG" secondAttribute="leading" id="7M1-iX-g3X"/>
+                            <constraint firstItem="pFT-UC-5EN" firstAttribute="top" secondItem="AFg-gg-mqE" secondAttribute="bottom" constant="8" symbolic="YES" id="9xF-HZ-lbt"/>
+                            <constraint firstItem="pFT-UC-5EN" firstAttribute="leading" secondItem="l1S-6G-anj" secondAttribute="leadingMargin" id="GBj-Bo-You"/>
+                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="trailing" secondItem="AFg-gg-mqE" secondAttribute="trailing" id="GLm-Q4-nxl"/>
+                            <constraint firstItem="tP8-ZR-MaG" firstAttribute="trailing" secondItem="l1S-6G-anj" secondAttribute="trailingMargin" id="csw-vv-djP"/>
+                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="top" secondItem="tP8-ZR-MaG" secondAttribute="bottom" constant="8" symbolic="YES" id="v2C-I0-7d2"/>
+                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="trailing" secondItem="tP8-ZR-MaG" secondAttribute="trailing" id="vzT-7Z-oqQ"/>
+                            <constraint firstItem="AFg-gg-mqE" firstAttribute="centerY" secondItem="l1S-6G-anj" secondAttribute="centerY" id="wZQ-BK-GFe"/>
+                            <constraint firstItem="Y9k-Jr-z1t" firstAttribute="leading" secondItem="AFg-gg-mqE" secondAttribute="leading" id="zPZ-Rw-ihI"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="HbH-AI-wa6" appends="YES" id="SMT-7q-Wih"/>
