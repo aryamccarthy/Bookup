@@ -75,9 +75,6 @@
                             <action selector="refresh" destination="e6x-sm-Wts" eventType="valueChanged" id="dta-bi-PIV"/>
                         </connections>
                     </refreshControl>
-                    <connections>
-                        <segue destination="kwx-xy-lwv" kind="presentation" identifier="backToLogin" id="F1s-Fm-tUY"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1O-u8-bGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,7 +246,6 @@
                         <outlet property="popoverButton" destination="g6U-9Y-rfG" id="6Se-WJ-q4D"/>
                         <outlet property="titleLabel" destination="bQi-Nn-20z" id="02i-iM-aat"/>
                         <outlet property="toolbar" destination="IhO-iE-lgo" id="8R8-X7-MJ8"/>
-                        <segue destination="kwx-xy-lwv" kind="presentation" identifier="backToLogin" id="4Ni-gS-skz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBg-Gu-I7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -409,15 +405,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136" y="1361"/>
+            <point key="canvasLocation" x="-13" y="1545"/>
         </scene>
     </scenes>
     <resources>
         <image name="courses-100" width="30" height="30"/>
         <image name="thumb_up-50" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="4Ni-gS-skz"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
 </document>

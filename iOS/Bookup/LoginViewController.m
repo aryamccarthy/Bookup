@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 
 @interface LoginViewController ()
-@property (strong, nonatomic) IBOutlet UITextField *emailText;
+@property (weak, nonatomic) IBOutlet UITextField *emailText;
 @end
 
 @implementation LoginViewController
@@ -142,7 +142,10 @@
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setValue:email forKey:@"userEmail"];
         [defaults synchronize];
-        [self performSegueWithIdentifier:@"login_success" sender:self];
+      UIAlertController *instructions = [UIAlertController alertControllerWithTitle:@"Welcome to Bookup!" message:@"Swipe left on books you dislike, and right on books you like.\n\nPress and hold on a book to save it to your reading list." preferredStyle:UIAlertControllerStyleAlert];
+      UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action){[self performSegueWithIdentifier:@"login_success" sender:self];}];
+      [instructions addAction:cancel];
+      [self presentViewController:instructions animated:YES completion:nil];
     }
 }
 
