@@ -7,7 +7,7 @@ import recursiveJsonSearch as rJS
 
 def readFile():
 
-    with open("Isbn_Txt_Files/list_of_50_isbn.txt") as file:
+    with open("Isbn_Txt_Files/list_of_5000_isbn.txt") as file:
       isbnArray = file.read().splitlines()
 
     return isbnArray
@@ -83,12 +83,13 @@ def addToDatabase(isbnArray, db):
 
                 print isbn
                 print title
-                print authors
-                print language
-                print description
-                print thumbnail
-                print sThumbnail
                 print "--------------------------"
+                # print authors
+                # print language
+                # print description
+                # print thumbnail
+                # print sThumbnail
+                # print "--------------------------"
 
                 try:
 
@@ -149,7 +150,6 @@ if __name__ == "__main__":
 
     db = connectToBookUp()
 
-    # isbnArray = ['9780007491568']
     addToDatabase(isbnArray, db)
 
     db.close()
