@@ -21,25 +21,18 @@ CREATE TABLE IF NOT EXISTS Account(
 DROP TABLE IF EXISTS BookList;
 
 CREATE TABLE IF NOT EXISTS BookList( 
-    isbn_num    VARCHAR(15),
-    title       VARCHAR(30),
+    isbn_num    VARCHAR(15) PRIMARY KEY,
+    title       VARCHAR(75),
     author      VARCHAR(30),
     description TEXT,
-    thumbnail   BLOB,
-    price       DOUBLE,
-    PRIMARY KEY(isbn_num)
+    thumbnail   TEXT,
+    price       DOUBLE
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 DROP TABLE IF EXISTS PopularBookList;
 
 CREATE TABLE IF NOT EXISTS PopularBookList(
-    isbn_num    VARCHAR(15),
-    title       VARCHAR(30),
-    author      VARCHAR(30),
-    description TEXT,
-    thumbnail   BLOB,
-    price       DOUBLE,
-    PRIMARY KEY(isbn_num),
+    isbn_num    VARCHAR(15) PRIMARY KEY,
     FOREIGN KEY(isbn_num) REFERENCES  BookList(isbn_num)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
