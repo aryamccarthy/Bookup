@@ -78,6 +78,8 @@
   NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-187-70-205.us-west-2.compute.amazonaws.com/API/index.php/getReadingList?email=%@", userEmail]];
   NSError *error;
   NSData *json = [NSData dataWithContentsOfURL:url options:0 error:&error];
+  if (!json)
+    return;
   NSLog(@"%@", error);
   //NSError *error;
   NSDictionary *resultsFromJSON = [NSJSONSerialization JSONObjectWithData:json options:0 error:&error];
@@ -105,9 +107,13 @@
 {
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
   [self.refreshControl beginRefreshing];
+  NSLog(@"Do we die here?");
   dispatch_queue_t otherQ = dispatch_queue_create("Q", NULL);
+  NSLog(@"Or do we die here?");
   dispatch_async(otherQ, ^{
+    NSLog(@"Maybe we die here?");
     [self fetchBooks];
+    NSLog(@"Though perhaps here?");
     dispatch_async(dispatch_get_main_queue(), ^{
       [self.refreshControl endRefreshing];
       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
