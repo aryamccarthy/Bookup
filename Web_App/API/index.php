@@ -6,14 +6,15 @@
 include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
-$host = '54.69.55.132';
-$user = 'test';
-$pass = 'Candles';
+$host = 'localhost';
+$user = 'root';
+$pass = '3.00x10^8m/s';
 
 // Get DB connection
 $app = new \Slim\Slim();
 try {
     $pdo = new PDO("mysql:host=$host;dbname=BookUp", "$user", "$pass");
+    echo "connected to db";
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -461,6 +462,65 @@ $app->get('/fixingJson/:isbn', function($isbn) {
     echo json_encode($prettyBook);
 });
 
+$app->post('/searchTest', function() {
+    global $pdo;
+    $books = array();
+
+    $statement = $pdo->prepare(
+        "SELECT * FROM BookList
+        ORDER BY RAND() LIMIT 2"
+    );
+
+    if ($statement->execute()) {
+        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
+            $books['books'] = array();
+            $book['title'] = $row['title'];
+            $book['author'] = $row['author'];
+            $book['description'] = $row['description'];
+            $book['isbn'] = $row['isbn_num'];
+            $book['thumbnail'] = $row['thumbnail'];
+            array_push($books['books'], $book);
+        }
+        $books['success'] = true;
+    } else {
+          $books['books'] = array();
+          $books['success'] = false;
+          $errorData = $statement->errorInfo();
+          $books['error'] = $errorData[2];
+   }
+   return json_encode($books);
+});
+
+$app->post('/searchForBook', function() {
+    global $pdo;
+    $books = array();
+
+    $statement = $pdo->prepare(
+        "SELECT * FROM BookList
+        ORDER BY RAND() LIMIT 10"
+    );
+
+    if ($statement->execute()) {
+        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
+            $books['books'] = array();
+            $book['title'] = $row['title'];
+            $book['author'] = $row['author'];
+            $book['description'] = $row['description'];
+            $book['isbn'] = $row['isbn_num'];
+            $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
+            $book['imageLinks'['thumbnail'] = $row['image_link'];
+            array_push($books['books'], $book);
+        }
+        $books['success'] = true;
+    } else {
+          $books['books'] = array();
+          $books['success'] = false;
+          $errorData = $statement->errorInfo();
+          $books['error'] = $errorData[2];
+   }
+   return json_encode($books);
+});
+        
 function firebaseJsonToSpecJson($fire, $isbn=null) {
 	$fire = json_decode($fire, $assoc=true);
 	if ($fire["totalItems"] < 1) {
