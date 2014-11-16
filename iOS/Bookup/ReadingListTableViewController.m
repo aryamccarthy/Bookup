@@ -59,7 +59,7 @@
         [defs removeObjectForKey:key];
     }
     [defs synchronize];
-    [self performSegueWithIdentifier:@"backToLogin" sender:self];
+  [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 

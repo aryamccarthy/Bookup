@@ -10,10 +10,21 @@
 
 @interface LoginViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *emailText;
-
 @end
 
 @implementation LoginViewController
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+  if (textField == self.emailText) {
+    [self.passwordText becomeFirstResponder];
+  }
+  else if (textField == self.passwordText) {
+    [textField resignFirstResponder];
+    [self submitButton:nil];
+  }
+  return YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -53,7 +64,7 @@
             NSError *error = [[NSError alloc] init];
             NSHTTPURLResponse *response = nil;
             NSData *urlData=[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-            
+          [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"Response code: %ld", (long)[response statusCode]);
             
             if ([response statusCode] >= 200 && [response statusCode] < 300)
@@ -123,8 +134,4 @@
     [self.view endEditing:YES];
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField{
-    [textField resignFirstResponder];
-    return YES;
-}
 @end
