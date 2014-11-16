@@ -30,14 +30,20 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 };
 
 - (IBAction)logout:(id)sender {
-    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary * dict = [defaults dictionaryRepresentation];
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Logout" message:@"Are you sure you want to log out of Bookup?" preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+  [alert addAction:cancel];
+  UIAlertAction *logout = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
+    NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
+    NSDictionary * dict = [defs dictionaryRepresentation];
     for (id key in dict) {
-        [defaults removeObjectForKey:key];
+      [defs removeObjectForKey:key];
     }
-    [defaults synchronize];
-  [self dismissViewControllerAnimated:YES completion:nil];
-    //[self performSegueWithIdentifier:@"backToLogin" sender:self];
+    [defs synchronize];
+    [self dismissViewControllerAnimated:YES completion:nil];
+  }];
+  [alert addAction:logout];
+  [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (UIImageView *)bookCover {
