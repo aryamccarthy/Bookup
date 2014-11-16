@@ -52,15 +52,22 @@
   [super viewWillAppear:animated];
   [self.tableView reloadData];
 }
+
 - (IBAction)logout:(id)sender {
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Logout" message:@"Are you sure you want to log out of Bookup?" preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil];
+  [alert addAction:cancel];
+  UIAlertAction *logout = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action){
     NSUserDefaults * defs = [NSUserDefaults standardUserDefaults];
     NSDictionary * dict = [defs dictionaryRepresentation];
     for (id key in dict) {
-        [defs removeObjectForKey:key];
+      [defs removeObjectForKey:key];
     }
     [defs synchronize];
-  [self dismissViewControllerAnimated:YES completion:nil];
-
+    [self dismissViewControllerAnimated:YES completion:nil];
+  }];
+  [alert addAction:logout];
+  [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void) fetchBooks
