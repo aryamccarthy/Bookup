@@ -159,6 +159,9 @@
     alertView.tag = tag;
     [alertView show];
 }
+- (IBAction)followSignupLink:(id)sender {
+  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://ec2-54-187-70-205.us-west-2.compute.amazonaws.com"]];
+}
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
