@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS BookList_Good(
     language    VARCHAR(30),
     title       VARCHAR(30) NOT NULL,
     author      VARCHAR(30) NOT NULL,
-    descrition  TEXT,
+    description  TEXT,
     image_link_s  TEXT,
     image_link   TEXT,
     UNIQUE (title, author)
