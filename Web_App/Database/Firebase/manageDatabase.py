@@ -3,10 +3,11 @@ import sys
 import requests
 import MySQLdb
 import json
+import recursiveJsonSearch as rJS
 
 def readFile():
 
-    with open("Isbn_Txt_Files/list_of_1000_isbn.txt") as file:
+    with open("Isbn_Txt_Files/list_of_50_isbn.txt") as file:
       isbnArray = file.read().splitlines()
 
     return isbnArray
@@ -18,19 +19,6 @@ def connectToBookUp():
         db = MySQLdb.connect(unix_socket ="/Applications/MAMP/tmp/mysql/mysql.sock", host="localhost", user="root", passwd="root", db="BookUp")
 
         return db
-
-        # cursor = db.cursor()
-        #
-        # cursor.execute("INSERT INTO BookList VALUES('Testme')")
-        #
-        # db.commit()
-        #
-        # cursor.execute("SELECT * FROM BookList")
-        #
-        # rows= cursor.fetchall()
-        #
-        # for row in rows:
-        #     print row,
 
     except MySQLdb.Error, e:
 
@@ -53,106 +41,84 @@ def addToDatabase(isbnArray, db):
 
     for isbn in isbnArray:
 
-        googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:9780061726835' # + str(isbn)
+        googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
         googleRequest = requests.get(googleQuery)
 
-        # print googleRequest.content
-
         googleRequest = json.loads(googleRequest.content)
-
-        # print json.dumps(googleRequest, indent= 1)
 
         if "error" in googleRequest:
 
-            cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
+            try:
 
-            db.commit()
+                cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "API Call returned Error"))
 
-            print "\t" + isbn + " not added bc No Items"
+                db.commit()
 
-        elif googleRequest["totalItems"] < 1:
+            except MySQLdb.Error, e:
 
-            cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
+                pass
 
-            db.commit()
+        else:
 
-            print "\t" + isbn + " not added bc No Items"
+            bookObject = rJS.find_key(googleRequest, "title")
+            rJS.find_key(googleRequest, 'authors')
+            rJS.find_key(googleRequest, "language")
+            rJS.find_key(googleRequest, "description")
+            rJS.find_key(googleRequest, "thumbnail")
+            rJS.find_key(googleRequest, "smallThumbnail")
 
-        elif "title" not in googleRequest.iteritems():
+            if len(bookObject) is 6:
 
-            print "fuck"
+                title = bookObject[0]
 
-        # print json.dumps(googleRequest['items'][0]['volumeInfo'], indent=1)
+                authors = ""
+                for author in bookObject[1]:
+                    authors = author + ", " + authors
 
-        title = googleRequest['items'][0]['volumeInfo']['title']
+                language = bookObject[2]
+                description = bookObject[3]
+                thumbnail = bookObject[4]
+                sThumbnail = bookObject[5]
 
-        print title
+                print isbn
+                print title
+                print authors
+                print language
+                print description
+                print thumbnail
+                print sThumbnail
+                print "--------------------------"
 
-        authors = ""
-        for author in googleRequest['items'][0]['volumeInfo']['authors']:
+                try:
 
-            authors = authors + author + ", "
+                    cursor.execute("INSERT INTO BookList_Good VALUES (%s, %s, %s, %s, %s, %s, %s)", (isbn, language, title, authors, description, sThumbnail, thumbnail))
 
-        print authors
+                    db.commit()
 
-        language = googleRequest['items'][0]['volumeInfo']['language']
+                except MySQLdb.Error, e:
 
-        sThumbnail = googleRequest['items'][0]['volumeInfo']['imageLinks']['smallThumbnail']
+                    try:
 
-        print sThumbnail
+                        cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, e.args[1]))
 
-        thumbnail =  googleRequest['items'][0]['volumeInfo']['imageLinks']['thumbnail']
+                        db.commit()
 
-        print thumbnail
+                    except MySQLdb.Error, e:
 
-        # print googleRequest[0]
+                        pass
 
-        # if "error" not in jsontest:
-        #
-        #     if jsontest['totalItems'] is not 0:
-        #
-        #         pass
-        #
-        #         # print "json was not an error"
-        #
-        #         # firebaseConn = firebase.FirebaseApplication(fbURL, None)
-        #         #
-        #         # firebaseResult = firebaseConn.post(str(isbn), googleRequest.content)
-        #         #
-        #         # with open("Isbn_Txt_Files/list_of_Isbn_in_FB.txt", "a") as myfile:
-        #         #     textString = "{}\n".format(isbn)
-        #         #     myfile.write(textString)
-        #     else:
-        #
-        #         cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
-        #
-        #         db.commit()
-        #
-        #         print "\t" + isbn + " not added bc No Items"
-        #
-        #
-        # else:
-        #
-        #     cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", ("Bad API Call"))
-        #
-        #     db.commit()
-        #
-        #     print "\t" + isbn + " not added bc Bad API Call"
+            else:
 
+                try:
 
-        # try:
-        #
-        #     cursor.execute("INSERT INTO BookList VALUES (%s)", (isbn))
-        #
-        #     db.commit()
-        #
-        #     print isbn + " added to database"
-        #
-        # except MySQLdb.Error, e:
-        #
-        #     print "\t" + isbn + " not added to database"
+                    cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "Not all API info available"))
 
+                    db.commit()
+
+                except MySQLdb.Error, e:
+
+                     pass
 
 def cleanBookList_Bad(db):
 
@@ -164,15 +130,13 @@ def cleanBookList_Bad(db):
 
     isbnArray = []
 
-    mode = 1
-
     for row in rows:
 
         isbn = row[0]
 
         isbnArray.append(isbn)
 
-        addToDatabase(isbnArray, db, mode)
+    return isbnArray
 
 
 
@@ -181,11 +145,11 @@ def cleanBookList_Bad(db):
 if __name__ == "__main__":
 
     # cleanUpFireBase()
-    # isbnArray = readFile()
+    isbnArray = readFile()
 
     db = connectToBookUp()
 
-    isbnArray = ['9780007491568']
+    # isbnArray = ['9780007491568']
     addToDatabase(isbnArray, db)
 
     db.close()
