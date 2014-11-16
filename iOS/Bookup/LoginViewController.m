@@ -46,7 +46,7 @@
     @try {
         //check for non-empty text fields
         if([[self.emailText text] isEqualToString:@""] || [[self.passwordText text] isEqualToString:@""] ) {
-            [self alertStatus:@"Please enter both your email and password" :@"Sign in Failed!" :0];
+            [self alertStatus:@"Please enter both your email and password" :@"Invalid Login" :0];
         }
         
         else {
@@ -90,7 +90,7 @@
                 } else {
                     
                     NSString *error_msg = (NSString *) jsonData[@"error_message"];
-                    [self alertStatus:error_msg :@"Sign in Failed!" :0];
+                    [self alertStatus:error_msg :@"Please check that you entered valid login information." :0];
                 }
             }
             
