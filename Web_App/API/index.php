@@ -53,6 +53,7 @@ $app->get('/getPopularBooks', function() {
             $books = array();
             while($row = $statement->fetch()) {
                 $bookObject = $firebaseObject->getBookJson($row['isbn_num']);
+                $bookObject = firebaseJsonToSpecJson($bookObject);
                 array_push($books, $bookObject);
 	    }
 
@@ -239,9 +240,10 @@ function getRandomBook() {
 		{
 			try {
 				/* 
-				* Old version, returns a straight up google books object
+				* Old version, returning several book objects
 				*/
 				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
+				$bookObject = firebaseJsonToSpecJson($bookObject);
 				array_push($books, $bookObject);
 				$result['Books'] = $books;
 
@@ -279,14 +281,11 @@ function getRandomBook() {
 
 $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 	global $pdo;
-
-        $args[':isbn'] = $isbn;
-
-        $firebaseObject = new FirebaseIsbnLookup();
-
-        $bookObject = $firebaseObject->getBookJson($args[':isbn']);
-
-        echo json_encode($bookObject);
+    $args[':isbn'] = $isbn;
+    $firebaseObject = new FirebaseIsbnLookup();
+    $bookObject = $firebaseObject->getBookJson($args[':isbn']);
+    $prettyBook = firebaseJsonToSpecJson($bookObject);
+    echo json_encode($prettyBook);
 });
 
 /*
@@ -298,12 +297,12 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 *	Last tested by Danny on 11/2/2014 at 2:28pm
 */
 
-$app->get('/getReadingList', function() {
+$app->get('/getReadingList/:email', function($email) {
 	global $pdo;
     
     $firebaseObject = new FirebaseIsbnLookup();
 
-	$args[':email'] = $_GET['email'];
+	$args[':email'] = $email;
 
 	$statement = $pdo->prepare(
             'SELECT isbn_num, timestamp FROM ReadingList
@@ -317,6 +316,7 @@ $app->get('/getReadingList', function() {
 		{
 			//echo $row["isbn_num"];
 			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
+			$bookObject = firebaseJsonToSpecJson($bookObject);
 			array_push($books, $bookObject);
 		} 
 		$result['Books'] = $books;
@@ -450,6 +450,15 @@ $app->post('/resetRatingsOfUser', function() {
 
 	echo json_encode($result);
 
+});
+
+$app->get('/fixingJson/:isbn', function($isbn) {
+	global $pdo;
+    $args[':isbn'] = $isbn;
+    $firebaseObject = new FirebaseIsbnLookup();
+    $bookObject = $firebaseObject->getBookJson($args[':isbn']);
+    $prettyBook = firebaseJsonToSpecJson($bookObject);
+    echo json_encode($prettyBook);
 });
 
 function firebaseJsonToSpecJson($fire, $isbn=null) {
