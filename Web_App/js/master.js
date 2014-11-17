@@ -9,7 +9,9 @@ $(document).ready( function() {
 	}
 	else if(discoveryLoaded===true){
 		checkForNewUser();
-		getBooks("getRandomBook");
+		var setButton=document.getElementById("next");
+		setButton.setAttribute("onclick", "getRecommendedBook()")
+		getRecommendedBook();
 	}
 	else if(listLoaded===true){
 		getBooks("getReadingList?email="+userEmail);
@@ -61,6 +63,30 @@ function Book( title, author, cover, description, isbn){
 	this.isbn=isbn;
 }
 
+function getRecommendedBook(){
+	$.ajax({
+		type: 'GET',
+		url: rootURL + "/getRecommendedBook/" + userEmail,
+		dataType: "json",
+		success: function (data) {
+			console.log(data);
+			var bookObjs = data.Books; 
+			 for(var i=0; i<bookObjs.length; i++){	
+			 	var title= bookObjs[i].title;
+			 	var author =bookObjs[i].author.join(', ');			
+			 	var description =bookObjs[i].description;
+			 	var thumbnail=bookObjs[i].thumbnail;
+				var isbn=bookObjs[i].isbn;
+			}
+			var cover = new Image();
+			cover.src = thumbnail;
+			var newBook= new Book(title, author, cover,description,isbn);
+			generateHTMLForDiscoveryPage(newBook);		 	
+		}
+	});
+}
+
+
 function getBooks(sourceURL) {
 
 	$.ajax({
@@ -69,6 +95,7 @@ function getBooks(sourceURL) {
 		dataType: "json",
 		success: function (data) {
 			var bookObjs = data.Books; 
+
 		 	if(sourceURL.indexOf("getReadingList") > -1){
 		 		if (bookObjs.length === 0) {
 		 			$('#this_book button').remove();
@@ -96,25 +123,6 @@ function getBooks(sourceURL) {
 				} 	
 			 
 			 }
-			else if (sourceURL==="getRandomBook") {
-				for(var i=0; i<bookObjs.length; i+=2){	
-					var parsedBooks = $.parseJSON(bookObjs[i]);
-					var title= parsedBooks.items[0].volumeInfo.title;
-					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
-					var description =parsedBooks.items[0].volumeInfo.description;
-					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
-						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
-							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
-						}
-					}
-					var cover = new Image();
-					cover.src = thumbnail;
-					var newBook= new Book(title, author, cover,description,isbn);
-				 	generateHTMLForDiscoveryPage(newBook);
-				 	
-				}
-			}
 			else if (sourceURL==="getPopularBooks") {
 				for(var i=0; i<bookObjs.length; i+=1){	
 					console.log(parsedBooks);
