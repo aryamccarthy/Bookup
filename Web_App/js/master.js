@@ -1,11 +1,10 @@
 $(document).ready( function() {
-	// Add background
 	$.backstretch('img/background2.jpg');
 
  	 userEmail=$("#userinfo").attr("data-email");
 
 	if(setupLoaded===true){
-		getBooks("getPopularBooks");
+		getPopularBooks();
 	}
 	else if(discoveryLoaded===true){
 		checkForNewUser();
@@ -14,7 +13,7 @@ $(document).ready( function() {
 		getRecommendedBook();
 	}
 	else if(listLoaded===true){
-		getBooks("getReadingList?email="+userEmail);
+		getReadingList();
 	}
 
 }); 
@@ -86,72 +85,64 @@ function getRecommendedBook(){
 	});
 }
 
+function getPopularBooks(){
+	$.ajax({
+		type: 'GET',
+		url: rootURL + "/getPopularBooks",
+		dataType: "json",
+		success: function (data) {
+			console.log(data);
+			var bookObjs = data.Books; 
+			 for(var i=0; i<bookObjs.length; i++){	
+			 	var title= bookObjs[i].title;
+			 	var author =bookObjs[i].author.join(', ');			
+			 	var description =bookObjs[i].description;
+			 	var thumbnail=bookObjs[i].thumbnail;
+				var isbn=bookObjs[i].isbn;
+				var cover = new Image();
+				cover.src = thumbnail;
+				var newBook= new Book(title, author, cover,description,isbn);				 	
+				generateHTMLForSetupPage(newBook);
+			}	 	
+		
+			$('.setupratingbutton').click(greyOutElement);
+			$('.setupratingbutton').click(getUserDataAndSubmit);
+		}
+	});
+}
 
-function getBooks(sourceURL) {
+
+function getReadingList ()	{
 
 	$.ajax({
 		type: 'GET',
-		url: rootURL + "/" + sourceURL,
+		url: rootURL + "/getReadingList/"+userEmail,
 		dataType: "json",
 		success: function (data) {
 			var bookObjs = data.Books; 
-
-		 	if(sourceURL.indexOf("getReadingList") > -1){
-		 		if (bookObjs.length === 0) {
-		 			$('#this_book button').remove();
-		 			$('#this_book article').css('text-align', 'center');
-		 			$('#this_book h2').css('font-weight', 'normal').css('margin-top', '170px').css({'position':'relative', 'left': '-100px'}).text("You have nothing in your reading list.");
-		 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
-		 		}
-		 		for(var i=0; i<bookObjs.length; i++){	
-					var parsedBooks = $.parseJSON(bookObjs[i]);
-					var title= parsedBooks.items[0].volumeInfo.title;
-					var author =parsedBooks.items[0].volumeInfo.authors.join(', ');
-					var description =parsedBooks.items[0].volumeInfo.description;
-					var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
-						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
-							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
-						}
-					}
-					var cover = new Image();
-					cover.src = thumbnail;
-					var newBook= new Book(title, author, cover,description,isbn);
-				 	listBooks.push(newBook);
-
-				 	generateHTMLForReadingList(newBook, i);
-				} 	
-			 
-			 }
-			else if (sourceURL==="getPopularBooks") {
-				for(var i=0; i<bookObjs.length; i+=1){	
-					console.log(parsedBooks);
-					var parsedBooks = $.parseJSON(bookObjs[i]);
-					var title= parsedBooks.items[0].volumeInfo.title;
-					var author =(parsedBooks.items[0].volumeInfo.authors || []).join(', ');
-					var description =parsedBooks.items[0].volumeInfo.description;
-					if (parsedBooks.items[0].volumeInfo.imageLinks) {
-						var thumbnail=parsedBooks.items[0].volumeInfo.imageLinks.thumbnail;
-					} else {
-						var thumbnail = 'img/generic_book.jpg';
-					}
-					for (var j=0; j<parsedBooks.items[0].volumeInfo.industryIdentifiers.length; j++){
-						if (parsedBooks.items[0].volumeInfo.industryIdentifiers[j].type==="ISBN_13"){
-							var isbn=parsedBooks.items[0].volumeInfo.industryIdentifiers[j].identifier;
-						}
-					}
-					var cover = new Image();
-					cover.src = thumbnail;
-					var newBook= new Book(title, author, cover,description, isbn);
-				 		generateHTMLForSetupPage(newBook);
-				 	
-				}
-				$('.setupratingbutton').click(greyOutElement);
-				$('.setupratingbutton').click(getUserDataAndSubmit);
-			}
+			console.log(data);
+	 		if (bookObjs.length === 0) {
+	 			$('#this_book button').remove();
+	 			$('#this_book article').css('text-align', 'center');
+	 			$('#this_book h2').css('font-weight', 'normal').css('margin-top', '170px').css({'position':'relative', 'left': '-100px'}).text("You have nothing in your reading list.");
+	 			$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
+	 		}
+	 		for(var i=0; i<bookObjs.length; i++){	
+				var title= bookObjs[i].title;
+			 	var author =bookObjs[i].author.join(', ');			
+			 	var description =bookObjs[i].description;
+			 	var thumbnail=bookObjs[i].thumbnail;
+				var isbn=bookObjs[i].isbn;
+				var cover = new Image();
+				cover.src = thumbnail;
+				var newBook= new Book(title, author, cover,description,isbn);	
+			 	listBooks.push(newBook);
+			 	generateHTMLForReadingList(newBook, i);
+			} 	
 		}	
 	});
 }
+
 
 function addBookToReadingList(isbn) {
 	$.ajax({
@@ -200,13 +191,6 @@ function submitBookFeedback(rating, isbn) {
 		}	
 	});
 }
-
-// DEPRECATING
-/*var previousBook = $( "#previous" );
-$( previousBook ).click(function() {
-	console.log("display previous book");
-	//TODO: implementation 
-});*/
 
 
 function overlay(id) {
