@@ -84,11 +84,11 @@
         }
         
         else {
-            NSString *post =[[NSString alloc] initWithFormat:@"http://localhost:8888/API/index.php/validate/%@/%@",[self.emailText text],[self.passwordText text]];
-            NSLog(@"PostData: %@",post);
+            NSString *get =[[NSString alloc] initWithFormat:@"http://localhost:8888/API/index.php/validate/%@/%@",[self.emailText text],[self.passwordText text]];
+            NSLog(@"PostData: %@",get);
             
             NSMutableURLRequest *request =
-            [NSMutableURLRequest requestWithURL:[NSURL URLWithString:post]
+            [NSMutableURLRequest requestWithURL:[NSURL URLWithString:get]
                                     cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                                 timeoutInterval:10];
             [request setHTTPMethod:@"GET"];
