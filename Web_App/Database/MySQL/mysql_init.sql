@@ -8,8 +8,8 @@
 
 -- create database
 # DROP DATABASE IF EXISTS BookUp;
-CREATE DATABASE BookUp;
-USE BookUp;
+CREATE DATABASE BookUpv3;
+USE BookUpv3;
 
 # DROP TABLE IF EXISTS Account;
 

@@ -8,7 +8,7 @@ import time
 
 def readFile():
 
-    with open("Isbn_Txt_Files/list_of_50_isbn.txt") as file:
+    with open("Isbn_Txt_Files/less_than_5000.txt") as file:
       isbnArray = file.read().splitlines()
 
     return isbnArray
@@ -17,7 +17,7 @@ def connectToBookUp():
 
     try:
 
-        db = MySQLdb.connect(unix_socket ="/Applications/MAMP/tmp/mysql/mysql.sock", host="localhost", user="root", passwd="root", db="BookUp")
+        db = MySQLdb.connect(unix_socket ="/Applications/MAMP/tmp/mysql/mysql.sock", host="54.69.55.132", user="zfout", passwd="Forkusmaximus1", db="BookUpv3")
 
         return db
 
@@ -76,7 +76,6 @@ def addToDatabase(isbnArray, db):
         else:
 
             bookObject = rJS.find_key(googleRequest, 'title')
-            title1 = bookObject[0]
             authors1 = rJS.find_key(googleRequest, 'authors')
             language1 = rJS.find_key(googleRequest, 'language')
             description1 = rJS.find_key(googleRequest, 'description')
@@ -177,10 +176,6 @@ def cleanBookList_Bad(db):
         isbnArray.append(isbn)
 
     return isbnArray
-
-
-
-
 
 if __name__ == "__main__":
 
