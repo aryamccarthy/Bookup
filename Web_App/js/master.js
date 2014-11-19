@@ -9,7 +9,7 @@ $(document).ready( function() {
 	else if(discoveryLoaded===true){
 		checkForNewUser();
 		var setButton=document.getElementById("next");
-		setButton.setAttribute("onclick", "getRecommendedBook()")
+		setButton.setAttribute("onclick", "getRecommendedBook()");
 		getRecommendedBook();
 	}
 	else if(listLoaded===true){
@@ -20,7 +20,7 @@ $(document).ready( function() {
 
 function greyOutElement (event) {
 	var target = $(event.target);
-	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('')
+	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('');
 }
 var listBooks = [];
 var setupLoaded = false;
@@ -271,7 +271,7 @@ function generateHTMLForReadingList(Book, index){
 	delete_listing.innerHTML=" X";
 	delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
 	
-	listing.setAttribute("onclick", "showReadingListBook(this.title)")
+	listing.setAttribute("onclick", "showReadingListBook(this.title)");
 	listing.innerHTML=Book.title;
 	
 	var sidebar_list=document.getElementById("list_books");

@@ -22,7 +22,7 @@ window.onload = function() {
     var errtext = $('#loginerrors').data('err');
     alert(errtext);
   }
-}
+};
 
 function checkIfUsernameTaken(email, password) {
   $.ajax({
@@ -62,5 +62,5 @@ function addUser(email, password) {
     error: function (request, status, error) {
         alert(request.responseText);
     }
-  })
+  });
 }
