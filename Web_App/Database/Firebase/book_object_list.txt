@@ -1,0 +1,819 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "mux7S0mHdKkC",
+   "etag": "z2lMA8zyNT0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/mux7S0mHdKkC",
+   "volumeInfo": {
+    "title": "For One More Day",
+    "authors": [
+     "Mitch Albom"
+    ],
+    "publisher": "Hyperion",
+    "publishedDate": "2006-09-26",
+    "description": "This is the story of Charley, a child of divorce who is always forced to choose between his mother and his father. He grows into a man and starts a family of his own. But one fateful weekend, he leaves his mother to secretly be with his father - and she dies while he is gone. This haunts him for years. It unravels his own young family. It leads him to depression and drunkenness. One night, he decides to take his life. But somewhere between this world and the next, he encounters his mother again, in their hometown, and gets to spend one last day with her - the day he missed and always wished he'd had. He asks the questions many of us yearn to ask, the questions we never ask while our parents are alive. By the end of this magical day, Charley discovers how little he really knew about his mother, the secret of how her love saved their family, and how deeply he wants the second chance to save his own.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1401303277"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781401303273"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 208,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 137,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=mux7S0mHdKkC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=mux7S0mHdKkC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=mux7S0mHdKkC&dq=isbn:9781401303273&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=mux7S0mHdKkC&dq=isbn:9781401303273&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/For_One_More_Day.html?hl=&id=mux7S0mHdKkC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=mux7S0mHdKkC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This is the story of Charley, a child of divorce who is always forced to choose between his mother and his father."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 2,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "amO1QgAACAAJ",
+   "etag": "hSfbYW/mBg4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/amO1QgAACAAJ",
+   "volumeInfo": {
+    "title": "The Bartimaeus Trilogy, Book One: Amulet of Samarkand",
+    "authors": [
+     "Jonathan Stroud"
+    ],
+    "publisher": "Disney-Hyperion",
+    "publishedDate": "2003-09-29",
+    "description": "Presenting a thrilling new voice in children's literature-a witty, gripping adventure story featuring a boy and his not-so-tame djinni. Nathaniel is a young magician's apprentice, taking his first lessons in the arts of magic. But when a devious hotshot wizard named Simon Lovelace ruthlessly humiliates Nathaniel in front of everyone he knows, Nathaniel decides to kick up his education a few notches and show Lovelace who's boss. With revenge on his mind, he masters one of the toughest spells of all: summoning the all-powerful djinni, Bartimaeus. But summoning Bartimaeus and controlling him are two different things entirely, and when Nathaniel sends the djinni out to steal the powerful Amulet of Samarkand, Nathaniel finds himself caught up in a whirlwind of magical espionage, murder, blackmail, and revolt. Set in a modern-day London spiced with magicians and mayhem, this extraordinary, funny, pitch-perfect thriller will dazzle the myriad fans of Artemis Fowl and the His Dark Materials trilogy. And with the rights sold in more than a dozen countries, and a major motion picture in the works, the Bartimaeus trilogy is on the fast track to becoming a classic.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "078681859X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780786818594"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 464,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 11,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=amO1QgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=amO1QgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=amO1QgAACAAJ&dq=isbn:9780786818594&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=amO1QgAACAAJ&dq=isbn:9780786818594&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Bartimaeus_Trilogy_Book_One_Amulet_o.html?hl=&id=amO1QgAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=amO1QgAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "And with the rights sold in more than a dozen countries, and a major motion picture in the works, the Bartimaeus trilogy is on the fast track to becoming a classic."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "Lk2SbKlXC7oC",
+   "etag": "AeVz1htqg0A",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/Lk2SbKlXC7oC",
+   "volumeInfo": {
+    "title": "Bartimaeus: Amulet of Samarkand, The (Book One)",
+    "authors": [
+     "Jonathan Stroud"
+    ],
+    "publisher": "Hyperion",
+    "publishedDate": "2004-05-03",
+    "description": "Nathaniel is a magician's apprentice, taking his first lessons in the arts of magic. But when a devious hot-shot wizard named Simon Lovelace ruthlessly humiliates Nathaniel in front of his elders, Nathaniel decides to kick up his education a few notches and show Lovelace who's boss. With revenge on his mind, he summons the powerful djinni, Bartimaeus. But summoning Bartimaeus and controlling him are two different things entirely, and when Nathaniel sends the djinni out to steal Lovelace's greatest treasure, the Amulet of Samarkand, he finds himself caught up in a whirlwind of magical espionage, murder, and rebellion.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0786852550"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780786852550"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 480,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 47,
+    "contentVersion": "0.1.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=Lk2SbKlXC7oC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=Lk2SbKlXC7oC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=Lk2SbKlXC7oC&dq=isbn:9780786818594&hl=&cd=2&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=Lk2SbKlXC7oC&dq=isbn:9780786818594&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Bartimaeus_Amulet_of_Samarkand_The_Book.html?hl=&id=Lk2SbKlXC7oC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=Lk2SbKlXC7oC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Nathaniel is a magician&#39;s apprentice, taking his first lessons in the arts of magic."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "M-LDjwEACAAJ",
+   "etag": "WRUWLbeK9Xc",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/M-LDjwEACAAJ",
+   "volumeInfo": {
+    "title": "Lover Enshrined",
+    "subtitle": "A Novel of the Black Dagger Brotherhood",
+    "authors": [
+     "J. R. Ward"
+    ],
+    "publisher": "Signet Book",
+    "publishedDate": "2008",
+    "description": "The Primale of the Chosen, Phury has sacrificed himself for the good of his people, but when his first mate, the Chosen Cormia, wants not only his body, but also his heart, he is forced to choose between duty and love, while tragedy threatens the Brotherhood's mansion. Original.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0451222725"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780451222725"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 542,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 78,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=M-LDjwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=M-LDjwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=M-LDjwEACAAJ&dq=isbn:9780451222725&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=M-LDjwEACAAJ&dq=isbn:9780451222725&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Lover_Enshrined.html?hl=&id=M-LDjwEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=M-LDjwEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Primale of the Chosen, Phury has sacrificed himself for the good of his people, but when his first mate, the Chosen Cormia, wants not only his body, but also his heart, he is forced to choose between duty and love, while tragedy ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "wU3qugAACAAJ",
+   "etag": "IfRFrX4wQ/Q",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/wU3qugAACAAJ",
+   "volumeInfo": {
+    "title": "Prodigy",
+    "authors": [
+     "Marie Lu"
+    ],
+    "publisher": "Putnam Publishing Group",
+    "publishedDate": "2013-01-29",
+    "description": "June and Day make their way to Las Vegas where they join the rebel Patriot group and become involved in an assassination plot against the Elector in hopes of saving the Republic.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0399256768"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780399256769"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 384,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 18,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks1.books.google.com/books?id=wU3qugAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks1.books.google.com/books?id=wU3qugAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=wU3qugAACAAJ&dq=isbn:9780399256769&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=wU3qugAACAAJ&dq=isbn:9780399256769&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Prodigy.html?hl=&id=wU3qugAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=wU3qugAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "June and Day make their way to Las Vegas where they join the rebel Patriot group and become involved in an assassination plot against the Elector in hopes of saving the Republic."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "v8QQkgEACAAJ",
+   "etag": "r4dcVtLqL08",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/v8QQkgEACAAJ",
+   "volumeInfo": {
+    "title": "Rules of Attraction",
+    "authors": [
+     "Simone Elkeles"
+    ],
+    "publisher": "Walker Childrens",
+    "publishedDate": "2010-04-27",
+    "description": "New sparks will fly in the sequel to Simone Elkeles’s breakout book Perfect Chemistry When Carlos Fuentes returns to America after living in Mexico for a year, he doesn’t want any part of the life his older brother, Alex, has laid out for him at a high school in Colorado. Carlos likes living his life on the edge and wants to carve his own path—just like Alex did. Then he meets Kiara Westford. She doesn’t talk much and is completely intimidated by Carlos’ wild ways. As they get to know one another, Carlos assumes Kiara thinks she’s too good for him, and refuses to admit that she might be getting to him. But he soon realizes that being himself is exactly what Kiara needs right now. With new characters to fall in love with and the same hot romance found in Perfect Chemistry, Simone Elkeles has crafted another sure-fire hit for teens.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0802720862"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780802720863"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 304,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 21,
+    "contentVersion": "preview-1.0.0",
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=v8QQkgEACAAJ&dq=isbn:9780802720863&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=v8QQkgEACAAJ&dq=isbn:9780802720863&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Rules_of_Attraction.html?hl=&id=v8QQkgEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=v8QQkgEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "But he soon realizes that being himself is exactly what Kiara needs right now. With new characters to fall in love with and the same hot romance found in Perfect Chemistry, Simone Elkeles has crafted another sure-fire hit for teens."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "GTpVPgAACAAJ",
+   "etag": "lrfyCY8M4WU",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/GTpVPgAACAAJ",
+   "volumeInfo": {
+    "title": "20,000 Leagues Under the Sea",
+    "authors": [
+     "Jules Verne"
+    ],
+    "publishedDate": "2002",
+    "description": "Retells the adventures of a French professor and his two companions as they sail above and below the world's oceans as prisoners on the fabulous electric submarine of the deranged Captain Nemo.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "076072850X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780760728505"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 269,
+    "printType": "BOOK",
+    "categories": [
+     "Science fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 55,
+    "contentVersion": "preview-1.0.0",
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=GTpVPgAACAAJ&dq=isbn:9780760728505&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=GTpVPgAACAAJ&dq=isbn:9780760728505&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/20_000_Leagues_Under_the_Sea.html?hl=&id=GTpVPgAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=GTpVPgAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Retells the adventures of a French professor and his two companions as they sail above and below the world&#39;s oceans as prisoners on the fabulous electric submarine of the deranged Captain Nemo."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "mM82PkHt4rEC",
+   "etag": "IuVONT6RcF8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/mM82PkHt4rEC",
+   "volumeInfo": {
+    "title": "Beastly",
+    "authors": [
+     "Alex Flinn"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2007-10-02",
+    "description": "I am a beast. A beast. Not quite wolf or bear, gorilla or dog but a horrible new creature who walks upright—a creature with fangs and claws and hair springing from every pore. I am a monster. You think I'm talking fairy tales? No way. The place is New York City. The time is now. It's no deformity, no disease. And I'll stay this way forever—ruined—unless I can break the spell. Yes, the spell, the one the witch in my English class cast on me. Why did she turn me into a beast who hides by day and prowls by night? I'll tell you. I'll tell you how I used to be Kyle Kingsbury, the guy you wished you were, with money, perfect looks, and the perfect life. And then, I'll tell you how I became perfectly . . . beastly.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060874162"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060874163"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 320,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 1481,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=mM82PkHt4rEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=mM82PkHt4rEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=mM82PkHt4rEC&printsec=frontcover&dq=isbn:9780060874162&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=mM82PkHt4rEC&dq=isbn:9780060874162&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Beastly.html?hl=&id=mM82PkHt4rEC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=mM82PkHt4rEC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "I&#39;ll tell you. I&#39;ll tell you how I used to be Kyle Kingsbury, the guy you wished you were, with money, perfect looks, and the perfect life. And then, I&#39;ll tell you how I became perfectly . . . beastly."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "HS7uAAAAMAAJ",
+   "etag": "sgaJeDO0HIk",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/HS7uAAAAMAAJ",
+   "volumeInfo": {
+    "title": "Twenty love poems and a song of despair",
+    "authors": [
+     "Pablo Neruda",
+     "Cristina García",
+     "William Stanley Merwin"
+    ],
+    "publisher": "Penguin Group USA",
+    "publishedDate": "2007-01-30",
+    "description": "The Nobel PrizeÂ–winning poetÂ's most popular work When it appeared in 1924, this work launched into the international spotlight a young and unknown poet whose writings would ignite a generation. W. S. MerwinÂ's incomparable translation faces the original Spanish text. Now in a black-spine Classics edition, this book stands as an essential collection that continues to inspire lovers and poets around the world.",
+    "industryIdentifiers": [
+     {
+      "type": "OTHER",
+      "identifier": "UOM:39015079358381"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 60,
+    "printType": "BOOK",
+    "categories": [
+     "Poetry"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 16,
+    "contentVersion": "1.1.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=HS7uAAAAMAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=HS7uAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=HS7uAAAAMAAJ&dq=isbn:9780143039969&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=HS7uAAAAMAAJ&dq=isbn:9780143039969&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Twenty_love_poems_and_a_song_of_despair.html?hl=&id=HS7uAAAAMAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=HS7uAAAAMAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "W. S. MerwinÂ&#39;s incomparable translation faces the original Spanish text. Now in a black-spine Classics edition, this book stands as an essential collection that continues to inspire lovers and poets around the world."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "OhG0cQAACAAJ",
+   "etag": "NHP+kYPCpd4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/OhG0cQAACAAJ",
+   "volumeInfo": {
+    "title": "Tiger's Curse",
+    "authors": [
+     "Colleen Houck"
+    ],
+    "publisher": "Splinter",
+    "publishedDate": "2011-01",
+    "description": "Seventeen-year-old Oregon teenager Kelsey forms a bond with a circus tiger who is actually one of two brothers, Indian princes Ren and Kishan, who were cursed to live as tigers for eternity, and she travels with him to India where the tiger's curse may be broken once and for all.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1402784031"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781402784033"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 402,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 50,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks8.books.google.com/books?id=OhG0cQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks8.books.google.com/books?id=OhG0cQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=OhG0cQAACAAJ&dq=isbn:9781402784033&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=OhG0cQAACAAJ&dq=isbn:9781402784033&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Tiger_s_Curse.html?hl=&id=OhG0cQAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=OhG0cQAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Seventeen-year-old Oregon teenager Kelsey forms a bond with a circus tiger who is actually one of two brothers, Indian princes Ren and Kishan, who were cursed to live as tigers for eternity, and she travels with him to India where the tiger ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "UsyQuAAACAAJ",
+   "etag": "AlRIUHwYFSY",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/UsyQuAAACAAJ",
+   "volumeInfo": {
+    "title": "The House of Mirth",
+    "authors": [
+     "Edith Wharton"
+    ],
+    "publisher": "Virago Press",
+    "publishedDate": "2006-01-01",
+    "description": "First published in 1905, THE HOUSE OF MIRTH shocked the New York society it so deftly chronicles, portraying the moral, social and economic restraints on a woman who dared to claim the privileges of marriage without assuming the responsibilities. Lily Bart, beautiful, witty and sophisticated, is accepted by 'old money' and courted by the growing tribe of nouveaux riches. But as she nears thirty, her foothold becomes precarious; a poor girl with expensive tastes, she needs a husband to preserve her social standing and to maintain her in the luxury she has come to expect. Whilst many have sought her, something - fastidiousness or integrity- prevents her from making a 'suitable' match.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "1844082938"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9781844082933"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 351,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 1,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks7.books.google.com/books?id=UsyQuAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks7.books.google.com/books?id=UsyQuAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=UsyQuAAACAAJ&dq=isbn:9781844082933&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=UsyQuAAACAAJ&dq=isbn:9781844082933&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_House_of_Mirth.html?hl=&id=UsyQuAAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=UsyQuAAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "First published in 1905, THE HOUSE OF MIRTH shocked the New York society it so deftly chronicles, portraying the moral, social and economic restraints on a woman who dared to claim the privileges of marriage without assuming the ..."
+   }
+  }
+ ]
+}
+

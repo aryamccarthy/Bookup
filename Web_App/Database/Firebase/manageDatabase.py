@@ -4,10 +4,11 @@ import requests
 import MySQLdb
 import json
 import recursiveJsonSearch as rJS
+import time
 
 def readFile():
 
-    with open("Isbn_Txt_Files/list_of_5000_isbn.txt") as file:
+    with open("Isbn_Txt_Files/list_of_50_isbn.txt") as file:
       isbnArray = file.read().splitlines()
 
     return isbnArray
@@ -37,13 +38,24 @@ def addToDatabase(isbnArray, db):
 
     The language will also be taken down for possible future multi-langual versions
     """
+
+    file = open('book_object_list.txt', "w+")
+
     cursor = db.cursor()
 
     for isbn in isbnArray:
 
+        time.sleep(2)
+
+        print isbn
+
         googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
         googleRequest = requests.get(googleQuery)
+
+        string = googleRequest.content
+        file.write(string)
+        file.write("\n")
 
         googleRequest = json.loads(googleRequest.content)
 
@@ -53,20 +65,30 @@ def addToDatabase(isbnArray, db):
 
                 cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "API Call returned Error"))
 
+                print "\t API CALL ERROR"
+
                 db.commit()
 
             except MySQLdb.Error, e:
 
-                pass
+                print "\t API CALL ERROR - Not in DB"
 
         else:
 
-            bookObject = rJS.find_key(googleRequest, "title")
-            rJS.find_key(googleRequest, 'authors')
-            rJS.find_key(googleRequest, "language")
-            rJS.find_key(googleRequest, "description")
-            rJS.find_key(googleRequest, "thumbnail")
-            rJS.find_key(googleRequest, "smallThumbnail")
+            bookObject = rJS.find_key(googleRequest, 'title')
+            title1 = bookObject[0]
+            authors1 = rJS.find_key(googleRequest, 'authors')
+            language1 = rJS.find_key(googleRequest, 'language')
+            description1 = rJS.find_key(googleRequest, 'description')
+            thumbnail1 = rJS.find_key(googleRequest, 'thumbnail')
+            small_thumbnail1 = rJS.find_key(googleRequest, "smallThumbnail")
+
+            # print title1
+            # print authors1
+            # print language1
+            # print description1
+            # print thumbnail1
+            # print small_thumbnail1
 
             if len(bookObject) is 6:
 
@@ -81,21 +103,14 @@ def addToDatabase(isbnArray, db):
                 thumbnail = bookObject[4]
                 sThumbnail = bookObject[5]
 
-                print isbn
-                print title
-                print "--------------------------"
-                # print authors
-                # print language
-                # print description
-                # print thumbnail
-                # print sThumbnail
-                # print "--------------------------"
-
                 try:
 
                     cursor.execute("INSERT INTO BookList_Good VALUES (%s, %s, %s, %s, %s, %s, %s)", (isbn, language, title, authors, description, sThumbnail, thumbnail))
 
                     db.commit()
+
+                    print "\t Added to good"
+
 
                 except MySQLdb.Error, e:
 
@@ -103,11 +118,25 @@ def addToDatabase(isbnArray, db):
 
                         cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, e.args[1]))
 
+                        print "\t added to bad"
+
+                        print e.args[1]
+
+
                         db.commit()
 
                     except MySQLdb.Error, e:
 
-                        pass
+                        print "\t tried bad"
+
+                except:
+
+                    cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "God Only Knows Man"))
+
+                    print "\t God Only Knows Man"
+
+                    db.commit()
+
 
             else:
 
@@ -117,9 +146,19 @@ def addToDatabase(isbnArray, db):
 
                     db.commit()
 
+                    print "\t not all info available"
+
+
                 except MySQLdb.Error, e:
 
-                     pass
+                    print "\t tried no info, fail"
+
+                    print "\t" + e.args[1]
+
+
+            del bookObject [:]
+
+    file.close()
 
 def cleanBookList_Bad(db):
 
