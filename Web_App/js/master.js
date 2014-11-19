@@ -100,7 +100,7 @@ function getPopularBooks(){
 			 	var thumbnail=bookObjs[i].thumbnail;
 				var isbn=bookObjs[i].isbn;
 				var cover = new Image();
-				cover.src = thumbnail;
+				cover.src = thumbnail || "img/generic_book.jpg";
 				var newBook= new Book(title, author, cover,description,isbn);				 	
 				generateHTMLForSetupPage(newBook);
 			}	 	
@@ -207,7 +207,7 @@ function overlay(id) {
 function generateHTMLForSetupPage(Book){
 	var account_section = document.getElementById("book_covers_to_rate");
 	var bookItem = document.createElement("li");
-	var title = document.createElement("p")
+	var title = document.createElement("p");
 	title.innerHTML=Book.title;
 	var author = document.createElement("p");
 	author.innerHTML=Book.author;
