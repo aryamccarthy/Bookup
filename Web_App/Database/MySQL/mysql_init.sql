@@ -23,8 +23,8 @@ CREATE TABLE IF NOT EXISTS Account(
 CREATE TABLE IF NOT EXISTS BookList_Good( 
     isbn_num    VARCHAR(13) PRIMARY KEY NOT NULL,
     language    VARCHAR(30),
-    title       VARCHAR(30) NOT NULL,
-    author      VARCHAR(30) NOT NULL,
+    title       VARCHAR(100) NOT NULL,
+    author      VARCHAR(100) NOT NULL,
     descrition  TEXT,
     image_link_s  TEXT,
     image_link   TEXT,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS BookList_Good(
 
 CREATE TABLE IF NOT EXISTS BookList_Bad(
     isbn_num    VARCHAR(13) PRIMARY KEY,
-    reason      VARCHAR(50)
+    reason      VARCHAR(100)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS ISBN_Duplicates(
 # DROP TABLE IF EXISTS PopularBookList;
 
 CREATE TABLE IF NOT EXISTS PopularBookList(
-    isbn_num    VARCHAR(15) PRIMARY KEY,
+    isbn_num    VARCHAR(13) PRIMARY KEY,
     FOREIGN KEY(isbn_num) REFERENCES  BookList_Good(isbn_num)
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
