@@ -1,0 +1,15 @@
+<?php
+require_once("login/db.php");
+require_once("login/Login.php");
+$login = new Login();
+echo '<span id="userinfo" style="display:none" data-email="'. $_SESSION["email"] . '"></span>';
+require_once('sesh.php'); ?>
+
+<nav>
+  <ul>
+    <li><a href="discovery.php">Bookup</a></li>
+    <li><a href="list.php">Reading List</a></li>
+    <li><a href="discovery.php">Discovery</a></li>
+    <li><a href="index.php?logout">Logout</a></li>
+  </ul>
+</nav>
