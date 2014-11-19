@@ -22,3 +22,6 @@ def find_key(dic, key_match, valued=[]):
                     valued.append(value)
 
     return valued # in line with for loop
+
+if __name__ == "__main__":
+    print "Meant to be accessed from manageDatabase.py"

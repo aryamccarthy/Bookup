@@ -58,3 +58,6 @@ Pods
 
 *.xcuserstate
 iOS/Bookup.xcodeproj/project.xcworkspace/xcuserdata/Arya.xcuserdatad/UserInterfaceState.xcuserstate
+
+###Accessing DB through python
+connectToDB.py

@@ -1,30 +1,12 @@
-from firebase import firebase
-import sys
-import requests
+__author__ = 'DRizzuto'
+
 import MySQLdb
-import json
-import recursiveJsonSearch as rJS
 import time
+import json
+import requests
 
-def readFile():
+import recursiveJsonSearch as rJS
 
-    with open("Isbn_Txt_Files/less_than_5000.txt") as file:
-      isbnArray = file.read().splitlines()
-
-    return isbnArray
-
-def connectToBookUp():
-
-    try:
-
-        db = MySQLdb.connect(unix_socket ="/Applications/MAMP/tmp/mysql/mysql.sock", host="54.69.55.132", user="zfout", passwd="Forkusmaximus1", db="BookUpv3")
-
-        return db
-
-    except MySQLdb.Error, e:
-
-        print "Could not connect to database, got error:\n %s" % (e.args[1])
-        sys.exit(1)
 
 def addToDatabase(isbnArray, db):
 
@@ -159,38 +141,5 @@ def addToDatabase(isbnArray, db):
 
     file.close()
 
-def cleanBookList_Bad(db):
-
-    cursor = db.cursor()
-
-    cursor.execute("SELECT * FROM BookList_Bad")
-
-    rows = cursor.fetchall()
-
-    isbnArray = []
-
-    for row in rows:
-
-        isbn = row[0]
-
-        isbnArray.append(isbn)
-
-    return isbnArray
-
 if __name__ == "__main__":
-
-    # cleanUpFireBase()
-    isbnArray = readFile()
-
-    db = connectToBookUp()
-
-    addToDatabase(isbnArray, db)
-
-    db.close()
-
-
-
-
-
-
-
+    print "Meant to be accessed from manageDatabase.py"
