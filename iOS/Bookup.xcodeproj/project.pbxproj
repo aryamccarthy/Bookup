@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4203F7341A150A630062425B /* ReadingListEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4203F7331A150A630062425B /* ReadingListEntryViewController.m */; };
 		426BB13A1A111DCF00738284 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BB1391A111DCF00738284 /* Book.m */; };
 		426BB1671A1156F100738284 /* ReadingListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BB1661A1156F100738284 /* ReadingListTableViewController.m */; };
 		42801E491A107CB80050BB45 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42801E481A107CB80050BB45 /* DiscoveryViewController.m */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4203F7321A150A630062425B /* ReadingListEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingListEntryViewController.h; sourceTree = "<group>"; };
+		4203F7331A150A630062425B /* ReadingListEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingListEntryViewController.m; sourceTree = "<group>"; };
 		426BB1381A111DCF00738284 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		426BB1391A111DCF00738284 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		426BB1581A11386C00738284 /* Bookup copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Bookup copy-Info.plist"; path = "/Users/Arya/Developer/Independent Projects/Bookup/Bookup copy-Info.plist"; sourceTree = "<absolute>"; };
@@ -113,6 +116,8 @@
 				42C089641A1076BF002B1B79 /* ViewController.h */,
 				42C089651A1076BF002B1B79 /* ViewController.m */,
 				42C089671A1076BF002B1B79 /* Main.storyboard */,
+				4203F7321A150A630062425B /* ReadingListEntryViewController.h */,
+				4203F7331A150A630062425B /* ReadingListEntryViewController.m */,
 				426BB1651A1156F100738284 /* ReadingListTableViewController.h */,
 				426BB1661A1156F100738284 /* ReadingListTableViewController.m */,
 				42C0896A1A1076BF002B1B79 /* Images.xcassets */,
@@ -255,6 +260,7 @@
 				42C0895D1A1076BF002B1B79 /* main.m in Sources */,
 				426BB1671A1156F100738284 /* ReadingListTableViewController.m in Sources */,
 				42AB0EF41A11B6EA0090F598 /* ImageViewController.m in Sources */,
+				4203F7341A150A630062425B /* ReadingListEntryViewController.m in Sources */,
 				426BB13A1A111DCF00738284 /* Book.m in Sources */,
 				42801E491A107CB80050BB45 /* DiscoveryViewController.m in Sources */,
 				42AB0EF71A11CAA90090F598 /* CentereedContentScrollView.m in Sources */,

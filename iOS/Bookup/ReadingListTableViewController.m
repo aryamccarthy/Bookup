@@ -189,10 +189,10 @@
    if ([sender isKindOfClass:[UITableViewCell class]]) {
      NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
      if (indexPath) {
-       if ([segue.identifier isEqualToString:@"Show Image"]) {
-         if ([segue.destinationViewController respondsToSelector:@selector(setImageURL:)]) {
-           NSURL *url = [self fetchNthBook:indexPath.row].myImageURL;
-           [segue.destinationViewController performSelector:@selector(setImageURL:) withObject:url];
+       if ([segue.identifier isEqualToString:@"Show Description"]) {
+         if ([segue.destinationViewController respondsToSelector:@selector(setBook:)]) {
+           Book *book = [self fetchNthBook:indexPath.row];
+           [segue.destinationViewController performSelector:@selector(setBook:) withObject:book];
            [segue.destinationViewController setTitle:[self getMyTitleForRow:indexPath.row inSection:indexPath.section]];
          }
        }

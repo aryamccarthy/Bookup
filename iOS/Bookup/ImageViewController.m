@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *imageView;
 //@property (weak, nonatomic) IBOutlet UIBarButtonItem *titleBarButtonItem;
-@property (strong, nonatomic) UIPopoverController *urlPopover;
+@property (weak, nonatomic) IBOutlet UIPopoverController *urlPopover;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
