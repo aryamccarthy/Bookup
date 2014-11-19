@@ -194,8 +194,13 @@ function submitBookFeedback(rating, isbn) {
 
 
 function overlay(id) {
-  var el = document.getElementById(id);
-  el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
+   var el = document.getElementById(id);
+   el.style.visibility = (el.style.visibility === "visible") ? "hidden" : "visible";
+ //  if (discoveryLoaded==true)
+   	//	$( "#discovery_section" ).css({ opacity: 0.7});
+   //	else if (listLoaded==true)
+   	//	$( "main" ).css({ opacity: 0.7});
+
 }
 
 

@@ -7,7 +7,7 @@
 </head>
 <body>
   <?php include("html/nav.html"); ?>
- <div id="#content">
+ <div id="content">
   <section id="discovery_section">
     <article id= "discovery_info">
       <h1 id="book_title">  </h1>
@@ -26,10 +26,10 @@
   </section>
   <section id="rate_from_discovery">
     <form>
-      <h2>Help us get to know you and your preferences! <br> How would you rate this book?</h2>
-      <!-- TODO: the values of these buttons will probably be values 0,1 ?? -->
-      <button onclick="submitBookFeedback()" value="1"> Like </button>
-      <button onclick="submitBookFeedback()" value="-1"> Dislike </button>
+      <h1>Help us get to know you and your preferences!</h1> 
+      <h2> How would you rate this book?</h2>
+      <button class="discoveryratingbook" onclick="submitBookFeedback()" value="1">  <img src='img/like.png' alt='Like' /> </button>
+      <button class="discoveryratingbook"onclick="submitBookFeedback()" value="-1">  <img src='img/dislike.png' alt='Dislike' /> </button>
     </form>
   </section>
   </div>
