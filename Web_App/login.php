@@ -28,11 +28,11 @@
             <li><hr></li>
             <li>
               <label for="email">Email</label>
-              <input id="email" name="user_email" type="email" pattern=".{3,30}" placeholder="someone@example.com" autofocus required>
+              <input id="email" name="user_email" type="email" pattern="\S{3,30}" placeholder="someone@example.com" autofocus required>
             </li>
             <li>
               <label for="password">Password</label>
-              <input id="password" name="user_password" type="password" pattern = ".{7,30}" placeholder="••••••••••••" required>
+              <input id="password" name="user_password" title="6 or more characters, no spaces." type="password" pattern = "\S{6,30}" placeholder="••••••••••••" required>
             </li>
             <li>
               <input id="login_button" type="submit" name="login" class="twobutton" value="Login" />

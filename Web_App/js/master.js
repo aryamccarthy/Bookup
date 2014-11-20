@@ -9,7 +9,7 @@ $(document).ready( function() {
 	else if(discoveryLoaded===true){
 		checkForNewUser();
 		var setButton=document.getElementById("next");
-		setButton.setAttribute("onclick", "getRecommendedBook()")
+		setButton.setAttribute("onclick", "getRecommendedBook()");
 		getRecommendedBook();
 	}
 	else if(listLoaded===true){
@@ -20,7 +20,7 @@ $(document).ready( function() {
 
 function greyOutElement (event) {
 	var target = $(event.target);
-	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('')
+	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('');
 }
 var listBooks = [];
 var setupLoaded = false;
@@ -100,7 +100,7 @@ function getPopularBooks(){
 			 	var thumbnail=bookObjs[i].thumbnail;
 				var isbn=bookObjs[i].isbn;
 				var cover = new Image();
-				cover.src = thumbnail;
+				cover.src = thumbnail || "img/generic_book.jpg";
 				var newBook= new Book(title, author, cover,description,isbn);				 	
 				generateHTMLForSetupPage(newBook);
 			}	 	
@@ -206,7 +206,7 @@ function overlay(id) {
 function generateHTMLForSetupPage(Book){
 	var account_section = document.getElementById("book_covers_to_rate");
 	var bookItem = document.createElement("li");
-	var title = document.createElement("p")
+	var title = document.createElement("p");
 	title.innerHTML=Book.title;
 	var author = document.createElement("p");
 	author.innerHTML=Book.author;
@@ -273,7 +273,7 @@ function generateHTMLForReadingList(Book, index){
 	delete_listing.innerHTML=" X";
 	delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
 	
-	listing.setAttribute("onclick", "showReadingListBook(this.title)")
+	listing.setAttribute("onclick", "showReadingListBook(this.title)");
 	listing.innerHTML=Book.title;
 	
 	var sidebar_list=document.getElementById("list_books");
