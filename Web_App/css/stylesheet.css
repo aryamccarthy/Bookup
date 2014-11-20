@@ -523,7 +523,6 @@ body > nav:after {
 }
 
 .listratingbutton img {
-  margin-top: 10px;
   height: 50px;
   border: none;
   padding-left: 30px;
@@ -532,6 +531,7 @@ body > nav:after {
 
 button.listratingbutton {
   border: none;
+  height: 50px;
 }
 
 #didntread{
