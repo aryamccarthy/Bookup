@@ -76,10 +76,10 @@ $app->get('/getPopularBooks', function() {
 *	Last tested by Nicole on 11/2/2014 at 2:24pm
 */
 
-$app->get('/userExists', function() {
+$app->get('/userExists/:email', function($email) {
 	global $pdo;
 
-	$args [":email"] = $_GET['email'];
+	$args [":email"] = $email;
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(email) AS count FROM Account
@@ -144,10 +144,10 @@ $app->get('/validate/:email/:password', function($email, $password) {
 *	Last tested by Nicole on 11/2/2014 at 2:26pm
 */
 
-$app->get('/isNewUser', function() {
+$app->get('/isNewUser/:email', function($email) {
 	global $pdo;
 
-	$args [":email"] = $_GET['email'];
+	$args [":email"] = $email;
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(*) AS count FROM Rating
@@ -177,11 +177,11 @@ $app->get('/isNewUser', function() {
 *	Last tested by Nicole on 11/2/2014 at 2:27pm
 */
 
-$app->post('/addUser', function() {
+$app->post('/addUser/:email/:password', function($email, $password) {
 	global $pdo;
 
-	$args [":email"] = $_POST['email'];
-	$args [":password"] = $_POST['password'];
+	$args [":email"] = $email;
+	$args [":password"] = $password;
 
 	$statement = $pdo->prepare(
 		"INSERT INTO Account (email, password)
