@@ -177,11 +177,11 @@ $app->get('/isNewUser/:email', function($email) {
 *	Last tested by Nicole on 11/2/2014 at 2:27pm
 */
 
-$app->post('/addUser/:email/:password', function($email, $password) {
+$app->post('/addUser', function() {
 	global $pdo;
 
-	$args [":email"] = $email;
-	$args [":password"] = $password;
+	$args [":email"] = $_POST['email'];
+	$args [":password"] = $_POST['password'];
 
 	$statement = $pdo->prepare(
 		"INSERT INTO Account (email, password)
