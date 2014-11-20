@@ -18,6 +18,6 @@ def checkNot_ReadFolder():
 
 def moveNot_ReadToRead(source):
 
-    destination = "/../Isbn_Txt_Files/Read/"
+    destination = "../Isbn_Txt_Files/Read/"
 
-    shutil.move(destination, source)
+    shutil.move(source, destination)
