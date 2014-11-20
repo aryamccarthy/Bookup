@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f29be3dd-e237-42d6-9a52-0c5ce7c9e0f7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/FireBase_Connections/firebase.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/FireBase_Connections/firebaseIsbnLookup.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/FireBase_Connections/firebaseLookup.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/book_objects.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/composer.phar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/autoload.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/composer/ClassLoader.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/composer/autoload_classmap.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/composer/autoload_namespaces.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/composer/autoload_psr4.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/composer/autoload_real.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/composer/installed.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/.htaccess" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/README.markdown" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Environment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Exception/Pass.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Exception/Stop.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Helper/Set.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Http/Cookies.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Http/Headers.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Http/Request.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Http/Response.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Http/Util.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Log.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/LogWriter.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Middleware.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Middleware/ContentTypes.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Middleware/Flash.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Middleware/MethodOverride.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Middleware/PrettyExceptions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Middleware/SessionCookie.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Route.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Router.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/Slim.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/Slim/View.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/API/vendor/slim/slim/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Database_Connection_Python/__init__.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Database_Connection_Python/fileReader.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Database_Connection_Python/interactWithDB.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Database_Connection_Python/manageDatabase.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Database_Connection_Python/pullDeniedIsbns.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Database_Connection_Python/recursiveJsonSearch.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Isbn_Txt_Files/Not_Read/one_isbn.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/Isbn_Txt_Files/Read/list_of_5000_isbn.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/book_object_list.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/Firebase/rejected_isbns.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/MySQL/mysql_init.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/Database/MySQL/mysql_test.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/code/checkFirebase.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/code/scrapePopularBooks.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/onlyBadsbns.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/onlyBadsbnsVERBOSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/onlyGoodIsbns.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/onlyGoodIsbnsVERBOSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/top10.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/top200.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Web_App/python/data/top2500.txt" afterPath="" />
+    </list>
+    <ignored path="BookUp_Git.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="BookUp_Git" />
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="true" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookUp_Git" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Database_Management/Database_Connection_Python" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="testToRun" value="" />
+      <option name="keywords" value="" />
+      <option name="params" value="" />
+      <option name="USE_PARAM" value="false" />
+      <option name="USE_KEYWORD" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BookUp_Git" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f29be3dd-e237-42d6-9a52-0c5ce7c9e0f7" name="Default" comment="" />
+      <created>1416430677353</created>
+      <updated>1416430677353</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+</project>
+
