@@ -75,28 +75,31 @@
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSString *userEmail = [defaults objectForKey:@"userEmail"];
   NSLog(@"%@", userEmail);
-  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ec2-54-187-70-205.us-west-2.compute.amazonaws.com/API/index.php/getReadingList?email=%@", userEmail]];
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/API/index.php/getReadingList/%@", userEmail]];
   NSError *error;
   NSData *json = [NSData dataWithContentsOfURL:url options:0 error:&error];
-  if (!json)
+  if (!json) // This stops crashing that occurs when there is no network connection. Instead, it just stops trying and carries on with its little sofware life.
     return;
-  NSLog(@"%@", error);
-  //NSError *error;
+
   NSDictionary *resultsFromJSON = [NSJSONSerialization JSONObjectWithData:json options:0 error:&error];
   NSArray *bookArray = resultsFromJSON[@"Books"];
   self.numberOfRows = [NSNumber numberWithInteger:[bookArray count]];// !!! IMPORTANT: update number of table rows so ANYTHING shows up.
   NSMutableArray *result = [NSMutableArray new];
   for (int i = 0; i < [bookArray count]; ++i) {
-    NSString *this_book = bookArray[i];
-    NSData *thisBookData = [this_book dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *parseError2;
-    NSDictionary *json2 = [NSJSONSerialization JSONObjectWithData:thisBookData options:0 error:&parseError2];
-    NSDictionary *volumeInfo = json2[@"items"][0][@"volumeInfo"];
-    Book *b = [[Book alloc] init];
-    b.myTitle = volumeInfo[@"title"];
-    b.myAuthors = volumeInfo[@"authors"];
-    b.myDescription = volumeInfo[@"description"];
-    b.myImageURL = [NSURL URLWithString:volumeInfo[@"imageLinks"][@"thumbnail"]];
+    NSDictionary *this_book = bookArray[i];
+
+    NSString *title = this_book[@"title"];
+    NSArray *authors = this_book[@"author"];
+    NSString *descr = this_book[@"description"];
+    NSURL *imageURL = [NSURL URLWithString:this_book[@"thumbnail"]];
+    NSString *isbn = this_book[@"isbn"];
+
+    Book *b = [Book new];
+    b.myTitle = title;
+    b.myAuthors = authors;
+    b.myDescription = descr;
+    b.myImageURL = imageURL;
+    b.myISBN = isbn;
     [result addObject:b];
   }
   //NSLog(@"Results: %@", resultsFromJSON);
