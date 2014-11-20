@@ -1,0 +1,76 @@
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "jUXi1uo9CQsC",
+   "etag": "A5/2490Z2Fk",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/jUXi1uo9CQsC",
+   "volumeInfo": {
+    "title": "The Moor's Last Sigh",
+    "authors": [
+     "Salman Rushdie"
+    ],
+    "publisher": "Random House",
+    "publishedDate": "1995",
+    "description": "Moares 'Moor' Zogoiby is a 'high-born crossbreed', the last surviving scion of a dynasty of Cochinise spice merchants and crime lords. He is also a compulsive storyteller and an exile. As he travels a route that takes him from India to Spain, he leaves behind a labyrinthine tale of mad passions and volcanic family hatreds, of titanic matriarchs and their mesmerised offspring, of premature deaths and curses that strike beyond the grave. The Moor's Last Sigh is a spectacularly ambitious, funny, satirical and compassionate novel. It is a love song to a vanishing world, but also its last hurrah.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780099592419"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "009959241X"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 434,
+    "printType": "BOOK",
+    "categories": [
+     "Domestic fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 26,
+    "contentVersion": "0.15.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks4.books.google.com/books?id=jUXi1uo9CQsC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks4.books.google.com/books?id=jUXi1uo9CQsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=jUXi1uo9CQsC&dq=isbn:9780099592419&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=jUXi1uo9CQsC&dq=isbn:9780099592419&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Moor_s_Last_Sigh.html?hl=&id=jUXi1uo9CQsC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=jUXi1uo9CQsC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Moor&#39;s Last Sigh is a spectacularly ambitious, funny, satirical and compassionate novel. It is a love song to a vanishing world, but also its last hurrah."
+   }
+  }
+ ]
+}
+

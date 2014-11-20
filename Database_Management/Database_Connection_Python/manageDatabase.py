@@ -7,7 +7,6 @@ import interactWithDB as iWDB
 
 if __name__ == "__main__":
 
-    # cleanUpFireBase()
     isbnArray = fR.readGivenFile("../Isbn_Txt_Files/Not_Read/one_isbn.txt")
 
     db = cDB.connect()
