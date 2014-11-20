@@ -178,7 +178,6 @@ function getUserDataAndSubmit (event) {
 	submitBookFeedback(rating, isbn);
 }
 
-//TODO: implement and test
 function submitBookFeedback(rating, isbn) {
 
 	$.ajax({
@@ -244,7 +243,10 @@ function generateHTMLForDiscoveryPage(Book){
 	$("#book_description").html(Book.description || "");
 	$("#book_cover").attr("src", Book.cover.src);
 	var addButton =document.getElementById("add to list");
-	addButton.setAttribute("onclick", "addBookToReadingList("+Book.isbn+")");
+	addButton.setAttribute("onclick", "addBookToReadingList(" +Book.isbn+ ")");
+	$("#likebutton").attr("onclick", "submitBookFeedback(1,"+Book.isbn+")");
+	$("#dislikebutton").attr("onclick", "submitBookFeedback(-1,"+Book.isbn+")");
+
 }
 
 function generateHTMLForReadingList(Book, index){
@@ -278,6 +280,8 @@ function generateHTMLForReadingList(Book, index){
 	sidebar_list.appendChild(listing);
 	listing.appendChild(delete_listing);
 	listing.appendChild(isbn);
+	$("#likebutton").attr("onclick", "submitBookFeedback(1,"+Book.isbn+")");
+	$("#dislikebutton").attr("onclick", "submitBookFeedback(-1,"+Book.isbn+")");
 }
 
 function dealWithRatingandDeleting(index){

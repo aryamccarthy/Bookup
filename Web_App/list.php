@@ -34,8 +34,8 @@
     <form>
       <h1>Did you read this book?</h1>
       <h2>Help us get to know you and your preferences! How would you rate this book?</h2>
-      <button class="listratingbutton" value="1"> <img src='img/like.png' alt='Like' /> </button>
-      <button class="listratingbutton" value="-1"> <img src='img/dislike.png' alt='Dislike' /> </button><br>
+      <button class="listratingbutton" id="likebutton" value="1"> <img src='img/like.png' alt='Like' /> </button>
+      <button class="listratingbutton" id="dislikebutton" value="-1"> <img src='img/dislike.png' alt='Dislike' /> </button><br>
       <button class="listratingbutton" id="didntread" value="0"><p>I didn't read this book.</p></button>
     </form>
   </section>
