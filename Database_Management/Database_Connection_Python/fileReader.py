@@ -20,4 +20,8 @@ def moveNot_ReadToRead(source):
 
     destination = "../Isbn_Txt_Files/Read/"
 
+<<<<<<< HEAD
     shutil.move(source, destination)
+=======
+    shutil.move(source, destination)
+>>>>>>> 7b51988e03b1c48e653755864eefc8de747085ec
