@@ -13,7 +13,7 @@ $pass = 'Candles';
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=BookUp", "$user", "$pass");
+    $pdo = new PDO("mysql:host=$host;dbname=BookUpv3", "$user", "$pass");
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -45,20 +45,32 @@ $app->get('/test', function() {
 $app->get('/getPopularBooks', function() {
 	global $pdo;
 
-        $firebaseObject = new FirebaseIsbnLookup();
-
-	$statement = $pdo->prepare("SELECT * FROM PopularBookList");
+	$statement = $pdo->prepare(
+            "SELECT * FROM
+            BookList_Good b INNER JOIN PopularBookList p
+            ON b.isbn_num = p.isbn_num
+            WHERE language = :lang"
+        );
+        $lang = 'en';
+        $statement->bindParam(':lang',$lang);
 
 	if ($statement->execute()) {
             $books = array();
             while($row = $statement->fetch()) {
-                $bookObject = $firebaseObject->getBookJson($row['isbn_num']);
-                array_push($books, $bookObject);
+                $book['imageLinks'] = array();
+                $book['title'] = $row['title'];
+                $book['author'] = $row['author'];
+                $book['description'] = $row['description'];
+                $book['isbn_num'] = $row['isbn_num'];
+                $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
+                $book['imageLinks']['thumbnail'] = $row['image_link'];
+                array_push($books, $book);
 	    }
 
-            $result['Books'] = $books;
+            $result['books'] = $books;
             $result['success'] = true;
         } else {
+              $result['books'] = array();
               $result['success'] = false;
 	      $result['error'] =$statement->errorInfo();
 	}
