@@ -6,14 +6,14 @@
 include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
-$host = '54.69.55.132';
-$user = 'test';
-$pass = 'Candles';
+$host = 'localhost';
+$user = 'root';
+$pass = 'root';
 
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=BookUp", "$user", "$pass");
+    $pdo = new PDO("mysql:host=$host;dbname=RecommenderTest", "$user", "$pass");
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -353,6 +353,144 @@ $app->post('/submitBookFeedback', function() {
 });
 
 /*
+*	Reccomendation Check
+*
+*	Luke Oglesbee
+*	Development (not done)
+*/
+
+$app->get('/recCheck/:email/:isbn', function($email, $isbn) {
+	global $pdo;
+
+	$args[":email"] = $email;
+	$args[":isbn"] = $isbn;
+	$denom = 0.0;
+	$numer = 0.0;
+	$k = $isbn;
+
+	$statement = $pdo->prepare(
+		"SELECT r.isbn_num, r.rating
+		FROM Rating r
+		WHERE r.email=:email AND r.isbn_num<>:isbn;");
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+		echo json_encode($result);
+		return;
+	}
+
+	while($row = $statement->fetch()) {
+		$j = $row["isbn_num"];
+		$rating = $row["rating"];
+		# Get the number of times k and j have both been rated by the same user
+		$statement2 = $pdo->prepare(
+			"SELECT d.count, d.sum
+			FROM dev d
+			WHERE isbn_num1=$k AND isbn_num2=$j;");
+		if ($statement2->execute($args)) {
+			$result["success"] = true;
+		} else {
+			$result["success"] = false;
+			$result["error"] = $statement2->errorInfo();
+			echo json_encode($result);
+			return;
+		}
+		while ($res = $statement2->fetch()) {
+			$count = $res["count"];
+			$sum = $res["sum"];
+			$average = $sum / $count;
+			$denom += $count;
+			$numer += $count * ($average + $rating);
+		}
+	}
+	if ($denom == 0) {
+		$result["guess"] = 0;
+	} else {
+		$result["guess"] = ($numer/$denom);
+	}
+
+	echo json_encode($result);
+});
+
+/*
+*	Rate (SubmitBookFeedback)
+*
+*	Luke Oglesbee
+*	Develpment (testing)
+*
+*	Last tested by Luke on 11/19/14
+*/
+
+$app->post('/rate', function() {
+	global $pdo;
+
+	$args[':email'] = $_POST['email'];
+	$args[':rating'] = $_POST['rating'];
+	$args[':isbn'] = $_POST['isbn'];
+
+	# Insert New Rating
+	$statement = $pdo->prepare(
+		"INSERT INTO Rating(email, rating, timestamp, isbn_num) VALUES 
+		(:email, :rating, NOW(), :isbn);");
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+		echo json_encode($result);
+		return;
+	}
+
+	# Update dev table...
+	$statement = $pdo->prepare(
+		"SELECT DISTINCT r.isbn_num, r2.rating - r.rating as ratingDifference
+		FROM Rating r, Rating r2
+		WHERE r.email = :email AND r2.isbn_num = :isbn AND r2.email = :email;");
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+	}
+	unset($args[":email"]);
+	unset($args[":rating"]);
+	while($row = $statement->fetch()) {
+		$args[":otherIsbn"] = $row["isbn_num"];
+		$args[":ratingDifference"] = $row["ratingDifference"];
+		
+		if ($args[":isbn"] == $args[":otherIsbn"]) {
+			continue;
+		}
+		$statement2 = $pdo->prepare(
+			"INSERT INTO dev VALUES (:isbn, :otherIsbn, 1, :ratingDifference)
+			ON DUPLICATE KEY UPDATE count=count+1, sum=sum+:ratingDifference;");
+		if ($statement2->execute($args)) {
+			$result["success"] = true;
+		} else {
+			$result["success"] = false;
+			$result["error"] = $statement2->errorInfo();
+			echo json_encode($result);
+			return;
+		}
+		$statement2 = $pdo->prepare(
+			"INSERT INTO dev VALUES (:otherIsbn, :isbn, 1, :ratingDifference)
+			ON DUPLICATE KEY UPDATE count=count+1, sum=sum+:ratingDifference;");
+		if ($statement2->execute($args)) {
+			$result["success"] = true;
+		} else {
+			$result["success"] = false;
+			$result["error"] = $statement2->errorInfo();
+			echo json_encode($result);
+			return;
+		}
+	}
+
+	echo json_encode($result);
+});
+
+/*
 *	Remove Book from Reading List
 *
 *	owner: Luke Oglesbee
@@ -360,6 +498,7 @@ $app->post('/submitBookFeedback', function() {
 *	
 *	Last tested by Luke on 11/2/2014 at 1:50pm
 */
+
 $app->post('/removeBookFromReadingList', function() {
 	global $pdo;
 

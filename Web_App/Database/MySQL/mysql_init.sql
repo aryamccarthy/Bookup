@@ -17,16 +17,16 @@ DROP TABLE IF EXISTS Account;
 
 CREATE TABLE IF NOT EXISTS Account(
     email       VARCHAR(30) PRIMARY KEY,
-    password    VARCHAR(30) NOT NULL,
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    password    VARCHAR(30) NOT NULL
+);
 
 
 
 DROP TABLE IF EXISTS BookList;
 
 CREATE TABLE IF NOT EXISTS BookList( 
-    isbn_num    VARCHAR(15) PRIMARY KEY,
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    isbn_num    VARCHAR(15) PRIMARY KEY
+);
 
 
 
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS PopularBookList;
 CREATE TABLE IF NOT EXISTS PopularBookList(
     isbn_num    VARCHAR(15) PRIMARY KEY,
     FOREIGN KEY(isbn_num) REFERENCES  BookList(isbn_num)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+);
 
 
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS Rating(
     PRIMARY KEY(email, isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+);
 
 
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS ReadingList(
     PRIMARY KEY(email, isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+);
 
 
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS BookSeen(
     PRIMARY KEY(email,isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+);
 
 
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS BookHash(
     -- If the hash_val is intended to bucket data, then it can't be unique.
     -- Unique hash_val forces fill of buckets with single elements.
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+);
 
 
 
@@ -100,4 +100,4 @@ CREATE TABLE IF NOT EXISTS AccountHash(
     hash_val    INT,
     PRIMARY KEY(hash_val), -- This also seems like a mistake. See above.
     FOREIGN KEY(email) REFERENCES Account(email)
-) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; 
+); 
