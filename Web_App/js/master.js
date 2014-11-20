@@ -32,7 +32,7 @@ var rootURL= "http://localhost:8888/api/index.php";
 function checkForNewUser(){
 	$.ajax({
 		type: 'GET',
-		url: rootURL + "/isNewUser?email="+userEmail,
+		url: rootURL + "/isNewUser/"+userEmail,
 		dataType: "json",
 		success: function (data) {
 			if( data.newUser===true){

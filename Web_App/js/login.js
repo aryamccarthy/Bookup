@@ -27,7 +27,7 @@ window.onload = function() {
 function checkIfUsernameTaken(email, password) {
   $.ajax({
     type: 'GET',
-    url: rootURL + '/' + 'userExists' + '?email=' + email,
+    url: rootURL + '/' + 'userExists' + '/' + email,
     dataType: "json",
     success: function (data) {
       console.log('got response');
