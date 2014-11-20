@@ -1,50 +1,54 @@
 {
  "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
  "totalItems": 1,
  "items": [
   {
    "kind": "books#volume",
-   "id": "jUXi1uo9CQsC",
-   "etag": "A5/2490Z2Fk",
-   "selfLink": "https://www.googleapis.com/books/v1/volumes/jUXi1uo9CQsC",
+   "id": "4FphPwAACAAJ",
+   "etag": "o2rwknsjEt0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/4FphPwAACAAJ",
    "volumeInfo": {
-    "title": "The Moor's Last Sigh",
+    "title": "The Prophet",
     "authors": [
-     "Salman Rushdie"
+     "Kahlil Gibran"
     ],
-    "publisher": "Random House",
-    "publishedDate": "1995",
-    "description": "Moares 'Moor' Zogoiby is a 'high-born crossbreed', the last surviving scion of a dynasty of Cochinise spice merchants and crime lords. He is also a compulsive storyteller and an exile. As he travels a route that takes him from India to Spain, he leaves behind a labyrinthine tale of mad passions and volcanic family hatreds, of titanic matriarchs and their mesmerised offspring, of premature deaths and curses that strike beyond the grave. The Moor's Last Sigh is a spectacularly ambitious, funny, satirical and compassionate novel. It is a love song to a vanishing world, but also its last hurrah.",
+    "publisher": "Rupa & Company",
+    "publishedDate": "2003-04-14",
     "industryIdentifiers": [
      {
-      "type": "ISBN_13",
-      "identifier": "9780099592419"
+      "type": "ISBN_10",
+      "identifier": "000100039X"
      },
      {
-      "type": "ISBN_10",
-      "identifier": "009959241X"
+      "type": "ISBN_13",
+      "identifier": "9780001000391"
      }
     ],
     "readingModes": {
      "text": false,
      "image": false
     },
-    "pageCount": 434,
+    "pageCount": 240,
     "printType": "BOOK",
     "categories": [
-     "Domestic fiction"
+     "Poetry"
     ],
     "averageRating": 4.0,
-    "ratingsCount": 26,
-    "contentVersion": "0.15.0.0.preview.0",
+    "ratingsCount": 319,
+    "contentVersion": "preview-1.0.0",
     "imageLinks": {
-     "smallThumbnail": "http://bks4.books.google.com/books?id=jUXi1uo9CQsC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
-     "thumbnail": "http://bks4.books.google.com/books?id=jUXi1uo9CQsC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+     "smallThumbnail": "http://bks7.books.google.com/books?id=4FphPwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks7.books.google.com/books?id=4FphPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
     },
     "language": "en",
-    "previewLink": "http://books.google.com/books?id=jUXi1uo9CQsC&dq=isbn:9780099592419&hl=&cd=1&source=gbs_api",
-    "infoLink": "http://books.google.com/books?id=jUXi1uo9CQsC&dq=isbn:9780099592419&hl=&source=gbs_api",
-    "canonicalVolumeLink": "http://books.google.com/books/about/The_Moor_s_Last_Sigh.html?hl=&id=jUXi1uo9CQsC"
+    "previewLink": "http://books.google.com/books?id=4FphPwAACAAJ&dq=isbn:9780001000391&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=4FphPwAACAAJ&dq=isbn:9780001000391&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Prophet.html?hl=&id=4FphPwAACAAJ"
    },
    "saleInfo": {
     "country": "US",
@@ -63,14 +67,4497 @@
     "pdf": {
      "isAvailable": false
     },
-    "webReaderLink": "http://books.google.com/books/reader?id=jUXi1uo9CQsC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "webReaderLink": "http://books.google.com/books/reader?id=4FphPwAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "FKo2TgANz74C",
+   "etag": "JypWphPzWeE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/FKo2TgANz74C",
+   "volumeInfo": {
+    "title": "Rage of angels",
+    "authors": [
+     "Sidney Sheldon"
+    ],
+    "publisher": "HarperCollins Publishers",
+    "publishedDate": "1993",
+    "description": "A memorable, mesmerizing heroine Jennifer -- brilliant, beautiful, an attorney on the way up until the Mafia's schemes win her the hatred of an implacable enemy -- and a love more destructive than hate. A dangerous, dramatic world The Dark Arena of organized crime and flashbulb lit courtrooms where ambitious prosecutors begin their climb to political power.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0006178731"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006178736"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 504,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 56,
+    "contentVersion": "0.0.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=FKo2TgANz74C&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=FKo2TgANz74C&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=FKo2TgANz74C&dq=isbn:9780006178736&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=FKo2TgANz74C&dq=isbn:9780006178736&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Rage_of_angels.html?hl=&id=FKo2TgANz74C"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=FKo2TgANz74C&hl=&printsec=frontcover&output=reader&source=gbs_api",
     "accessViewStatus": "NONE",
     "quoteSharingAllowed": false
    },
    "searchInfo": {
-    "textSnippet": "The Moor&#39;s Last Sigh is a spectacularly ambitious, funny, satirical and compassionate novel. It is a love song to a vanishing world, but also its last hurrah."
+    "textSnippet": "A memorable, mesmerizing heroine Jennifer -- brilliant, beautiful, an attorney on the way up until the Mafia&#39;s schemes win her the hatred of an implacable enemy -- and a love more destructive than hate."
    }
   }
  ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "TkTYp-Tp6_IC",
+   "etag": "3X7wBx2IsJk",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/TkTYp-Tp6_IC",
+   "volumeInfo": {
+    "title": "Master of the Game",
+    "authors": [
+     "Sidney Sheldon"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "1982",
+    "description": "Kate Blackwell is an enigma and one of the most powerful women in the world. But at her ninetieth birthday celebrations there are ghosts of absent friends and absent enemies.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006472612"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0006472613"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 489,
+    "printType": "BOOK",
+    "categories": [
+     "Adventure stories"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 36,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks8.books.google.com/books?id=TkTYp-Tp6_IC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks8.books.google.com/books?id=TkTYp-Tp6_IC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=TkTYp-Tp6_IC&dq=isbn:9780006472612&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=TkTYp-Tp6_IC&dq=isbn:9780006472612&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Master_of_the_Game.html?hl=&id=TkTYp-Tp6_IC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=TkTYp-Tp6_IC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Kate Blackwell is an enigma and one of the most powerful women in the world. But at her ninetieth birthday celebrations there are ghosts of absent friends and absent enemies."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "qTaGQgAACAAJ",
+   "etag": "omA9dUvMaRQ",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/qTaGQgAACAAJ",
+   "volumeInfo": {
+    "title": "Assassin's Apprentice",
+    "authors": [
+     "Robin Hobb"
+    ],
+    "publisher": "Voyager",
+    "publishedDate": "1996",
+    "description": "Fantasy-roman.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0006480098"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006480099"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 480,
+    "printType": "BOOK",
+    "categories": [
+     "American fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 1760,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks5.books.google.com/books?id=qTaGQgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks5.books.google.com/books?id=qTaGQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=qTaGQgAACAAJ&dq=isbn:9780006480099&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=qTaGQgAACAAJ&dq=isbn:9780006480099&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Assassin_s_Apprentice.html?hl=&id=qTaGQgAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=qTaGQgAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Fantasy-roman."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "dnK6QgAACAAJ",
+   "etag": "+ZBRIMi5HVY",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/dnK6QgAACAAJ",
+   "volumeInfo": {
+    "title": "Royal Assassin",
+    "authors": [
+     "Robin Hobb"
+    ],
+    "publisher": "Voyager",
+    "publishedDate": "1996",
+    "description": "Fantasy-roman.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0006480101"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006480105"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 751,
+    "printType": "BOOK",
+    "categories": [
+     "Assassins"
+    ],
+    "averageRating": 3.0,
+    "ratingsCount": 9,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=dnK6QgAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=dnK6QgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=dnK6QgAACAAJ&dq=isbn:9780006480105&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=dnK6QgAACAAJ&dq=isbn:9780006480105&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Royal_Assassin.html?hl=&id=dnK6QgAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=dnK6QgAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Fantasy-roman."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "V_6B-y-mGUcC",
+   "etag": "xYO92oQE0Tg",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/V_6B-y-mGUcC",
+   "volumeInfo": {
+    "title": "Fool's Errand",
+    "authors": [
+     "Robin Hobb"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2002",
+    "description": "Return to the world of the Farseers... Robin Hobb's best loved characters, Fitz , The Fool and Nighteyes the wolf, face new adventures and trials in the first book of The Tawny Man trilogy.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006486015"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0006486010"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 661,
+    "printType": "BOOK",
+    "categories": [
+     "Fantasy fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 32,
+    "contentVersion": "0.0.2.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks0.books.google.com/books?id=V_6B-y-mGUcC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks0.books.google.com/books?id=V_6B-y-mGUcC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=V_6B-y-mGUcC&dq=isbn:9780006486015&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=V_6B-y-mGUcC&dq=isbn:9780006486015&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Fool_s_Errand.html?hl=&id=V_6B-y-mGUcC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=V_6B-y-mGUcC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Return to the world of the Farseers... Robin Hobb&#39;s best loved characters, Fitz , The Fool and Nighteyes the wolf, face new adventures and trials in the first book of The Tawny Man trilogy."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "0GUTGQAACAAJ",
+   "etag": "0SVV1BwCujc",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/0GUTGQAACAAJ",
+   "volumeInfo": {
+    "title": "Only Forward",
+    "authors": [
+     "Michael Marshall Smith"
+    ],
+    "publishedDate": "1998",
+    "description": "'Only Forward', the debut novel from Michael Marshall Smith, follows the adventures of Stark and the strange world where he lives. A funny, tragic, baffling story that uses all the adjectives you can imagine and some you've never heard of.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0006512666"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006512660"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 310,
+    "printType": "BOOK",
+    "averageRating": 4.0,
+    "ratingsCount": 114,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks5.books.google.com/books?id=0GUTGQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks5.books.google.com/books?id=0GUTGQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=0GUTGQAACAAJ&dq=isbn:9780006512660&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=0GUTGQAACAAJ&dq=isbn:9780006512660&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Only_Forward.html?hl=&id=0GUTGQAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=0GUTGQAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "&#39;Only Forward&#39;, the debut novel from Michael Marshall Smith, follows the adventures of Stark and the strange world where he lives. A funny, tragic, baffling story that uses all the adjectives you can imagine and some you&#39;ve never heard of."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "oHNnwRzODrIC",
+   "etag": "yZhrpXnwWSo",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/oHNnwRzODrIC",
+   "volumeInfo": {
+    "title": "The Bronze Horseman",
+    "authors": [
+     "Paullina Simons"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2001",
+    "description": "A magnificent epic of love, war and Russia from the international bestselling author of TULLY and ROAD TO PARADISE",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780006513223"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0006513220"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 656,
+    "printType": "BOOK",
+    "categories": [
+     "Saint Petersburg (Russia)"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 11,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=oHNnwRzODrIC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=oHNnwRzODrIC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=oHNnwRzODrIC&dq=isbn:9780006513223&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=oHNnwRzODrIC&dq=isbn:9780006513223&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Bronze_Horseman.html?hl=&id=oHNnwRzODrIC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=oHNnwRzODrIC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A magnificent epic of love, war and Russia from the international bestselling author of TULLY and ROAD TO PARADISE"
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "FrnkAAAACAAJ",
+   "etag": "MRz4uZryYC4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/FrnkAAAACAAJ",
+   "volumeInfo": {
+    "title": "Weaveworld",
+    "authors": [
+     "Clive Barker"
+    ],
+    "publisher": "Voyager",
+    "publishedDate": "2001",
+    "description": "Clive Barker has made his mark on modern fiction by exposing all that is surreal and magical in the ordinary world --- and exploring the profound and overwhelming terror that results. With its volatile mix of the fantastical and the contemporary, the everyday and the otherworldly, Weaveworld is an epic work of dark fantasy and horror -- a tour de force from one of today's most forceful and imaginative artists.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007117140"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007117147"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 721,
+    "printType": "BOOK",
+    "categories": [
+     "Fantasy fiction"
+    ],
+    "averageRating": 3.0,
+    "ratingsCount": 37,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks5.books.google.com/books?id=FrnkAAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks5.books.google.com/books?id=FrnkAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=FrnkAAAACAAJ&dq=isbn:9780007117147&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=FrnkAAAACAAJ&dq=isbn:9780007117147&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Weaveworld.html?hl=&id=FrnkAAAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=FrnkAAAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Clive Barker has made his mark on modern fiction by exposing all that is surreal and magical in the ordinary world --- and exploring the profound and overwhelming terror that results."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "zT7ZmOP2Xh0C",
+   "etag": "CzD+71Hr2t0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/zT7ZmOP2Xh0C",
+   "volumeInfo": {
+    "title": "Tatiana and Alexander",
+    "authors": [
+     "Paullina Simons"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2004",
+    "description": "A powerful story of grief and hope, a passionate and epic love story from the Russian-born author of the internationally bestselling novels TULLY and ROAD TO PARADISE.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007118899"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007118892"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 626,
+    "printType": "BOOK",
+    "categories": [
+     "Americans"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 4,
+    "contentVersion": "0.0.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=zT7ZmOP2Xh0C&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=zT7ZmOP2Xh0C&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=zT7ZmOP2Xh0C&dq=isbn:9780007118892&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=zT7ZmOP2Xh0C&dq=isbn:9780007118892&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Tatiana_and_Alexander.html?hl=&id=zT7ZmOP2Xh0C"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=zT7ZmOP2Xh0C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A powerful story of grief and hope, a passionate and epic love story from the Russian-born author of the internationally bestselling novels TULLY and ROAD TO PARADISE."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 2,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "dY5etwAACAAJ",
+   "etag": "1U1zb/NUPdA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/dY5etwAACAAJ",
+   "volumeInfo": {
+    "title": "Wykaz standardów dopuszczalnej emisji obowiązujących w krajach rozwiniętych",
+    "authors": [
+     "Bogusław Dębski (ochrona środowiska)",
+     "Jacek Bobryk"
+    ],
+    "publishedDate": "1994",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "8386415010"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9788386415014"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 43,
+    "printType": "BOOK",
+    "contentVersion": "preview-1.0.0",
+    "language": "pl",
+    "previewLink": "http://books.google.com/books?id=dY5etwAACAAJ&dq=isbn:9780007119554&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=dY5etwAACAAJ&dq=isbn:9780007119554&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Wykaz_standard%C3%B3w_dopuszczalnej_emisji_o.html?hl=&id=dY5etwAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=dY5etwAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Fantasy-roman."
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "jmgUPAAACAAJ",
+   "etag": "HXLj5uBmKJ0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/jmgUPAAACAAJ",
+   "volumeInfo": {
+    "title": "A Storm of Swords",
+    "subtitle": "Blood and Gold",
+    "authors": [
+     "George R. R. Martin"
+    ],
+    "publisher": "Voyager",
+    "publishedDate": "2000",
+    "description": "Robb Stark wears his new-forged crown in the Kingdom of the North, but his defences are ranged against attack from the South, the land of House Stark's enemies the Lannisters. His sisters are trapped there at the whim of the Lannister boy-king Joffrey and his depraved mother Cersei.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007119550"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007119554"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 656,
+    "printType": "BOOK",
+    "categories": [
+     "Dragons"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 66,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=jmgUPAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=jmgUPAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=jmgUPAAACAAJ&dq=isbn:9780007119554&hl=&cd=2&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=jmgUPAAACAAJ&dq=isbn:9780007119554&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/A_Storm_of_Swords.html?hl=&id=jmgUPAAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=jmgUPAAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Robb Stark wears his new-forged crown in the Kingdom of the North, but his defences are ranged against attack from the South, the land of House Stark&#39;s enemies the Lannisters."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "kePqlVft1bQC",
+   "etag": "jwftUY8GBBo",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/kePqlVft1bQC",
+   "volumeInfo": {
+    "title": "The illustrated man",
+    "authors": [
+     "Ray Bradbury"
+    ],
+    "publisher": "Voyager",
+    "publishedDate": "2002-11-05",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "000712774X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007127740"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 239,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 36,
+    "contentVersion": "1.1.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks4.books.google.com/books?id=kePqlVft1bQC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks4.books.google.com/books?id=kePqlVft1bQC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=kePqlVft1bQC&dq=isbn:9780007127740&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=kePqlVft1bQC&dq=isbn:9780007127740&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_illustrated_man.html?hl=&id=kePqlVft1bQC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=kePqlVft1bQC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "er5rPwAACAAJ",
+   "etag": "o6DgWyPemkQ",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/er5rPwAACAAJ",
+   "volumeInfo": {
+    "title": "The Curse of Chalion",
+    "authors": [
+     "Lois McMaster Bujold"
+    ],
+    "publisher": "HarperCollins Publishers",
+    "publishedDate": "2001",
+    "description": "Fantasy.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007133618"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007133611"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 490,
+    "printType": "BOOK",
+    "categories": [
+     "American fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 12,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks8.books.google.com/books?id=er5rPwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks8.books.google.com/books?id=er5rPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=er5rPwAACAAJ&dq=isbn:9780007133611&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=er5rPwAACAAJ&dq=isbn:9780007133611&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Curse_of_Chalion.html?hl=&id=er5rPwAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=er5rPwAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Fantasy."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "nFVwPwAACAAJ",
+   "etag": "mgFvP+fGgxc",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/nFVwPwAACAAJ",
+   "volumeInfo": {
+    "title": "The Indian in the Cupboard",
+    "authors": [
+     "Lynne Reid Banks"
+    ],
+    "publishedDate": "2003",
+    "description": "The Indian in the Cupboard is the first of five gripping books about Omri and his plastic North American Indian -- Little Bull -- who comes alive when Omri puts him in a cupboard For Omri, it is a dream come true when the plastic American Indian he locks into the old cupboard comes to life. Little Bull is everything an Indian brave should be -- proud, fearless and defiant. But being in charge of a real, live, human being is a heavy responsibility, as Omri soon discovers. And when his best friend, Patrick, is let in on the secret, he soon realises that life-changing decisions lie ahead.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007148984"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007148981"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 201,
+    "printType": "BOOK",
+    "categories": [
+     "Children's stories"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 34,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=nFVwPwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=nFVwPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=nFVwPwAACAAJ&dq=isbn:9780007148981&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=nFVwPwAACAAJ&dq=isbn:9780007148981&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Indian_in_the_Cupboard.html?hl=&id=nFVwPwAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=nFVwPwAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Indian in the Cupboard is the first of five gripping books about Omri and his plastic North American Indian -- Little Bull -- who comes alive when Omri puts him in a cupboard For Omri, it is a dream come true when the plastic American ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "-reD1g77BfsC",
+   "etag": "ks7qsfaWtKs",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/-reD1g77BfsC",
+   "volumeInfo": {
+    "title": "The Yiddish Policemen's Union",
+    "subtitle": "A Novel",
+    "authors": [
+     "Michael Chabon"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2007-05-01",
+    "description": "For sixty years, Jewish refugees and their descendants have prospered in the Federal District of Sitka, a \"temporary\" safe haven created in the wake of revelations of the Holocaust and the shocking 1948 collapse of the fledgling state of Israel. Proud, grateful, and longing to be American, the Jews of the Sitka District have created their own little world in the Alaskan panhandle, a vibrant, gritty, soulful, and complex frontier city that moves to the music of Yiddish. For sixty years they have been left alone, neglected and half-forgotten in a backwater of history. Now the District is set to revert to Alaskan control, and their dream is coming to an end: once again the tides of history threaten to sweep them up and carry them off into the unknown. But homicide detective Meyer Landsman of the District Police has enough problems without worrying about the upcoming Reversion. His life is a shambles, his marriage a wreck, his career a disaster. He and his half-Tlingit partner, Berko Shemets, can't catch a break in any of their outstanding cases. Landsman's new supervisor is the love of his life—and also his worst nightmare. And in the cheap hotel where he has washed up, someone has just committed a murder—right under Landsman's nose. Out of habit, obligation, and a mysterious sense that it somehow offers him a shot at redeeming himself, Landsman begins to investigate the killing of his neighbor, a former chess prodigy. But when word comes down from on high that the case is to be dropped immediately, Landsman soon finds himself contending with all the powerful forces of faith, obsession, hopefulness, evil, and salvation that are his heritage—and with the unfinished business of his marriage to Bina Gelbfish, the one person who understands his darkest fears. At once a gripping whodunit, a love story, an homage to 1940s noir, and an exploration of the mysteries of exile and redemption, The Yiddish Policemen's Union is a novel only Michael Chabon could have written.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007149827"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0007149824"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 432,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 1929,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks7.books.google.com/books?id=-reD1g77BfsC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks7.books.google.com/books?id=-reD1g77BfsC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=-reD1g77BfsC&printsec=frontcover&dq=isbn:9780007149827&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=-reD1g77BfsC&dq=isbn:9780007149827&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Yiddish_Policemen_s_Union.html?hl=&id=-reD1g77BfsC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=-reD1g77BfsC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "At once a gripping whodunit, a love story, an homage to 1940s noir, and an exploration of the mysteries of exile and redemption, The Yiddish Policemen&#39;s Union is a novel only Michael Chabon could have written."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "FWwlngEACAAJ",
+   "etag": "2w/9enXnosE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/FWwlngEACAAJ",
+   "volumeInfo": {
+    "title": "Perelandra",
+    "authors": [
+     "Clive Staples Lewis"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2005",
+    "description": "Dr Ransom is called to the Venus. He is horrified to find that his old enemy, Dr Weston, has also arrived and is putting him in grave peril once more. As the mad Weston's body is taken over by the forces of evil, Ransom engages in a desperate struggle to save the innocence of Perelandra. This is the second novel in Lewis' science fiction trilogy.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007157169"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007157167"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 314,
+    "printType": "BOOK",
+    "categories": [
+     "Good and evil"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 14,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks0.books.google.com/books?id=FWwlngEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks0.books.google.com/books?id=FWwlngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=FWwlngEACAAJ&dq=isbn:9780007157167&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=FWwlngEACAAJ&dq=isbn:9780007157167&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Perelandra.html?hl=&id=FWwlngEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=FWwlngEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "As the mad Weston&#39;s body is taken over by the forces of evil, Ransom engages in a desperate struggle to save the innocence of Perelandra. This is the second novel in Lewis&#39; science fiction trilogy."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "mwPvBp9AZjwC",
+   "etag": "REcSpWEYOGA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/mwPvBp9AZjwC",
+   "volumeInfo": {
+    "title": "The Sneetches and Other Stories",
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2003",
+    "description": "The Sneetches and other stories. Dr. Seuss's playful verses of four humorous stories: The Sneetches, The Zax, Too Many Daves, and What was I Scared of?",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007158508"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0007158505"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 65,
+    "printType": "BOOK",
+    "categories": [
+     "Caricatures and cartoons"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 81,
+    "contentVersion": "0.1.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks5.books.google.com/books?id=mwPvBp9AZjwC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks5.books.google.com/books?id=mwPvBp9AZjwC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=mwPvBp9AZjwC&dq=isbn:9780007158508&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=mwPvBp9AZjwC&dq=isbn:9780007158508&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Sneetches_and_Other_Stories.html?hl=&id=mwPvBp9AZjwC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=mwPvBp9AZjwC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Sneetches and other stories. Dr. Seuss&#39;s playful verses of four humorous stories: The Sneetches, The Zax, Too Many Daves, and What was I Scared of? The Star-Bellied Sneetches think they&#39;re much better than the Plain-Bellied Sneetches."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "mO-aNAEACAAJ",
+   "etag": "x2Rcv0U2iw0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/mO-aNAEACAAJ",
+   "volumeInfo": {
+    "title": "How the Grinch Stole Christmas!",
+    "authors": [
+     "Dr. Seuss"
+    ],
+    "publishedDate": "1973",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007173040"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007173044"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 64,
+    "printType": "BOOK",
+    "categories": [
+     "Children's stories"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 820,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks7.books.google.com/books?id=mO-aNAEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks7.books.google.com/books?id=mO-aNAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=mO-aNAEACAAJ&dq=isbn:9780007173044&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=mO-aNAEACAAJ&dq=isbn:9780007173044&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/How_the_Grinch_Stole_Christmas.html?hl=&id=mO-aNAEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=mO-aNAEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "4Q27_LUXw4kC",
+   "etag": "ddz+kM5+VNw",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/4Q27_LUXw4kC",
+   "volumeInfo": {
+    "title": "The Last Battle",
+    "authors": [
+     "C. S. Lewis"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2005",
+    "description": "For the first time, an edition of Lewis's classic fantasy fiction packaged specifically for adults. Complementing the look of the author's non-fiction books, and anticipating the forthcoming Narnia feature films, this edition contains an exclusive 'P.S.' section about the history of the book, plus a round-up of the first six titles.The last days of Narnia, and all hope seems lost as lies and treachery interweave to threaten the destruction of everything. As the battle lines are drawn, old friends are summoned back to Narnia, though none can predict the outcome in this magnificent ending to the famous series.On 9 December 2005, Andrew (Shrek) Adamson's live-action film adaptation of The Lion, the Witch and the Wardrobe will be released by Disney, and it is already being hailed as the biggest film franchise of all time, guaranteed to appeal to adults and children across the globe. The second film is already in development.Sporting breathtaking new photographic covers, these new adult editions of the seven Chronicles of Narnia now give everyone an opportunity to experience the adventures in their original form. Re-live your childhood fantasies or discover for the first time what everyone will be talking about by Christmas and savour some of the best-loved stories ever written.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007202324"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0007202326"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 1568,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 6,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks0.books.google.com/books?id=4Q27_LUXw4kC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks0.books.google.com/books?id=4Q27_LUXw4kC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=4Q27_LUXw4kC&dq=isbn:9780007202324&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=4Q27_LUXw4kC&dq=isbn:9780007202324&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Last_Battle.html?hl=&id=4Q27_LUXw4kC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=4Q27_LUXw4kC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Complementing the look of the author&#39;s non-fiction books, and anticipating the forthcoming Narnia feature films, this edition contains an exclusive &#39;P.S.&#39; section about the history of the book, plus a round-up of the first six titles.The ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "5KBImUDYq2QC",
+   "etag": "keYxSt7aClM",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/5KBImUDYq2QC",
+   "volumeInfo": {
+    "title": "Angela's Ashes",
+    "subtitle": "A Memoir of a Childhood",
+    "authors": [
+     "Frank McCourt"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2005",
+    "description": "Frank McCourt returned to America when he was nineteen. For many years, he was an English teacher at Stuyvesant High School in New York City. The sequel to \"Angela's Ashes, 'Tis, \" will be published in the fall of 1999. McCourt lives in Connecticut.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007205233"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0007205236"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 452,
+    "printType": "BOOK",
+    "categories": [
+     "Children"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 174,
+    "contentVersion": "0.2.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=5KBImUDYq2QC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=5KBImUDYq2QC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=5KBImUDYq2QC&dq=isbn:9780007205233&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=5KBImUDYq2QC&dq=isbn:9780007205233&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Angela_s_Ashes.html?hl=&id=5KBImUDYq2QC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=5KBImUDYq2QC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Frank McCourt returned to America when he was nineteen. For many years, he was an English teacher at Stuyvesant High School in New York City. The sequel to &quot;Angela&#39;s Ashes, &#39;Tis, &quot; will be published in the fall of 1999."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "up--7DuCY6UC",
+   "etag": "2ZSmwlCWr7s",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/up--7DuCY6UC",
+   "volumeInfo": {
+    "title": "Wolf Hall",
+    "authors": [
+     "Hilary Mantel"
+    ],
+    "publisher": "HarperCollins UK",
+    "publishedDate": "2010-01",
+    "description": "England, the 1520s. Henry VIII is on the throne, but has no heir. Cardinal Wolsey is his chief advisor, charged with securing the divorce the pope refuses to grant. Into this atmosphere of distrust and need comes Thomas Cromwell, first as Wolsey's clerk, and later his successor.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007230204"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0007230206"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 673,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 24,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=up--7DuCY6UC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=up--7DuCY6UC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=up--7DuCY6UC&dq=isbn:9780007230204&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=up--7DuCY6UC&dq=isbn:9780007230204&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Wolf_Hall.html?hl=&id=up--7DuCY6UC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=up--7DuCY6UC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "England, the 1520s."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "0T5HnwEACAAJ",
+   "etag": "pfZY5zuCBKI",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/0T5HnwEACAAJ",
+   "volumeInfo": {
+    "title": "The Faceless Ones",
+    "authors": [
+     "Derek Landy"
+    ],
+    "publisher": "HarperCollins Children's Books",
+    "publishedDate": "2009",
+    "description": "You've seen it all before: some bad guy wants to bring about the end of the world, and Skulduggery and Valkyrie fight valiantly to stop it happening. A few people get hurt, sure, but everything's all right in the end. Well, not this time.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007302142"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007302147"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 394,
+    "printType": "BOOK",
+    "categories": [
+     "Adventure and adventurers"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 22,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks8.books.google.com/books?id=0T5HnwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks8.books.google.com/books?id=0T5HnwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=0T5HnwEACAAJ&dq=isbn:9780007302147&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=0T5HnwEACAAJ&dq=isbn:9780007302147&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Faceless_Ones.html?hl=&id=0T5HnwEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=0T5HnwEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Third bone-breaking, belly-busting adventure in the series that puts the &quot;funny&quot; back in... um... funny series. That didn&#39;t really work, did it?"
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "VodsmQEACAAJ",
+   "etag": "wnyP2nW1Jz4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/VodsmQEACAAJ",
+   "volumeInfo": {
+    "title": "Allegiant",
+    "authors": [
+     "Veronica Roth"
+    ],
+    "publisher": "HarperCollins Children's Books",
+    "publishedDate": "2013",
+    "description": "The faction-based society that Tris Prior once believed in is shattered - fractured by violence and power struggles and scarred by loss and betrayal. So when offered a chance to explore the world past the limits she's known, Tris is ready. Perhaps beyond the fence, she and Tobias will find a simple new life together, free from complicated lies, tangled loyalties, and painful memories. But Tris's new reality is even more alarming than the one she left behind. Old discoveries are quickly rendered meaningless. Explosive new truths change the hearts of those she loves. And once again, Tris must battle to comprehend the complexities of human nature - and of herself - while facing impossible choices about courage, allegiance, sacrifice and love.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0007524277"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780007524273"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 544,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks7.books.google.com/books?id=VodsmQEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks7.books.google.com/books?id=VodsmQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=VodsmQEACAAJ&dq=isbn:9780007524273&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=VodsmQEACAAJ&dq=isbn:9780007524273&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Allegiant.html?hl=&id=VodsmQEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=VodsmQEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The faction-based society that Tris Prior once believed in is shattered - fractured by violence and power struggles and scarred by loss and betrayal."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 2,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "xRjUMgEACAAJ",
+   "etag": "lrlmy7zuEJg",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/xRjUMgEACAAJ",
+   "volumeInfo": {
+    "title": "The Dark Is Rising Sequence/Silver on the Tree/The Grey King/Greenwitch/the Dark Is Rising/Over Sea, Under Stone",
+    "authors": [
+     "Susan Cooper"
+    ],
+    "publishedDate": "1993-10-01",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0020425651"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780020425656"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 24,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=xRjUMgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=xRjUMgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=xRjUMgEACAAJ&dq=isbn:9780020425656&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=xRjUMgEACAAJ&dq=isbn:9780020425656&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Dark_Is_Rising_Sequence_Silver_on_th.html?hl=&id=xRjUMgEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=xRjUMgEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   }
+  },
+  {
+   "kind": "books#volume",
+   "id": "FFrrMgEACAAJ",
+   "etag": "8d10Uk6qtIM",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/FFrrMgEACAAJ",
+   "volumeInfo": {
+    "title": "The Dark Is Rising Sequence Set",
+    "authors": [
+     "Susan Cooper"
+    ],
+    "publishedDate": "1993-10-31",
+    "description": "Cooper's highly acclaimed series--Over Sea, Under Stone; The Dark Is Rising; Greenwitch; The Grey King; and Silver on the Tree--is now available in its entirety for the first time in an attractive, sturdy boxed set that's perfect for gift giving. CC",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0020425651"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780020425656"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 1148,
+    "printType": "BOOK",
+    "averageRating": 4.5,
+    "ratingsCount": 26,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=FFrrMgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=FFrrMgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=FFrrMgEACAAJ&dq=isbn:9780020425656&hl=&cd=2&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=FFrrMgEACAAJ&dq=isbn:9780020425656&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Dark_Is_Rising_Sequence_Set.html?hl=&id=FFrrMgEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=FFrrMgEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Cooper&#39;s highly acclaimed series--Over Sea, Under Stone; The Dark Is Rising; Greenwitch; The Grey King; and Silver on the Tree--is now available in its entirety for the first time in an attractive, sturdy boxed set that&#39;s perfect for gift ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "MqatfM14140C",
+   "etag": "HQ/+WM1vUW8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/MqatfM14140C",
+   "volumeInfo": {
+    "title": "The Gulag Archipelago 1918-1956",
+    "authors": [
+     "Aleksandr I. Solzhenitsyn"
+    ],
+    "publisher": "Harper Perennial Modern Classics",
+    "publishedDate": "2002-02-01",
+    "description": "Drawing on his own incarceration and exile, as well as on evidence from more than 200 fellow prisoners and Soviet archives, Aleksandr I. Solzhenitsyn reveals the entire apparatus of Soviet repression -- the state within the state that ruled all-powerfully. Through truly Shakespearean portraits of its victims -- men, women, and children -- we encounter secret police operations, labor camps and prisons; the uprooting or extermination of whole populations, the \"welcome\" that awaited Russian soldiers who had been German prisoners of war. Yet we also witness the astounding moral courage of the incorruptible, who, defenseless, endured great brutality and degradation. The Gulag Archipelago 1918-1956 -- a grisly indictment of a regime, fashioned here into a veritable literary miracle -- has now been updated with a new introduction that includes the fall of the Soviet Union and Solzhenitsyn's move back to Russia.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060007761"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060007768"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 512,
+    "printType": "BOOK",
+    "categories": [
+     "Biography & Autobiography"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 17,
+    "contentVersion": "0.4.1.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=MqatfM14140C&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=MqatfM14140C&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=MqatfM14140C&dq=isbn:9780060007768&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=MqatfM14140C&dq=isbn:9780060007768&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Gulag_Archipelago_1918_1956.html?hl=&id=MqatfM14140C"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=MqatfM14140C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Gulag Archipelago 1918-1956 -- a grisly indictment of a regime, fashioned here into a veritable literary miracle -- has now been updated with a new introduction that includes the fall of the Soviet Union and Solzhenitsyn&#39;s move back to ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "GMSiFz0htKAC",
+   "etag": "ZqF2L68goRA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/GMSiFz0htKAC",
+   "volumeInfo": {
+    "title": "Cheaper by the Dozen",
+    "authors": [
+     "Frank B. Gilbreth",
+     "Ernestine Gilbreth Carey"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2002-05-28",
+    "description": "What do you get when you put twelve lively kids together with a father -- a famous efficiency expert -- who believes families can run like factories, and a mother who is his partner in everything except discipline? You get a hilarious tale of growing up that has made generations of kids and adults alike laugh along with the Gilbreths in Cheaper by the Dozen. Translated into more than fifty-three languages and made into a classic film starring Clifton Webb and Myrna Loy, Cheaper by the Dozen is a delightfully enduring story of family life at the turn of the 20th century.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060084608"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "006008460X"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 224,
+    "printType": "BOOK",
+    "categories": [
+     "Biography & Autobiography"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 590,
+    "contentVersion": "0.2.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=GMSiFz0htKAC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=GMSiFz0htKAC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=GMSiFz0htKAC&dq=isbn:9780060084608&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=GMSiFz0htKAC&dq=isbn:9780060084608&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Cheaper_by_the_Dozen.html?hl=&id=GMSiFz0htKAC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=GMSiFz0htKAC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Translated into more than fifty-three languages and made into a classic film starring Clifton Webb and Myrna Loy, Cheaper by the Dozen is a delightfully enduring story of family life at the turn of the 20th century."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "MB3VSMgJ5CkC",
+   "etag": "KQjUFIO3Ce8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/MB3VSMgJ5CkC",
+   "volumeInfo": {
+    "title": "Island",
+    "authors": [
+     "Aldous Huxley"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2002-07-30",
+    "description": "In Island, his last novel, Huxley transports us to a Pacific island where, for 120 years, an ideal society has flourished. Inevitably, this island of bliss attracts the envy and enmity of the surrounding world. A conspiracy is underway to take over Pala and events begin to move when an agent of the conspirators, a newspaperman named Faranby, is shipwrecked there. What Faranby doesn't expect is how his time with the people of Pala will revolutionize all his values and -- to his amazement -- give him hope.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060085495"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060085490"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 354,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 42,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks7.books.google.com/books?id=MB3VSMgJ5CkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks7.books.google.com/books?id=MB3VSMgJ5CkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=MB3VSMgJ5CkC&printsec=frontcover&dq=isbn:9780060085490&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=MB3VSMgJ5CkC&dq=isbn:9780060085490&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Island.html?hl=&id=MB3VSMgJ5CkC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=MB3VSMgJ5CkC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "In Island, his last novel, Huxley transports us to a Pacific island where, for 120 years, an ideal society has flourished. Inevitably, this island of bliss attracts the envy and enmity of the surrounding world."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "JwL28i0_m5EC",
+   "etag": "u52aBzoGoWM",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/JwL28i0_m5EC",
+   "volumeInfo": {
+    "title": "The Bridge of San Luis Rey",
+    "authors": [
+     "Thornton Wilder"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2003-04-15",
+    "description": "This beautiful new edition features unpublished notes for the novel and other illuminating documentary material, all of which is included in a new Afterword by Tappan Wilder. \"On Friday noon, July the twentieth, 1714, the finest bridge in all Peru broke and precipitated five travelers into the gulf below.\" With this celebrated sentence Thornton Wilder begins The Bridge of San Luis Rey, one of the towering achievements in American fiction and a novel read throughout the world. By chance, a monk witnesses the tragedy. Brother Juniper then embarks on a quest to prove that it was divine intervention rather than chance that led to the deaths of those who perished in the tragedy. His search leads to his own death -- and to the author's timeless investigation into the nature of love and the meaning of the human condition. This new edition of Wilder’s 1928 Pulitzer Prize winning novel contains a new foreword by Russell Banks.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060088877"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060088873"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 160,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 45,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks4.books.google.com/books?id=JwL28i0_m5EC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks4.books.google.com/books?id=JwL28i0_m5EC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=JwL28i0_m5EC&printsec=frontcover&dq=isbn:9780060088873&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=JwL28i0_m5EC&dq=isbn:9780060088873&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Bridge_of_San_Luis_Rey.html?hl=&id=JwL28i0_m5EC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=JwL28i0_m5EC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "This beautiful new edition features unpublished notes for the novel and other illuminating documentary material, all of which is included in a new Afterword by Tappan Wilder."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "sicIngEACAAJ",
+   "etag": "AfkulOnGP4A",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/sicIngEACAAJ",
+   "volumeInfo": {
+    "title": "Vampire Kisses",
+    "subtitle": "",
+    "authors": [
+     "Ellen Schreiber"
+    ],
+    "publisher": "HarperTeen",
+    "publishedDate": "2005-08-01",
+    "description": "Raven tries to shield her younger brother from the menacing Valentine Maxwell, even as she yearns to attend the prom with her immortal love, Alexander.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060093366"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060093365"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 272,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 874,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks5.books.google.com/books?id=sicIngEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks5.books.google.com/books?id=sicIngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=sicIngEACAAJ&dq=isbn:9780060093365&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=sicIngEACAAJ&dq=isbn:9780060093365&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Vampire_Kisses.html?hl=&id=sicIngEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=sicIngEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Raven tries to shield her younger brother from the menacing Valentine Maxwell, even as she yearns to attend the prom with her immortal love, Alexander."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "jKsrAQAAIAAJ",
+   "etag": "M5So6lGFGvM",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/jKsrAQAAIAAJ",
+   "volumeInfo": {
+    "title": "The thief of always",
+    "subtitle": "a fable",
+    "authors": [
+     "Clive Barker"
+    ],
+    "publisher": "Harpercollins",
+    "publishedDate": "1992-11-01",
+    "description": "After a mysterious stranger promises to end his boredom with a trip to the magical Holiday House, ten-year-old Harvey learns that his fun has a high price",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060177241"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060177249"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 225,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 13,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks8.books.google.com/books?id=jKsrAQAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks8.books.google.com/books?id=jKsrAQAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=jKsrAQAAIAAJ&dq=isbn:9780060177249&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=jKsrAQAAIAAJ&dq=isbn:9780060177249&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_thief_of_always.html?hl=&id=jKsrAQAAIAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=jKsrAQAAIAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "After a mysterious stranger promises to end his boredom with a trip to the magical Holiday House, ten-year-old Harvey learns that his fun has a high price"
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "5TFFmgEACAAJ",
+   "etag": "Yrriw2QCjwo",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/5TFFmgEACAAJ",
+   "volumeInfo": {
+    "title": "Abhorsen",
+    "authors": [
+     "Garth Nix"
+    ],
+    "publisher": "HarperTeen",
+    "publishedDate": "2003-01-07",
+    "description": "The Ninth was strong and fought with might, But lone Orannis was put out of the light, Broken in two and buried under hill, Forever to lie there, wishing us ill. So says the song. But Orannis, the Destroyer, is no longer buried under hill. It has been freed from its subterranean prison and now seeks to escape the silver hemispheres, the final barrier to the unleashing of its terrible powers. Only Lirael, newly come into her inheritance as the Abhorsen-in-Waiting, has any chance of stopping the Destroyer. She and her companions -- Sam, the Disreputable Dog, and Mogget -- have to take that chance. For the Destroyer is the enemy of all Life, and it must be stopped, though Lirael does not know how. To make matters worse, Sam's best friend, Nick, is helping the Destroyer, as are the necromancer Hedge and the Greater Dead Chlorr, and there has been no word from the Abhorsen Sabriel or King Touchstone. Everything depends upon Lirael. A heavy, perhaps even impossible burden for a young woman who just days ago was merely a Second Assistant Librarian. With only a vision from the Clayr to guide her, and the rather mixed help of her companions, Lirael must search in both Life and Death for some means to defeat the Destroyer. Before it is too late. . . .",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060278250"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060278250"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 368,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 17,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=5TFFmgEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=5TFFmgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=5TFFmgEACAAJ&dq=isbn:9780060278250&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=5TFFmgEACAAJ&dq=isbn:9780060278250&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Abhorsen.html?hl=&id=5TFFmgEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=5TFFmgEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "With only a vision from the Clayr to guide her, and the rather mixed help of her companions, Lirael must search in both Life and Death for some means to defeat the Destroyer. Before it is too late. . . ."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "1o0O9QYHDI4C",
+   "etag": "/j69+gjYueI",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/1o0O9QYHDI4C",
+   "volumeInfo": {
+    "title": "The Hour I First Believed",
+    "subtitle": "A Novel",
+    "authors": [
+     "Wally Lamb"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2008-11-11",
+    "description": "Wally Lamb's two previous novels, She's Come Undone and I Know This Much Is True, struck a chord with readers. They responded to the intensely introspective nature of the books, and to their lively narrative styles and biting humor. One critic called Wally Lamb a \"modern-day Dostoyevsky,\" whose characters struggle not only with their respective pasts, but with a \"mocking, sadistic God\" in whom they don't believe but to whom they turn, nevertheless, in times of trouble (New York Times). In his new novel, The Hour I First Believed, Lamb travels well beyond his earlier work and embodies in his fiction myth, psychology, family history stretching back many generations, and the questions of faith that lie at the heart of everyday life. The result is an extraordinary tour de force, at once a meditation on the human condition and an unflinching yet compassionate evocation of character. When forty-seven-year-old high school teacher Caelum Quirk and his younger wife, Maureen, a school nurse, move to Littleton, Colorado, they both get jobs at Columbine High School. In April 1999, Caelum returns home to Three Rivers, Connecticut, to be with his aunt who has just had a stroke. But Maureen finds herself in the school library at Columbine, cowering in a cabinet and expecting to be killed, as two vengeful students go on a carefully premeditated, murderous rampage. Miraculously she survives, but at a cost: she is unable to recover from the trauma. Caelum and Maureen flee Colorado and return to an illusion of safety at the Quirk family farm in Three Rivers. But the effects of chaos are not so easily put right, and further tragedy ensues. While Maureen fights to regain her sanity, Caelum discovers a cache of old diaries, letters, and newspaper clippings in an upstairs bedroom of his family's house. The colorful and intriguing story they recount spans five generations of Quirk family ancestors, from the Civil War era to Caelum's own troubled childhood. Piece by piece, Caelum reconstructs the lives of the women and men whose legacy he bears. Unimaginable secrets emerge; long-buried fear, anger, guilt, and grief rise to the surface. As Caelum grapples with unexpected and confounding revelations from the past, he also struggles to fashion a future out of the ashes of tragedy. His personal quest for meaning and faith becomes a mythic journey that is at the same time quintessentially contemporary—and American. The Hour I First Believed is a profound and heart-rending work of fiction. Wally Lamb proves himself a virtuoso storyteller, assembling a variety of voices and an ensemble of characters rich enough to evoke all of humanity.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060393496"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060393491"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 752,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 129,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks4.books.google.com/books?id=1o0O9QYHDI4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks4.books.google.com/books?id=1o0O9QYHDI4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=1o0O9QYHDI4C&printsec=frontcover&dq=isbn:9780060393496&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=1o0O9QYHDI4C&dq=isbn:9780060393496&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Hour_I_First_Believed.html?hl=&id=1o0O9QYHDI4C"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=1o0O9QYHDI4C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Wally Lamb&#39;s two previous novels, She&#39;s Come Undone and I Know This Much Is True, struck a chord with readers. They responded to the intensely introspective nature of the books, and to their lively narrative styles and biting humor."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "RF4YlwEACAAJ",
+   "etag": "/OXt4oIsn2g",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/RF4YlwEACAAJ",
+   "volumeInfo": {
+    "title": "Going Postal",
+    "authors": [
+     "Terry Pratchett"
+    ],
+    "publisher": "HarperTorch",
+    "publishedDate": "2005-09-27",
+    "description": "Suddenly, condemned arch-swindler Moist von Lipwig found himself with a noose around his neck and dropping through a trapdoor into ... a government job? By all rights, Moist should be meeting his maker rather than being offered a position as Postmaster by Lord Vetinari, supreme ruler of Ankh-Morpork. Getting the moribund Postal Service up and running again, however, may prove an impossible task, what with literally mountains of decades-old undelivered mail clogging every nook and cranny of the broken-down post office. Worse still, Moist could swear the mail is talking to him. Worst of all, it means taking on the gargantuan, greedy Grand Trunk clacks communication monopoly and its bloodthirsty piratical headman. But if the bold and undoable are what's called for, Moist's the man for the job -- to move the mail, continue breathing, get the girl, and specially deliver that invaluable commodity that every being, human or otherwise, requires: hope.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060502932"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060502935"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 416,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 12,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks4.books.google.com/books?id=RF4YlwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks4.books.google.com/books?id=RF4YlwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=RF4YlwEACAAJ&dq=isbn:9780060502935&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=RF4YlwEACAAJ&dq=isbn:9780060502935&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Going_Postal.html?hl=&id=RF4YlwEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=RF4YlwEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Suddenly, condemned arch-swindler Moist von Lipwig found himself with a noose around his neck and dropping through a trapdoor into ... a government job?"
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "4HZEDcGuObUC",
+   "etag": "3J460Mw7tVE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/4HZEDcGuObUC",
+   "volumeInfo": {
+    "title": "The Last Hero",
+    "subtitle": "A Discworld Fable",
+    "authors": [
+     "Terry Pratchett",
+     "Paul Kidby"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2002-08-20",
+    "description": "Cohen the Barbarian. He's been a legend in his own lifetime. He can remember the good old days of high adventure, when being a Hero meant one didn't have to worry about aching backs and lawyers and civilization. But these days, he can't always remember just where he put his teeth... So now, with his ancient (yet still trusty) sword and new walking stick in hand, Cohen gathers a group of his old -- very old -- friends to embark on one final quest. He's going to climb the highest mountain of Discworld and meet the gods. It's time the Last Hero in the world returns what the first hero stole. Trouble is, that'll mean the end of the world, if no one stops him in time.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060507772"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060507770"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 176,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 54,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks1.books.google.com/books?id=4HZEDcGuObUC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks1.books.google.com/books?id=4HZEDcGuObUC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=4HZEDcGuObUC&dq=isbn:9780060507770&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=4HZEDcGuObUC&dq=isbn:9780060507770&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Last_Hero.html?hl=&id=4HZEDcGuObUC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": true
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=4HZEDcGuObUC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "He&#39;s going to climb the highest mountain of Discworld and meet the gods. It&#39;s time the Last Hero in the world returns what the first hero stole. Trouble is, that&#39;ll mean the end of the world, if no one stops him in time."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "qGmZA_Hih6wC",
+   "etag": "N+s/xfbXwE4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/qGmZA_Hih6wC",
+   "volumeInfo": {
+    "title": "The Lathe of Heaven",
+    "subtitle": "A Novel",
+    "authors": [
+     "Ursula K. Le Guin"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2003-08-19",
+    "description": "George Orr discovers that his dreams possess the remarkable ability to change the world, and when he falls into the hands of a power-mad psychiatrist, he counters by dreaming up a perfect world that can overcome his nightmares. Reprint. 15,000 first printing.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060512743"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060512741"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 176,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 633,
+    "contentVersion": "0.1.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks4.books.google.com/books?id=qGmZA_Hih6wC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks4.books.google.com/books?id=qGmZA_Hih6wC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=qGmZA_Hih6wC&printsec=frontcover&dq=isbn:9780060512743&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=qGmZA_Hih6wC&dq=isbn:9780060512743&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Lathe_of_Heaven.html?hl=&id=qGmZA_Hih6wC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=qGmZA_Hih6wC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "George Orr discovers that his dreams possess the remarkable ability to change the world, and when he falls into the hands of a power-mad psychiatrist, he counters by dreaming up a perfect world that can overcome his nightmares."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "1uhVHAAACAAJ",
+   "etag": "vwvhj38ggnw",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/1uhVHAAACAAJ",
+   "volumeInfo": {
+    "title": "A Light in the Attic",
+    "authors": [
+     "Shel Silverstein"
+    ],
+    "publisher": "Harpercollins Childrens Books",
+    "publishedDate": "1981",
+    "description": "A collection of humorous poems and drawings. Copyright © Libri GmbH. All rights reserved.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060513063"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060513061"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 167,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Nonfiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 1057,
+    "contentVersion": "preview-1.0.0",
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=1uhVHAAACAAJ&dq=isbn:9780060513061&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=1uhVHAAACAAJ&dq=isbn:9780060513061&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/A_Light_in_the_Attic.html?hl=&id=1uhVHAAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=1uhVHAAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A collection of humorous poems and drawings. Copyright © Libri GmbH. All rights reserved."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "VagoPwAACAAJ",
+   "etag": "jWpnYuNJ040",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/VagoPwAACAAJ",
+   "volumeInfo": {
+    "title": "Anansi Boys",
+    "authors": [
+     "Neil Gaiman"
+    ],
+    "publisher": "HarperTorch",
+    "publishedDate": "2006-09-26",
+    "description": "Fat Charlie Nancy's normal life ended the moment his father dropped dead on a Florida karaoke stage. Charlie didn't know his dad was a god. And he never knew he had a brother. Now brother Spider's on his doorstep—about to make Fat Charlie's life more interesting . . . and a lot more dangerous.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060515198"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060515195"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 416,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 1769,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=VagoPwAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=VagoPwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=VagoPwAACAAJ&dq=isbn:9780060515195&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=VagoPwAACAAJ&dq=isbn:9780060515195&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Anansi_Boys.html?hl=&id=VagoPwAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=VagoPwAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Fat Charlie Nancy&#39;s normal life ended the moment his father dropped dead on a Florida karaoke stage."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "OJOgECm57pkC",
+   "etag": "4hwj86thrlI",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/OJOgECm57pkC",
+   "volumeInfo": {
+    "title": "Midnighters #1: The Secret Hour",
+    "authors": [
+     "Scott Westerfeld"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2009-06-09",
+    "description": "A few nights after Jessica Day arrives in Bixby, Oklahoma, she wakes up at midnight to find the entire world frozen, except for her and a few others who call themselves 'midnighters'. Dark things haunt this midnight hour – dark things with a mysterious interest in Jessica. The question is ?hy; The Secret Hour is a compelling tale of dark secrets, midnight romance, eerie creatures, courage, destiny, and unexpected peril.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780061954528"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0061954527"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 304,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 46,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks3.books.google.com/books?id=OJOgECm57pkC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks3.books.google.com/books?id=OJOgECm57pkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=OJOgECm57pkC&printsec=frontcover&dq=isbn:9780060519537&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=OJOgECm57pkC&dq=isbn:9780060519537&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Midnighters_1_The_Secret_Hour.html?hl=&id=OJOgECm57pkC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 3.99,
+     "currencyCode": "USD"
+    },
+    "retailPrice": {
+     "amount": 3.79,
+     "currencyCode": "USD"
+    },
+    "buyLink": "http://books.google.com/books?id=OJOgECm57pkC&dq=isbn:9780060519537&hl=&buy=&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 3990000.0,
+       "currencyCode": "USD"
+      },
+      "retailPrice": {
+       "amountInMicros": 3790000.0,
+       "currencyCode": "USD"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.com/books/download/Midnighters_1_The_Secret_Hour-sample-epub.acsm?id=OJOgECm57pkC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=OJOgECm57pkC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A few nights after Jessica Day arrives in Bixby, Oklahoma, she wakes up at midnight to find the entire world frozen, except for her and a few others who call themselves &#39;midnighters&#39;."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "BZ1nleIZnesC",
+   "etag": "Qi/SyVA9X64",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/BZ1nleIZnesC",
+   "volumeInfo": {
+    "title": "Warriors #2: Fire and Ice",
+    "authors": [
+     "Erin Hunter"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2004-06-01",
+    "description": "Deep in the heart of the forest, four clans of warrior cats coexist in uneasy harmony -- but uncertain times are upon them, and dangers threaten the precarious balance of the forest. Fireheart is a ThunderClan warrior cat now, but his troubles are far from over. As the chill of winter sets in, the cats of rival RiverClan grow restless, while WindClan is weak and facing threats from all sides. As tensions build to an explosive climax, Fireheart faces not only imminent battle, but betrayal from within his own Clan.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060525592"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060525590"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 336,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 131,
+    "contentVersion": "0.1.1.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=BZ1nleIZnesC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=BZ1nleIZnesC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=BZ1nleIZnesC&printsec=frontcover&dq=isbn:9780060525590&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=BZ1nleIZnesC&dq=isbn:9780060525590&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Warriors_2_Fire_and_Ice.html?hl=&id=BZ1nleIZnesC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.com/books/download/Warriors_2_Fire_and_Ice-sample-epub.acsm?id=BZ1nleIZnesC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=BZ1nleIZnesC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Deep in the heart of the forest, four clans of warrior cats coexist in uneasy harmony -- but uncertain times are upon them, and dangers threaten the precarious balance of the forest."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "2jBoUvDYqLQC",
+   "etag": "Gvp/LPkLXr8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/2jBoUvDYqLQC",
+   "volumeInfo": {
+    "title": "Warriors #3: Forest of Secrets",
+    "authors": [
+     "Erin Hunter"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2004-10-05",
+    "description": "Allegiances are shifting among the Clans of warrior cats that roam the forest. With tensions so delicately balanced, former friends can become enemies overnight, and some cats are willing to kill to get what they want. Fireheart is determined to find out the truth about the mysterious death of brave ThunderClan warrior Redtail. But as he searches for answers, he uncovers secrets that some believe would be better left hidden.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060525614"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060525613"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 336,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 79,
+    "contentVersion": "0.2.3.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://bks1.books.google.com/books?id=2jBoUvDYqLQC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks1.books.google.com/books?id=2jBoUvDYqLQC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=2jBoUvDYqLQC&printsec=frontcover&dq=isbn:9780060525613&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=2jBoUvDYqLQC&dq=isbn:9780060525613&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Warriors_3_Forest_of_Secrets.html?hl=&id=2jBoUvDYqLQC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.com/books/download/Warriors_3_Forest_of_Secrets-sample-epub.acsm?id=2jBoUvDYqLQC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=2jBoUvDYqLQC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Allegiances are shifting among the Clans of warrior cats that roam the forest."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "JQwF6D42fCoC",
+   "etag": "GxsVOHjx6bE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/JQwF6D42fCoC",
+   "volumeInfo": {
+    "title": "Warriors #5: A Dangerous Path",
+    "authors": [
+     "Erin Hunter"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2005-05-24",
+    "description": "ShadowClan has a dark new leader, but will he be satisfied with his power now -- or does his desire for revenge burn even more strongly? Fireheart fears that there is a connection between the rise of Tigerstar and the terrible dreams that haunt his nights, murmuring of danger and death. Meanwhile, a mysterious and vicious threat unlike any other has invaded the forest, placing every cat's life in peril. Fireheart's beloved leader has turned her back on their warrior ancestors, and Fireheart can't help but wonder if she's right. Has StarClan abandoned them forever?",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060525651"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060525657"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 336,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 19,
+    "contentVersion": "2.0.0.0.preview.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks5.books.google.com/books?id=JQwF6D42fCoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks5.books.google.com/books?id=JQwF6D42fCoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=JQwF6D42fCoC&printsec=frontcover&dq=isbn:9780060525651&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=JQwF6D42fCoC&dq=isbn:9780060525651&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Warriors_5_A_Dangerous_Path.html?hl=&id=JQwF6D42fCoC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=JQwF6D42fCoC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "ShadowClan has a dark new leader, but will he be satisfied with his power now -- or does his desire for revenge burn even more strongly?"
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "TpR7JDmg9DoC",
+   "etag": "Otjr8XuaNbY",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/TpR7JDmg9DoC",
+   "volumeInfo": {
+    "title": "The Devil and Miss Prym",
+    "subtitle": "A Novel of Temptation",
+    "authors": [
+     "Paulo Coelho"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2006-07-03",
+    "description": "A community devoured by greed, cowardice, and fear. A man persecuted by the ghosts of his painful past. A young woman searching for happiness. In one eventful week, each will face questions of life, death, and power, and each will choose a path. Will they choose good or evil? In the remote village of Viscos -- a village too small to be on any map, a place where time seems to stand still -- a stranger arrives, carrying with him a backpack containing a notebook and eleven gold bars. He comes searching for the answer to a question that torments him: Are human beings, in essence, good or evil? In welcoming the mysterious foreigner, the whole village becomes an accomplice to his sophisticated plot, which will forever mark their lives. Paulo Coelho's stunning novel explores the timeless struggle between good and evil, and brings to our everyday dilemmas fresh perspective: incentive to master the fear that prevents us from following our dreams, from being different, from truly living. The Devil and Miss Prym is a story charged with emotion, in which the integrity of being human meets a terrifying test.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060527990"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060527994"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 224,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 2.5,
+    "ratingsCount": 9,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks3.books.google.com/books?id=TpR7JDmg9DoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks3.books.google.com/books?id=TpR7JDmg9DoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=TpR7JDmg9DoC&printsec=frontcover&dq=isbn:9780060527990&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=TpR7JDmg9DoC&dq=isbn:9780060527990&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Devil_and_Miss_Prym.html?hl=&id=TpR7JDmg9DoC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=TpR7JDmg9DoC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The Devil and Miss Prym is a story charged with emotion, in which the integrity of being human meets a terrifying test."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "NxvwRJm3-pEC",
+   "etag": "hbPgvsbdG9Q",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/NxvwRJm3-pEC",
+   "volumeInfo": {
+    "title": "Everything Is Illuminated",
+    "subtitle": "A Novel",
+    "authors": [
+     "Jonathan Safran Foer"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2003-04-01",
+    "description": "With only a yellowing photograph in hand, a young man -- also named Jonathan Safran Foer -- sets out to find the woman who may or may not have saved his grandfather from the Nazis. Accompanied by an old man haunted by memories of the war; an amorous dog named Sammy Davis, Junior, Junior; and the unforgettable Alex, a young Ukrainian translator who speaks in a sublimely butchered English, Jonathan is led on a quixotic journey over a devastated landscape and into an unexpected past.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060529703"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060529709"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 288,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 163,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=NxvwRJm3-pEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=NxvwRJm3-pEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=NxvwRJm3-pEC&printsec=frontcover&dq=isbn:9780060529703&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=NxvwRJm3-pEC&dq=isbn:9780060529703&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Everything_Is_Illuminated.html?hl=&id=NxvwRJm3-pEC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=NxvwRJm3-pEC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "With only a yellowing photograph in hand, a young man -- also named Jonathan Safran Foer -- sets out to find the woman who may or may not have saved his grandfather from the Nazis."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "dRsMAAAACAAJ",
+   "etag": "AeND+PtTzf4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/dRsMAAAACAAJ",
+   "volumeInfo": {
+    "title": "The Little House Collection",
+    "subtitle": "Little House in the Big Woods/Little House on the Prairie/Farmer Boy/on Thebanks of Plum Creek/by the Shores of Silver Lake/the Long Winter/Little Tow",
+    "authors": [
+     "Laura Ingalls Wilder"
+    ],
+    "publisher": "Avon Books",
+    "publishedDate": "2003-09-25",
+    "description": "New rack-sized editions of the classic books by Laura Ingalls Wilder--published in the spring of 2003--are now packaged together in this beautiful nine-volume gift set.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060529962"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060529963"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 16,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=dRsMAAAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=dRsMAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=dRsMAAAACAAJ&dq=isbn:9780060529963&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=dRsMAAAACAAJ&dq=isbn:9780060529963&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Little_House_Collection.html?hl=&id=dRsMAAAACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=dRsMAAAACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "New rack-sized editions of the classic books by Laura Ingalls Wilder--published in the spring of 2003--are now packaged together in this beautiful nine-volume gift set."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "9vgTlwEACAAJ",
+   "etag": "G8uD02qsObM",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/9vgTlwEACAAJ",
+   "volumeInfo": {
+    "title": "13 Little Blue Envelopes",
+    "authors": [
+     "Maureen Johnson"
+    ],
+    "publisher": "HarperTeen",
+    "publishedDate": "2006-09-26",
+    "description": "When seventeen-year-old Ginny receives a packet of mysterious envelopes from her favorite aunt, she leaves New Jersey to criss-cross Europe on a sort of scavenger hunt that transforms her life. Reprint.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060541431"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060541439"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 368,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 3.5,
+    "ratingsCount": 22,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks2.books.google.com/books?id=9vgTlwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks2.books.google.com/books?id=9vgTlwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=9vgTlwEACAAJ&dq=isbn:9780060541439&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=9vgTlwEACAAJ&dq=isbn:9780060541439&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/13_Little_Blue_Envelopes.html?hl=&id=9vgTlwEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=9vgTlwEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "When seventeen-year-old Ginny receives a packet of mysterious envelopes from her favorite aunt, she leaves New Jersey to criss-cross Europe on a sort of scavenger hunt that transforms her life. Reprint."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "k6LVNLM_D-8C",
+   "etag": "Z8zvdvRQBK4",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/k6LVNLM_D-8C",
+   "volumeInfo": {
+    "title": "The Andromeda Strain",
+    "authors": [
+     "Michael Crichton"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2003-10-28",
+    "description": "A team of scientists struggles to define and contain a deadly bacteria brought back from outer space by a satellite.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060541811"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060541814"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 368,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 3.0,
+    "ratingsCount": 61,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks1.books.google.com/books?id=k6LVNLM_D-8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks1.books.google.com/books?id=k6LVNLM_D-8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=k6LVNLM_D-8C&printsec=frontcover&dq=isbn:9780060541811&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=k6LVNLM_D-8C&dq=isbn:9780060541811&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Andromeda_Strain.html?hl=&id=k6LVNLM_D-8C"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=k6LVNLM_D-8C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A team of scientists struggles to define and contain a deadly bacteria brought back from outer space by a satellite."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "yuCUZ3km3qIC",
+   "etag": "ts8tUTvZWGE",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/yuCUZ3km3qIC",
+   "volumeInfo": {
+    "title": "Neverwhere",
+    "subtitle": "A Novel",
+    "authors": [
+     "Neil Gaiman"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2003-09-02",
+    "description": "Richard Mayhew is a young man with a good heart and an ordinarylife, which is changed forever when he stops to help a girl he finds bleeding on a London sidewalk. His small act of kindness propels him into a world he never dreamed existed. There are people who fall through the cracks, and Richard has become one of them. And he must learn to survive in this city of shadows and darkness, monsters and saints, murderers and angels, if he is ever to return to the London that he knew.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060557818"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060557812"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 400,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 1848,
+    "contentVersion": "0.4.3.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=yuCUZ3km3qIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=yuCUZ3km3qIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=yuCUZ3km3qIC&printsec=frontcover&dq=isbn:9780060557812&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=yuCUZ3km3qIC&dq=isbn:9780060557812&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Neverwhere.html?hl=&id=yuCUZ3km3qIC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.com/books/download/Neverwhere-sample-epub.acsm?id=yuCUZ3km3qIC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=yuCUZ3km3qIC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Richard Mayhew is a young man with a good heart and an ordinarylife, which is changed forever when he stops to help a girl he finds bleeding on a London sidewalk."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "tvbOlwEACAAJ",
+   "etag": "pN9bCR8hRkc",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/tvbOlwEACAAJ",
+   "volumeInfo": {
+    "title": "Devil in Winter",
+    "authors": [
+     "Lisa Kleypas"
+    ],
+    "publisher": "Avon",
+    "publishedDate": "2006-02-28",
+    "description": "Desperate to escape the clutches of her greedy relatives, heiress Evangeline Jenner makes a deal with Viscount St. Vincent to exchange her fortune for a marriage of convenience, only to discover the true nature of passion in his arms.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "006056251X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060562519"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 374,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 24,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=tvbOlwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=tvbOlwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=tvbOlwEACAAJ&dq=isbn:9780060562519&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=tvbOlwEACAAJ&dq=isbn:9780060562519&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Devil_in_Winter.html?hl=&id=tvbOlwEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=tvbOlwEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Desperate to escape the clutches of her greedy relatives, heiress Evangeline Jenner makes a deal with Viscount St. Vincent to exchange her fortune for a marriage of convenience, only to discover the true nature of passion in his arms."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 0
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "uAfMngEACAAJ",
+   "etag": "/qhrGo4ksC0",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/uAfMngEACAAJ",
+   "volumeInfo": {
+    "title": "Men are From Mars, Women are From Venus",
+    "subtitle": "The Classic Guide to Understanding the Opposite Sex",
+    "authors": [
+     "John Gray"
+    ],
+    "publisher": "Harper Paperbacks",
+    "publishedDate": "2004-01-06",
+    "description": "Illustrates common conflicts between men and women and offers advice on how to counteract differences in communication styles, emotional needs, and behavior.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060574216"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060574215"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 368,
+    "printType": "BOOK",
+    "categories": [
+     "Family & Relationships"
+    ],
+    "averageRating": 3.0,
+    "ratingsCount": 1220,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://books.google.com/books/content?id=uAfMngEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://books.google.com/books/content?id=uAfMngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=uAfMngEACAAJ&dq=isbn:9780060574215&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=uAfMngEACAAJ&dq=isbn:9780060574215&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Men_are_From_Mars_Women_are_From_Venus.html?hl=&id=uAfMngEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=uAfMngEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Illustrates common conflicts between men and women and offers advice on how to counteract differences in communication styles, emotional needs, and behavior."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "X7P4uoemnvcC",
+   "etag": "/z6x00Kb7/o",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/X7P4uoemnvcC",
+   "volumeInfo": {
+    "title": "Septimus Heap, Book One: Magyk",
+    "authors": [
+     "Angie Sage"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2005-03-15",
+    "description": "The seventh son of the seventh son, aptly named Septimus Heap, is stolen the night he is born by a midwife who pronounces him dead. That same night, the baby's father, Silas Heap, comes across a bundle in the snow containing a new born girl with violet eyes. The Heaps take this helpless newborn into their home, name her Jenna, and raise her as their own. But who is this myster ious baby girl, and what really happened to their beloved son Septimus? The first book in this enthralling new series by Angie Sage leads readers on a fantastic journey filled with quirky characters and magykal charms, potions, and spells. magyk is an original story of lost and rediscovered identities, rich with humor and heart.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060577315"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060577312"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 576,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 3.0,
+    "ratingsCount": 16,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks6.books.google.com/books?id=X7P4uoemnvcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks6.books.google.com/books?id=X7P4uoemnvcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=X7P4uoemnvcC&printsec=frontcover&dq=isbn:9780060577315&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=X7P4uoemnvcC&dq=isbn:9780060577315&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Septimus_Heap_Book_One_Magyk.html?hl=&id=X7P4uoemnvcC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=X7P4uoemnvcC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "The first book in this enthralling new series by Angie Sage leads readers on a fantastic journey filled with quirky characters and magykal charms, potions, and spells. magyk is an original story of lost and rediscovered identities, rich ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "kZnalwEACAAJ",
+   "etag": "kjvEnf+/a4E",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/kZnalwEACAAJ",
+   "volumeInfo": {
+    "title": "Mystic River",
+    "authors": [
+     "Dennis Lehane"
+    ],
+    "publisher": "William Morrow Paperbacks",
+    "publishedDate": "2003-07-22",
+    "description": "When they were children, Sean Devine, Jimmy Marcus, and Dave Boyle were friends. But then a strange car pulled up to their street. One boy got into the car, two did not, and something terrible happened -- something that ended their friendship and changed all three boys forever. Twenty-five years later, Sean is a homicide detective. Jimmy is an ex-con who owns a corner store. And Dave is trying to hold his marriage together and keep his demons at bay -- demons that urge him to do terrible things. When Jimmy's daughter is found murdered, Sean is assigned to the case. His investigation brings him into conflict with Jimmy, who finds his old criminal impulses tempt him to solve the crime with brutal justice. And then there is Dave, who came home the night Jimmy's daughter died covered in someone else's blood. A tense and unnerving psychological thriller, Mystic River is also an epic novel of love and loyalty, faith and family, in which people irrevocably marked by the past find themselves on a collision course with the darkest truths of their own hidden selves.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "0060584750"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060584757"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 416,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 58,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks8.books.google.com/books?id=kZnalwEACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+     "thumbnail": "http://bks8.books.google.com/books?id=kZnalwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=kZnalwEACAAJ&dq=isbn:9780060584757&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=kZnalwEACAAJ&dq=isbn:9780060584757&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Mystic_River.html?hl=&id=kZnalwEACAAJ"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "NO_PAGES",
+    "embeddable": false,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=kZnalwEACAAJ&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "NONE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "A tense and unnerving psychological thriller, Mystic River is also an epic novel of love and loyalty, faith and family, in which people irrevocably marked by the past find themselves on a collision course with the darkest truths of their ..."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "QD1s4c3EHgUC",
+   "etag": "7tZfebcUNd8",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/QD1s4c3EHgUC",
+   "volumeInfo": {
+    "title": "Lost Horizon",
+    "subtitle": "A Novel",
+    "authors": [
+     "James Hilton"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2004-06-15",
+    "description": "Originally published: New York: W. Morrow, c1933.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_13",
+      "identifier": "9780060594527"
+     },
+     {
+      "type": "ISBN_10",
+      "identifier": "0060594527"
+     }
+    ],
+    "readingModes": {
+     "text": false,
+     "image": false
+    },
+    "pageCount": 241,
+    "printType": "BOOK",
+    "categories": [
+     "Fiction"
+    ],
+    "averageRating": 4.0,
+    "ratingsCount": 52,
+    "contentVersion": "preview-1.0.0",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=QD1s4c3EHgUC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=QD1s4c3EHgUC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=QD1s4c3EHgUC&printsec=frontcover&dq=isbn:9780060594527&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=QD1s4c3EHgUC&dq=isbn:9780060594527&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/Lost_Horizon.html?hl=&id=QD1s4c3EHgUC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "NOT_FOR_SALE",
+    "isEbook": false
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": false
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=QD1s4c3EHgUC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Originally published: New York: W. Morrow, c1933."
+   }
+  }
+ ]
+}
+
+{
+ "kind": "books#volumes",
+ "totalItems": 1,
+ "items": [
+  {
+   "kind": "books#volume",
+   "id": "c3sMjPt4iZcC",
+   "etag": "eLec49mjYoA",
+   "selfLink": "https://www.googleapis.com/books/v1/volumes/c3sMjPt4iZcC",
+   "volumeInfo": {
+    "title": "The Mediator #1: Shadowland",
+    "authors": [
+     "Meg Cabot"
+    ],
+    "publisher": "Harper Collins",
+    "publishedDate": "2009-10-06",
+    "description": "Suze is a mediator -- a liaison between the living and the dead. In other words, she sees dead people. And they won't leave her alone until she helps them resolve their unfinished business with the living. But Jesse, the hot ghost haunting her bedroom, doesn't seem to need her help. Which is a relief, because Suze has just moved to sunny California and plans to start fresh, with trips to the mall instead of the cemetery, and surfing instead of spectral visitations. But the very first day at her new school, Suze realizes it's not that easy. There's a ghost with revenge on her mind ... and Suze happens to be in the way.",
+    "industryIdentifiers": [
+     {
+      "type": "ISBN_10",
+      "identifier": "006197188X"
+     },
+     {
+      "type": "ISBN_13",
+      "identifier": "9780061971884"
+     }
+    ],
+    "readingModes": {
+     "text": true,
+     "image": false
+    },
+    "pageCount": 304,
+    "printType": "BOOK",
+    "categories": [
+     "Juvenile Fiction"
+    ],
+    "averageRating": 4.5,
+    "ratingsCount": 43,
+    "contentVersion": "0.0.1.0.preview.2",
+    "imageLinks": {
+     "smallThumbnail": "http://bks9.books.google.com/books?id=c3sMjPt4iZcC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+     "thumbnail": "http://bks9.books.google.com/books?id=c3sMjPt4iZcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    },
+    "language": "en",
+    "previewLink": "http://books.google.com/books?id=c3sMjPt4iZcC&printsec=frontcover&dq=isbn:9780060725112&hl=&cd=1&source=gbs_api",
+    "infoLink": "http://books.google.com/books?id=c3sMjPt4iZcC&dq=isbn:9780060725112&hl=&source=gbs_api",
+    "canonicalVolumeLink": "http://books.google.com/books/about/The_Mediator_1_Shadowland.html?hl=&id=c3sMjPt4iZcC"
+   },
+   "saleInfo": {
+    "country": "US",
+    "saleability": "FOR_SALE",
+    "isEbook": true,
+    "listPrice": {
+     "amount": 2.99,
+     "currencyCode": "USD"
+    },
+    "retailPrice": {
+     "amount": 2.99,
+     "currencyCode": "USD"
+    },
+    "buyLink": "http://books.google.com/books?id=c3sMjPt4iZcC&dq=isbn:9780060725112&hl=&buy=&source=gbs_api",
+    "offers": [
+     {
+      "finskyOfferType": 1,
+      "listPrice": {
+       "amountInMicros": 2990000.0,
+       "currencyCode": "USD"
+      },
+      "retailPrice": {
+       "amountInMicros": 2990000.0,
+       "currencyCode": "USD"
+      }
+     }
+    ]
+   },
+   "accessInfo": {
+    "country": "US",
+    "viewability": "PARTIAL",
+    "embeddable": true,
+    "publicDomain": false,
+    "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+    "epub": {
+     "isAvailable": true,
+     "acsTokenLink": "http://books.google.com/books/download/The_Mediator_1_Shadowland-sample-epub.acsm?id=c3sMjPt4iZcC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+    },
+    "pdf": {
+     "isAvailable": false
+    },
+    "webReaderLink": "http://books.google.com/books/reader?id=c3sMjPt4iZcC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+    "accessViewStatus": "SAMPLE",
+    "quoteSharingAllowed": false
+   },
+   "searchInfo": {
+    "textSnippet": "Sixteen-year-old Suze Simon can mediate between the living and the dead, and she hopes her move to California will be a fresh start, but a hot ghost named Jesse haunts her bedroom and another ghost is bent on vengeance at school."
+   }
+  }
+ ]
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
+}
+
+{
+ "error": {
+  "errors": [
+   {
+    "domain": "usageLimits",
+    "reason": "userRateLimitExceededUnreg",
+    "message": "User Rate Limit Exceeded. Please sign up",
+    "extendedHelp": "https://code.google.com/apis/console"
+   }
+  ],
+  "code": 403,
+  "message": "User Rate Limit Exceeded. Please sign up"
+ }
 }
 

@@ -27,6 +27,8 @@ def addToDatabase(isbnArray, db):
 
     for isbn in isbnArray:
 
+        deleteFromBookList_Bad(isbn, db)
+
         time.sleep(2)
 
         print isbn
@@ -112,11 +114,16 @@ def addToDatabase(isbnArray, db):
 
                 except:
 
-                    cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "God Only Knows Man"))
+                    try:
 
-                    print "\t God Only Knows Man"
+                        cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "God Only Knows Man"))
 
-                    db.commit()
+                        print "\t God Only Knows Man"
+
+                        db.commit()
+
+                    except:
+                        pass
 
 
             else:
@@ -140,6 +147,26 @@ def addToDatabase(isbnArray, db):
             del bookObject [:]
 
     file.close()
+
+def collateByUsageLimit(db):
+
+    cursor = db.cursor()
+
+    cursor.execute("SELECT isbn_num FROM BookList_Bad WHERE reason = %s",
+        ("API Call returned Error"))
+
+    isbns = [isbn[0] for isbn in cursor.fetchall()]
+
+    return isbns
+
+
+def deleteFromBookList_Bad(isbn, db):
+
+    cursor = db.cursor()
+
+    cursor.execute("DELETE FROM BookList_Bad WHERE isbn_num = %s", (isbn))
+
+    db.commit()
 
 if __name__ == "__main__":
     print "Meant to be accessed from manageDatabase.py"

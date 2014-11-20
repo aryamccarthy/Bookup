@@ -7,17 +7,12 @@ import interactWithDB as iWDB
 
 if __name__ == "__main__":
 
-    isbnArray = fR.readGivenFile("../Isbn_Txt_Files/Not_Read/one_isbn.txt")
+    # isbnArray = fR.readGivenFile("../Isbn_Txt_Files/Not_Read/one_isbn.txt")
 
     db = cDB.connect()
+
+    isbnArray = iWDB.collateByUsageLimit(db)
 
     iWDB.addToDatabase(isbnArray, db)
 
     db.close()
-
-
-
-
-
-
-
