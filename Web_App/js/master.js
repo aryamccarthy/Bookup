@@ -9,7 +9,7 @@ $(document).ready( function() {
 	else if(discoveryLoaded===true){
 		checkForNewUser();
 		var setButton=document.getElementById("next");
-		setButton.setAttribute("onclick", "getRecommendedBook()");
+		setButton.setAttribute("onclick", "getRecommendedBook(); enableAddButton();");
 		getRecommendedBook();
 	}
 	else if(listLoaded===true){
@@ -18,9 +18,21 @@ $(document).ready( function() {
 
 }); 
 
+function disableAddButton() {
+	var addButton = $(document.getElementById("add to list"));
+	addButton.fadeTo('fast',0.3).css('pointer-events','none');
+	addButton.text("Added");
+}
+
+function enableAddButton() {
+	var addButton = $(document.getElementById("add to list"));
+	addButton.fadeTo('fast',1.0).css('pointer-events',''); // empty string unsets
+	addButton.text("Add to List");
+}
+
 function greyOutElement (event) {
 	var target = $(event.target);
-	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none').css('');
+	target.closest("li").fadeTo('fast',0.3).css('pointer-events','none');
 }
 var listBooks = [];
 var setupLoaded = false;
@@ -231,6 +243,17 @@ function generateHTMLForSetupPage(Book){
 	account_section.appendChild(bookItem);
 }
 
+function giveListAddConfirmation()
+{
+	var title = $("#book_title").text();
+	sweetAlert({
+		title: "Added!",
+		text: title + " was added to your reading list!",
+		type: "success",
+		allowOutsideClick: true,
+		timer: 2000
+	});
+}
 
 function generateHTMLForDiscoveryPage(Book){
 	$("#book_title").html(Book.title);
@@ -238,7 +261,7 @@ function generateHTMLForDiscoveryPage(Book){
 	$("#book_description").html(Book.description || "");
 	$("#book_cover").attr("src", Book.cover.src);
 	var addButton =document.getElementById("add to list");
-	addButton.setAttribute("onclick", "addBookToReadingList(" +Book.isbn+ ")");
+	addButton.setAttribute("onclick", "addBookToReadingList(" +Book.isbn+ "); giveListAddConfirmation(); disableAddButton();");
 	$("#likebutton").attr("onclick", "submitBookFeedback(1,"+Book.isbn+")");
 	$("#dislikebutton").attr("onclick", "submitBookFeedback(-1,"+Book.isbn+")");
 
@@ -267,7 +290,7 @@ function generateHTMLForReadingList(Book, index){
 	var delete_listing=document.createElement("p");
 	listing.setAttribute("id", "list_item");
 	delete_listing.setAttribute("id", "delete_x");
-	delete_listing.innerHTML=" X";
+	delete_listing.innerHTML=" ✖";
 	delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
 	
 	listing.setAttribute("onclick", "showReadingListBook(this.title)");
