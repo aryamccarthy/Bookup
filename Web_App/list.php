@@ -27,6 +27,8 @@
         <img id= "list_cover" src=" ">
       </article>
       <button id="removebutton" >Remove from list</button>
+      <div id="social" style="width:60px;height:20px;margin-left:auto;margin-right:auto;">
+      </div>
     </section>
 </div>
   </main>
@@ -39,5 +41,29 @@
       <button class="listratingbutton" id="didntread" value="0">I didn't read this book.</button>
     </form>
   </section>
+  <script>window.twttr = (function (d, s, id) {
+  var t, js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src= "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+  twttr.ready(
+  function (twttr) {
+    twttr.widgets.createShareButton(
+  'http://54.187.70.205/',
+  document.getElementById('social'),
+  {
+    count: 'horizontal',
+    counturl: 'http://dev.twitter.com', // Because big numbers are impressive.
+    size: 'large', 
+    text: 'Check out Bookup, where you can try something new between the covers!'
+  }).then(function (el) {
+    console.log("Button created.")
+  });
+  }
+);
+  </script>
 </body>
 </html>
