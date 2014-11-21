@@ -28,7 +28,7 @@
             <li><hr></li>
             <li>
               <label for="email">Email</label>
-              <input id="email" name="user_email" type="email" pattern="\S{3,30}" placeholder="someone@example.com" autofocus required>
+              <input id="email" name="user_email" type="email" pattern="[^@\s]+@[^@\s]+\.[a-zA-Z]{2,6}" placeholder="someone@example.com" title="A valid email address" autofocus required>
             </li>
             <li>
               <label for="password">Password</label>
