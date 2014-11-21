@@ -39,13 +39,13 @@ $(document).ready( function() {
 }); 
 
 function disableAddButton() {
-	var addButton = $(document.getElementById("add to list"));
+	var addButton = $("#add_to_list");
 	addButton.fadeTo('fast',0.4).css('pointer-events','none');
 	addButton.text("Added");
 }
 
 function enableAddButton() {
-	var addButton = $(document.getElementById("add to list"));
+	var addButton = $("#add_to_list");
 	addButton.fadeTo('fast',1.0).css('pointer-events',''); // empty string unsets
 	addButton.text("Add to List");
 }
@@ -193,7 +193,11 @@ function addBookToReadingList(isbn) {
 			console.log(userEmail);
 			console.log(isbn);
 			console.log("book sucessfully added");
-		}	
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			console.log(textStatus);
+			console.log(errorThrown);
+		}
 	});
 }
 function removeBookFromReadingList(isbn) {
@@ -290,7 +294,7 @@ function generateHTMLForDiscoveryPage(Book){
 	$("#book_author").html(Book.author);
 	$("#book_description").html(Book.description || "");
 	$("#book_cover").attr("src", Book.cover.src);
-	var addButton = $(document.getElementById("add to list"));
+	var addButton = $("#add_to_list");
 	isbn = Book.isbn;
 	addButton.click(function() {
 		addBookToReadingList(Book.isbn);

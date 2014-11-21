@@ -18,9 +18,9 @@
     <div class="cf">
     <fieldset class="cf">
       <!--<button id="previous">Previous</button>-->
-      <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
+      <button id="add_to_list">Add to List</button>
       <button id="already_read">Already Read</button>
-      <button id="next" onclick="">Next</button>
+      <button id="next">Next</button>
     </fieldset>
     </div>
   </section>
