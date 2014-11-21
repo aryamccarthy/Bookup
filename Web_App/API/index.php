@@ -318,7 +318,8 @@ $app->get('/getReadingList/:email', function($email) {
 
 	$statement = $pdo->prepare(
             'SELECT isbn_num, timestamp FROM ReadingList
-            WHERE email = :email'
+            WHERE email = :email
+            ORDER BY timestamp DESC'
         );
 
 	if ($statement->execute($args)) {
