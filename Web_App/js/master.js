@@ -17,6 +17,7 @@ $(document).ready( function() {
 			sweetAlert({
 				title: "Help us get to know you!",
 				text: "What did you think of " + title + "?",
+				type: "info",
 				allowOutsideClick: true,
 				showCancelButton: true,
 				confirmButtonText: "Like",
