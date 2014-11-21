@@ -35,6 +35,11 @@ $(document).ready( function() {
 	else if(listLoaded===true){
 		$("#removebutton").remove(); // Optional.
 		getReadingList();
+		$("#social span").attr({
+			st_url:"http://localhost:8888/index.php",
+			st_title:"I just found a great book on Bookup!",
+			st_summary: "Bookup: try something new between the covers!"
+		});
 	}
 
 }); 
@@ -408,7 +413,9 @@ function showReadingListBook(selectedTitle){
 			var index = document.getElementById("isbn"+i);
 			var isbn = index.innerHTML;
 			$("#removebutton").click(function() {dealWithRatingandDeletingFromMainSection(isbn);});
-
+			$("#social span").attr({
+				st_title: "I just found " + $("#list_title").text() + " on Bookup!"
+			});
 			// for(var j=0; j<3; j++){
 			// 	listButtons[j].setAttribute("onclick","dealWithRatingandDeletingFromMainSection("+isbn+")" );
 			// }
