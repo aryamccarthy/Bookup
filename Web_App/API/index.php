@@ -318,7 +318,8 @@ $app->get('/getReadingList/:email', function($email) {
             'SELECT * FROM
             BookList_Good b INNER JOIN ReadingList r
             ON b.isbn_num = r.isbn_num
-            WHERE email = :email'
+            WHERE email = :email
+            ORDER BY timestamp DESC'
         );
 
 	if ($statement->execute($args)) {
