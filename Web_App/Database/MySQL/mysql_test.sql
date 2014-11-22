@@ -7,8 +7,6 @@
 -- Notes: added some dummy accounts for api testing
 -- 10/23/2014 Added 1984 as book and popular book
 
-USE BookUp;
-
 INSERT INTO Account VALUES
     ("drizzuto@bookup.com", "Candles"),
     ("amccarthy@bookup.com", "Candles"),
