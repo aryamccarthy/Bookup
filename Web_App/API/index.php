@@ -315,9 +315,10 @@ $app->get('/getReadingList/:email', function($email) {
 	$args[':email'] = $email;
 
 	$statement = $pdo->prepare(
-            'SELECT isbn_num, timestamp FROM ReadingList
-            WHERE email = :email
-            ORDER BY timestamp DESC'
+            'SELECT * FROM
+            BookList_Good b INNER JOIN ReadingList r
+            ON b.isbn_num = r.isbn_num
+            WHERE email = :email'
         );
 
 	if ($statement->execute($args)) {
@@ -523,7 +524,7 @@ $app->post('/searchForBook', function() {
             $book['description'] = $row['description'];
             $book['isbn'] = $row['isbn_num'];
             $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
-            $book['imageLinks'['thumbnail'] = $row['image_link'];
+            $book['imageLinks']['thumbnail'] = $row['image_link'];
             array_push($books['books'], $book);
         }
         $books['success'] = true;
