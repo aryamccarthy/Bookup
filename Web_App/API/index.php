@@ -13,7 +13,8 @@ $pass = 'Candles';
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=BookUp", "$user", "$pass");
+    $pdo = new PDO("mysql:host=$host;dbname=BookUpv3", "$user", "$pass");
+    echo "connected to db";
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -45,21 +46,32 @@ $app->get('/test', function() {
 $app->get('/getPopularBooks', function() {
 	global $pdo;
 
-        $firebaseObject = new FirebaseIsbnLookup();
-
-	$statement = $pdo->prepare("SELECT * FROM PopularBookList");
+	$statement = $pdo->prepare(
+            "SELECT * FROM
+            BookList_Good b INNER JOIN PopularBookList p
+            ON b.isbn_num = p.isbn_num
+            WHERE language = :lang"
+        );
+        $lang = 'en';
+        $statement->bindParam(':lang',$lang);
 
 	if ($statement->execute()) {
             $books = array();
             while($row = $statement->fetch()) {
-                $bookObject = $firebaseObject->getBookJson($row['isbn_num']);
-                $bookObject = firebaseJsonToSpecJson($bookObject);
-                array_push($books, $bookObject);
+                $book['imageLinks'] = array();
+                $book['title'] = $row['title'];
+                $book['author'] = $row['author'];
+                $book['description'] = $row['description'];
+                $book['isbn_num'] = $row['isbn_num'];
+                $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
+                $book['imageLinks']['thumbnail'] = $row['image_link'];
+                array_push($books, $book);
 	    }
 
-            $result['Books'] = $books;
+            $result['books'] = $books;
             $result['success'] = true;
         } else {
+              $result['books'] = array();
               $result['success'] = false;
 	      $result['error'] =$statement->errorInfo();
 	}
@@ -300,13 +312,14 @@ $app->get('/getBookFromFirebase/:isbn', function($isbn) {
 $app->get('/getReadingList/:email', function($email) {
 	global $pdo;
     
-    $firebaseObject = new FirebaseIsbnLookup();
-
 	$args[':email'] = $email;
 
 	$statement = $pdo->prepare(
-            'SELECT isbn_num, timestamp FROM ReadingList
-            WHERE email = :email'
+            'SELECT * FROM
+            BookList_Good b INNER JOIN ReadingList r
+            ON b.isbn_num = r.isbn_num
+            WHERE email = :email
+            ORDER BY timestamp DESC'
         );
 
 	if ($statement->execute($args)) {
@@ -314,17 +327,22 @@ $app->get('/getReadingList/:email', function($email) {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-			//echo $row["isbn_num"];
-			$bookObject = $firebaseObject->getBookJson($row["isbn_num"]);
-			$bookObject = firebaseJsonToSpecJson($bookObject);
-			array_push($books, $bookObject);
+                        $book['imageLinks'] = array();
+                        $book['title'] = $row['title'];
+                        $book['author'] = $row['author'];
+                        $book['description'] = $row['description'];
+                        $book['isbn_num'] = $row['isbn_num'];
+                        $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
+                        $book['imageLinks']['thumbnail'] = $row['image_link']; 
+			array_push($books, $book);
 		} 
-		$result['Books'] = $books;
+		$result['books'] = $books;
 		$result['success'] = true;
 	}
 	else {
-		$result["success"] = false;
-		$result["error"] = $statement->errorInfo();
+                $result['books'] = array();
+		$result['success'] = false;
+		$result['error'] = $statement->errorInfo();
 	}
 
 	echo json_encode($result);
@@ -382,7 +400,7 @@ $app->post('/submitBookFeedback', function() {
 		"INSERT INTO Rating(email, rating, timestamp, isbn_num) VALUES 
 		(:email, :rating, NOW(), :isbn)
 		ON DUPLICATE KEY
-		UPDATE rating=VALUES(rating);");
+		UPDATE rating=VALUES(rating)");
 	if ($statement->execute($args)) {
 		$result["success"] = true;
 	} else {
@@ -461,6 +479,65 @@ $app->get('/fixingJson/:isbn', function($isbn) {
     echo json_encode($prettyBook);
 });
 
+$app->post('/searchTest', function() {
+    global $pdo;
+    $books = array();
+
+    $statement = $pdo->prepare(
+        "SELECT * FROM BookList
+        ORDER BY RAND() LIMIT 2"
+    );
+
+    if ($statement->execute()) {
+        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
+            $books['books'] = array();
+            $book['title'] = $row['title'];
+            $book['author'] = $row['author'];
+            $book['description'] = $row['description'];
+            $book['isbn'] = $row['isbn_num'];
+            $book['thumbnail'] = $row['thumbnail'];
+            array_push($books['books'], $book);
+        }
+        $books['success'] = true;
+    } else {
+          $books['books'] = array();
+          $books['success'] = false;
+          $errorData = $statement->errorInfo();
+          $books['error'] = $errorData[2];
+   }
+   return json_encode($books);
+});
+
+$app->post('/searchForBook', function() {
+    global $pdo;
+    $books = array();
+
+    $statement = $pdo->prepare(
+        "SELECT * FROM BookList
+        ORDER BY RAND() LIMIT 10"
+    );
+
+    if ($statement->execute()) {
+        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
+            $books['books'] = array();
+            $book['title'] = $row['title'];
+            $book['author'] = $row['author'];
+            $book['description'] = $row['description'];
+            $book['isbn'] = $row['isbn_num'];
+            $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
+            $book['imageLinks']['thumbnail'] = $row['image_link'];
+            array_push($books['books'], $book);
+        }
+        $books['success'] = true;
+    } else {
+          $books['books'] = array();
+          $books['success'] = false;
+          $errorData = $statement->errorInfo();
+          $books['error'] = $errorData[2];
+   }
+   return json_encode($books);
+});
+        
 function firebaseJsonToSpecJson($fire, $isbn=null) {
 	$fire = json_decode($fire, $assoc=true);
 	if ($fire["totalItems"] < 1) {
