@@ -3,7 +3,6 @@
 // Datbase information
 // Put your stuff here
 
-include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = '54.69.55.132';
@@ -14,7 +13,7 @@ $pass = 'Candles';
 $app = new \Slim\Slim();
 try {
     $pdo = new PDO("mysql:host=$host;dbname=BookUpv3", "$user", "$pass");
-    echo "connected to db";
+    # echo "connected to db";
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -58,13 +57,11 @@ $app->get('/getPopularBooks', function() {
 	if ($statement->execute()) {
             $books = array();
             while($row = $statement->fetch()) {
-                $book['imageLinks'] = array();
                 $book['title'] = $row['title'];
                 $book['author'] = $row['author'];
                 $book['description'] = $row['description'];
                 $book['isbn_num'] = $row['isbn_num'];
-                $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
-                $book['imageLinks']['thumbnail'] = $row['image_link'];
+                $book['thumbnail'] = $row['image_link'];
                 array_push($books, $book);
 	    }
 
@@ -95,7 +92,7 @@ $app->get('/userExists/:email', function($email) {
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(email) AS count FROM Account
-			WHERE email = :email ");
+			WHERE email = :email");
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -113,7 +110,7 @@ $app->get('/userExists/:email', function($email) {
 });
 
 /*
-*	Checks to see the user/password combination is correct
+*	Checks to see the user/pass_hash combination is correct
 *	
 *	owner: Nicole Gatmaitan
 *	status: Working
@@ -121,15 +118,15 @@ $app->get('/userExists/:email', function($email) {
 *	Last tested on 11/12/2014 at 9:08pm
 */
 
-$app->get('/validate/:email/:password', function($email, $password) {
+$app->get('/validate/:email/:pass_hash', function($email, $password) {
 	global $pdo;
 
 	$args [":email"] = $email;
-	$args [":password"] = $password;
+	$args [":pass_hash"] = $password;
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(email) AS count FROM Account
-			WHERE email = :email AND password = :password");
+			WHERE email = :email AND pass_hash = :pass_hash");
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -163,7 +160,7 @@ $app->get('/isNewUser/:email', function($email) {
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(*) AS count FROM Rating
-			WHERE email = :email ");
+			WHERE email = :email");
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -193,11 +190,11 @@ $app->post('/addUser', function() {
 	global $pdo;
 
 	$args [":email"] = $_POST['email'];
-	$args [":password"] = $_POST['password'];
+	$args [":pass_hash"] = $_POST['pass_hash'];
 
 	$statement = $pdo->prepare(
-		"INSERT INTO Account (email, password)
-		VALUES (:email, :password) ");
+		"INSERT INTO Account (email, pass_hash)
+		VALUES (:email, :pass_hash)");
 
 	if ($statement->execute($args)) {
 		$result['success'] = true;
@@ -239,41 +236,27 @@ $app->get('/getRandomBook',function() {
 function getRandomBook() {
 	global $pdo;
 
-    $firebaseObject = new FirebaseIsbnLookup();
-
 	$statement = $pdo->prepare(
-		'SELECT isbn_num FROM BookList
-		ORDER BY RAND() LIMIT 1;');
+		'SELECT * FROM BookList_Good
+		ORDER BY RAND() LIMIT 1');
 
 	if ($statement->execute()) {
 		$books = array();
                 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-			try {
-				/* 
-				* Old version, returning several book objects
-				*/
-				$bookObject = $firebaseObject->getBookJson($row['isbn_num']);
-				$bookObject = firebaseJsonToSpecJson($bookObject);
-				array_push($books, $bookObject);
-				$result['Books'] = $books;
-
-				/* 
-				* New version, returns the books json in the spec doc
-				*/
-				$fbook = $firebaseObject->getBookJson($row['isbn_num']);
-				$fbook = 
-
-				$result['success'] = true;
-			}
-			catch (Exception $e) {
-				$result["success"] = false;
-				$result["error"] = "The ISBN is not in firebase";
-			}
-		} 
+                        $book['title'] = $row['title'];
+                        $book['author'] = $row['author'];
+                        $book['description'] = $row['description'];
+                        $book['isbn_num'] = $row['isbn_num'];
+                        $book['thumbnail'] = $row['image_link'];
+                        array_push($books, $book);	
+		}
+                $result['books'] = $books; 
+		$result['success'] = true;
 	}
 	else {
+                $result['books'] = array();
 		$result["success"] = false;
 		$result["error"] = $statement->errorInfo();
 	}
@@ -281,24 +264,6 @@ function getRandomBook() {
 	echo json_encode($result);
 
 }
-
-/*
-*	Get Book Object From Firebase
-*	
-*	owner: Danny Rizzuto
-*	status: Working
-*
-*	Last tested by Luke on 11/2/2014 at 1:50pm
-*/
-
-$app->get('/getBookFromFirebase/:isbn', function($isbn) {
-	global $pdo;
-    $args[':isbn'] = $isbn;
-    $firebaseObject = new FirebaseIsbnLookup();
-    $bookObject = $firebaseObject->getBookJson($args[':isbn']);
-    $prettyBook = firebaseJsonToSpecJson($bookObject);
-    echo json_encode($prettyBook);
-});
 
 /*
 *	Get a user's reading list
@@ -327,13 +292,11 @@ $app->get('/getReadingList/:email', function($email) {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-                        $book['imageLinks'] = array();
                         $book['title'] = $row['title'];
                         $book['author'] = $row['author'];
                         $book['description'] = $row['description'];
                         $book['isbn_num'] = $row['isbn_num'];
-                        $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
-                        $book['imageLinks']['thumbnail'] = $row['image_link']; 
+                        $book['thumbnail'] = $row['image_link']; 
 			array_push($books, $book);
 		} 
 		$result['books'] = $books;
@@ -366,7 +329,7 @@ $app->post('/addBookToReadingList', function() {
 
 	$statement = $pdo->prepare(
             'INSERT INTO ReadingList VALUES
-	    (:email, NOW(), :isbn);'
+	    (:email, NOW(), :isbn)'
 	);
 
 	if ($statement->execute($args)) {
@@ -470,67 +433,57 @@ $app->post('/resetRatingsOfUser', function() {
 
 });
 
-$app->get('/fixingJson/:isbn', function($isbn) {
-	global $pdo;
-    $args[':isbn'] = $isbn;
-    $firebaseObject = new FirebaseIsbnLookup();
-    $bookObject = $firebaseObject->getBookJson($args[':isbn']);
-    $prettyBook = firebaseJsonToSpecJson($bookObject);
-    echo json_encode($prettyBook);
-});
-
-$app->post('/searchTest', function() {
+$app->get('/searchTest', function() {
     global $pdo;
-    $books = array();
 
     $statement = $pdo->prepare(
-        "SELECT * FROM BookList
+        "SELECT * FROM BookList_Good
         ORDER BY RAND() LIMIT 2"
     );
 
     if ($statement->execute()) {
-        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
-            $books['books'] = array();
+        $books = array();
+        while($row = $statement->fetch()) {
             $book['title'] = $row['title'];
             $book['author'] = $row['author'];
             $book['description'] = $row['description'];
             $book['isbn'] = $row['isbn_num'];
-            $book['thumbnail'] = $row['thumbnail'];
-            array_push($books['books'], $book);
+            $book['thumbnail'] = $row['image_link'];
+            array_push($books, $book);
         }
-        $books['success'] = true;
+        $result['books'] = $books;
+        $result['success'] = true;
     } else {
-          $books['books'] = array();
-          $books['success'] = false;
+          $result['books'] = array();
+          $result['success'] = false;
           $errorData = $statement->errorInfo();
-          $books['error'] = $errorData[2];
+          $result['error'] = $errorData[2];
    }
-   return json_encode($books);
+   return json_encode($result);
 });
 
-$app->post('/searchForBook', function() {
+$app->get('/searchForBook', function() {
     global $pdo;
     $books = array();
 
     $statement = $pdo->prepare(
-        "SELECT * FROM BookList
+        "SELECT * FROM BookList_Good
         ORDER BY RAND() LIMIT 10"
     );
 
     if ($statement->execute()) {
         while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
-            $books['books'] = array();
             $book['title'] = $row['title'];
             $book['author'] = $row['author'];
             $book['description'] = $row['description'];
-            $book['isbn'] = $row['isbn_num'];
-            $book['imageLinks']['smallThumbnail'] = $row['image_link_s'];
-            $book['imageLinks']['thumbnail'] = $row['image_link'];
-            array_push($books['books'], $book);
+            $book['isbn_num'] = $row['isbn_num'];
+            $book['thumbnail'] = $row['image_link'];
+            array_push($books, $book);
         }
-        $books['success'] = true;
+        $result['books'] = $books;
+        $result['success'] = true;
     } else {
-          $books['books'] = array();
+          $result['books'] = array();
           $books['success'] = false;
           $errorData = $statement->errorInfo();
           $books['error'] = $errorData[2];
@@ -538,30 +491,6 @@ $app->post('/searchForBook', function() {
    return json_encode($books);
 });
         
-function firebaseJsonToSpecJson($fire, $isbn=null) {
-	$fire = json_decode($fire, $assoc=true);
-	if ($fire["totalItems"] < 1) {
-		return null;
-	}
-	$fire = $fire["items"][0];
-	$prettyBook["title"] = (empty($fire["volumeInfo"]["title"]) ? null : $fire["volumeInfo"]["title"]);
-	$prettyBook["author"] = (empty($fire["volumeInfo"]["authors"]) ? null : $fire["volumeInfo"]["authors"]);
-	$prettyBook["description"] = (empty($fire["volumeInfo"]["description"]) ? null : $fire["volumeInfo"]["description"]);
-	$prettyBook["isbn"] = null;
-	if ($isbn) {
-		$prettyBook["isbn"] = $isbn;
-	} else {
-		foreach ($fire["volumeInfo"]["industryIdentifiers"] as $isbn) {
-			if ($isbn["type"] == "ISBN_13") {
-				$prettyBook["isbn"] = (empty($isbn["identifier"]) ? null : $isbn["identifier"]);
-				break;
-			}
-		}
-	}
-	$prettyBook["thumbnail"] = (empty($fire["volumeInfo"]["imageLinks"]["thumbnail"])) ? null : $fire["volumeInfo"]["imageLinks"]["thumbnail"];
-	return $prettyBook;
-}
-
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
 //
