@@ -138,8 +138,10 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 }
 
 - (void) getABook {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *userEmail = [defaults objectForKey:@"userEmail"];
   NSMutableURLRequest *request =
-  [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-54-187-70-205.us-west-2.compute.amazonaws.com/API/index.php/getRandomBook"]
+  [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/API/index.php/getRecommendedBook/%@", userEmail]]
                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                       timeoutInterval:10];
   [request setHTTPMethod:@"GET"];
@@ -270,25 +272,26 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 {
   // The request is complete and data has been received
   // You can parse the stuff in your instance variable now
-  //NSLog(@"%@", @"Did finish loading.");
+
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSError *parseError;
   NSDictionary *resultsFromJSON = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&parseError];
-  //NSLog(@"%@", json);
 
   NSArray *bookArray = resultsFromJSON[@"Books"];
-  NSString *this_book = bookArray[0];
-  //NSLog(@"%@", this_book);
+  NSDictionary *this_book = bookArray[0];
 
-  NSData *thisBookData = [this_book dataUsingEncoding:NSUTF8StringEncoding];
-  NSError *parseError2;
-  NSDictionary *json2 = [NSJSONSerialization JSONObjectWithData:thisBookData options:0 error:&parseError2];
-  NSDictionary *volumeInfo = json2[@"items"][0][@"volumeInfo"];
-  self.book.myTitle = volumeInfo[@"title"];
-  self.book.myAuthors = volumeInfo[@"authors"];
-  //NSString *authorsString = [authors componentsJoinedByString:@", "];
-  self.book.myDescription = volumeInfo[@"description"];
-  self.book.myImageURL = [NSURL URLWithString:volumeInfo[@"imageLinks"][@"thumbnail"]];
+  NSString *title = this_book[@"title"];
+  NSArray *authors = this_book[@"author"];
+  NSString *descr = this_book[@"description"];
+  NSURL *imageURL = [NSURL URLWithString:this_book[@"thumbnail"]];
+  NSString *isbn = this_book[@"isbn"];
+
+  self.book.myTitle = title;
+  self.book.myAuthors = authors;
+  self.book.myDescription = descr;
+  self.book.myImageURL = imageURL;
+  self.book.myISBN = isbn;
+
   [self updateUI];
 }
 

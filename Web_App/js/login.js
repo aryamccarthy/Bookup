@@ -20,14 +20,18 @@ $(document).ready( function() {
 window.onload = function() {
   if($('#loginerrors').data('err')) {
     var errtext = $('#loginerrors').data('err');
-    alert(errtext);
+    sweetAlert({
+      title: "Whoops.",
+      text: errtext,
+      type: "error",
+    });
   }
 };
 
 function checkIfUsernameTaken(email, password) {
   $.ajax({
     type: 'GET',
-    url: rootURL + '/' + 'userExists' + '?email=' + email,
+    url: rootURL + '/' + 'userExists' + '/' + email,
     dataType: "json",
     success: function (data) {
       console.log('got response');
@@ -60,7 +64,11 @@ function addUser(email, password) {
       }
     },
     error: function (request, status, error) {
-        alert(request.responseText);
+      sweetAlert({
+        title: "We're sorry--there was a problem.",
+        text: request.responseText,
+        type: "error",
+      });
     }
   });
 }

@@ -18,9 +18,9 @@
     <div class="cf">
     <fieldset class="cf">
       <!--<button id="previous">Previous</button>-->
-      <button id="add to list" onclick="addBookToReadingList()">Add to List</button>
-      <button id="already_read" onclick="overlay('rate_from_discovery')">Already Read</button>
-      <button id="next" onclick="">Next</button>
+      <button id="add_to_list">Add to List</button>
+      <button id="already_read">Already Read</button>
+      <button id="next">Next</button>
     </fieldset>
     </div>
   </section>
@@ -28,8 +28,8 @@
     <form>
       <h1>Help us get to know you and your preferences!</h1> 
       <h2> How would you rate this book?</h2>
-      <button class="discoveryratingbook" onclick="submitBookFeedback()" value="1">  <img src='img/like.png' alt='Like' /> </button>
-      <button class="discoveryratingbook"onclick="submitBookFeedback()" value="-1">  <img src='img/dislike.png' alt='Dislike' /> </button>
+      <button class="discoveryratingbook" id="likebutton" value="1">  <img src='img/like.png' alt='Like' /> </button>
+      <button class="discoveryratingbook" id="dislikebutton" value="-1">  <img src='img/dislike.png' alt='Dislike' /> </button>
     </form>
   </section>
   </div>

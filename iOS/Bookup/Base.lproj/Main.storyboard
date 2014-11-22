@@ -408,7 +408,6 @@
                     </view>
                     <connections>
                         <outlet property="emailText" destination="Y9k-Jr-z1t" id="Kau-B9-7xy"/>
-                        <outlet property="loginLabel" destination="tP8-ZR-MaG" id="9kc-by-HgB"/>
                         <outlet property="passwordText" destination="AFg-gg-mqE" id="6K2-fz-E7S"/>
                         <segue destination="TaB-hd-uLY" kind="presentation" identifier="login_success" id="v81-t8-6ZT"/>
                     </connections>

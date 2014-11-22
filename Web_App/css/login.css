@@ -1,5 +1,5 @@
 #login {
-  width: 216px;
+  width: 256px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -29,18 +29,28 @@ form#login li {
   float: right;
 }*/
 
+#login_body h3 {
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
 #login li:first-child {
   font-weight: bold;
   font-size: 1.1em;
 }
 
 form#login input[type='password'], form#login input[type='email'] {
-  width: 128px;
+  width: 176px;
   float: right;
+  font-size: 1em;
 }
 
 #login li:last-child {
   text-align: center;
+}
+
+button, input[type='submit'] {
+  font-size: 0.83333333em;
 }
 
 /*#login_button {

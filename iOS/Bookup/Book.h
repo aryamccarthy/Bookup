@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSArray *myAuthors;
 @property (strong, nonatomic) NSString *myDescription;
 @property (strong, nonatomic) NSURL *myImageURL;
+@property (strong, nonatomic) NSString *myISBN;
 -(NSString *) myAuthorsAsString;
 @end
