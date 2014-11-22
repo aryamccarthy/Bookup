@@ -58,7 +58,7 @@ $app->get('/getPopularBooks', function() {
             $books = array();
             while($row = $statement->fetch()) {
                 $book['title'] = $row['title'];
-                $book['author'] = $row['author'];
+                $book['author'] = rtrim($row['author'], ", ");
                 $book['description'] = $row['description'];
                 $book['isbn_num'] = $row['isbn_num'];
                 $book['thumbnail'] = $row['image_link'];
@@ -246,7 +246,7 @@ function getRandomBook() {
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
                         $book['title'] = $row['title'];
-                        $book['author'] = $row['author'];
+                        $book['author'] = rtrim($row['author'], ", ");
                         $book['description'] = $row['description'];
                         $book['isbn_num'] = $row['isbn_num'];
                         $book['thumbnail'] = $row['image_link'];
@@ -293,7 +293,7 @@ $app->get('/getReadingList/:email', function($email) {
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
                         $book['title'] = $row['title'];
-                        $book['author'] = $row['author'];
+                        $book['author'] = rtrim($row['author'], ", ");
                         $book['description'] = $row['description'];
                         $book['isbn_num'] = $row['isbn_num'];
                         $book['thumbnail'] = $row['image_link']; 
@@ -445,7 +445,7 @@ $app->get('/searchTest', function() {
         $books = array();
         while($row = $statement->fetch()) {
             $book['title'] = $row['title'];
-            $book['author'] = $row['author'];
+            $book['author'] = rtrim($row['author'], ", ");
             $book['description'] = $row['description'];
             $book['isbn'] = $row['isbn_num'];
             $book['thumbnail'] = $row['image_link'];
@@ -474,7 +474,7 @@ $app->get('/searchForBook', function() {
     if ($statement->execute()) {
         while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
             $book['title'] = $row['title'];
-            $book['author'] = $row['author'];
+            $book['author'] = rtrim($row['author'], ", ");
             $book['description'] = $row['description'];
             $book['isbn_num'] = $row['isbn_num'];
             $book['thumbnail'] = $row['image_link'];
