@@ -107,10 +107,10 @@ function getRecommendedBook(){
 		dataType: "json",
 		success: function (data) {
 			console.log(data);
-			var bookObjs = data.Books; 
+			var bookObjs = data.books; 
 			for(var i=0; i<bookObjs.length; i++){	
 				var title= bookObjs[i].title;
-				var author =bookObjs[i].author.join(', ');			
+				var author =bookObjs[i].author;			
 				var description =bookObjs[i].description;
 				var thumbnail=bookObjs[i].thumbnail;
 				var isbn=bookObjs[i].isbn;
@@ -130,13 +130,14 @@ function getPopularBooks(){
 		dataType: "json",
 		success: function (data) {
 			console.log(data);
-			var bookObjs = data.Books; 
+			var bookObjs = data.books; 
 			for(var i=0; i<bookObjs.length; i++){	
 				var title= bookObjs[i].title;
-				var author =bookObjs[i].author.join(', ');			
+				var author =bookObjs[i].author;			
 				var description =bookObjs[i].description;
 				var thumbnail=bookObjs[i].thumbnail;
 				var isbn=bookObjs[i].isbn;
+
 				var cover = new Image();
 				cover.src = thumbnail || "img/generic_book.jpg";
 				var newBook= new Book(title, author, cover,description,isbn);				 	
@@ -156,7 +157,7 @@ function getReadingList ()	{
 		url: rootURL + "/getReadingList/"+userEmail,
 		dataType: "json",
 		success: function (data) {
-			var bookObjs = data.Books; 
+			var bookObjs = data.books; 
 			console.log(data);
 			listBooks = [];
 			$("#list_books").html("");
@@ -169,7 +170,7 @@ function getReadingList ()	{
 				var titleToSelect;
 				for(var i=0; i<bookObjs.length; i++){	
 					var title= bookObjs[i].title;
-					var author =bookObjs[i].author.join(', ');			
+					var author =bookObjs[i].author;			
 					var description =bookObjs[i].description;
 					var thumbnail=bookObjs[i].thumbnail;
 					var isbn=bookObjs[i].isbn;
