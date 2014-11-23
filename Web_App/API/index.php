@@ -118,15 +118,16 @@ $app->get('/userExists/:email', function($email) {
 *	Last tested on 11/12/2014 at 9:08pm
 */
 
-$app->get('/validate/:email/:pass_hash', function($email, $password) {
+$app->get('/validate/:email/:password', function($email, $password) {
 	global $pdo;
 
-	$args [":email"] = $email;
-	$args [":pass_hash"] = $password;
+	$args [':email'] = $email;
+	$args [':password'] = $password;
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(email) AS count FROM Account
-			WHERE email = :email AND pass_hash = :pass_hash");
+		WHERE email = :email AND pass_hash = :password"
+	);
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -189,8 +190,8 @@ $app->get('/isNewUser/:email', function($email) {
 $app->post('/addUser', function() {
 	global $pdo;
 
-	$args [":email"] = $_POST['email'];
-	$args [":pass_hash"] = $_POST['pass_hash'];
+	$args [':email'] = $_POST['email'];
+	$args [':pass_hash'] = $_POST['password'];
 
 	$statement = $pdo->prepare(
 		"INSERT INTO Account (email, pass_hash)
@@ -391,7 +392,7 @@ $app->post('/removeBookFromReadingList', function() {
 	
 	$statement = $pdo->prepare(
 		"DELETE FROM ReadingList
-		WHERE email=:email AND isbn_num=:isbn;");
+		WHERE email=:email AND isbn_num=:isbn");
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -419,8 +420,8 @@ $app->post('/resetRatingsOfUser', function() {
 
 	$statement = $pdo->prepare(
 		"DELETE FROM Rating
-		WHERE email=:email;"
-		);
+		WHERE email=:email"
+	);
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
