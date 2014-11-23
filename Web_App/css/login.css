@@ -21,8 +21,8 @@ form#login {
 
 form#login li {
   display: block;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /*form#login input {
@@ -37,20 +37,38 @@ form#login li {
 #login li:first-child {
   font-weight: bold;
   font-size: 1.1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#login li:nth-child(2) {
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 form#login input[type='password'], form#login input[type='email'] {
   width: 176px;
   float: right;
   font-size: 1em;
+  border-radius: 5px;
 }
 
 #login li:last-child {
   text-align: center;
 }
 
-button, input[type='submit'] {
-  font-size: 0.83333333em;
+#login button, #login input[type='submit'] {
+  font-size: 1em;
+  background-color: rgb(128,232,148);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 32px;
+  width: 48%;
+}
+
+#login button:hover, #login input[type='submit']:hover {
+  background-color: rgb(112, 216, 132);
 }
 
 /*#login_button {
