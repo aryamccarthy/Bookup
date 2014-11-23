@@ -110,13 +110,9 @@
 {
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
   [self.refreshControl beginRefreshing];
-  NSLog(@"Do we die here?");
   dispatch_queue_t otherQ = dispatch_queue_create("Q", NULL);
-  NSLog(@"Or do we die here?");
   dispatch_async(otherQ, ^{
-    NSLog(@"Maybe we die here?");
     [self fetchBooks];
-    NSLog(@"Though perhaps here?");
     dispatch_async(dispatch_get_main_queue(), ^{
       [self.refreshControl endRefreshing];
       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
