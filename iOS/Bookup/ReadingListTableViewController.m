@@ -75,7 +75,7 @@
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSString *userEmail = [defaults objectForKey:@"userEmail"];
   NSLog(@"%@", userEmail);
-  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/API/index.php/getReadingList/%@", userEmail]];
+  NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://54.187.70.205/API/index.php/getReadingList/%@", userEmail]];
   NSError *error;
   NSData *json = [NSData dataWithContentsOfURL:url options:0 error:&error];
   if (!json) // This stops crashing that occurs when there is no network connection. Instead, it just stops trying and carries on with its little sofware life.

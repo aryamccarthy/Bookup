@@ -141,7 +141,7 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSString *userEmail = [defaults objectForKey:@"userEmail"];
   NSMutableURLRequest *request =
-  [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/API/index.php/getRecommendedBook/%@", userEmail]]
+  [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://54.187.70.205/API/index.php/getRecommendedBook/%@", userEmail]]
                           cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
                       timeoutInterval:10];
   [request setHTTPMethod:@"GET"];

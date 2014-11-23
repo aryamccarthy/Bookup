@@ -84,7 +84,7 @@
         }
         
         else {
-            NSString *get =[[NSString alloc] initWithFormat:@"http://localhost:8888/API/index.php/validate/%@/%@",[self.emailText text],[self.passwordText text]];
+            NSString *get =[[NSString alloc] initWithFormat:@"http://54.187.70.205/API/index.php/validate/%@/%@",[self.emailText text],[self.passwordText text]];
             NSLog(@"PostData: %@",get);
             
             NSMutableURLRequest *request =
