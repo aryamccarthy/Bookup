@@ -126,7 +126,7 @@ $app->get('/validate/:email/:password', function($email, $password) {
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(email) AS count FROM Account
-		WHERE email = :email AND pass_hash = :password"
+		WHERE email = :email AND password = :password"
 	);
 
 	if ($statement->execute($args)) {
@@ -191,11 +191,11 @@ $app->post('/addUser', function() {
 	global $pdo;
 
 	$args [':email'] = $_POST['email'];
-	$args [':pass_hash'] = $_POST['password'];
+	$args [':password'] = $_POST['password'];
 
 	$statement = $pdo->prepare(
 		"INSERT INTO Account (email, pass_hash)
-		VALUES (:email, :pass_hash)");
+		VALUES (:email, :password)");
 
 	if ($statement->execute($args)) {
 		$result['success'] = true;
