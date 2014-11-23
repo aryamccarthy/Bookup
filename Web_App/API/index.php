@@ -194,7 +194,7 @@ $app->post('/addUser', function() {
 	$args [':password'] = $_POST['password'];
 
 	$statement = $pdo->prepare(
-		"INSERT INTO Account (email, pass_hash)
+		"INSERT INTO Account (email, password)
 		VALUES (:email, :password)");
 
 	if ($statement->execute($args)) {
