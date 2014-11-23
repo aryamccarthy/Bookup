@@ -82,14 +82,14 @@
     return;
 
   NSDictionary *resultsFromJSON = [NSJSONSerialization JSONObjectWithData:json options:0 error:&error];
-  NSArray *bookArray = resultsFromJSON[@"Books"];
+  NSArray *bookArray = resultsFromJSON[@"books"];
   self.numberOfRows = [NSNumber numberWithInteger:[bookArray count]];// !!! IMPORTANT: update number of table rows so ANYTHING shows up.
   NSMutableArray *result = [NSMutableArray new];
   for (int i = 0; i < [bookArray count]; ++i) {
     NSDictionary *this_book = bookArray[i];
 
     NSString *title = this_book[@"title"];
-    NSArray *authors = this_book[@"author"];
+    NSArray *authors = [this_book[@"author"] componentsSeparatedByString:@", "];
     NSString *descr = this_book[@"description"];
     NSURL *imageURL = [NSURL URLWithString:this_book[@"thumbnail"]];
     NSString *isbn = this_book[@"isbn"];

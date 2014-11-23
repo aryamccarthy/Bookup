@@ -277,11 +277,11 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   NSError *parseError;
   NSDictionary *resultsFromJSON = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&parseError];
 
-  NSArray *bookArray = resultsFromJSON[@"Books"];
+  NSArray *bookArray = resultsFromJSON[@"books"];
   NSDictionary *this_book = bookArray[0];
 
   NSString *title = this_book[@"title"];
-  NSArray *authors = this_book[@"author"];
+  NSArray *authors = [this_book[@"author"] componentsSeparatedByString:@", "];
   NSString *descr = this_book[@"description"];
   NSURL *imageURL = [NSURL URLWithString:this_book[@"thumbnail"]];
   NSString *isbn = this_book[@"isbn"];
