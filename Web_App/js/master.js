@@ -36,7 +36,7 @@ $(document).ready( function() {
 		$("#removebutton").remove(); // Optional.
 		getReadingList();
 		$("#social span").attr({
-			st_url:"http://localhost:8888/index.php",
+			st_url:"http://54.187.70.205/",
 			st_title:"I just found a great book on Bookup!",
 			st_summary: "Bookup: try something new between the covers!"
 		});
@@ -65,7 +65,7 @@ var setupLoaded = false;
 var discoveryLoaded = false;
 var listLoaded = false;
 
-var rootURL= "http://localhost:8888/api/index.php";
+var rootURL= "./API/index.php";
 
 function checkForNewUser(){
 	$.ajax({
