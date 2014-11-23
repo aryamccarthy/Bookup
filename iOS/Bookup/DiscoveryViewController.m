@@ -96,26 +96,22 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
     NSURL *imageURL = self.book.myImageURL;    // grab the URL before we start (then check it below)
     dispatch_queue_t imageFetchQ = dispatch_queue_create("image fetcher", NULL);
     dispatch_async(imageFetchQ, ^{
-      NSLog(@"We /are/ executing this.");
       NSData *imageData = [[NSData alloc] initWithContentsOfURL:self.book.myImageURL];  // could take a while
       // UIImage is one of the few UIKit objects which is thread-safe, so we can do this here
       UIImage *image = [[UIImage alloc] initWithData:imageData];
       // check to make sure we are even still interested in this image (might have touched away)
       if (self.book.myImageURL == imageURL) {
-        NSLog(@"And this part?");
         // dispatch back to main queue to do UIKit work
         dispatch_async(dispatch_get_main_queue(), ^{
           if (image) {
             NSMutableParagraphStyle *paragrapStyle = NSMutableParagraphStyle.new;
             paragrapStyle.alignment                = NSTextAlignmentJustified;
             paragrapStyle.hyphenationFactor = 1.0f;
-            NSLog(@"GOT HERE.");
             NSDictionary *textAttributes = @{NSParagraphStyleAttributeName:paragrapStyle, NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1]};
             NSString *descr = self.book.myDescription; // Since we get malformed JSON ALL THE TIME.
             if (!descr)
               descr = @"";
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[@" \n" stringByAppendingString:descr] attributes:textAttributes];
-            NSLog(@"DID THIS");
             NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
             textAttachment.image = image;
             NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
@@ -182,9 +178,25 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   }
 }
 
+- (void)sendAddToReadingList {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *username =[defaults objectForKey:@"userEmail"];
+  NSString *isbn = self.book.myISBN;
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://54.187.70.205/API/index.php/addBookToReadingList"]];
+  request.HTTPMethod = @"POST";
+  [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+  NSString *stringData = [NSString stringWithFormat:@"email=%@&isbn=%@", username, isbn];
+  NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
+  request.HTTPBody = requestBodyData;
+  [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError){
+    NSLog(@"Post error? %@", connectionError);
+  }];
+}
+
 - (IBAction)addCurrentToReadingList:(UIBarButtonItem *)sender
 {
   [self preventReAddingToList];
+  [self sendAddToReadingList];
   [self showAddFeedback];
 }
 
@@ -196,14 +208,10 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
     self.authorLabel.textColor = [UIColor purpleColor];
   } completion:nil];
   NSString *title = self.titleLabel.text; // Save this.
-  NSLog(@"Going to another thread.");
   dispatch_queue_t pause_queue = dispatch_queue_create("timer", NULL);
   dispatch_async(pause_queue, ^{
-    NSLog(@"About to wait.");
     [NSThread sleepForTimeInterval:1.5f];
-    NSLog(@"Waited");
     dispatch_async(dispatch_get_main_queue(), ^{
-      NSLog(@"Resetting.");
       if (self.titleLabel.text == title) { // If we still care about the same book...
         [UIView transitionWithView:self.authorLabel duration:0.3f options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
           self.authorLabel.text = text; //Reset.
@@ -278,13 +286,14 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   NSDictionary *resultsFromJSON = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&parseError];
 
   NSArray *bookArray = resultsFromJSON[@"books"];
-  NSDictionary *this_book = bookArray[0];
+  NSDictionary *this_book = [bookArray firstObject];
 
   NSString *title = this_book[@"title"];
   NSArray *authors = [this_book[@"author"] componentsSeparatedByString:@", "];
   NSString *descr = this_book[@"description"];
   NSURL *imageURL = [NSURL URLWithString:this_book[@"thumbnail"]];
   NSString *isbn = this_book[@"isbn"];
+  NSLog(@"%@", this_book);
 
   self.book.myTitle = title;
   self.book.myAuthors = authors;
