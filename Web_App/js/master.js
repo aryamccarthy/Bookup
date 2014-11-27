@@ -302,12 +302,8 @@ function generateHTMLForDiscoveryPage(Book){
 	$("#book_description").html(Book.description || "");
 	$("#book_cover").attr("src", Book.cover.src);
 	var addButton = $("#add_to_list");
-	isbn = Book.isbn;
-	addButton.click(function() {
-		addBookToReadingList(Book.isbn);
-		disableAddButton();
-		giveListAddConfirmation();
-	});
+	var isbn = Book.isbn;
+	addButton.attr("onclick", "addBookToReadingList("+isbn+"); disableAddButton(); giveListAddConfirmation();");
 	$("#likebutton").attr("onclick", "submitBookFeedback(1,"+Book.isbn+")");
 	$("#dislikebutton").attr("onclick", "submitBookFeedback(-1,"+Book.isbn+")");
 }
