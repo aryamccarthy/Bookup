@@ -339,9 +339,11 @@ function generateHTMLForReadingList(Book, index){
 	delete_listing.innerHTML=" ✖";
 	//delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
 	//TODO: re-add above line if rest of this block fails.
-	$(delete_listing).click(function() {
-		handleRatingAndDeleting(index);
-	});
+	// $(delete_listing).click(function() {
+	// 	handleRatingAndDeleting(index);
+	// });
+
+	delete_listing.setAttribute("onclick", "handleRatingAndDeleting("+index+");");
 
 	listing.innerHTML=Book.title;
 	listing.setAttribute("onclick", "showReadingListBook(this.title)");
