@@ -167,9 +167,9 @@ $app->post('/addUser', function() {
 *	Get a recommended Book from FB
 *
 *	owner: Luke Oglesbee
-*	status: Hollow (calls getrandombook)
+*	status: Development
 *
-*	Last tested by Luke on 11/12/2014
+*	Not tested
 */
 
 $app->get('/getRecommendedBook/:email', function($email) {
@@ -199,10 +199,6 @@ $app->get('/getRecommendedBook/:email', function($email) {
 				$max_isbn = $isbn;
 				$max_guess = $guess;
 			}
-			echo $isbn;
-			echo '-';
-			echo $guess;
-			echo ', ';
 		}
 		$result['success'] = True;
 		$result['isbn'] = $max_isbn;
