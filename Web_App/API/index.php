@@ -173,7 +173,44 @@ $app->post('/addUser', function() {
 */
 
 $app->get('/getRecommendedBook/:email', function($email) {
-	getRandomBook();
+	global $pdo;
+	$args[':email'] = $email;
+
+	$statement = $pdo->prepare(
+		"SELECT BL.isbn_num
+		FROM BookList BL
+		LEFT JOIN (
+			SELECT isbn_num
+			FROM Rating
+			WHERE email=:email
+		) AS R
+		ON BL.isbn_num = R.isbn_num
+		WHERE R.isbn_num is NULL;");
+
+	if ($statement->execute($args)) {
+		$books = array();
+		$max_isbn = null;
+		$max_guess = -1;
+		while ($row = $statement->fetch()) {
+			$isbn = $row['isbn_num'];
+			$recCheck = recCheck($email, $isbn);
+			$guess = $recCheck['guess']+0.0;
+			if ($guess > $max_guess) {
+				$max_isbn = $isbn;
+				$max_guess = $guess;
+			}
+			echo $isbn;
+			echo '-';
+			echo $guess;
+			echo ', ';
+		}
+		$result['success'] = True;
+		$result['isbn'] = $max_isbn;
+		$result['guess'] = $max_guess;
+	} else {
+		$result['success'] = False;
+	}
+	print json_encode($result);
 });
 
 /*
@@ -360,6 +397,11 @@ $app->post('/submitBookFeedback', function() {
 */
 
 $app->get('/recCheck/:email/:isbn', function($email, $isbn) {
+	$result = recCheck($email, $isbn);
+	print json_encode($result);
+});
+
+function recCheck($email, $isbn) {
 	global $pdo;
 
 	$args[":email"] = $email;
@@ -411,8 +453,8 @@ $app->get('/recCheck/:email/:isbn', function($email, $isbn) {
 		$result["guess"] = ($numer/$denom);
 	}
 
-	echo json_encode($result);
-});
+	return $result;
+}
 
 /*
 *	Rate (SubmitBookFeedback)
