@@ -162,10 +162,15 @@ function getReadingList ()	{
 			listBooks = [];
 			$("#list_books").html("");
 			if (bookObjs.length === 0) {
+				$("#list_title").empty();
+				$("#list_cover").remove();
+				$("#list_author").empty();
+				$("#list_description").empty();
 				$('#this_book button').remove();
 				$('#this_book article').css('text-align', 'center');
 				$('#this_book h2').css('font-weight', 'normal').css('margin-top', '170px').css({'position':'relative', 'left': '-100px'}).text("You have nothing in your reading list.");
 				$('#list_books').append($('<img>').attr('src', 'img/generic_book.jpg').css('height', '200px').css('cursor', 'pointer'));
+     
 			} else {
 				var titleToSelect;
 				for(var i=0; i<bookObjs.length; i++){	
