@@ -9,11 +9,12 @@ require 'vendor/autoload.php';
 $host = 'localhost';
 $user = 'root';
 $pass = 'root';
+$dbname = 'Recommender';
 
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=RecommenderTest", "$user", "$pass");
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", "$user", "$pass");
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -185,14 +186,22 @@ $app->get('/getRecommendedBook/:email', function($email) {
 			WHERE email=:email
 		) AS R
 		ON BL.isbn_num = R.isbn_num
-		WHERE R.isbn_num is NULL;");
+		LEFT JOIN (
+			SELECT isbn_num
+			FROM BookSeen
+			WHERE email=:email AND timestamp >= NOW() - INTERVAL 1 DAY
+		) as B
+		ON BL.isbn_num = B.isbn_num
+		WHERE R.isbn_num is NULL AND B.isbn_num is NULL
+		ORDER BY rand();");
 
 	if ($statement->execute($args)) {
-		$books = array();
 		$max_isbn = null;
 		$max_guess = -1;
 		while ($row = $statement->fetch()) {
 			$isbn = $row['isbn_num'];
+			echo $isbn;
+			echo "</br>";
 			$recCheck = recCheck($email, $isbn);
 			$guess = $recCheck['guess']+0.0;
 			if ($guess > $max_guess) {
@@ -206,7 +215,42 @@ $app->get('/getRecommendedBook/:email', function($email) {
 	} else {
 		$result['success'] = False;
 	}
-	print json_encode($result);
+
+	// If recommendation isn't good, return a random book...
+
+	$args[':isbn'] = $max_isbn;
+	$statement = $pdo->prepare(
+		"INSERT INTO BookSeen(email, timestamp, isbn_num)
+		VALUES(:email, NOW(), :isbn);");
+	if ($statement->execute($args)) {
+		$result['success'] = True;
+	} else {
+		$result['success'] = False;
+	}
+	echo json_encode($result);
+});
+
+/*
+*	Reset BookSeen for a user
+*
+*	owner: Luke Oglesbee
+*	status: Development
+*
+*	Not tested by no one never.
+*/
+
+$app->get('/resetBookSeen/:email', function($email) {
+	global $pdo;
+	$args[':email'] = $email;
+	$statement = $pdo->prepare(
+		"DELETE FROM BookSeen
+		WHERE email=:email;");
+	if ($statement->execute($args)) {
+		$result['success'] = True;
+	} else {
+		$result['success'] = False;
+	}
+	echo json_encode($result);
 });
 
 /*
@@ -258,7 +302,6 @@ function getRandomBook() {
 	}
 
 	echo json_encode($result);
-
 }
 
 /*
@@ -424,8 +467,8 @@ function recCheck($email, $isbn) {
 		$rating = $row["rating"];
 		# Get the number of times k and j have both been rated by the same user
 		$statement2 = $pdo->prepare(
-			"SELECT d.count, d.sum
-			FROM dev d
+			"SELECT c.count, c.sum
+			FROM Compare c
 			WHERE isbn_num1=$k AND isbn_num2=$j;");
 		if ($statement2->execute($args)) {
 			$result["success"] = true;
@@ -444,7 +487,7 @@ function recCheck($email, $isbn) {
 		}
 	}
 	if ($denom == 0) {
-		$result["guess"] = 0;
+		$result["guess"] = NULL;
 	} else {
 		$result["guess"] = ($numer/$denom);
 	}
@@ -502,7 +545,7 @@ $app->post('/rate', function() {
 			continue;
 		}
 		$statement2 = $pdo->prepare(
-			"INSERT INTO dev VALUES (:isbn, :otherIsbn, 1, :ratingDifference)
+			"INSERT INTO Compare VALUES (:isbn, :otherIsbn, 1, :ratingDifference)
 			ON DUPLICATE KEY UPDATE count=count+1, sum=sum+:ratingDifference;");
 		if ($statement2->execute($args)) {
 			$result["success"] = true;
@@ -513,7 +556,7 @@ $app->post('/rate', function() {
 			return;
 		}
 		$statement2 = $pdo->prepare(
-			"INSERT INTO dev VALUES (:otherIsbn, :isbn, 1, :ratingDifference)
+			"INSERT INTO Compare VALUES (:otherIsbn, :isbn, 1, :ratingDifference)
 			ON DUPLICATE KEY UPDATE count=count+1, sum=sum+:ratingDifference;");
 		if ($statement2->execute($args)) {
 			$result["success"] = true;

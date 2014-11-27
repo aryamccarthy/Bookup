@@ -7,9 +7,9 @@
 -- Notes: removed new_user from account
 
 -- create database
-DROP DATABASE IF EXISTS BookUp;
-CREATE DATABASE BookUp;
-USE BookUp;
+DROP DATABASE IF EXISTS Recommender;
+CREATE DATABASE Recommender;
+USE Recommender;
 
 
 
@@ -64,40 +64,41 @@ CREATE TABLE IF NOT EXISTS ReadingList(
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
-
-
 DROP TABLE IF EXISTS BookSeen;
-
 CREATE TABLE IF NOT EXISTS BookSeen(
     email  VARCHAR(30),
-    rating      INT,
     timestamp   DATETIME,
     isbn_num    VARCHAR(15),
-    PRIMARY KEY(email,isbn_num),
+    PRIMARY KEY(email,timestamp,isbn_num),
     FOREIGN KEY(email) REFERENCES Account(email),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
-
-
+-- Recommender stuff
 DROP TABLE IF EXISTS BookHash;
-
 CREATE TABLE IF NOT EXISTS BookHash(
     isbn_num    VARCHAR(15),
     hash_val    INT,
-    PRIMARY KEY(hash_val), -- This seems like a mistake.
-    -- If the hash_val is intended to bucket data, then it can't be unique.
-    -- Unique hash_val forces fill of buckets with single elements.
+    PRIMARY KEY(isbn_num, hash_val),
     FOREIGN KEY(isbn_num) REFERENCES BookList(isbn_num)
 );
 
-
-
 DROP TABLE IF EXISTS AccountHash;
-
 CREATE TABLE IF NOT EXISTS AccountHash(
     email  VARCHAR(30),
     hash_val    INT,
-    PRIMARY KEY(hash_val), -- This also seems like a mistake. See above.
+    PRIMARY KEY(email, hash_val),
     FOREIGN KEY(email) REFERENCES Account(email)
 ); 
+
+DROP TABLE IF EXISTS Comparison;
+CREATE TABLE Compare(
+    isbn_num1 VARCHAR(15) NOT NULL,
+    isbn_num2 VARCHAR(15) NOT NULL,
+    count INTEGER(11) NOT NULL,
+    sum INTEGER(11) NOT NULL,
+    PRIMARY KEY(isbn_num1,  isbn_num2),
+    FOREIGN KEY(isbn_num1) REFERENCES BookList(isbn_num),
+    FOREIGN KEY(isbn_num2) REFERENCES BookList(isbn_num)
+);
+
