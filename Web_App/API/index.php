@@ -3,17 +3,18 @@
 // Datbase information
 // Put your stuff here
 
+include './FireBase_Connections/firebaseIsbnLookup.php';
 require 'vendor/autoload.php';
 
 $host = '54.69.55.132';
 $user = 'test';
 $pass = 'Candles';
+$dbname = 'BookUpv3';
 
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=BookUpv3", "$user", "$pass");
-    # echo "connected to db";
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", "$user", "$pass");
 } 
 catch (PDOException $e) {
     $response = "Failed to connect: ";
@@ -208,20 +209,101 @@ $app->post('/addUser', function() {
 });
 
 /*
-*	Get a recommended Book from FB
+*	Get a recommended Book
 *
 *	owner: Luke Oglesbee
-*	status: Hollow (calls getrandombook)
+*	status: Development
 *
-*	Last tested by Luke on 11/12/2014
+*	Not tested
 */
 
 $app->get('/getRecommendedBook/:email', function($email) {
-	getRandomBook();
+	global $pdo;
+	$args[':email'] = $email;
+
+	$statement = $pdo->prepare(
+		"SELECT BL.isbn_num, title, author, description, image_link
+        FROM BookList_Good BL
+        LEFT JOIN (
+            SELECT isbn_num
+            FROM Rating
+            WHERE email=:email
+        ) AS R
+        ON BL.isbn_num = R.isbn_num
+        LEFT JOIN (
+            SELECT isbn_num
+            FROM BookSeen
+            WHERE email=:email AND timestamp >= NOW() - INTERVAL 1 DAY
+        ) as B
+        ON BL.isbn_num = B.isbn_num
+        WHERE R.isbn_num is NULL AND B.isbn_num is NULL;");
+
+	if ($statement->execute($args)) {
+		$max_isbn = null;
+		$max_guess = -1;
+        $book = null;
+		while ($row = $statement->fetch()) {
+			$isbn = $row['isbn_num'];
+            $book = rowToSpecJson($row);
+			$recCheck = recCheck($email, $isbn);
+			$guess = $recCheck['guess']+0.0;
+			if ($guess > $max_guess) {
+				$max_isbn = $isbn;
+				$max_guess = $guess;
+			}
+		}
+		if ($book == null) {
+			// User has seend every book in the DB in the past 24 hours.
+			// TODO: reset BookSeen for that user
+		}
+		$result['success'] = True;
+		$result['books'] = array($book);
+		$result['guess'] = $max_guess;
+	} else {
+		$result['success'] = False;
+        $result["error"] = $statement->errorInfo();
+        echo json_encode($result);
+        return;
+	}
+
+	$args[':isbn'] = $max_isbn;
+	$statement = $pdo->prepare(
+		"INSERT INTO BookSeen(email, timestamp, isbn_num)
+		VALUES(:email, NOW(), :isbn)  ;");
+	if ($statement->execute($args)) {
+		$result['success'] = True;
+	} else {
+		$result['success'] = False;
+        $result['error'] = $statement->errorInfo();
+	}
+	echo json_encode($result);
 });
 
 /*
-*	Get a Random Book from FB
+*	Reset BookSeen for a user
+*
+*	owner: Luke Oglesbee
+*	status: Development
+*
+*	Not tested by no one never.
+*/
+
+$app->get('/resetBookSeen/:email', function($email) {
+	global $pdo;
+	$args[':email'] = $email;
+	$statement = $pdo->prepare(
+		"DELETE FROM BookSeen
+		WHERE email=:email;");
+	if ($statement->execute($args)) {
+		$result['success'] = True;
+	} else {
+		$result['success'] = False;
+	}
+	echo json_encode($result);
+});
+
+/*
+*	Get a Random Book
 *	
 *	owner: Danny Rizzuto
 *	status: Working
@@ -245,24 +327,18 @@ function getRandomBook() {
                 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-                        $book['title'] = $row['title'];
-                        $book['author'] = $row['author'];
-                        $book['description'] = $row['description'];
-                        $book['isbn_num'] = $row['isbn_num'];
-                        $book['thumbnail'] = $row['image_link'];
-                        array_push($books, $book);	
+            array_push($books, rowToSpecJson($row));	
 		}
-                $result['books'] = $books; 
+        $result['books'] = $books; 
 		$result['success'] = true;
 	}
 	else {
-                $result['books'] = array();
+        $result['books'] = array();
 		$result["success"] = false;
 		$result["error"] = $statement->errorInfo();
 	}
 
 	echo json_encode($result);
-
 }
 
 /*
@@ -292,12 +368,7 @@ $app->get('/getReadingList/:email', function($email) {
 
 		while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC))
 		{
-                        $book['title'] = $row['title'];
-                        $book['author'] = $row['author'];
-                        $book['description'] = $row['description'];
-                        $book['isbn_num'] = $row['isbn_num'];
-                        $book['thumbnail'] = $row['image_link']; 
-			array_push($books, $book);
+			array_push($books, rowToSpecJson($row));
 		} 
 		$result['books'] = $books;
 		$result['success'] = true;
@@ -328,7 +399,7 @@ $app->post('/addBookToReadingList', function() {
 
 
 	$statement = $pdo->prepare(
-            'INSERT INTO ReadingList VALUES
+        'INSERT INTO ReadingList VALUES
 	    (:email, NOW(), :isbn)'
 	);
 
@@ -344,12 +415,24 @@ $app->post('/addBookToReadingList', function() {
 });
 
 /*
-*	Add a book and user rating to Rating
-*	
-*	owner: Luke Oglesbee
-*	status: Working
+*	Reccomendation Check (Test function)
 *
-*	Last tested by Luke on 11/2/2014 at 2:38pm
+*	Luke Oglesbee
+*	Development (not done)
+*/
+
+$app->get('/recCheck/:email/:isbn', function($email, $isbn) {
+	$result = recCheck($email, $isbn);
+	print json_encode($result);
+});
+
+/*
+*	Submit Book Feedback
+*
+*	Luke Oglesbee
+*	Develpment (testing)
+*
+*	Last tested by Luke on 11/19/14
 */
 
 $app->post('/submitBookFeedback', function() {
@@ -359,20 +442,63 @@ $app->post('/submitBookFeedback', function() {
 	$args[':rating'] = $_POST['rating'];
 	$args[':isbn'] = $_POST['isbn'];
 
+	# Insert New Rating
 	$statement = $pdo->prepare(
 		"INSERT INTO Rating(email, rating, timestamp, isbn_num) VALUES 
-		(:email, :rating, NOW(), :isbn)
-		ON DUPLICATE KEY
-		UPDATE rating=VALUES(rating)");
+		(:email, :rating, NOW(), :isbn);");
+	if ($statement->execute($args)) {
+		$result["success"] = true;
+	} else {
+		$result["success"] = false;
+		$result["error"] = $statement->errorInfo();
+		echo json_encode($result);
+		return;
+	}
+
+	# Update dev table...
+	$statement = $pdo->prepare(
+		"SELECT DISTINCT r.isbn_num, r2.rating - r.rating as ratingDifference
+		FROM Rating r, Rating r2
+		WHERE r.email = :email AND r2.isbn_num = :isbn AND r2.email = :email;");
 	if ($statement->execute($args)) {
 		$result["success"] = true;
 	} else {
 		$result["success"] = false;
 		$result["error"] = $statement->errorInfo();
 	}
-	
+	unset($args[":email"]);
+	unset($args[":rating"]);
+	while($row = $statement->fetch()) {
+		$args[":otherIsbn"] = $row["isbn_num"];
+		$args[":ratingDifference"] = $row["ratingDifference"];
+		
+		if ($args[":isbn"] == $args[":otherIsbn"]) {
+			continue;
+		}
+		$statement2 = $pdo->prepare(
+			"INSERT INTO Compare VALUES (:isbn, :otherIsbn, 1, :ratingDifference)
+			ON DUPLICATE KEY UPDATE count=count+1, sum=sum+:ratingDifference;");
+		if ($statement2->execute($args)) {
+			$result["success"] = true;
+		} else {
+			$result["success"] = false;
+			$result["error"] = $statement2->errorInfo();
+			echo json_encode($result);
+			return;
+		}
+		$statement2 = $pdo->prepare(
+			"INSERT INTO Compare VALUES (:otherIsbn, :isbn, 1, :ratingDifference)
+			ON DUPLICATE KEY UPDATE count=count+1, sum=sum+:ratingDifference;");
+		if ($statement2->execute($args)) {
+			$result["success"] = true;
+		} else {
+			$result["success"] = false;
+			$result["error"] = $statement2->errorInfo();
+			echo json_encode($result);
+			return;
+		}
+	}
 	echo json_encode($result);
-
 });
 
 /*
@@ -383,6 +509,7 @@ $app->post('/submitBookFeedback', function() {
 *	
 *	Last tested by Luke on 11/2/2014 at 1:50pm
 */
+
 $app->post('/removeBookFromReadingList', function() {
 	global $pdo;
 
@@ -444,12 +571,7 @@ $app->get('/searchTest', function() {
     if ($statement->execute()) {
         $books = array();
         while($row = $statement->fetch()) {
-            $book['title'] = $row['title'];
-            $book['author'] = $row['author'];
-            $book['description'] = $row['description'];
-            $book['isbn'] = $row['isbn_num'];
-            $book['thumbnail'] = $row['image_link'];
-            array_push($books, $book);
+            array_push($books, rowToSpecJson($row));
         }
         $result['books'] = $books;
         $result['success'] = true;
@@ -473,12 +595,7 @@ $app->get('/searchForBook', function() {
 
     if ($statement->execute()) {
         while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
-            $book['title'] = $row['title'];
-            $book['author'] = $row['author'];
-            $book['description'] = $row['description'];
-            $book['isbn_num'] = $row['isbn_num'];
-            $book['thumbnail'] = $row['image_link'];
-            array_push($books, $book);
+            array_push($books, rowToSpecJson($row));
         }
         $result['books'] = $books;
         $result['success'] = true;
@@ -490,11 +607,123 @@ $app->get('/searchForBook', function() {
    }
    return json_encode($books);
 });
-        
+       
+/**************************************************
+*   Helper functions
+***************************************************/
+
+function rowToSpecJson($row) {
+    /*
+    *   Convert a row of a Booklist to spec array
+    *
+    *   creator: Luke Oglesbee
+    *   status: working
+    */
+    $book = array();
+    $book['title'] = $row['title'];
+    $book['author'] = $row['author'];
+    $book['description'] = $row['description'];
+    $book['isbn_num'] = $row['isbn_num'];
+    $book['thumbnail'] = $row['image_link'];
+    return $book;
+}
+
+function firebaseJsonToSpecJson($fire, $isbn=null) {
+    /*
+    *   Converts firebase JSON to spec JSON
+    *
+    *   owner: Luke Oglesbee
+    *   status: working
+    */
+	$fire = json_decode($fire, $assoc=true);
+	if ($fire["totalItems"] < 1) {
+		return null;
+	}
+	$fire = $fire["items"][0];
+	$prettyBook["title"] = (empty($fire["volumeInfo"]["title"]) ? null : $fire["volumeInfo"]["title"]);
+	$prettyBook["author"] = (empty($fire["volumeInfo"]["authors"]) ? null : $fire["volumeInfo"]["authors"]);
+	$prettyBook["description"] = (empty($fire["volumeInfo"]["description"]) ? null : $fire["volumeInfo"]["description"]);
+	$prettyBook["isbn"] = null;
+	if ($isbn) {
+		$prettyBook["isbn"] = $isbn;
+	} else {
+		foreach ($fire["volumeInfo"]["industryIdentifiers"] as $isbn) {
+			if ($isbn["type"] == "ISBN_13") {
+				$prettyBook["isbn"] = (empty($isbn["identifier"]) ? null : $isbn["identifier"]);
+				break;
+			}
+		}
+	}
+	$prettyBook["thumbnail"] = (empty($fire["volumeInfo"]["imageLinks"]["thumbnail"])) ? null : $fire["volumeInfo"]["imageLinks"]["thumbnail"];
+	return $prettyBook;
+}
+
+function recCheck($email, $isbn) {
+    /*
+    *   Gets the recommenders guess for how a user would rate a book
+    *
+    *   owner: Luke Oglesbee
+    *   status: Development
+    *
+    *   Not tested
+    */
+    global $pdo;
+
+    $args[":email"] = $email;
+    $args[":isbn"] = $isbn;
+    $denom = 0.0;
+    $numer = 0.0;
+    $k = $isbn;
+
+    $statement = $pdo->prepare(
+        "SELECT r.isbn_num, r.rating
+        FROM Rating r
+        WHERE r.email=:email AND r.isbn_num<>:isbn;");
+    if ($statement->execute($args)) {
+        $result["success"] = true;
+    } else {
+        $result["success"] = false;
+        $result["error"] = $statement->errorInfo();
+        echo json_encode($result);
+        return;
+    }
+
+    while($row = $statement->fetch()) {
+        $j = $row["isbn_num"];
+        $rating = $row["rating"];
+        # Get the number of times k and j have both been rated by the same user
+        $statement2 = $pdo->prepare(
+            "SELECT c.count, c.sum
+            FROM Compare c
+            WHERE isbn_num1=$k AND isbn_num2=$j;");
+        if ($statement2->execute($args)) {
+            $result["success"] = true;
+        } else {
+            $result["success"] = false;
+            $result["error"] = $statement2->errorInfo();
+            echo json_encode($result);
+            return;
+        }
+        while ($res = $statement2->fetch()) {
+            $count = $res["count"];
+            $sum = $res["sum"];
+            $average = $sum / $count;
+            $denom += $count;
+            $numer += $count * ($average + $rating);
+        }
+    }
+    if ($denom == 0) {
+        $result["guess"] = NULL;
+    } else {
+        $result["guess"] = ($numer/$denom);
+    }
+
+    return $result;
+}
+
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
 //
-
 
 $app->run();
 ?>
