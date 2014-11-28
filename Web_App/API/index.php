@@ -4,6 +4,7 @@
 // Put your stuff here
 
 include './FireBase_Connections/firebaseIsbnLookup.php';
+include 'recommender.php';
 require 'vendor/autoload.php';
 
 $host = 'localhost';
@@ -165,7 +166,7 @@ $app->post('/addUser', function() {
 });
 
 /*
-*	Get a recommended Book from FB
+*	Get a recommended Book
 *
 *	owner: Luke Oglesbee
 *	status: Development
@@ -200,8 +201,6 @@ $app->get('/getRecommendedBook/:email', function($email) {
 		$max_guess = -1;
 		while ($row = $statement->fetch()) {
 			$isbn = $row['isbn_num'];
-			echo $isbn;
-			echo "</br>";
 			$recCheck = recCheck($email, $isbn);
 			$guess = $recCheck['guess']+0.0;
 			if ($guess > $max_guess) {
@@ -209,14 +208,16 @@ $app->get('/getRecommendedBook/:email', function($email) {
 				$max_guess = $guess;
 			}
 		}
+		if ($max_isbn == NULL) {
+			// User has seend every book in the DB in the past 24 hours.
+			// TODO: reset BookSeen for that user
+		}
 		$result['success'] = True;
 		$result['isbn'] = $max_isbn;
 		$result['guess'] = $max_guess;
 	} else {
 		$result['success'] = False;
 	}
-
-	// If recommendation isn't good, return a random book...
 
 	$args[':isbn'] = $max_isbn;
 	$statement = $pdo->prepare(
@@ -638,6 +639,10 @@ $app->get('/fixingJson/:isbn', function($isbn) {
     $prettyBook = firebaseJsonToSpecJson($bookObject);
     echo json_encode($prettyBook);
 });
+
+/*
+*   Helper functions
+*/
 
 function firebaseJsonToSpecJson($fire, $isbn=null) {
 	$fire = json_decode($fire, $assoc=true);
