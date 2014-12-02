@@ -12,7 +12,7 @@ $pass = 'Candles';
 // Get DB connection
 $app = new \Slim\Slim();
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=BookUpv3", "$user", "$pass");
+    $pdo = new PDO("mysql:host=$host;dbname=BookUpv4", "$user", "$pass");
     # echo "connected to db";
 } 
 catch (PDOException $e) {
