@@ -52,7 +52,7 @@ $app->get('/getPopularBooks', function() {
             WHERE language = :lang"
         );
         $lang = 'en';
-        $statement->bindParam(':lang',$lang);
+        $statement->bindParam(':lang', $lang);
 
 	if ($statement->execute()) {
             $books = array();
@@ -72,8 +72,8 @@ $app->get('/getPopularBooks', function() {
               $result['success'] = false;
 	      $result['error'] =$statement->errorInfo();
 	}
-     
-    echo json_encode($result);
+    
+        echo json_encode($result);
 });
 
 /*
