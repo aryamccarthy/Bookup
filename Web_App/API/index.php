@@ -329,8 +329,9 @@ $app->post('/addBookToReadingList', function() {
 
 
 	$statement = $pdo->prepare(
-            'INSERT INTO ReadingList VALUES
-	    (:email, NOW(), :isbn)'
+            'INSERT INTO ReadingList(email, timestamp, isbn_num) VALUES
+	    (:email, NOW(), :isbn)
+            ON DUPLICATE KEY UPDATE timestamp = NOW()'
 	);
 
 	if ($statement->execute($args)) {

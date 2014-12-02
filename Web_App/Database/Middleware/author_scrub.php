@@ -75,7 +75,10 @@ function pullAuthorInfo($host, $dbname, $username, $password) {
     }
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $dbh->prepare(
-        "SELECT author, isbn_num FROM BookList_Good");
+        "SELECT author, isbn_num FROM BookList_Good WHERE title = :title"
+    );
+    $title = "The Odyssey";
+    $stmt->bindParam(':title', $title);
     if ($stmt->execute()) {
         $auths = array();
         while ($row = $stmt->fetch()) {
