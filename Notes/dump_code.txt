@@ -1,0 +1,1 @@
+mysqldump -u zfout -h 54.69.55.132 -pForkusmaximus1 Db_Name > Dump_Name
