@@ -12,6 +12,6 @@
  * DB_PASS: the password of the above user
  */
 define("DB_HOST", "54.69.55.132");
-define("DB_NAME", "BookUpv3");
+define("DB_NAME", "BookUpv4");
 define("DB_USER", "test");
 define("DB_PASS", "Candles");
