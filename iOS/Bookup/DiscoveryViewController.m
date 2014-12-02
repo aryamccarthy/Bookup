@@ -25,9 +25,31 @@
 @implementation DiscoveryViewController
 
 typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
-  BookupPreferenceValueLike = -1,
-  BookupPreferenceValueDislike = 1
+  BookupPreferenceValueLike = 1,
+  BookupPreferenceValueDislike = -1
 };
+
+- (void)viewDidLoad {
+  [super viewDidLoad];
+  // Do any additional setup after loading the view.
+  //[self.tabBarController.tabBar setTintColor:[UIColor redColor]];
+  self.acceptsLongPress = YES;
+  [self getABook];
+  [self.descriptionTextView setContentInset:UIEdgeInsetsMake(0, 0, self.toolbar.frame.size.height, 0)];
+}
+
+#pragma mark Property functions
+
+- (UIImageView *)bookCover {
+  if (!_bookCover)
+    _bookCover = [[UIImageView alloc] init];
+  return _bookCover;
+}
+
+- (Book *)book {
+  if (!_book) _book = [[Book alloc] init];
+  return _book;
+}
 
 - (IBAction)logout:(id)sender {
   UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Logout" message:@"Are you sure you want to log out of Bookup?" preferredStyle:UIAlertControllerStyleAlert];
@@ -46,33 +68,12 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (UIImageView *)bookCover {
-  if (!_bookCover)
-    _bookCover = [[UIImageView alloc] init];
-  return _bookCover;
-}
 
-- (Book *)book {
-  if (!_book) _book = [[Book alloc] init];
-  return _book;
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-  // Do any additional setup after loading the view.
-  //[self.tabBarController.tabBar setTintColor:[UIColor redColor]];
-  self.acceptsLongPress = YES;
-  [self getABook];
-  [self.descriptionTextView setContentInset:UIEdgeInsetsMake(0, 0, self.toolbar.frame.size.height, 0)];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)nextBook:(id)sender {
   [self getABook];
 }
+
+#pragma mark Updating the UI
 
 - (void) enableAllButtons {
   self.addButton.enabled = YES;
@@ -145,24 +146,7 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-- (IBAction)swipeLeft:(UISwipeGestureRecognizer *)sender {
-  [self dislike];
-  [self getABook];
-}
-- (IBAction)swipeRight:(id)sender {
-  NSLog(@"Swiped right!" );
-  [self like];
-  [self getABook];
-}
-- (IBAction)pressLike:(id)sender {
-  [self like];
-  [self getABook];
-}
-
-- (IBAction)pressDislike:(id)sender {
-  [self dislike];
-  [self getABook];
-}
+#pragma mark Adding to Reading List
 
 - (void)preventReAddingToList {
   self.addButton.enabled = NO;
@@ -176,21 +160,6 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
     [self preventReAddingToList];
     [self showAddFeedback];
   }
-}
-
-- (void)sendAddToReadingList {
-  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-  NSString *username =[defaults objectForKey:@"userEmail"];
-  NSString *isbn = self.book.myISBN;
-  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://54.187.70.205/API/index.php/addBookToReadingList"]];
-  request.HTTPMethod = @"POST";
-  [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-  NSString *stringData = [NSString stringWithFormat:@"email=%@&isbn=%@", username, isbn];
-  NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
-  request.HTTPBody = requestBodyData;
-  [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError){
-    NSLog(@"Post error? %@", connectionError);
-  }];
 }
 
 - (IBAction)addCurrentToReadingList:(UIBarButtonItem *)sender
@@ -222,6 +191,40 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   });
 }
 
+- (void)sendAddToReadingList {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *username =[defaults objectForKey:@"userEmail"];
+  NSString *isbn = self.book.myISBN;
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://54.187.70.205/API/index.php/addBookToReadingList"]];
+  request.HTTPMethod = @"POST";
+  [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+  NSString *stringData = [NSString stringWithFormat:@"email=%@&isbn=%@", username, isbn];
+  NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
+  request.HTTPBody = requestBodyData;
+  [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError){
+    NSLog(@"Post error? %@", connectionError);
+  }];
+}
+
+#pragma mark User Preference
+
+- (void)sendBookRating:(BookupPreferenceValue) preference {
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  NSString *username = [defaults objectForKey:@"userEmail"];
+  NSString *isbn = self.book.myISBN;
+  NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://54.187.70.205/API/index.php/submitBookFeedback"]];
+  request.HTTPMethod = @"POST";
+  [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+  NSString *stringData = [NSString stringWithFormat:@"email=%@&isbn=%@&rating=%ld", username, isbn, preference];
+  NSData *requestBodyData = [stringData dataUsingEncoding:NSUTF8StringEncoding];
+  request.HTTPBody = requestBodyData;
+  [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    NSError *error;
+    NSLog(@"data: %@", [NSJSONSerialization JSONObjectWithData:data options:0 error:&error]);
+    NSLog(@"Post error? %@", connectionError);
+  }];
+}
+
 - (void) showPreferenceFeedback:(BookupPreferenceValue) preference {
   NSString *feedback = @"?";
   UIColor *color = [UIColor blackColor];
@@ -238,15 +241,47 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 }
 
 - (void)dislike {
+  [self sendBookRating:BookupPreferenceValueDislike];
   [self showPreferenceFeedback:BookupPreferenceValueDislike];
 }
 
 - (void)like {
+  [self sendBookRating:BookupPreferenceValueLike];
   [self showPreferenceFeedback:BookupPreferenceValueLike];
 }
 
+- (IBAction)swipeLeft:(UISwipeGestureRecognizer *)sender {
+  [self dislike];
+  [self getABook];
+}
 
-#pragma mark - NSURLConnection Delegate Methods
+- (IBAction)swipeRight:(id)sender {
+  NSLog(@"Swiped right!" );
+  [self like];
+  [self getABook];
+}
+
+- (IBAction)pressLike:(id)sender {
+  [self like];
+  [self getABook];
+}
+
+- (IBAction)pressDislike:(id)sender {
+  [self dislike];
+  [self getABook];
+}
+
+#pragma mark Other
+
+- (IBAction)appInfo:(id)sender {
+  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Bookup for iPhone" message:@"\nCopyright © 2014.\n\nEthan Busbee\nKatherine Habeck\nArya McCarthy" preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Thanks, guys!" style:UIAlertActionStyleCancel handler:nil];
+  [alert addAction:cancel];
+  [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+#pragma mark NSURLConnection Delegate Methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
   // A response has been received, this is where we initialize the instance var you created
@@ -267,13 +302,6 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
                   willCacheResponse:(NSCachedURLResponse*)cachedResponse {
   // Return nil to indicate not necessary to store a cached response for this connection
   return nil;
-}
-
-- (IBAction)appInfo:(id)sender {
-  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Bookup for iPhone" message:@"\nCopyright © 2014.\n\nEthan Busbee\nKatherine Habeck\nArya McCarthy" preferredStyle:UIAlertControllerStyleAlert];
-  UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Thanks, guys!" style:UIAlertActionStyleCancel handler:nil];
-  [alert addAction:cancel];
-  [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
