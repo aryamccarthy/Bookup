@@ -155,6 +155,7 @@ function scrubAuthorNames($authorInfo) {
     return $scrubbedAuths;
 }
 
+# updates author info for particular db
 $authorInfo = scrubAuthorNames(pullAuthorInfo('54.69.55.132',
     'BookUpv4', 'test', 'Candles'));
 updateAuthorInfo($authorInfo, '54.69.55.132',
