@@ -1,8 +1,7 @@
 <?php
-
 Class SafePDO extends PDO {
     public static function exception_handler($exception) {
-        die('Uncaught exception: ', $exception->getMessage());
+        die ('Uncaught exception: ' . $exception->getMessage());
     }
 
     public function __construct($dsn, $username='', $password='',
@@ -13,40 +12,73 @@ Class SafePDO extends PDO {
     }
 }
 
-$host = '54.69.55.132';
-$user = 'test';
-$pass = 'Candles';
-$dbname = 'BookUpv3';
-
-function pullBookInfo($host, $port, $dbname, $username, $password) {
-    $dbh = new SafePDO("mysql:host=$host;port=$port;dbname=$dbname",
-        $username, $password);
+function pullBookInfo($host, $dbname, $username, $password) {
+    try {
+        $dbh = new SafePDO("mysql:host=$host;dbname=$dbname",
+            $username, $password);
+    } catch (PDOException $e) {
+          $response = "Failed to connect: ";
+          $response .= $e->getMessage();
+          die ($response);
+    }
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $dbh->prepare('SELECT * FROM BookList_Good');
-    $if ($stmt->execute()) {
+    if ($stmt->execute()) {
         $books = array();
         while ($row = $stmt->fetch(SafePDO::FETCH_ASSOC)) {
             $book['isbn_num'] = $row['isbn_num'];
-            $book['title' = $row['title'];
+            $book['title'] = $row['title'];
             $book['author'] = $row['author'];
             array_push($books, $book);
         }
     }
+    $dbh = null;
     return $books;
 }           
 
-function insertBookInfo($host, $port, $dbname, $username, $password) {
-    $dbh = new SafePDO("mysql:host=$host;port=$port;dbname=$dbname",
-        $username, $password);
-    $stmt = $dbh->prepare('');
+function insertBookInfo($books, $host, $dbname, $username, $password) {
+    try {
+        $dbh = new SafePDO("mysql:host=$host;dbname=$dbname",
+            $username, $password);
+    } catch (PDOException $e) {
+          $response = "Failed to connect: ";
+          $response .= $e->getMessage();
+          die ($response);
+    }
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $dbh->prepare(
+        'INSERT INTO BookList_Good(isbn_num, title, author) 
+        VALUES(:isbn, :title, :author)'
+    );
+    foreach ($books as $book) {
+        $stmt->bindValue(':isbn', $book['isbn_num']);
+        $stmt->bindValue(':title', $book['title']);
+        $stmt->bindValue(':author', $book['author']);
+        if ($stmt->execute()) {
+            echo 'successfully inserted values' . PHP_EOL;
+        } else {
+              $errorInfo = $dbh->errorInfo();
+              echo 'statement did not execute: ' . $errorInfo[2] . PHP_EOL;
+        }      
+    }
+    $dbh = null;
 }
 
-function pullAuthorInfo() {
-    global $pdo;
-    $statement = $pdo->prepare(
+function pullAuthorInfo($host, $dbname, $username, $password) {
+    try {
+        $dbh = new SafePDO("mysql:host=$host;dbname=$dbname",
+            $username, $password);
+    } catch (PDOException $e) {
+          $response = "Failed to connect: ";
+          $response .= $e->getMessage();
+          die ($response);
+    }
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $dbh->prepare(
         "SELECT author, isbn_num FROM BookList_Good");
-    if ($statement->execute()) {
+    if ($stmt->execute()) {
         $auths = array();
-        while ($row = $statement->fetch()) {
+        while ($row = $stmt->fetch()) {
             array_push($auths, 
                 array(
                     "name" => $row['author'],
@@ -55,8 +87,36 @@ function pullAuthorInfo() {
             );
         }
     }
+    $dbh = null;
     return $auths;
 }
+
+function updateAuthorInfo($authorInfo, $host, $dbname,
+    $username, $password) {
+    try {
+        $dbh = new SafePDO("mysql:host=$host;dbname=$dbname",
+            $username, $password);
+    } catch (PDOException $e) {
+          $response = "Failed to connect: ";
+          $response .= $e->getMessage();
+          die ($response);
+    }
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $stmt = $dbh->prepare(
+        "UPDATE BookList_Good SET author=:auth WHERE isbn_num=:isbn"
+    );
+    foreach ($authorInfo as $author) {
+        $stmt->bindValue(':auth', $author['name']);
+        $stmt->bindValue(':isbn', $author['isbn_num']);
+        if ($stmt->execute()) {
+            echo 'successfully updated values' . PHP_EOL;
+        } else {
+              $errorInfo = $dbh->errorInfo();
+              echo 'statement did not execute: ' . $errorInfo[2] . PHP_EOL;
+        }
+    }
+    $dbh = null;
+} 
 
 # this function has been adapted from an example posted by
 # matthewkastor on php.net regarding the function strrchr
@@ -95,17 +155,16 @@ function scrubAuthorNames($authorInfo) {
     return $scrubbedAuths;
 }
 
-# get db connection
-try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname",
-        "$user", "$pass");
-} catch (PDOException $e) {
-      $respone = "Failed to connect: ";
-      $respone .= $e->getMessage();
-      die ($response);
-}
-
-$authorsInfo = scrubAuthorNames(pullAuthorInfo());
-foreach ($authorsInfo as $author) {
-    echo $author['name'] . " : " . $author['isbn_num'] . "\n";
-}
+$authorInfo = scrubAuthorNames(pullAuthorInfo('localhost',
+    'BookUpTest', 'root', '3.00x10^8m/s'));
+updateAuthorInfo($authorInfo, 'localhost',
+    'BookUpTest', 'root', '3.00x10^8m/s');
+# $booksInfo = pullBookInfo('54.69.55.132', 3306,
+#    'BookUpv4', 'test', 'Candles');
+# insertBookInfo($booksInfo, 'localhost',
+#    'BookUpTest', 'root', '3.00x10^8m/s');
+# $authorsInfo = scrubAuthorNames(pullAuthorInfo());
+# foreach ($authorsInfo as $author) {
+#    echo $author['name'] . " : " . $author['isbn_num'] . "\n";
+# }
+?>
