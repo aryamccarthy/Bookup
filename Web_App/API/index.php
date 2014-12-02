@@ -434,68 +434,9 @@ $app->post('/resetRatingsOfUser', function() {
 
 });
 
-$app->get('/searchTest', function() {
-    global $pdo;
-
-    $statement = $pdo->prepare(
-        "SELECT * FROM BookList_Good
-        ORDER BY RAND() LIMIT 2"
-    );
-
-    if ($statement->execute()) {
-        $books = array();
-        while($row = $statement->fetch()) {
-            $book['title'] = $row['title'];
-            $book['author'] = rtrim($row['author'], ", ");
-            $book['description'] = $row['description'];
-            $book['isbn'] = $row['isbn_num'];
-            $book['thumbnail'] = $row['image_link'];
-            array_push($books, $book);
-        }
-        $result['books'] = $books;
-        $result['success'] = true;
-    } else {
-          $result['books'] = array();
-          $result['success'] = false;
-          $errorData = $statement->errorInfo();
-          $result['error'] = $errorData[2];
-   }
-   return json_encode($result);
-});
-
-$app->get('/searchForBook', function() {
-    global $pdo;
-    $books = array();
-
-    $statement = $pdo->prepare(
-        "SELECT * FROM BookList_Good
-        ORDER BY RAND() LIMIT 10"
-    );
-
-    if ($statement->execute()) {
-        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
-            $book['title'] = $row['title'];
-            $book['author'] = rtrim($row['author'], ", ");
-            $book['description'] = $row['description'];
-            $book['isbn'] = $row['isbn_num'];
-            $book['thumbnail'] = $row['image_link'];
-            array_push($books, $book);
-        }
-        $result['books'] = $books;
-        $result['success'] = true;
-    } else {
-          $result['books'] = array();
-          $books['success'] = false;
-          $errorData = $statement->errorInfo();
-          $books['error'] = $errorData[2];
-   }
-   return json_encode($books);
-});
-        
 //	^^^^^^^^^^^^^^^^^^^^^^^
 //	FUNCTIONS GO ABOVE HERE
 //
-
 
 $app->run();
 ?>
