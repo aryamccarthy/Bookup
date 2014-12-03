@@ -74,7 +74,8 @@ function checkForNewUser(){
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
         return;
       }
 			if( data.newUser===true){
@@ -82,7 +83,8 @@ function checkForNewUser(){
 			}
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("An API error occurred", errorThrown, 'error');
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}
 	});
 }
@@ -114,7 +116,9 @@ function getRecommendedBook(){
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
+
       }
 			console.log(data);
 			var bookObjs = data.books; 
@@ -131,7 +135,8 @@ function getRecommendedBook(){
 			generateHTMLForDiscoveryPage(newBook);		 	
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("An API error occurred", errorThrown, 'error');
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}
 	});
 }
@@ -143,7 +148,8 @@ function getPopularBooks(){
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
       }
 			console.log(data);
 			var bookObjs = data.books; 
@@ -164,7 +170,8 @@ function getPopularBooks(){
 			$('.setupratingbutton').click(getUserDataAndSubmit);
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("An API error occurred", errorThrown, 'error');
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}
 	});
 }
@@ -177,7 +184,8 @@ function getReadingList ()	{
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
       }
 			var bookObjs = data.books; 
 			console.log(data);
@@ -214,7 +222,8 @@ function getReadingList ()	{
 			} 	
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("An API error occurred", errorThrown, 'error');
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}	
 	});
 }
@@ -228,15 +237,16 @@ function addBookToReadingList(isbn) {
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
       }
 			console.log(userEmail);
 			console.log(isbn);
 			console.log("book sucessfully added");
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			console.log(textStatus);
-			console.log(errorThrown);
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}
 	});
 }
@@ -248,7 +258,8 @@ function removeBookFromReadingList(isbn) {
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
       }
 			console.log(userEmail);
 			console.log(isbn);
@@ -256,7 +267,8 @@ function removeBookFromReadingList(isbn) {
 			getReadingList();
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("An API error occurred", errorThrown, 'error');
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}	
 	});
 }
@@ -277,12 +289,14 @@ function submitBookFeedback(rating, isbn) {
 		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+        console.log("A database error occured.\n" + data.error);
       }
 			//sweetAlert("Response", JSON.stringify(data), "info");
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("An API error occurred", errorThrown, 'error');
+			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+			console.log("An API error occured.\n" + errorThrown);
 		}
 	});
 }
