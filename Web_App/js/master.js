@@ -73,9 +73,16 @@ function checkForNewUser(){
 		url: rootURL + "/isNewUser/"+userEmail,
 		dataType: "json",
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+        return;
+      }
 			if( data.newUser===true){
 				window.location.href="setup.php";
 			}
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			sweetAlert("An API error occurred", errorThrown, 'error');
 		}
 	});
 }
@@ -106,6 +113,9 @@ function getRecommendedBook(){
 		url: rootURL + "/getRecommendedBook/" + userEmail,
 		dataType: "json",
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+      }
 			console.log(data);
 			var bookObjs = data.books; 
 			for(var i=0; i<bookObjs.length; i++){	
@@ -119,6 +129,9 @@ function getRecommendedBook(){
 			cover.src = thumbnail;
 			var newBook= new Book(title, author, cover,description,isbn);
 			generateHTMLForDiscoveryPage(newBook);		 	
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			sweetAlert("An API error occurred", errorThrown, 'error');
 		}
 	});
 }
@@ -129,6 +142,9 @@ function getPopularBooks(){
 		url: rootURL + "/getPopularBooks",
 		dataType: "json",
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+      }
 			console.log(data);
 			var bookObjs = data.books; 
 			for(var i=0; i<bookObjs.length; i++){	
@@ -146,6 +162,9 @@ function getPopularBooks(){
 
 			$('.setupratingbutton').click(greyOutElement);
 			$('.setupratingbutton').click(getUserDataAndSubmit);
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			sweetAlert("An API error occurred", errorThrown, 'error');
 		}
 	});
 }
@@ -157,6 +176,9 @@ function getReadingList ()	{
 		url: rootURL + "/getReadingList/"+userEmail,
 		dataType: "json",
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+      }
 			var bookObjs = data.books; 
 			console.log(data);
 			listBooks = [];
@@ -190,6 +212,9 @@ function getReadingList ()	{
 				}
 				showReadingListBook(titleToSelect);
 			} 	
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			sweetAlert("An API error occurred", errorThrown, 'error');
 		}	
 	});
 }
@@ -202,6 +227,9 @@ function addBookToReadingList(isbn) {
 		dataType: "json",
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+      }
 			console.log(userEmail);
 			console.log(isbn);
 			console.log("book sucessfully added");
@@ -219,10 +247,16 @@ function removeBookFromReadingList(isbn) {
 		dataType: "json",
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+      }
 			console.log(userEmail);
 			console.log(isbn);
 			console.log("book sucessfully removed");
 			getReadingList();
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			sweetAlert("An API error occurred", errorThrown, 'error');
 		}	
 	});
 }
@@ -242,8 +276,14 @@ function submitBookFeedback(rating, isbn) {
 		dataType: "json",
 		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
+			if (data.success === false) {
+        sweetAlert("A database error occurred", data.error, 'error');
+      }
 			//sweetAlert("Response", JSON.stringify(data), "info");
-		}	
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			sweetAlert("An API error occurred", errorThrown, 'error');
+		}
 	});
 }
 
