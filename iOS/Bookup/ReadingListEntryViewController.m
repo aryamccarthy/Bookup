@@ -17,8 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  [self resetData];
-// Do any additional setup after loading the view.
+    [self resetData];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background2"]];
+    bgImageView.frame = self.view.bounds;
+    bgImageView.contentMode = UIViewContentModeScaleAspectFill;
+    bgImageView.alpha = 0.05;
+    [self.view addSubview:bgImageView];
 }
 
 - (void)didReceiveMemoryWarning {
