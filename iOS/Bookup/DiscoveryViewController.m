@@ -31,17 +31,17 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
   //[self.tabBarController.tabBar setTintColor:[UIColor redColor]];
+
   self.acceptsLongPress = YES;
   [self getABook];
   [self.descriptionTextView setContentInset:UIEdgeInsetsMake(0, 0, self.toolbar.frame.size.height, 0)];
+    //    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background2"]];
+    //    bgImageView.frame = self.view.bounds;
+    //    bgImageView.alpha = 0.4;
+    //    [self.view addSubview:bgImageView];
+    //    [self.view sendSubviewToBack:bgImageView];
 
-  UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tkLOe7nnQ7mnMsiuijBy_hm"]];
-  bgImageView.frame = self.view.bounds;
-  bgImageView.alpha = 0.05;
-  [self.view addSubview:bgImageView];
-  [self.view sendSubviewToBack:bgImageView];
 }
 
 #pragma mark Property functions
