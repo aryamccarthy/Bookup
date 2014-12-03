@@ -36,6 +36,12 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   self.acceptsLongPress = YES;
   [self getABook];
   [self.descriptionTextView setContentInset:UIEdgeInsetsMake(0, 0, self.toolbar.frame.size.height, 0)];
+
+  UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tkLOe7nnQ7mnMsiuijBy_hm"]];
+  bgImageView.frame = self.view.bounds;
+  bgImageView.alpha = 0.05;
+  [self.view addSubview:bgImageView];
+  [self.view sendSubviewToBack:bgImageView];
 }
 
 #pragma mark Property functions

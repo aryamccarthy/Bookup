@@ -39,6 +39,7 @@
 {
   [super viewDidLoad];
   NSLog(@"%@", @"Table View did load.");
+
   [self refresh];
 
   // Uncomment the following line to preserve selection between presentations.

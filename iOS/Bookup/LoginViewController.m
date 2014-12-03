@@ -35,6 +35,12 @@
   [super viewDidLoad];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
+  UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tkLOe7nnQ7mnMsiuijBy_hm"]];
+  bgImageView.frame = self.view.bounds;
+  bgImageView.alpha = 0.05;
+  [self.view addSubview:bgImageView];
+  [self.view sendSubviewToBack:bgImageView];
 }
 
 - (void)keyboardWillShow:(NSNotification *)note {
