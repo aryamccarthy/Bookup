@@ -85,9 +85,7 @@ function checkForNewUser(){
 		success: function (data) {
 			if (data.success === false) {
         DBErrorNotifier(data);
-        return;
-      }
-			if( data.newUser===true){
+      } else if( data.newUser===true){
 				window.location.href="setup.php";
 			}
 		},
@@ -280,7 +278,6 @@ function submitBookFeedback(rating, isbn) {
 		success: function (data) {
 			if (data.success === false) {
         DBErrorNotifier(data);
-        return;
       }
 		},
 		error: APIErrorHandler
@@ -373,7 +370,7 @@ function generateHTMLForReadingList(Book, index){
 	listing.setAttribute("id", "list_item");
 	delete_listing.setAttribute("id", "delete_x");
 	delete_listing.innerHTML=" ✖";
-	
+
 	delete_listing.setAttribute("onclick", "handleRatingAndDeleting("+index+");");
 
 	listing.innerHTML=Book.title;

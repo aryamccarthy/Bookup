@@ -35,9 +35,10 @@ function checkIfUsernameTaken(email, password) {
     dataType: "json",
     success: function (data) {
       console.log('got response');
-      if (data.success === false || data.exists === true) {
+      if (data.success === false) {
         DBErrorNotifier(data);
-        return;
+      } else if (data.exists === true) {
+        sweetAlert('Oops', "That username is taken.", 'warning');
       }
       else {
         console.log('user does not exist');
@@ -58,7 +59,6 @@ function addUser(email, password) {
     success: function (data) {
       if (data.success === false) {
         DBErrorNotifier(data);
-        return;
       }
       else {
         // PERFORM LOGIN-Y THINGS HERE.
