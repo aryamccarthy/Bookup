@@ -44,6 +44,16 @@ $(document).ready( function() {
 
 }); 
 
+function APIErrorHandler (jqXHR, textStatus, errorThrown) {
+	sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+	console.log("An API error occured: " + errorThrown);
+}
+
+function DBErrorNotifier (data) {
+  sweetAlert("Oops!", "This service is not available right now.", 'error'); 
+  console.log("A database error occured: " + data.error);
+}
+
 function disableAddButton() {
 	var addButton = $("#add_to_list");
 	addButton.fadeTo('fast',0.4).css('pointer-events','none');
@@ -74,18 +84,14 @@ function checkForNewUser(){
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
+        DBErrorNotifier(data);
         return;
       }
 			if( data.newUser===true){
 				window.location.href="setup.php";
 			}
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}
+		error: APIErrorHandler
 	});
 }
 
@@ -116,9 +122,8 @@ function getRecommendedBook(){
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
-
+        DBErrorNotifier(data);
+        return;
       }
 			console.log(data);
 			var bookObjs = data.books; 
@@ -134,10 +139,7 @@ function getRecommendedBook(){
 			var newBook= new Book(title, author, cover,description,isbn);
 			generateHTMLForDiscoveryPage(newBook);		 	
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}
+		error: APIErrorHandler
 	});
 }
 
@@ -148,8 +150,8 @@ function getPopularBooks(){
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
+        DBErrorNotifier(data);
+        return;
       }
 			console.log(data);
 			var bookObjs = data.books; 
@@ -169,10 +171,7 @@ function getPopularBooks(){
 			$('.setupratingbutton').click(greyOutElement);
 			$('.setupratingbutton').click(getUserDataAndSubmit);
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}
+		error: APIErrorHandler
 	});
 }
 
@@ -184,8 +183,8 @@ function getReadingList ()	{
 		dataType: "json",
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
+        DBErrorNotifier(data);
+        return;
       }
 			var bookObjs = data.books; 
 			console.log(data);
@@ -221,10 +220,7 @@ function getReadingList ()	{
 				showReadingListBook(titleToSelect);
 			} 	
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}	
+		error: APIErrorHandler
 	});
 }
 
@@ -237,17 +233,14 @@ function addBookToReadingList(isbn) {
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
+        DBErrorNotifier(data);
+        return;
       }
 			console.log(userEmail);
 			console.log(isbn);
 			console.log("book sucessfully added");
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}
+		error: APIErrorHandler
 	});
 }
 function removeBookFromReadingList(isbn) {
@@ -258,18 +251,15 @@ function removeBookFromReadingList(isbn) {
 		data: {email: userEmail, isbn: isbn},
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
+        DBErrorNotifier(data);
+        return;
       }
 			console.log(userEmail);
 			console.log(isbn);
 			console.log("book sucessfully removed");
 			getReadingList();
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}	
+		error: APIErrorHandler
 	});
 }
 
@@ -289,15 +279,11 @@ function submitBookFeedback(rating, isbn) {
 		data: {email: userEmail, rating: rating, isbn: isbn},
 		success: function (data) {
 			if (data.success === false) {
-        sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-        console.log("A database error occured.\n" + data.error);
+        DBErrorNotifier(data);
+        return;
       }
-			//sweetAlert("Response", JSON.stringify(data), "info");
 		},
-		error: function (jqXHR, textStatus, errorThrown) {
-			sweetAlert("Oops!", "This service is not available right now.", 'error'); 
-			console.log("An API error occured.\n" + errorThrown);
-		}
+		error: APIErrorHandler
 	});
 }
 
@@ -368,10 +354,6 @@ function generateHTMLForDiscoveryPage(Book){
 }
 
 function generateHTMLForReadingList(Book, index){
-	//$("#list_title").html(Book.title);
-	//$("#list_author").html(Book.author);
-	//$("#list_description").html(Book.description || "");
-	//$("#list_cover").attr("src", Book.cover.src);
 	var listing=document.createElement("li");
 	listing.setAttribute("title", Book.title);
 	$("#removebutton").attr("onclick","dealWithRatingandDeletingFromMainSection("+isbn+")");
@@ -391,12 +373,7 @@ function generateHTMLForReadingList(Book, index){
 	listing.setAttribute("id", "list_item");
 	delete_listing.setAttribute("id", "delete_x");
 	delete_listing.innerHTML=" ✖";
-	//delete_listing.setAttribute("onclick", "dealWithRatingandDeleting("+index+")");
-	//TODO: re-add above line if rest of this block fails.
-	// $(delete_listing).click(function() {
-	// 	handleRatingAndDeleting(index);
-	// });
-
+	
 	delete_listing.setAttribute("onclick", "handleRatingAndDeleting("+index+");");
 
 	listing.innerHTML=Book.title;
@@ -437,12 +414,10 @@ function handleRatingAndDeleting(index) {
 				submitBookFeedback(feedback, isbn);
 				var isbn = document.getElementById("isbn"+index);
 				removeBookFromReadingList(isbn.innerHTML);
-				//getReadingList();
 			});
 		} else { //if has not read:
 			var isbn = document.getElementById("isbn"+index);
 			removeBookFromReadingList(isbn.innerHTML);
-			//getReadingList();
 		}
 	});
 }
@@ -451,14 +426,13 @@ function dealWithRatingandDeleting(index){ //from side list
 	overlay('delete_and_rate_from_list');
 	var isbn=document.getElementById("isbn"+index);
 	removeBookFromReadingList(isbn.innerHTML);
-
 }
 
 function dealWithRatingandDeletingFromMainSection(isbn){
 	overlay('delete_and_rate_from_list');
 	removeBookFromReadingList(isbn);
-
 }
+
 
 function showReadingListBook(selectedTitle){
 	for (var i=0; i<listBooks.length; i++){
@@ -467,16 +441,13 @@ function showReadingListBook(selectedTitle){
 			$("#list_author").html(listBooks[i].author);
 			$("#list_description").html(listBooks[i].description);
 			$("#list_cover").attr("src", listBooks[i].cover.src);
-			//var listButtons= document.getElementsByClassName("twobutton");
+
 			var index = document.getElementById("isbn"+i);
 			var isbn = index.innerHTML;
 			$("#removebutton").click(function() {dealWithRatingandDeletingFromMainSection(isbn);});
 			$("#social span").attr({
 				st_title: "I just found " + $("#list_title").text() + " on Bookup!"
 			});
-			// for(var j=0; j<3; j++){
-			// 	listButtons[j].setAttribute("onclick","dealWithRatingandDeletingFromMainSection("+isbn+")" );
-			// }
 		}
 		
 	}

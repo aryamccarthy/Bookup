@@ -36,13 +36,15 @@ function checkIfUsernameTaken(email, password) {
     success: function (data) {
       console.log('got response');
       if (data.success === false || data.exists === true) {
-        sweetAlert("Error", data.error, "error");
+        DBErrorNotifier(data);
+        return;
       }
       else {
         console.log('user does not exist');
         addUser(email, password);
       }
-    }
+    },
+    error: APIErrorHandler
   });
 }
 
@@ -55,7 +57,8 @@ function addUser(email, password) {
     data: {email: email, password: password},
     success: function (data) {
       if (data.success === false) {
-        sweetAlert("A database error occurred", data.error, 'error');
+        DBErrorNotifier(data);
+        return;
       }
       else {
         // PERFORM LOGIN-Y THINGS HERE.
@@ -63,12 +66,6 @@ function addUser(email, password) {
         $('#login_button').click();
       }
     },
-    error: function (request, status, error) {
-      sweetAlert({
-        title: "We're sorry--there was a problem.",
-        text: request.responseText,
-        type: "error",
-      });
-    }
+    error: APIErrorHandler
   });
 }
