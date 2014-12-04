@@ -12,8 +12,6 @@
 		426BB13A1A111DCF00738284 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BB1391A111DCF00738284 /* Book.m */; };
 		426BB1671A1156F100738284 /* ReadingListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BB1661A1156F100738284 /* ReadingListTableViewController.m */; };
 		42801E491A107CB80050BB45 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42801E481A107CB80050BB45 /* DiscoveryViewController.m */; };
-		42AB0EF41A11B6EA0090F598 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AB0EF31A11B6EA0090F598 /* ImageViewController.m */; };
-		42AB0EF71A11CAA90090F598 /* CentereedContentScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AB0EF61A11CAA90090F598 /* CentereedContentScrollView.m */; };
 		42C0895D1A1076BF002B1B79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C0895C1A1076BF002B1B79 /* main.m */; };
 		42C089601A1076BF002B1B79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C0895F1A1076BF002B1B79 /* AppDelegate.m */; };
 		42C089631A1076BF002B1B79 /* Bookup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42C089611A1076BF002B1B79 /* Bookup.xcdatamodeld */; };
@@ -41,15 +39,10 @@
 		4203F7331A150A630062425B /* ReadingListEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingListEntryViewController.m; sourceTree = "<group>"; };
 		426BB1381A111DCF00738284 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
 		426BB1391A111DCF00738284 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
-		426BB1581A11386C00738284 /* Bookup copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Bookup copy-Info.plist"; path = "/Users/Arya/Developer/Independent Projects/Bookup/Bookup copy-Info.plist"; sourceTree = "<absolute>"; };
 		426BB1651A1156F100738284 /* ReadingListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadingListTableViewController.h; sourceTree = "<group>"; };
 		426BB1661A1156F100738284 /* ReadingListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadingListTableViewController.m; sourceTree = "<group>"; };
 		42801E471A107CB80050BB45 /* DiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
 		42801E481A107CB80050BB45 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
-		42AB0EF21A11B6EA0090F598 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
-		42AB0EF31A11B6EA0090F598 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
-		42AB0EF51A11CAA90090F598 /* CentereedContentScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CentereedContentScrollView.h; sourceTree = "<group>"; };
-		42AB0EF61A11CAA90090F598 /* CentereedContentScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CentereedContentScrollView.m; sourceTree = "<group>"; };
 		42C089571A1076BF002B1B79 /* Bookup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42C0895B1A1076BF002B1B79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42C0895C1A1076BF002B1B79 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,7 +83,6 @@
 				42C089591A1076BF002B1B79 /* Bookup */,
 				42C089761A1076C0002B1B79 /* BookupTests */,
 				42C089581A1076BF002B1B79 /* Products */,
-				426BB1581A11386C00738284 /* Bookup copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,10 +98,6 @@
 		42C089591A1076BF002B1B79 /* Bookup */ = {
 			isa = PBXGroup;
 			children = (
-				42AB0EF21A11B6EA0090F598 /* ImageViewController.h */,
-				42AB0EF31A11B6EA0090F598 /* ImageViewController.m */,
-				42AB0EF51A11CAA90090F598 /* CentereedContentScrollView.h */,
-				42AB0EF61A11CAA90090F598 /* CentereedContentScrollView.m */,
 				42C0895E1A1076BF002B1B79 /* AppDelegate.h */,
 				42C0895F1A1076BF002B1B79 /* AppDelegate.m */,
 				42801E471A107CB80050BB45 /* DiscoveryViewController.h */,
@@ -265,12 +253,10 @@
 				42C089661A1076BF002B1B79 /* ViewController.m in Sources */,
 				42C0895D1A1076BF002B1B79 /* main.m in Sources */,
 				426BB1671A1156F100738284 /* ReadingListTableViewController.m in Sources */,
-				42AB0EF41A11B6EA0090F598 /* ImageViewController.m in Sources */,
 				4203F7341A150A630062425B /* ReadingListEntryViewController.m in Sources */,
 				426BB13A1A111DCF00738284 /* Book.m in Sources */,
 				42801E491A107CB80050BB45 /* DiscoveryViewController.m in Sources */,
 				108A9D101A17F97A0042B569 /* LoginViewController.m in Sources */,
-				42AB0EF71A11CAA90090F598 /* CentereedContentScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
