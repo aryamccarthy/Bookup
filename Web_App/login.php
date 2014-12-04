@@ -40,10 +40,6 @@
             </li>
           </ul>
         </form>
-        <div id="why" style="text-align: center;padding-top: 5px;">
-
-          <a style="font-size: 0.5em;" href="https://github.com/aryamccarthy/Bookup/wiki">Are you a developer? Discover our tools!</a>
-        </div>
       </main>
     </div>
     <?php require_once("html/footer.html"); ?>
