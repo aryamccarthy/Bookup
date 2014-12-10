@@ -31,7 +31,7 @@ def addToDatabase(isbnArray, db):
 
         time.sleep(2)
 
-        print isbn
+        # print isbn
 
         googleQuery = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' + str(isbn)
 
@@ -49,13 +49,14 @@ def addToDatabase(isbnArray, db):
 
                 cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "API Call returned Error"))
 
-                print "\t API CALL ERROR"
+                # print "\t API CALL ERROR"
 
                 db.commit()
 
             except MySQLdb.Error, e:
+                pass
 
-                print "\t API CALL ERROR - Not in DB"
+                # print "\t API CALL ERROR - Not in DB"
 
         else:
 
@@ -92,7 +93,7 @@ def addToDatabase(isbnArray, db):
 
                     db.commit()
 
-                    print "\t Added to good"
+                    # print "\t Added to good"
 
 
                 except MySQLdb.Error, e:
@@ -101,16 +102,17 @@ def addToDatabase(isbnArray, db):
 
                         cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, e.args[1]))
 
-                        print "\t added to bad"
+                        # print "\t added to bad"
 
-                        print e.args[1]
+                        # print e.args[1]
 
 
                         db.commit()
 
                     except MySQLdb.Error, e:
 
-                        print "\t tried bad"
+                        pass
+                        # print "\t tried bad"
 
                 except:
 
@@ -118,7 +120,7 @@ def addToDatabase(isbnArray, db):
 
                         cursor.execute("INSERT INTO BookList_Bad VALUES (%s, %s)", (isbn, "God Only Knows Man"))
 
-                        print "\t God Only Knows Man"
+                        # print "\t God Only Knows Man"
 
                         db.commit()
 
@@ -134,14 +136,15 @@ def addToDatabase(isbnArray, db):
 
                     db.commit()
 
-                    print "\t not all info available"
+                    # print "\t not all info available"
 
 
                 except MySQLdb.Error, e:
+                    pass
 
-                    print "\t tried no info, fail"
+                    # print "\t tried no info, fail"
 
-                    print "\t" + e.args[1]
+                    # print "\t" + e.args[1]
 
 
             del bookObject [:]
@@ -165,6 +168,14 @@ def deleteFromBookList_Bad(isbn, db):
     cursor = db.cursor()
 
     cursor.execute("DELETE FROM BookList_Bad WHERE isbn_num = %s", (isbn))
+
+    db.commit()
+
+def updateCronJobLog(file, db):
+
+    cursor = db.cursor()
+
+    cursor.execute("INSERT INTO CronJobLog VALUES (%s, NOW())", file)
 
     db.commit()
 
