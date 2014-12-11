@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 $host = '54.69.55.132';
 $user = 'test';
 $pass = 'Candles';
-$dbname = 'BookUpv5';
+$dbname = 'RecommenderDev';
 
 // Get DB connection
 $app = new \Slim\Slim();
@@ -314,7 +314,7 @@ $app->get('/getRecommendedBook/:email', function($email) {
 	}
 
 	# Mark the book in BookSeen
-	$args[':isbn'] = $result['books'][0]['isbn_num'];
+	$args[':isbn'] = $result['books'][0]['isbn'];
 	$statement = $pdo->prepare(
 		"INSERT INTO BookSeen(email, timestamp, isbn_num)
 		VALUES(:email, NOW(), :isbn);");
@@ -815,7 +815,7 @@ function rowToSpecJson($row) {
     $book['title'] = $row['title'];
     $book['author'] = $row['author'];
     $book['description'] = $row['description'];
-    $book['isbn_num'] = $row['isbn_num'];
+    $book['isbn'] = $row['isbn_num'];
     $book['thumbnail'] = $row['image_link'];
     return $book;
 }
