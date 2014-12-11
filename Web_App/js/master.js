@@ -111,6 +111,7 @@ function Book( title, author, cover, description, isbn){
 	this.description=description;
 	this.cover=cover;
 	this.isbn=isbn;
+	console.log(this);
 }
 
 function getRecommendedBook(){
@@ -269,7 +270,10 @@ function getUserDataAndSubmit (event) {
 }
 
 function submitBookFeedback(rating, isbn) {
-
+	// Luke testing
+	console.log("email: "+userEmail);
+	console.log("rating: "+rating);
+	console.log("isbn: "+isbn);
 	$.ajax({
 		type: 'POST',
 		url: rootURL + "/submitBookFeedback",
