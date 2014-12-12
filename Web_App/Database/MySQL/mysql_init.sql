@@ -15,7 +15,7 @@ USE BookUp;
 
 CREATE TABLE IF NOT EXISTS Account(
     email       VARCHAR(30) PRIMARY KEY,
-    pass_hash    VARCHAR(30) NOT NULL
+    password    VARCHAR(30) NOT NULL
 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 
 # DROP TABLE IF EXISTS BookList_Good;
