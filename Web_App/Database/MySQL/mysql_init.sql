@@ -13,7 +13,7 @@ CREATE DATABASE BookUpv5
     DEFAULT COLLATE utf8_general_ci;
 USE BookUpv5;
 
-DROP TABLE IF EXISTS Account;
+-- DROP TABLE IF EXISTS Account;
 CREATE TABLE IF NOT EXISTS Account(
     email       VARCHAR(30) PRIMARY KEY,
     password   VARCHAR(30) NOT NULL
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS BookList_Good(
     image_link_s  TEXT,
     image_link   TEXT,
     UNIQUE (title, author)
-);l;
+);
 
 -- DROP TABLE If EXISTS BookList_Bad;
 CREATE TABLE IF NOT EXISTS BookList_Bad(
