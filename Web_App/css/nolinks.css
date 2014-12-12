@@ -7,5 +7,9 @@ body > nav li {
 }
 
 body > nav li:last-child {
-  visibility: hidden;
+  cursor: inherit;
+}
+
+body > nav li:last-child {
+  pointer-events: inherit;
 }
