@@ -719,36 +719,7 @@ $app->post('/resetRatingsOfUser', function() {
 	echo json_encode($result);
 
 });
-    /*
-    *   Fills the DB with test info for the recommender
-    *   Assumes that BookList_Good and Account already have usable values
-    *
-    *   owner: Luke Oglesbee
-    *   status: Development
-    */
-    global $pdo;
-    $ratingOptions = array(-1,1);
-    $getAccounts = $pdo->prepare(
-        "SELECT * FROM Account
-        LIMIT 10;");
-    if ($getAccounts->execute()) {
-        while ($accountRow = $getAccounts->fetch()) {
-            $getBooks = $pdo->prepare(
-                "SELECT * FROM BookList_Good
-                ORDER BY RAND() LIMIT 10;");
-            if ($getBooks->execute()) {
-                while($bookRow = $getBooks->fetch()) {
-                    submitBookFeedback($accountRow['email'], $ratingOptions[array_rand($ratingOptions)], $bookRow['isbn_num']);
-                }
-            } else {
-                echo "broken...";
-            }
-        }
-    } else {
-        echo "broken...";
-    }
-    echo "success!";
-});
+   
        
 /**************************************************
 *   Helper functions
@@ -770,6 +741,8 @@ function rowToSpecJson($row) {
     return $book;
 }
 
+function recCheck($email, $isbn) {
+	/*
     *   Gets the recommenders guess for how a user would rate a book
     *
     *   owner: Luke Oglesbee
