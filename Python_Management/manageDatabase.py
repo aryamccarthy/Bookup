@@ -3,6 +3,7 @@ import sys
 
 import databaseInteraction as dbI
 import databaseConnection as dbC
+import commandLine as coL
 
 import cronJob as cJ
 
@@ -12,6 +13,7 @@ def main(argv):
         print "Pass \"0\" to manually add isbn to database"
         print "Pass \"1\" to read Files"
         print "Pass \"2\" to Try API Calls"
+        print "Pass \"3\" to Take A Dump (lol)"
         sys.exit(1)
 
     if argv[0] == '0':
@@ -39,10 +41,14 @@ def main(argv):
 
         cJ.main(argv)
 
+    elif argv[0] == '3':
+        coL.takeDump()
+
     else:
         print "Pass \"0\" to manually add isbn to database"
         print "Pass \"1\" to read Files"
         print "Pass \"2\" to Try API Calls"
+        print "Pass \"3\" to Take A Dump (lol)"
         sys.exit(1)
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 __author__ = 'DRizzuto'
 
-import directoryInteraction as dI
+import commandLine as cL
 import databaseInteraction as dbI
 import databaseConnection as dbC
 import fileReader as fR
@@ -10,7 +10,7 @@ import getopt
 
 def readIsbnFiles():
 
-    files = dI.getFilesFromDirectory()
+    files = cL.getFilesFromDirectory()
 
     if not files:
         sys.exit()
@@ -31,8 +31,7 @@ def readIsbnFiles():
 
             dbI.updateCronJobLog(file, db)
 
-
-        dI.moveNot_ReadToRead(source)
+        cL.moveNot_ReadToRead(source)
 
     db.close()
 
