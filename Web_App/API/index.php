@@ -9,7 +9,7 @@ require 'vendor/autoload.php';
 $host = '54.69.55.132';
 $user = 'test';
 $pass = 'Candles';
-$dbname = 'RecommenderDev';
+$dbname = 'BookUpv5';
 
 // Get DB connection
 $app = new \Slim\Slim();
