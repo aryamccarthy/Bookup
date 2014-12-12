@@ -61,7 +61,7 @@ $app->get('/getPopularBooks', function() {
                 $book['title'] = $row['title'];
                 $book['author'] = $row['author'];
                 $book['description'] = $row['description'];
-                $book['isbn_num'] = $row['isbn_num'];
+                $book['isbn'] = $row['isbn_num'];
                 $book['thumbnail'] = $row['image_link'];
                 array_push($books, $book);
 	    }
