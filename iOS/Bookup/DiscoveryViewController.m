@@ -225,7 +225,7 @@ typedef NS_ENUM(NSInteger, BookupPreferenceValue) {
   request.HTTPBody = requestBodyData;
   [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
     NSError *error;
-    NSLog(@"data: %@", [NSJSONSerialization JSONObjectWithData:data options:0 error:&error]);
+    //NSLog(@"data: %@", [NSJSONSerialization JSONObjectWithData:data options:0 error:&error]);
     NSLog(@"Post error? %@", connectionError);
   }];
 }
