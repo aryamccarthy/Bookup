@@ -16,7 +16,7 @@ def connect():
         db = MySQLdb.connect(unix_socket ="/Applications/MAMP/tmp/mysql/mysql.sock",
                              host="54.69.55.132", user="zfout",
                              passwd="Forkusmaximus1",
-                             db="BookUpv4")
+                             db="BookUpv5")
 
         return db
 
