@@ -561,7 +561,7 @@ $app->get('/recCheck/:email/:isbn', function($email, $isbn) {
 $app->post('/submitBookFeedback', function() {
 	global $pdo;
 	$args[':email'] = $_POST['email'];
-	$args[':rating'] = $_POST['email'];
+	$args[':rating'] = $_POST['rating'];
 	$args[':isbn'] = $_POST['isbn'];
 
 	$statement = $pdo->prepare(
