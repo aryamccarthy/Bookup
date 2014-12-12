@@ -111,7 +111,7 @@ $app->get('/userExists/:email', function($email) {
 });
 
 /*
-*	Checks to see the user/pass_hash combination is correct
+*	Checks to see the user/password combination is correct
 *	
 *	owner: Nicole Gatmaitan
 *	status: Working
@@ -119,15 +119,15 @@ $app->get('/userExists/:email', function($email) {
 *	Last tested on 11/12/2014 at 9:08pm
 */
 
-$app->get('/validate/:email/:pass_hash', function($email, $password) {
+$app->get('/validate/:email/:password', function($email, $password) {
 	global $pdo;
 
 	$args [":email"] = $email;
-	$args [":pass_hash"] = $password;
+	$args [":password"] = $password;
 
 	$statement = $pdo->prepare(
 		"SELECT COUNT(email) AS count FROM Account
-			WHERE email = :email AND pass_hash = :pass_hash");
+			WHERE email = :email AND password = :password");
 
 	if ($statement->execute($args)) {
 		$result["success"] = true;
@@ -190,11 +190,11 @@ $app->post('/addUser', function() {
 	global $pdo;
 
 	$args [":email"] = $_POST['email'];
-	$args [":pass_hash"] = $_POST['pass_hash'];
+	$args [":password"] = $_POST['password'];
 
 	$statement = $pdo->prepare(
-		"INSERT INTO Account (email, pass_hash)
-		VALUES (:email, :pass_hash)");
+		"INSERT INTO Account (email, password)
+		VALUES (:email, :password)");
 
 	if ($statement->execute($args)) {
 		$result['success'] = true;
@@ -719,56 +719,6 @@ $app->post('/resetRatingsOfUser', function() {
 	echo json_encode($result);
 
 });
-
-$app->get('/searchTest', function() {
-    global $pdo;
-
-    $statement = $pdo->prepare(
-        "SELECT * FROM BookList_Good
-        ORDER BY RAND() LIMIT 2"
-    );
-
-    if ($statement->execute()) {
-        $books = array();
-        while($row = $statement->fetch()) {
-            array_push($books, rowToSpecJson($row));
-        }
-        $result['books'] = $books;
-        $result['success'] = true;
-    } else {
-          $result['books'] = array();
-          $result['success'] = false;
-          $errorData = $statement->errorInfo();
-          $result['error'] = $errorData[2];
-   }
-   return json_encode($result);
-});
-
-$app->get('/searchForBook', function() {
-    global $pdo;
-    $books = array();
-
-    $statement = $pdo->prepare(
-        "SELECT * FROM BookList_Good
-        ORDER BY RAND() LIMIT 10"
-    );
-
-    if ($statement->execute()) {
-        while($row = $statement->fetch($fetch_style=$pdo::FETCH_ASSOC)) {
-            array_push($books, rowToSpecJson($row));
-        }
-        $result['books'] = $books;
-        $result['success'] = true;
-    } else {
-          $result['books'] = array();
-          $books['success'] = false;
-          $errorData = $statement->errorInfo();
-          $books['error'] = $errorData[2];
-   }
-   return json_encode($books);
-});
-
-$app->get('/testFillDB', function() {
     /*
     *   Fills the DB with test info for the recommender
     *   Assumes that BookList_Good and Account already have usable values
@@ -820,38 +770,6 @@ function rowToSpecJson($row) {
     return $book;
 }
 
-function firebaseJsonToSpecJson($fire, $isbn=null) {
-    /*
-    *   Converts firebase JSON to spec JSON
-    *
-    *   owner: Luke Oglesbee
-    *   status: working
-    */
-	$fire = json_decode($fire, $assoc=true);
-	if ($fire["totalItems"] < 1) {
-		return null;
-	}
-	$fire = $fire["items"][0];
-	$prettyBook["title"] = (empty($fire["volumeInfo"]["title"]) ? null : $fire["volumeInfo"]["title"]);
-	$prettyBook["author"] = (empty($fire["volumeInfo"]["authors"]) ? null : $fire["volumeInfo"]["authors"]);
-	$prettyBook["description"] = (empty($fire["volumeInfo"]["description"]) ? null : $fire["volumeInfo"]["description"]);
-	$prettyBook["isbn"] = null;
-	if ($isbn) {
-		$prettyBook["isbn"] = $isbn;
-	} else {
-		foreach ($fire["volumeInfo"]["industryIdentifiers"] as $isbn) {
-			if ($isbn["type"] == "ISBN_13") {
-				$prettyBook["isbn"] = (empty($isbn["identifier"]) ? null : $isbn["identifier"]);
-				break;
-			}
-		}
-	}
-	$prettyBook["thumbnail"] = (empty($fire["volumeInfo"]["imageLinks"]["thumbnail"])) ? null : $fire["volumeInfo"]["imageLinks"]["thumbnail"];
-	return $prettyBook;
-}
-
-function recCheck($email, $isbn) {
-    /*
     *   Gets the recommenders guess for how a user would rate a book
     *
     *   owner: Luke Oglesbee
