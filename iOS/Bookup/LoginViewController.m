@@ -155,7 +155,7 @@
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
                                                         message:msg
                                                        delegate:self
-                                              cancelButtonTitle:@"Ok"
+                                              cancelButtonTitle:@"Okay"
                                               otherButtonTitles:nil, nil];
     alertView.tag = tag;
     [alertView show];
